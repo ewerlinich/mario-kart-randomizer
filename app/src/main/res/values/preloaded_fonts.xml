@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/paytone_one</item>
+        <item>@font/peralta</item>
+        <item>@font/piedra</item>
+        <item>@font/press_start_2p</item>
+        <item>@font/quantico</item>
+        <item>@font/ranchers</item>
+        <item>@font/revalia</item>
+        <item>@font/righteous</item>
+        <item>@font/russo_one</item>
+        <item>@font/shojumaru</item>
+        <item>@font/skranji</item>
+        <item>@font/slackey</item>
+        <item>@font/snowburst_one</item>
+        <item>@font/spicy_rice</item>
+        <item>@font/syncopate</item>
+        <item>@font/titan_one</item>
+        <item>@font/unkempt</item>
+        <item>@font/walter_turncoat</item>
+    </array>
+</resources>
