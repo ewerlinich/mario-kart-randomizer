@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Mario Kart Character Randomizer</string>
-    <string name="withBikesButton">With Bikes 1P</string>
-    <string name="noBikesButton">No Bikes 1P</string>
     <string name="historyButton">History</string>
     <string name="Mario_pic_description">A picture of Mario in a kart from the game Mario Kart 8 Deluxe, smiling and punching the air with his left fist.</string>
     <string name="random_build_title">YOUR BUILD IS:</string>
     <string name="player_number">Enter the number of players.</string>
-    <string name="noBikesButton2">No Bikes 2P</string>
-    <string name="noBikesButton3">No Bikes 3P</string>
-    <string name="noBikesButton4">No Bikes 4P</string>
-    <string name="withBikesButton2">With Bikes 2P</string>
-    <string name="withBikesButton3">With Bikes 3P</string>
-    <string name="withBikesButton4">With Bikes 4P</string>
+    <string name="kartsButton1">No Bikes 1P</string>
+    <string name="kartsButton2">No Bikes 2P</string>
+    <string name="kartsButton3">No Bikes 3P</string>
+    <string name="kartsButton4">No Bikes 4P</string>
+    <string name="allButton1">With Bikes 1P</string>
+    <string name="allButton2">With Bikes 2P</string>
+    <string name="allButton3">With Bikes 3P</string>
+    <string name="allButton4">With Bikes 4P</string>
     <string name="logo_pic_description">Graphic display of the title of the app, \"Mario Kart 8 Deluxe Randomizer\".</string>
     <string name="mario">Mario</string>
     <string name="luigi">Luigi</string>
