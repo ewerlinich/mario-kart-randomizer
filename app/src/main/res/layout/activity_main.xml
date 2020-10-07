@@ -156,7 +156,7 @@
         android:translationY="-35dp"
         app:layout_constraintBottom_toTopOf="@+id/no_bike_button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/randomizer_logo"
         app:srcCompat="@drawable/mario_kart_8_deluxe_mario_artwork" />
@@ -171,7 +171,7 @@
         android:scaleY="1"
         app:layout_constraintBottom_toTopOf="@+id/mario_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_randomizer" />

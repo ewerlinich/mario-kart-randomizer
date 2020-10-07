@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DisplayRandomWithBikes extends AppCompatActivity {
+public class DisplayRandomKarts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_random_with_bikes);
+        setContentView(R.layout.activity_display_random_no_bikes);
 
         Intent intent = getIntent();
-        int playerNumber = intent.getIntExtra("PlayerNumber", 1); // get the number of players
+        int playerNumber = intent.getIntExtra("PlayerNumber", 1);
 
         setPlayerText(playerNumber);
         setCharImage(playerNumber);
@@ -29,7 +29,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      */
     private String randCharacter() {
         String[] list = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)", "Villager (G)", "Isabelle", "Mii"};
-        return list[((int) (Math.random() * list.length))];
+        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -37,8 +37,8 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * @return a String that is the name of the frame
      */
     private String randFrame() {
-        String[] list = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing", "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty", "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike", "Jet Bike", "Yoshi Bike", "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler", "Splat Buggy", "Inkstriker"};
-        return list[((int) (Math.random() * list.length))];
+        String[] list = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing", "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler", "Splat Buggy", "Inkstriker"};
+        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -47,7 +47,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      */
     private String randWheels() {
         String[] list = {"Standard Wheels", "Monster Wheels", "Roller Wheels", "Slim Wheels", "Slick Wheels", "Metal Wheels", "Button Wheels", "Off-Road Wheels", "Sponge Wheels", "Wood Wheels", "Cushion Wheels", "Blue Standard Wheels", "Hot Monster Wheels", "Azure Roller Wheels", "Crimson Slim Wheels", "Cyber Slick Wheels", "Retro Off-Road Wheels", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires", "Ancient Tires"};
-        return list[((int) (Math.random() * list.length))];
+        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -56,7 +56,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      */
     private String randGlider() {
         String[] list = {"Super Glider", "Cloud Glider", "Wario Wing", "Waddle Wing", "Peach Parasol", "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider", "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
-        return list[((int) (Math.random() * list.length))];
+        return list[((int) (Math.random() * list.length))];  // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -152,13 +152,13 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      */
     private void setPlayerText(int playerNumber) {
         if(playerNumber >= 2) {
-            TextView textView2 = findViewById(R.id.playerText1b);
+            TextView textView2 = findViewById(R.id.playerText2b);
             textView2.setText(R.string.player2);
             if(playerNumber >= 3) {
-                TextView textView3 = findViewById(R.id.playerText1c);
+                TextView textView3 = findViewById(R.id.playerText2c);
                 textView3.setText(R.string.player3);
                 if(playerNumber == 4) {
-                    TextView textView4 = findViewById(R.id.playerText1d);
+                    TextView textView4 = findViewById(R.id.playerText2d);
                     textView4.setText(R.string.player4);
                 }
             }
@@ -170,7 +170,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized characters
      */
     private void setCharImage(int playerNumber) {
-        ImageView charImage = findViewById(R.id.charImage1a);
+        ImageView charImage = findViewById(R.id.charImage2a);
 
         String randChar = randCharacter();
         if (randChar.equals("Yoshi") || randChar.equals("Shy Guy") || randChar.equals("Metal Mario") || randChar.equals("Link") || randChar.equals("Inkling Boy") || randChar.equals("Inkling Girl"))
@@ -438,7 +438,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
         }
 
         if (playerNumber > 1) {
-            ImageView charImage2 = findViewById(R.id.charImage1b);;
+            ImageView charImage2 = findViewById(R.id.charImage2b);
 
             String randChar2 = randCharacter();
             if (randChar2.equals("Yoshi") || randChar2.equals("Shy Guy") || randChar2.equals("Metal Mario") || randChar2.equals("Link") || randChar2.equals("Inkling Boy") || randChar2.equals("Inkling Girl"))
@@ -706,7 +706,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView charImage3 = findViewById(R.id.charImage1c);
+                ImageView charImage3 = findViewById(R.id.charImage2c);
 
                 String randChar3 = randCharacter();
                 if (randChar3.equals("Yoshi") || randChar3.equals("Shy Guy") || randChar3.equals("Metal Mario") || randChar3.equals("Link") || randChar3.equals("Inkling Boy") || randChar3.equals("Inkling Girl"))
@@ -974,7 +974,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView charImage4 = findViewById(R.id.charImage1d);
+                    ImageView charImage4 = findViewById(R.id.charImage2d);
 
                     String randChar4 = randCharacter();
                     if (randChar4.equals("Yoshi") || randChar4.equals("Shy Guy") || randChar4.equals("Metal Mario") || randChar4.equals("Link") || randChar4.equals("Inkling Boy") || randChar4.equals("Inkling Girl"))
@@ -1250,7 +1250,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized frames
      */
     private void setFrameImage(int playerNumber) {
-        ImageView frameImage = findViewById(R.id.frameImage1a);
+        ImageView frameImage = findViewById(R.id.frameImage2a);
 
         String randFrame = randFrame();
         switch (randFrame) {
@@ -1423,7 +1423,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView frameImage2 = findViewById(R.id.frameImage1b);
+            ImageView frameImage2 = findViewById(R.id.frameImage2b);
 
             String randFrame2 = randFrame();
             switch (randFrame2) {
@@ -1596,7 +1596,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView frameImage3 = findViewById(R.id.frameImage1c);
+                ImageView frameImage3 = findViewById(R.id.frameImage2c);
 
                 String randFrame3 = randFrame();
                 switch (randFrame3) {
@@ -1769,7 +1769,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView frameImage4 = findViewById(R.id.frameImage1d);
+                    ImageView frameImage4 = findViewById(R.id.frameImage2d);
 
                     String randFrame4 = randFrame();
                     switch (randFrame4) {
@@ -1950,7 +1950,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized wheels
      */
     private void setWheelImage(int playerNumber) {
-        ImageView wheelImage = findViewById(R.id.wheelImage1a);
+        ImageView wheelImage = findViewById(R.id.wheelImage2a);
 
         String randWheels = randWheels();
         switch (randWheels) {
@@ -2047,7 +2047,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView wheelImage2 = findViewById(R.id.wheelImage1b);
+            ImageView wheelImage2 = findViewById(R.id.wheelImage2b);
 
             String randWheels2 = randWheels();
             switch (randWheels2) {
@@ -2144,7 +2144,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView wheelImage3 = findViewById(R.id.wheelImage1c);
+                ImageView wheelImage3 = findViewById(R.id.wheelImage2c);
 
                 String randWheels3 = randWheels();
                 switch (randWheels3) {
@@ -2241,7 +2241,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView wheelImage4 = findViewById(R.id.wheelImage1d);
+                    ImageView wheelImage4 = findViewById(R.id.wheelImage2d);
 
                     String randWheels4 = randWheels();
                     switch (randWheels4) {
@@ -2346,7 +2346,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized gliders
      */
     private void setGliderImage(int playerNumber) {
-        ImageView gliderImage = findViewById(R.id.gliderImage1a);
+        ImageView gliderImage = findViewById(R.id.gliderImage2a);
 
         String randGlider = randGlider();
         switch (randGlider) {
@@ -2415,7 +2415,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView gliderImage2 = findViewById(R.id.gliderImage1b);
+            ImageView gliderImage2 = findViewById(R.id.gliderImage2b);
 
             String randGlider2 = randGlider();
             switch (randGlider2) {
@@ -2484,7 +2484,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView gliderImage3 = findViewById(R.id.gliderImage1c);
+                ImageView gliderImage3 = findViewById(R.id.gliderImage2c);
 
                 String randGlider3 = randGlider();
                 switch (randGlider3) {
@@ -2553,7 +2553,7 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView gliderImage4 = findViewById(R.id.gliderImage1d);
+                    ImageView gliderImage4 = findViewById(R.id.gliderImage2d);
 
                     String randGlider4 = randGlider();
                     switch (randGlider4) {
@@ -2638,216 +2638,216 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 1 character
      * @param view is the current view
      */
-    public void charImage1a(View view) {
-       TextView tv = findViewById(R.id.title);
-       ImageView img = findViewById(R.id.charImage1a);
-       int id = getResourceId(img);
+    public void charImage2a(View view) {
+        TextView tv = findViewById(R.id.title);
+        ImageView img = findViewById(R.id.charImage2a);
+        int id = getResourceId(img);
 
-       switch (id) {
-           case R.drawable.baby_daisy:
-               tv.setText(R.string.baby_daisy);
-               break;
-           case R.drawable.baby_luigi:
-               tv.setText(R.string.baby_luigi);
-               break;
-           case R.drawable.baby_mario:
-               tv.setText(R.string.baby_mario);
-               break;
-           case R.drawable.baby_peach:
-               tv.setText(R.string.baby_peach);
-               break;
-           case R.drawable.baby_rosalina:
-               tv.setText(R.string.baby_rosalina);
-               break;
-           case R.drawable.bowser:
-               tv.setText(R.string.bowser);
-               break;
-           case R.drawable.bowser_jr:
-               tv.setText(R.string.bowser_jr);
-               break;
-           case R.drawable.cat_peach:
-               tv.setText(R.string.cat_peach);
-               break;
-           case R.drawable.daisy:
-               tv.setText(R.string.daisy);
-               break;
-           case R.drawable.donkey_kong:
-               tv.setText(R.string.donkey_kong);
-               break;
-           case R.drawable.dry_bones:
-               tv.setText(R.string.dry_bones);
-               break;
-           case R.drawable.dry_bowser:
-               tv.setText(R.string.dry_bowser);
-               break;
-           case R.drawable.gold_mario:
-               tv.setText(R.string.metal_mario_gold);
-               break;
-           case R.drawable.iggy:
-               tv.setText(R.string.iggy);
-               break;
-           case R.drawable.inkling_boy_darkblue:
-               tv.setText(R.string.inkling_boy_darkblue);
-               break;
-           case R.drawable.inkling_boy_lightblue:
-               tv.setText(R.string.inkling_boy_lightblue);
-               break;
-           case R.drawable.inkling_boy_purple:
-               tv.setText(R.string.inkling_boy_purple);
-               break;
-           case R.drawable.inkling_girl_green:
-               tv.setText(R.string.inkling_girl_green);
-               break;
-           case R.drawable.inkling_girl_orange:
-               tv.setText(R.string.inkling_girl_orange);
-               break;
-           case R.drawable.inkling_girl_pink:
-               tv.setText(R.string.inkling_girl_pink);
-               break;
-           case R.drawable.isabelle:
-               tv.setText(R.string.isabelle);
-               break;
-           case R.drawable.king_boo:
-               tv.setText(R.string.king_boo);
-               break;
-           case R.drawable.koopa_troopa:
-               tv.setText(R.string.koopa_troopa);
-               break;
-           case R.drawable.lakitu:
-               tv.setText(R.string.lakitu);
-               break;
-           case R.drawable.larry:
-               tv.setText(R.string.larry);
-               break;
-           case R.drawable.lemmy:
-               tv.setText(R.string.lemmy);
-               break;
-           case R.drawable.link_botw:
-               tv.setText(R.string.link_botw);
-               break;
-           case R.drawable.link_classic:
-               tv.setText(R.string.link_classic);
-               break;
-           case R.drawable.ludwig:
-               tv.setText(R.string.ludwig);
-               break;
-           case R.drawable.luigi:
-               tv.setText(R.string.luigi);
-               break;
-           case R.drawable.mario:
-               tv.setText(R.string.mario);
-               break;
-           case R.drawable.metal_mario:
-               tv.setText(R.string.metal_mario_metal);
-               break;
-           case R.drawable.mii:
-               tv.setText(R.string.mii);
-               break;
-           case R.drawable.morton:
-               tv.setText(R.string.morton);
-               break;
-           case R.drawable.peach:
-               tv.setText(R.string.peach);
-               break;
-           case R.drawable.pink_gold_peach:
-               tv.setText(R.string.pink_gold_peach);
-               break;
-           case R.drawable.rosalina:
-               tv.setText(R.string.rosalina);
-               break;
-           case R.drawable.roy:
-               tv.setText(R.string.roy);
-               break;
-           case R.drawable.shyguy_black:
-               tv.setText(R.string.shy_guy_black);
-               break;
-           case R.drawable.shyguy_darkblue:
-               tv.setText(R.string.shy_guy_darkblue);
-               break;
-           case R.drawable.shyguy_green:
-               tv.setText(R.string.shy_guy_green);
-               break;
-           case R.drawable.shyguy_lightblue:
-               tv.setText(R.string.shy_guy_lightblue);
-               break;
-           case R.drawable.shyguy_orange:
-               tv.setText(R.string.shy_guy_orange);
-               break;
-           case R.drawable.shyguy_pink:
-               tv.setText(R.string.shy_guy_pink);
-               break;
-           case R.drawable.shyguy_red:
-               tv.setText(R.string.shy_guy_red);
-               break;
-           case R.drawable.shyguy_white:
-               tv.setText(R.string.shy_guy_white);
-               break;
-           case R.drawable.shyguy_yellow:
-               tv.setText(R.string.shy_guy_yellow);
-               break;
-           case R.drawable.tanooki_mario:
-               tv.setText(R.string.tanooki_mario);
-               break;
-           case R.drawable.toad:
-               tv.setText(R.string.toad);
-               break;
-           case R.drawable.toadette:
-               tv.setText(R.string.toadette);
-               break;
-           case R.drawable.villager_boy:
-               tv.setText(R.string.villager_boy);
-               break;
-           case R.drawable.villager_girl:
-               tv.setText(R.string.villager_girl);
-               break;
-           case R.drawable.waluigi:
-               tv.setText(R.string.waluigi);
-               break;
-           case R.drawable.wario:
-               tv.setText(R.string.wario);
-               break;
-           case R.drawable.wendy:
-               tv.setText(R.string.wendy);
-               break;
-           case R.drawable.yoshi_black:
-               tv.setText(R.string.yoshi_black);
-               break;
-           case R.drawable.yoshi_darkblue:
-               tv.setText(R.string.yoshi_darkblue);
-               break;
-           case R.drawable.yoshi_green:
-               tv.setText(R.string.yoshi_green);
-               break;
-           case R.drawable.yoshi_lightblue:
-               tv.setText(R.string.yoshi_lightblue);
-               break;
-           case R.drawable.yoshi_orange:
-               tv.setText(R.string.yoshi_orange);
-               break;
-           case R.drawable.yoshi_pink:
-               tv.setText(R.string.yoshi_pink);
-               break;
-           case R.drawable.yoshi_red:
-               tv.setText(R.string.yoshi_red);
-               break;
-           case R.drawable.yoshi_white:
-               tv.setText(R.string.yoshi_white);
-               break;
-           case R.drawable.yoshi_yellow:
-               tv.setText(R.string.yoshi_yellow);
-               break;
-           default:
-               tv.setText(R.string.default_error);
-       }
+        switch (id) {
+            case R.drawable.baby_daisy:
+                tv.setText(R.string.baby_daisy);
+                break;
+            case R.drawable.baby_luigi:
+                tv.setText(R.string.baby_luigi);
+                break;
+            case R.drawable.baby_mario:
+                tv.setText(R.string.baby_mario);
+                break;
+            case R.drawable.baby_peach:
+                tv.setText(R.string.baby_peach);
+                break;
+            case R.drawable.baby_rosalina:
+                tv.setText(R.string.baby_rosalina);
+                break;
+            case R.drawable.bowser:
+                tv.setText(R.string.bowser);
+                break;
+            case R.drawable.bowser_jr:
+                tv.setText(R.string.bowser_jr);
+                break;
+            case R.drawable.cat_peach:
+                tv.setText(R.string.cat_peach);
+                break;
+            case R.drawable.daisy:
+                tv.setText(R.string.daisy);
+                break;
+            case R.drawable.donkey_kong:
+                tv.setText(R.string.donkey_kong);
+                break;
+            case R.drawable.dry_bones:
+                tv.setText(R.string.dry_bones);
+                break;
+            case R.drawable.dry_bowser:
+                tv.setText(R.string.dry_bowser);
+                break;
+            case R.drawable.gold_mario:
+                tv.setText(R.string.metal_mario_gold);
+                break;
+            case R.drawable.iggy:
+                tv.setText(R.string.iggy);
+                break;
+            case R.drawable.inkling_boy_darkblue:
+                tv.setText(R.string.inkling_boy_darkblue);
+                break;
+            case R.drawable.inkling_boy_lightblue:
+                tv.setText(R.string.inkling_boy_lightblue);
+                break;
+            case R.drawable.inkling_boy_purple:
+                tv.setText(R.string.inkling_boy_purple);
+                break;
+            case R.drawable.inkling_girl_green:
+                tv.setText(R.string.inkling_girl_green);
+                break;
+            case R.drawable.inkling_girl_orange:
+                tv.setText(R.string.inkling_girl_orange);
+                break;
+            case R.drawable.inkling_girl_pink:
+                tv.setText(R.string.inkling_girl_pink);
+                break;
+            case R.drawable.isabelle:
+                tv.setText(R.string.isabelle);
+                break;
+            case R.drawable.king_boo:
+                tv.setText(R.string.king_boo);
+                break;
+            case R.drawable.koopa_troopa:
+                tv.setText(R.string.koopa_troopa);
+                break;
+            case R.drawable.lakitu:
+                tv.setText(R.string.lakitu);
+                break;
+            case R.drawable.larry:
+                tv.setText(R.string.larry);
+                break;
+            case R.drawable.lemmy:
+                tv.setText(R.string.lemmy);
+                break;
+            case R.drawable.link_botw:
+                tv.setText(R.string.link_botw);
+                break;
+            case R.drawable.link_classic:
+                tv.setText(R.string.link_classic);
+                break;
+            case R.drawable.ludwig:
+                tv.setText(R.string.ludwig);
+                break;
+            case R.drawable.luigi:
+                tv.setText(R.string.luigi);
+                break;
+            case R.drawable.mario:
+                tv.setText(R.string.mario);
+                break;
+            case R.drawable.metal_mario:
+                tv.setText(R.string.metal_mario_metal);
+                break;
+            case R.drawable.mii:
+                tv.setText(R.string.mii);
+                break;
+            case R.drawable.morton:
+                tv.setText(R.string.morton);
+                break;
+            case R.drawable.peach:
+                tv.setText(R.string.peach);
+                break;
+            case R.drawable.pink_gold_peach:
+                tv.setText(R.string.pink_gold_peach);
+                break;
+            case R.drawable.rosalina:
+                tv.setText(R.string.rosalina);
+                break;
+            case R.drawable.roy:
+                tv.setText(R.string.roy);
+                break;
+            case R.drawable.shyguy_black:
+                tv.setText(R.string.shy_guy_black);
+                break;
+            case R.drawable.shyguy_darkblue:
+                tv.setText(R.string.shy_guy_darkblue);
+                break;
+            case R.drawable.shyguy_green:
+                tv.setText(R.string.shy_guy_green);
+                break;
+            case R.drawable.shyguy_lightblue:
+                tv.setText(R.string.shy_guy_lightblue);
+                break;
+            case R.drawable.shyguy_orange:
+                tv.setText(R.string.shy_guy_orange);
+                break;
+            case R.drawable.shyguy_pink:
+                tv.setText(R.string.shy_guy_pink);
+                break;
+            case R.drawable.shyguy_red:
+                tv.setText(R.string.shy_guy_red);
+                break;
+            case R.drawable.shyguy_white:
+                tv.setText(R.string.shy_guy_white);
+                break;
+            case R.drawable.shyguy_yellow:
+                tv.setText(R.string.shy_guy_yellow);
+                break;
+            case R.drawable.tanooki_mario:
+                tv.setText(R.string.tanooki_mario);
+                break;
+            case R.drawable.toad:
+                tv.setText(R.string.toad);
+                break;
+            case R.drawable.toadette:
+                tv.setText(R.string.toadette);
+                break;
+            case R.drawable.villager_boy:
+                tv.setText(R.string.villager_boy);
+                break;
+            case R.drawable.villager_girl:
+                tv.setText(R.string.villager_girl);
+                break;
+            case R.drawable.waluigi:
+                tv.setText(R.string.waluigi);
+                break;
+            case R.drawable.wario:
+                tv.setText(R.string.wario);
+                break;
+            case R.drawable.wendy:
+                tv.setText(R.string.wendy);
+                break;
+            case R.drawable.yoshi_black:
+                tv.setText(R.string.yoshi_black);
+                break;
+            case R.drawable.yoshi_darkblue:
+                tv.setText(R.string.yoshi_darkblue);
+                break;
+            case R.drawable.yoshi_green:
+                tv.setText(R.string.yoshi_green);
+                break;
+            case R.drawable.yoshi_lightblue:
+                tv.setText(R.string.yoshi_lightblue);
+                break;
+            case R.drawable.yoshi_orange:
+                tv.setText(R.string.yoshi_orange);
+                break;
+            case R.drawable.yoshi_pink:
+                tv.setText(R.string.yoshi_pink);
+                break;
+            case R.drawable.yoshi_red:
+                tv.setText(R.string.yoshi_red);
+                break;
+            case R.drawable.yoshi_white:
+                tv.setText(R.string.yoshi_white);
+                break;
+            case R.drawable.yoshi_yellow:
+                tv.setText(R.string.yoshi_yellow);
+                break;
+            default:
+                tv.setText(R.string.default_error);
+        }
     }
 
     /**
      * the onClick action for the player 2 character
      * @param view is the current view
      */
-    public void charImage1b(View view) {
+    public void charImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage1b);
+        ImageView img = findViewById(R.id.charImage2b);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3052,9 +3052,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 3 character
      * @param view is the current view
      */
-    public void charImage1c(View view) {
+    public void charImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage1c);
+        ImageView img = findViewById(R.id.charImage2c);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3259,9 +3259,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 4 character
      * @param view is the current view
      */
-    public void charImage1d(View view) {
+    public void charImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage1d);
+        ImageView img = findViewById(R.id.charImage2d);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3466,9 +3466,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void frameImage1a(View view) {
+    public void frameImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage1a);
+        ImageView img = findViewById(R.id.frameImage2a);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3602,9 +3602,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 2 frame
      * @param view is the current view
      */
-    public void frameImage1b(View view) {
+    public void frameImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage1b);
+        ImageView img = findViewById(R.id.frameImage2b);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3738,9 +3738,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void frameImage1c(View view) {
+    public void frameImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage1c);
+        ImageView img = findViewById(R.id.frameImage2c);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3874,9 +3874,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 4 frame
      * @param view is the current view
      */
-    public void frameImage1d(View view) {
+    public void frameImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage1d);
+        ImageView img = findViewById(R.id.frameImage2d);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4010,9 +4010,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 1 wheels
      * @param view is the current view
      */
-    public void wheelImage1a(View view) {
+    public void wheelImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage1a);
+        ImageView img = findViewById(R.id.wheelImage2a);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4089,9 +4089,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 2 wheels
      * @param view is the current view
      */
-    public void wheelImage1b(View view) {
+    public void wheelImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage1b);
+        ImageView img = findViewById(R.id.wheelImage2b);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4168,9 +4168,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 3 wheels
      * @param view is the current view
      */
-    public void wheelImage1c(View view) {
+    public void wheelImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage1c);
+        ImageView img = findViewById(R.id.wheelImage2c);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4247,9 +4247,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 4 wheels
      * @param view is the current view
      */
-    public void wheelImage1d(View view) {
+    public void wheelImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage1d);
+        ImageView img = findViewById(R.id.wheelImage2d);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4326,9 +4326,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 1 glider
      * @param view is the current view
      */
-    public void gliderImage1a(View view) {
+    public void gliderImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage1a);
+        ImageView img = findViewById(R.id.gliderImage2a);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4386,9 +4386,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 2 glider
      * @param view is the current view
      */
-    public void gliderImage1b(View view) {
+    public void gliderImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage1b);
+        ImageView img = findViewById(R.id.gliderImage2b);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4446,9 +4446,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 3 glider
      * @param view is the current view
      */
-    public void gliderImage1c(View view) {
+    public void gliderImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage1c);
+        ImageView img = findViewById(R.id.gliderImage2c);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4506,9 +4506,9 @@ public class DisplayRandomWithBikes extends AppCompatActivity {
      * the onClick action for the player 4 glider
      * @param view is the current view
      */
-    public void gliderImage1d(View view) {
+    public void gliderImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage1d);
+        ImageView img = findViewById(R.id.gliderImage2d);
         int id = getResourceId(img);
 
         switch (id) {
