@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mariokartcharacterrandomizer">
+    package="com.ewer.mariokartcharacterrandomizer">
 
     <application
         android:allowBackup="true"
@@ -9,25 +9,25 @@
         android:roundIcon="@mipmap/mario_kart_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayRandomAll"
-            android:parentActivityName=".MainActivity"
+        <activity android:name="com.ewer.mariokartcharacterrandomizer.DisplayRandomAll"
+            android:parentActivityName="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.ewer.mariokartcharacterrandomizer.MainActivity" />
         </activity>
-        <activity android:name=".DisplayRandomKarts"
-            android:parentActivityName=".MainActivity"
+        <activity android:name="com.ewer.mariokartcharacterrandomizer.DisplayRandomKarts"
+            android:parentActivityName="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.ewer.mariokartcharacterrandomizer.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>

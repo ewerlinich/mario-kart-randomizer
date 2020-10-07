@@ -1,4 +1,4 @@
-package com.example.mariokartcharacterrandomizer;
+package com.ewer.mariokartcharacterrandomizer;
 
 import android.content.Context;
 
