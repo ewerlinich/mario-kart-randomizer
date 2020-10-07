@@ -11,7 +11,7 @@ public class DisplayRandomAll extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_random_with_bikes);
+        setContentView(R.layout.activity_display_random_all);
 
         Intent intent = getIntent();
         int playerNumber = intent.getIntExtra("PlayerNumber", 1); // get the number of players

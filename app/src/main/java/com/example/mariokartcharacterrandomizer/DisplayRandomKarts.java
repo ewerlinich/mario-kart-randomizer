@@ -11,7 +11,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_random_no_bikes);
+        setContentView(R.layout.activity_display_random_karts);
 
         Intent intent = getIntent();
         int playerNumber = intent.getIntExtra("PlayerNumber", 1);
