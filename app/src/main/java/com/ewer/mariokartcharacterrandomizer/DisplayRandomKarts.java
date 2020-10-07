@@ -152,13 +152,13 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     private void setPlayerText(int playerNumber) {
         if(playerNumber >= 2) {
-            TextView textView2 = findViewById(R.id.playerText2b);
+            TextView textView2 = findViewById(R.id.karts_playerText2);
             textView2.setText(R.string.player2);
             if(playerNumber >= 3) {
-                TextView textView3 = findViewById(R.id.playerText2c);
+                TextView textView3 = findViewById(R.id.karts_playerText3);
                 textView3.setText(R.string.player3);
                 if(playerNumber == 4) {
-                    TextView textView4 = findViewById(R.id.playerText2d);
+                    TextView textView4 = findViewById(R.id.karts_playerText4);
                     textView4.setText(R.string.player4);
                 }
             }
@@ -170,7 +170,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized characters
      */
     private void setCharImage(int playerNumber) {
-        ImageView charImage = findViewById(R.id.charImage2a);
+        ImageView charImage = findViewById(R.id.karts_charImage1);
 
         String randChar = randCharacter();
         if (randChar.equals("Yoshi") || randChar.equals("Shy Guy") || randChar.equals("Metal Mario") || randChar.equals("Link") || randChar.equals("Inkling Boy") || randChar.equals("Inkling Girl"))
@@ -438,7 +438,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
         }
 
         if (playerNumber > 1) {
-            ImageView charImage2 = findViewById(R.id.charImage2b);
+            ImageView charImage2 = findViewById(R.id.karts_charImage2);
 
             String randChar2 = randCharacter();
             if (randChar2.equals("Yoshi") || randChar2.equals("Shy Guy") || randChar2.equals("Metal Mario") || randChar2.equals("Link") || randChar2.equals("Inkling Boy") || randChar2.equals("Inkling Girl"))
@@ -706,7 +706,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView charImage3 = findViewById(R.id.charImage2c);
+                ImageView charImage3 = findViewById(R.id.karts_charImage3);
 
                 String randChar3 = randCharacter();
                 if (randChar3.equals("Yoshi") || randChar3.equals("Shy Guy") || randChar3.equals("Metal Mario") || randChar3.equals("Link") || randChar3.equals("Inkling Boy") || randChar3.equals("Inkling Girl"))
@@ -974,7 +974,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView charImage4 = findViewById(R.id.charImage2d);
+                    ImageView charImage4 = findViewById(R.id.karts_charImage4);
 
                     String randChar4 = randCharacter();
                     if (randChar4.equals("Yoshi") || randChar4.equals("Shy Guy") || randChar4.equals("Metal Mario") || randChar4.equals("Link") || randChar4.equals("Inkling Boy") || randChar4.equals("Inkling Girl"))
@@ -1250,7 +1250,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized frames
      */
     private void setFrameImage(int playerNumber) {
-        ImageView frameImage = findViewById(R.id.frameImage2a);
+        ImageView frameImage = findViewById(R.id.karts_frameImage1);
 
         String randFrame = randFrame();
         switch (randFrame) {
@@ -1423,7 +1423,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView frameImage2 = findViewById(R.id.frameImage2b);
+            ImageView frameImage2 = findViewById(R.id.karts_frameImage2);
 
             String randFrame2 = randFrame();
             switch (randFrame2) {
@@ -1596,7 +1596,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView frameImage3 = findViewById(R.id.frameImage2c);
+                ImageView frameImage3 = findViewById(R.id.karts_frameImage3);
 
                 String randFrame3 = randFrame();
                 switch (randFrame3) {
@@ -1769,7 +1769,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView frameImage4 = findViewById(R.id.frameImage2d);
+                    ImageView frameImage4 = findViewById(R.id.karts_frameImage4);
 
                     String randFrame4 = randFrame();
                     switch (randFrame4) {
@@ -1950,7 +1950,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized wheels
      */
     private void setWheelImage(int playerNumber) {
-        ImageView wheelImage = findViewById(R.id.wheelImage2a);
+        ImageView wheelImage = findViewById(R.id.karts_wheelImage1);
 
         String randWheels = randWheels();
         switch (randWheels) {
@@ -2047,7 +2047,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView wheelImage2 = findViewById(R.id.wheelImage2b);
+            ImageView wheelImage2 = findViewById(R.id.karts_wheelImage1);
 
             String randWheels2 = randWheels();
             switch (randWheels2) {
@@ -2144,7 +2144,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView wheelImage3 = findViewById(R.id.wheelImage2c);
+                ImageView wheelImage3 = findViewById(R.id.karts_wheelImage3);
 
                 String randWheels3 = randWheels();
                 switch (randWheels3) {
@@ -2241,7 +2241,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView wheelImage4 = findViewById(R.id.wheelImage2d);
+                    ImageView wheelImage4 = findViewById(R.id.karts_wheelImage4);
 
                     String randWheels4 = randWheels();
                     switch (randWheels4) {
@@ -2346,7 +2346,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized gliders
      */
     private void setGliderImage(int playerNumber) {
-        ImageView gliderImage = findViewById(R.id.gliderImage2a);
+        ImageView gliderImage = findViewById(R.id.karts_gliderImage1);
 
         String randGlider = randGlider();
         switch (randGlider) {
@@ -2415,7 +2415,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView gliderImage2 = findViewById(R.id.gliderImage2b);
+            ImageView gliderImage2 = findViewById(R.id.karts_gliderImage2);
 
             String randGlider2 = randGlider();
             switch (randGlider2) {
@@ -2484,7 +2484,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
             }
 
             if(playerNumber > 2) {
-                ImageView gliderImage3 = findViewById(R.id.gliderImage2c);
+                ImageView gliderImage3 = findViewById(R.id.karts_gliderImage3);
 
                 String randGlider3 = randGlider();
                 switch (randGlider3) {
@@ -2553,7 +2553,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
                 }
 
                 if(playerNumber == 4) {
-                    ImageView gliderImage4 = findViewById(R.id.gliderImage2d);
+                    ImageView gliderImage4 = findViewById(R.id.karts_gliderImage4);
 
                     String randGlider4 = randGlider();
                     switch (randGlider4) {
@@ -2640,7 +2640,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void charImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage2a);
+        ImageView img = findViewById(R.id.karts_charImage1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2847,7 +2847,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void charImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage2b);
+        ImageView img = findViewById(R.id.karts_charImage2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3054,7 +3054,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void charImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage2c);
+        ImageView img = findViewById(R.id.karts_charImage3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3261,7 +3261,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void charImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.charImage2d);
+        ImageView img = findViewById(R.id.karts_charImage4);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3468,7 +3468,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void frameImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage2a);
+        ImageView img = findViewById(R.id.karts_frameImage1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3604,7 +3604,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void frameImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage2b);
+        ImageView img = findViewById(R.id.karts_frameImage2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3740,7 +3740,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void frameImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage2c);
+        ImageView img = findViewById(R.id.karts_frameImage3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -3876,7 +3876,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void frameImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frameImage2d);
+        ImageView img = findViewById(R.id.karts_frameImage4);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4012,7 +4012,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void wheelImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage2a);
+        ImageView img = findViewById(R.id.karts_wheelImage1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4091,7 +4091,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void wheelImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage2b);
+        ImageView img = findViewById(R.id.karts_wheelImage1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4170,7 +4170,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void wheelImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage2c);
+        ImageView img = findViewById(R.id.karts_wheelImage3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4249,7 +4249,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void wheelImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheelImage2d);
+        ImageView img = findViewById(R.id.karts_wheelImage4);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4328,7 +4328,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void gliderImage2a(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage2a);
+        ImageView img = findViewById(R.id.karts_gliderImage1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4388,7 +4388,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void gliderImage2b(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage2b);
+        ImageView img = findViewById(R.id.karts_gliderImage2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4448,7 +4448,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void gliderImage2c(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage2c);
+        ImageView img = findViewById(R.id.karts_gliderImage3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -4508,7 +4508,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      */
     public void gliderImage2d(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.gliderImage2d);
+        ImageView img = findViewById(R.id.karts_gliderImage4);
         int id = getResourceId(img);
 
         switch (id) {

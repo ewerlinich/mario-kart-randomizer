@@ -39,6 +39,31 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /** Called when the user taps the 'Bikes 1P' button */
+    public void bikes1(View view) {
+        Intent intent = new Intent(this, DisplayRandomBikes.class);
+        intent.putExtra("PlayerNumber", 1);
+        startActivity(intent);
+    }
+    /** Called when the user taps the 'Bikes 2P' button */
+    public void bikes2(View view) {
+        Intent intent = new Intent(this, DisplayRandomBikes.class);
+        intent.putExtra("PlayerNumber", 2);
+        startActivity(intent);
+    }
+    /** Called when the user taps the 'Bikes 3P' button */
+    public void bikes3(View view) {
+        Intent intent = new Intent(this, DisplayRandomBikes.class);
+        intent.putExtra("PlayerNumber", 3);
+        startActivity(intent);
+    }
+    /** Called when the user taps the 'Bikes 4P' button */
+    public void bikes4(View view) {
+        Intent intent = new Intent(this, DisplayRandomBikes.class);
+        intent.putExtra("PlayerNumber", 4);
+        startActivity(intent);
+    }
+
     /** Called when the user taps the 'All 1P' button */
     public void all1(View view) {
         Intent intent = new Intent(this, DisplayRandomAll.class);

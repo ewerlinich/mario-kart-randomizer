@@ -38,199 +38,199 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/charImage2a"
+                android:id="@+id/bikes_charImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage2a"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage2a"
+                app:layout_constraintEnd_toStartOf="@+id/karts_frameImage1"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2a"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/charImage2b"
+                android:id="@+id/bikes_charImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage2b"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage2b"
+                app:layout_constraintEnd_toStartOf="@+id/karts_frameImage2"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2b"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/charImage2c"
+                android:id="@+id/bikes_charImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage2c"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage2c"
+                app:layout_constraintEnd_toStartOf="@+id/karts_frameImage3"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2c"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/charImage2d"
+                android:id="@+id/bikes_charImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage2d"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage2d"
+                app:layout_constraintEnd_toStartOf="@+id/karts_frameImage4"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2d"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage2a"
+                android:id="@+id/bikes_frameImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage2a"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage2a"
+                app:layout_constraintEnd_toStartOf="@+id/karts_wheelImage1"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage2a"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2a"
+                app:layout_constraintStart_toEndOf="@+id/karts_charImage1"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage2b"
+                android:id="@+id/bikes_frameImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage2b"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage2b"
+                app:layout_constraintEnd_toStartOf="@+id/karts_wheelImage1"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage2b"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2b"
+                app:layout_constraintStart_toEndOf="@+id/karts_charImage2"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage2c"
+                android:id="@+id/bikes_frameImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage2c"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage2c"
+                app:layout_constraintEnd_toStartOf="@+id/karts_wheelImage3"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage2c"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2c"
+                app:layout_constraintStart_toEndOf="@+id/karts_charImage3"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage2d"
+                android:id="@+id/bikes_frameImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage2d"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage2d"
+                app:layout_constraintEnd_toStartOf="@+id/karts_wheelImage4"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage2d"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2d"
+                app:layout_constraintStart_toEndOf="@+id/karts_charImage4"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage2a"
+                android:id="@+id/bikes_wheelImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage2a"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage2a"
+                app:layout_constraintEnd_toStartOf="@+id/karts_gliderImage1"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage2a"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2a"
+                app:layout_constraintStart_toEndOf="@+id/karts_frameImage1"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage2b"
+                android:id="@+id/bikes_wheelImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage2b"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage2b"
+                app:layout_constraintEnd_toStartOf="@+id/karts_gliderImage2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage2b"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2b"
+                app:layout_constraintStart_toEndOf="@+id/karts_frameImage2"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage2c"
+                android:id="@+id/bikes_wheelImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage2c"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage2c"
+                app:layout_constraintEnd_toStartOf="@+id/karts_gliderImage3"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage2c"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2c"
+                app:layout_constraintStart_toEndOf="@+id/karts_frameImage3"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage2d"
+                android:id="@+id/bikes_wheelImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage2d"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage2d"
+                app:layout_constraintEnd_toStartOf="@+id/karts_gliderImage4"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage2d"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2d"
+                app:layout_constraintStart_toEndOf="@+id/karts_frameImage4"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage2a"
+                android:id="@+id/bikes_gliderImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage2a"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage2a"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2a"
+                app:layout_constraintStart_toEndOf="@+id/karts_wheelImage1"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage2b"
+                android:id="@+id/bikes_gliderImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage2b"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage2b"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2b"
+                app:layout_constraintStart_toEndOf="@+id/karts_wheelImage1"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage2c"
+                android:id="@+id/bikes_gliderImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage2c"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage2c"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2c"
+                app:layout_constraintStart_toEndOf="@+id/karts_wheelImage3"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage2d"
+                android:id="@+id/bikes_gliderImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage2d"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage2d"
-                app:layout_constraintTop_toBottomOf="@+id/playerText2d"
+                app:layout_constraintStart_toEndOf="@+id/karts_wheelImage4"
+                app:layout_constraintTop_toBottomOf="@+id/karts_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <TextView
-                android:id="@+id/playerText2a"
+                android:id="@+id/bikes_playerText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/player1"
@@ -242,7 +242,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/playerText2b"
+                android:id="@+id/bikes_playerText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -251,10 +251,10 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameImage2a" />
+                app:layout_constraintTop_toBottomOf="@+id/karts_frameImage1" />
 
             <TextView
-                android:id="@+id/playerText2c"
+                android:id="@+id/bikes_playerText3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -263,10 +263,10 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameImage2b" />
+                app:layout_constraintTop_toBottomOf="@+id/karts_frameImage2" />
 
             <TextView
-                android:id="@+id/playerText2d"
+                android:id="@+id/bikes_playerText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -275,7 +275,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameImage2c" />
+                app:layout_constraintTop_toBottomOf="@+id/karts_frameImage3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

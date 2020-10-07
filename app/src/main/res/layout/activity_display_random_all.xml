@@ -37,199 +37,199 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/charImage1a"
+                android:id="@+id/all_charImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage1a"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage1a"
+                app:layout_constraintEnd_toStartOf="@+id/all_frameImage1"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1a"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/charImage1b"
+                android:id="@+id/all_charImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage1b"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage1b"
+                app:layout_constraintEnd_toStartOf="@+id/all_frameImage2"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1b"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/charImage1c"
+                android:id="@+id/all_charImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage1c"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage1c"
+                app:layout_constraintEnd_toStartOf="@+id/all_frameImage3"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1c"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/charImage1d"
+                android:id="@+id/all_charImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="charImage1d"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/frameImage1d"
+                app:layout_constraintEnd_toStartOf="@+id/all_frameImage4"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1d"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage1a"
+                android:id="@+id/all_frameImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage1a"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage1a"
+                app:layout_constraintEnd_toStartOf="@+id/all_wheelImage1"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage1a"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1a"
+                app:layout_constraintStart_toEndOf="@+id/all_charImage1"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage1b"
+                android:id="@+id/all_frameImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage1b"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage1b"
+                app:layout_constraintEnd_toStartOf="@+id/all_wheelImage2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage1b"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1b"
+                app:layout_constraintStart_toEndOf="@+id/all_charImage2"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage1c"
+                android:id="@+id/all_frameImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage1c"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage1c"
+                app:layout_constraintEnd_toStartOf="@+id/all_wheelImage3"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage1c"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1c"
+                app:layout_constraintStart_toEndOf="@+id/all_charImage3"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/frameImage1d"
+                android:id="@+id/all_frameImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="frameImage1d"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/wheelImage1d"
+                app:layout_constraintEnd_toStartOf="@+id/all_wheelImage4"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/charImage1d"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1d"
+                app:layout_constraintStart_toEndOf="@+id/all_charImage4"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage1a"
+                android:id="@+id/all_wheelImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage1a"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage1a"
+                app:layout_constraintEnd_toStartOf="@+id/all_gliderImage1"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage1a"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1a"
+                app:layout_constraintStart_toEndOf="@+id/all_frameImage1"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage1b"
+                android:id="@+id/all_wheelImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage1b"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage1b"
+                app:layout_constraintEnd_toStartOf="@+id/all_gliderImage2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage1b"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1b"
+                app:layout_constraintStart_toEndOf="@+id/all_frameImage2"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage1c"
+                android:id="@+id/all_wheelImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage1c"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage1c"
+                app:layout_constraintEnd_toStartOf="@+id/all_gliderImage3"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage1c"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1c"
+                app:layout_constraintStart_toEndOf="@+id/all_frameImage3"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/wheelImage1d"
+                android:id="@+id/all_wheelImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="wheelImage1d"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toStartOf="@+id/gliderImage1d"
+                app:layout_constraintEnd_toStartOf="@+id/all_gliderImage4"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/frameImage1d"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1d"
+                app:layout_constraintStart_toEndOf="@+id/all_frameImage4"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage1a"
+                android:id="@+id/all_gliderImage1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage1a"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage1a"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1a"
+                app:layout_constraintStart_toEndOf="@+id/all_wheelImage1"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText1"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage1b"
+                android:id="@+id/all_gliderImage2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage1b"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage1b"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1b"
+                app:layout_constraintStart_toEndOf="@+id/all_wheelImage2"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage1c"
+                android:id="@+id/all_gliderImage3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage1c"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage1c"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1c"
+                app:layout_constraintStart_toEndOf="@+id/all_wheelImage3"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
-                android:id="@+id/gliderImage1d"
+                android:id="@+id/all_gliderImage4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:onClick="gliderImage1d"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/wheelImage1d"
-                app:layout_constraintTop_toBottomOf="@+id/playerText1d"
+                app:layout_constraintStart_toEndOf="@+id/all_wheelImage4"
+                app:layout_constraintTop_toBottomOf="@+id/all_playerText4"
                 app:srcCompat="@drawable/invisible" />
 
             <TextView
-                android:id="@+id/playerText1a"
+                android:id="@+id/all_playerText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -243,7 +243,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/playerText1b"
+                android:id="@+id/all_playerText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -254,10 +254,10 @@
                 app:fontFamily="@font/russo_one"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameImage1a" />
+                app:layout_constraintTop_toBottomOf="@+id/all_frameImage1" />
 
             <TextView
-                android:id="@+id/playerText1c"
+                android:id="@+id/all_playerText3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -268,10 +268,10 @@
                 app:fontFamily="@font/russo_one"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameImage1b" />
+                app:layout_constraintTop_toBottomOf="@+id/all_frameImage2" />
 
             <TextView
-                android:id="@+id/playerText1d"
+                android:id="@+id/all_playerText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -282,7 +282,7 @@
                 app:fontFamily="@font/russo_one"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameImage1c" />
+                app:layout_constraintTop_toBottomOf="@+id/all_frameImage3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
