@@ -2638,7 +2638,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 1 character
      * @param view is the current view
      */
-    public void charImage1a(View view) {
+    public void allCharImage1(View view) {
        TextView tv = findViewById(R.id.title);
        ImageView img = findViewById(R.id.all_charImage1);
        int id = getResourceId(img);
@@ -2845,7 +2845,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 2 character
      * @param view is the current view
      */
-    public void charImage1b(View view) {
+    public void allCharImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_charImage2);
         int id = getResourceId(img);
@@ -3052,7 +3052,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 3 character
      * @param view is the current view
      */
-    public void charImage1c(View view) {
+    public void allCharImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_charImage3);
         int id = getResourceId(img);
@@ -3259,7 +3259,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 4 character
      * @param view is the current view
      */
-    public void charImage1d(View view) {
+    public void allCharImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_charImage4);
         int id = getResourceId(img);
@@ -3466,7 +3466,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void frameImage1a(View view) {
+    public void allFrameImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_frameImage1);
         int id = getResourceId(img);
@@ -3602,7 +3602,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 2 frame
      * @param view is the current view
      */
-    public void frameImage1b(View view) {
+    public void allFrameImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_frameImage2);
         int id = getResourceId(img);
@@ -3738,7 +3738,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void frameImage1c(View view) {
+    public void allFrameImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_frameImage3);
         int id = getResourceId(img);
@@ -3874,7 +3874,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 4 frame
      * @param view is the current view
      */
-    public void frameImage1d(View view) {
+    public void allFrameImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_frameImage4);
         int id = getResourceId(img);
@@ -4010,7 +4010,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 1 wheels
      * @param view is the current view
      */
-    public void wheelImage1a(View view) {
+    public void allWheelImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_wheelImage1);
         int id = getResourceId(img);
@@ -4089,7 +4089,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 2 wheels
      * @param view is the current view
      */
-    public void wheelImage1b(View view) {
+    public void allWheelImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_wheelImage2);
         int id = getResourceId(img);
@@ -4168,7 +4168,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 3 wheels
      * @param view is the current view
      */
-    public void wheelImage1c(View view) {
+    public void allWheelImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_wheelImage3);
         int id = getResourceId(img);
@@ -4247,7 +4247,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 4 wheels
      * @param view is the current view
      */
-    public void wheelImage1d(View view) {
+    public void allWheelImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_wheelImage4);
         int id = getResourceId(img);
@@ -4326,7 +4326,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 1 glider
      * @param view is the current view
      */
-    public void gliderImage1a(View view) {
+    public void allGliderImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_gliderImage1);
         int id = getResourceId(img);
@@ -4386,7 +4386,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 2 glider
      * @param view is the current view
      */
-    public void gliderImage1b(View view) {
+    public void allGliderImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_gliderImage2);
         int id = getResourceId(img);
@@ -4446,7 +4446,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 3 glider
      * @param view is the current view
      */
-    public void gliderImage1c(View view) {
+    public void allGliderImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_gliderImage3);
         int id = getResourceId(img);
@@ -4506,7 +4506,7 @@ public class DisplayRandomAll extends AppCompatActivity {
      * the onClick action for the player 4 glider
      * @param view is the current view
      */
-    public void gliderImage1d(View view) {
+    public void allGliderImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.all_gliderImage4);
         int id = getResourceId(img);
