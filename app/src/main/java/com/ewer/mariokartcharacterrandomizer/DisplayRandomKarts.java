@@ -2638,7 +2638,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 1 character
      * @param view is the current view
      */
-    public void charImage2a(View view) {
+    public void kartCharImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_charImage1);
         int id = getResourceId(img);
@@ -2845,7 +2845,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 2 character
      * @param view is the current view
      */
-    public void charImage2b(View view) {
+    public void kartCharImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_charImage2);
         int id = getResourceId(img);
@@ -3052,7 +3052,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 3 character
      * @param view is the current view
      */
-    public void charImage2c(View view) {
+    public void kartCharImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_charImage3);
         int id = getResourceId(img);
@@ -3259,7 +3259,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 4 character
      * @param view is the current view
      */
-    public void charImage2d(View view) {
+    public void kartCharImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_charImage4);
         int id = getResourceId(img);
@@ -3466,7 +3466,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void frameImage2a(View view) {
+    public void kartFrameImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_frameImage1);
         int id = getResourceId(img);
@@ -3602,7 +3602,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 2 frame
      * @param view is the current view
      */
-    public void frameImage2b(View view) {
+    public void kartFrameImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_frameImage2);
         int id = getResourceId(img);
@@ -3738,7 +3738,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void frameImage2c(View view) {
+    public void kartFrameImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_frameImage3);
         int id = getResourceId(img);
@@ -3874,7 +3874,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 4 frame
      * @param view is the current view
      */
-    public void frameImage2d(View view) {
+    public void kartFrameImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_frameImage4);
         int id = getResourceId(img);
@@ -4010,7 +4010,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 1 wheels
      * @param view is the current view
      */
-    public void wheelImage2a(View view) {
+    public void kartWheelImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_wheelImage1);
         int id = getResourceId(img);
@@ -4089,7 +4089,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 2 wheels
      * @param view is the current view
      */
-    public void wheelImage2b(View view) {
+    public void kartWheelImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_wheelImage1);
         int id = getResourceId(img);
@@ -4168,7 +4168,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 3 wheels
      * @param view is the current view
      */
-    public void wheelImage2c(View view) {
+    public void kartWheelImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_wheelImage3);
         int id = getResourceId(img);
@@ -4247,7 +4247,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 4 wheels
      * @param view is the current view
      */
-    public void wheelImage2d(View view) {
+    public void kartWheelImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_wheelImage4);
         int id = getResourceId(img);
@@ -4326,7 +4326,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 1 glider
      * @param view is the current view
      */
-    public void gliderImage2a(View view) {
+    public void kartGliderImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_gliderImage1);
         int id = getResourceId(img);
@@ -4386,7 +4386,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 2 glider
      * @param view is the current view
      */
-    public void gliderImage2b(View view) {
+    public void kartGliderImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_gliderImage2);
         int id = getResourceId(img);
@@ -4446,7 +4446,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 3 glider
      * @param view is the current view
      */
-    public void gliderImage2c(View view) {
+    public void kartGliderImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_gliderImage3);
         int id = getResourceId(img);
@@ -4506,7 +4506,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
      * the onClick action for the player 4 glider
      * @param view is the current view
      */
-    public void gliderImage2d(View view) {
+    public void kartGliderImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.karts_gliderImage4);
         int id = getResourceId(img);
