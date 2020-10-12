@@ -12,10 +12,10 @@
     <string name="bikesButton2">Only Bikes 2P</string>
     <string name="bikesButton3">Only Bikes 3P</string>
     <string name="bikesButton4">Only Bikes 4P</string>
-    <string name="allButton1">All Vehicles 1P</string>
-    <string name="allButton2">All Vehicles 2P</string>
-    <string name="allButton3">All Vehicles 3P</string>
-    <string name="allButton4">All Vehicles 4P</string>
+    <string name="allButton1">All Frames 1P</string>
+    <string name="allButton2">All Frames 2P</string>
+    <string name="allButton3">All Frames 3P</string>
+    <string name="allButton4">All Frames 4P</string>
     <string name="logo_pic_description">Graphic display of the title of the app, \"Mario Kart 8 Deluxe Randomizer\".</string>
     <string name="mario">Mario</string>
     <string name="luigi">Luigi</string>
