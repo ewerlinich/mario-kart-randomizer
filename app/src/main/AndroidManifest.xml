@@ -27,6 +27,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ewer.mariokartcharacterrandomizer.MainActivity" />
         </activity>
+        <activity android:name="com.ewer.mariokartcharacterrandomizer.DisplayRandomBikes"
+            android:parentActivityName="com.ewer.mariokartcharacterrandomizer.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ewer.mariokartcharacterrandomizer.MainActivity" />
+        </activity>
         <activity android:name="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
