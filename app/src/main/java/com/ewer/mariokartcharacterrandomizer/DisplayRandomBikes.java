@@ -2,6 +2,7 @@ package com.ewer.mariokartcharacterrandomizer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,10 +16,11 @@ public class DisplayRandomBikes extends AppCompatActivity {
 
         Intent intent = getIntent();
         int playerNumber = intent.getIntExtra("PlayerNumber", 1);
+        String frameType = intent.getStringExtra("FrameType");
 
         setPlayerText(playerNumber);
         setCharImage(playerNumber);
-        setFrameImage(playerNumber);
+        setFrameImage(playerNumber, frameType);
         setWheelImage(playerNumber);
         setGliderImage(playerNumber);
     }
@@ -44,10 +46,40 @@ public class DisplayRandomBikes extends AppCompatActivity {
      *
      * @return a String that is the name of the frame
      */
-    private String randFrame() {
+    private String randBikeFrame() {
         String[] list = {"Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider",
                 "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper",
                 "Master Cycle Zero"};
+        return list[((int) (Math.random() * list.length))];
+    }
+
+    /**
+     * randFrame() returns a random String from a list of kart frames
+     * @return a String that is the name of the frame
+     */
+    private String randKartFrame() {
+        String[] list = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
+                "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
+                "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
+                "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
+                "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler",
+                "Splat Buggy", "Inkstriker"};
+        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
+    }
+
+    /**
+     * randAllFrame() returns a random String from a list of kart and bike frames
+     * @return a String that is the name of the frame
+     */
+    private String randAllFrame() {
+        String[] list = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
+                "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
+                "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
+                "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
+                "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty",
+                "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike", "Jet Bike",
+                "Yoshi Bike", "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy",
+                "Bone Rattler", "Splat Buggy", "Inkstriker"};
         return list[((int) (Math.random() * list.length))];
     }
 
@@ -206,1074 +238,279 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized characters
      */
     private void setCharImage(int playerNumber) {
-        switch (playerNumber) {
-            case 4:
-                ImageView charImage4 = findViewById(R.id.bikes_charImage4);
-                String randChar4 = randCharacter();
-                if (randChar4.equals("Yoshi") || randChar4.equals("Shy Guy") || randChar4.equals("Metal Mario")
-                        || randChar4.equals("Link") || randChar4.equals("Inkling Boy") || randChar4.equals("Inkling Girl"))
-                    randChar4 = setColor(randChar4);
+        ImageView charImage1 = findViewById(R.id.bikes_charImage1);
+        ImageView charImage2 = findViewById(R.id.bikes_charImage2);
+        ImageView charImage3 = findViewById(R.id.bikes_charImage3);
+        ImageView charImage4 = findViewById(R.id.bikes_charImage4);
+        ImageView[] arr = {charImage1, charImage2, charImage3, charImage4};
 
-                switch (randChar4) {
-                    case "Baby Daisy":
-                        charImage4.setImageResource(R.drawable.baby_daisy);
-                        charImage4.setTag(R.drawable.baby_daisy);
-                        break;
-                    case "Baby Luigi":
-                        charImage4.setImageResource(R.drawable.baby_luigi);
-                        charImage4.setTag(R.drawable.baby_luigi);
-                        break;
-                    case "Baby Mario":
-                        charImage4.setImageResource(R.drawable.baby_mario);
-                        charImage4.setTag(R.drawable.baby_mario);
-                        break;
-                    case "Baby Peach":
-                        charImage4.setImageResource(R.drawable.baby_peach);
-                        charImage4.setTag(R.drawable.baby_peach);
-                        break;
-                    case "Baby Rosalina":
-                        charImage4.setImageResource(R.drawable.baby_rosalina);
-                        charImage4.setTag(R.drawable.baby_rosalina);
-                        break;
-                    case "Bowser":
-                        charImage4.setImageResource(R.drawable.bowser);
-                        charImage4.setTag(R.drawable.bowser);
-                        break;
-                    case "Bowser Jr.":
-                        charImage4.setImageResource(R.drawable.bowser_jr);
-                        charImage4.setTag(R.drawable.bowser_jr);
-                        break;
-                    case "Cat Peach":
-                        charImage4.setImageResource(R.drawable.cat_peach);
-                        charImage4.setTag(R.drawable.cat_peach);
-                        break;
-                    case "Daisy":
-                        charImage4.setImageResource(R.drawable.daisy);
-                        charImage4.setTag(R.drawable.daisy);
-                        break;
-                    case "Donkey Kong":
-                        charImage4.setImageResource(R.drawable.donkey_kong);
-                        charImage4.setTag(R.drawable.donkey_kong);
-                        break;
-                    case "Dry Bones":
-                        charImage4.setImageResource(R.drawable.dry_bones);
-                        charImage4.setTag(R.drawable.dry_bones);
-                        break;
-                    case "Dry Bowser":
-                        charImage4.setImageResource(R.drawable.dry_bowser);
-                        charImage4.setTag(R.drawable.dry_bowser);
-                        break;
-                    case "Metal Mario (Gold)":
-                        charImage4.setImageResource(R.drawable.gold_mario);
-                        charImage4.setTag(R.drawable.gold_mario);
-                        break;
-                    case "Iggy":
-                        charImage4.setImageResource(R.drawable.iggy);
-                        charImage4.setTag(R.drawable.iggy);
-                        break;
-                    case "Inkling Boy (Dark Blue)":
-                        charImage4.setImageResource(R.drawable.inkling_boy_darkblue);
-                        charImage4.setTag(R.drawable.inkling_boy_darkblue);
-                        break;
-                    case "Inkling Boy (Light Blue)":
-                        charImage4.setImageResource(R.drawable.inkling_boy_lightblue);
-                        charImage4.setTag(R.drawable.inkling_boy_lightblue);
-                        break;
-                    case "Inkling Boy (Purple)":
-                        charImage4.setImageResource(R.drawable.inkling_boy_purple);
-                        charImage4.setTag(R.drawable.inkling_boy_purple);
-                        break;
-                    case "Inkling Girl (Green)":
-                        charImage4.setImageResource(R.drawable.inkling_girl_green);
-                        charImage4.setTag(R.drawable.inkling_girl_green);
-                        break;
-                    case "Inkling Girl (Orange)":
-                        charImage4.setImageResource(R.drawable.inkling_girl_orange);
-                        charImage4.setTag(R.drawable.inkling_girl_orange);
-                        break;
-                    case "Inkling Girl (Pink)":
-                        charImage4.setImageResource(R.drawable.inkling_girl_pink);
-                        charImage4.setTag(R.drawable.inkling_girl_pink);
-                        break;
-                    case "Isabelle":
-                        charImage4.setImageResource(R.drawable.isabelle);
-                        charImage4.setTag(R.drawable.isabelle);
-                        break;
-                    case "King Boo":
-                        charImage4.setImageResource(R.drawable.king_boo);
-                        charImage4.setTag(R.drawable.king_boo);
-                        break;
-                    case "Koopa Troopa":
-                        charImage4.setImageResource(R.drawable.koopa_troopa);
-                        charImage4.setTag(R.drawable.koopa_troopa);
-                        break;
-                    case "Lakitu":
-                        charImage4.setImageResource(R.drawable.lakitu);
-                        charImage4.setTag(R.drawable.lakitu);
-                        break;
-                    case "Larry":
-                        charImage4.setImageResource(R.drawable.larry);
-                        charImage4.setTag(R.drawable.larry);
-                        break;
-                    case "Lemmy":
-                        charImage4.setImageResource(R.drawable.lemmy);
-                        charImage4.setTag(R.drawable.lemmy);
-                        break;
-                    case "Link (BOTW)":
-                        charImage4.setImageResource(R.drawable.link_botw);
-                        charImage4.setTag(R.drawable.link_botw);
-                        break;
-                    case "Link (Classic)":
-                        charImage4.setImageResource(R.drawable.link_classic);
-                        charImage4.setTag(R.drawable.link_classic);
-                        break;
-                    case "Ludwig":
-                        charImage4.setImageResource(R.drawable.ludwig);
-                        charImage4.setTag(R.drawable.ludwig);
-                        break;
-                    case "Luigi":
-                        charImage4.setImageResource(R.drawable.luigi);
-                        charImage4.setTag(R.drawable.luigi);
-                        break;
-                    case "Mario":
-                        charImage4.setImageResource(R.drawable.mario);
-                        charImage4.setTag(R.drawable.mario);
-                        break;
-                    case "Metal Mario (Metal)":
-                        charImage4.setImageResource(R.drawable.metal_mario);
-                        charImage4.setTag(R.drawable.metal_mario);
-                        break;
-                    case "Mii":
-                        charImage4.setImageResource(R.drawable.mii);
-                        charImage4.setTag(R.drawable.mii);
-                        break;
-                    case "Morton":
-                        charImage4.setImageResource(R.drawable.morton);
-                        charImage4.setTag(R.drawable.morton);
-                        break;
-                    case "Peach":
-                        charImage4.setImageResource(R.drawable.peach);
-                        charImage4.setTag(R.drawable.peach);
-                        break;
-                    case "Pink Gold Peach":
-                        charImage4.setImageResource(R.drawable.pink_gold_peach);
-                        charImage4.setTag(R.drawable.pink_gold_peach);
-                        break;
-                    case "Rosalina":
-                        charImage4.setImageResource(R.drawable.rosalina);
-                        charImage4.setTag(R.drawable.rosalina);
-                        break;
-                    case "Roy":
-                        charImage4.setImageResource(R.drawable.roy);
-                        charImage4.setTag(R.drawable.roy);
-                        break;
-                    case "Shy Guy (Black)":
-                        charImage4.setImageResource(R.drawable.shyguy_black);
-                        charImage4.setTag(R.drawable.shyguy_black);
-                        break;
-                    case "Shy Guy (Dark Blue)":
-                        charImage4.setImageResource(R.drawable.shyguy_darkblue);
-                        charImage4.setTag(R.drawable.shyguy_darkblue);
-                        break;
-                    case "Shy Guy (Green)":
-                        charImage4.setImageResource(R.drawable.shyguy_green);
-                        charImage4.setTag(R.drawable.shyguy_green);
-                        break;
-                    case "Shy Guy (Light Blue)":
-                        charImage4.setImageResource(R.drawable.shyguy_lightblue);
-                        charImage4.setTag(R.drawable.shyguy_lightblue);
-                        break;
-                    case "Shy Guy (Orange)":
-                        charImage4.setImageResource(R.drawable.shyguy_orange);
-                        charImage4.setTag(R.drawable.shyguy_orange);
-                        break;
-                    case "Shy Guy (Pink)":
-                        charImage4.setImageResource(R.drawable.shyguy_pink);
-                        charImage4.setTag(R.drawable.shyguy_pink);
-                        break;
-                    case "Shy Guy (Red)":
-                        charImage4.setImageResource(R.drawable.shyguy_red);
-                        charImage4.setTag(R.drawable.shyguy_red);
-                        break;
-                    case "Shy Guy (White)":
-                        charImage4.setImageResource(R.drawable.shyguy_white);
-                        charImage4.setTag(R.drawable.shyguy_white);
-                        break;
-                    case "Shy Guy (Yellow)":
-                        charImage4.setImageResource(R.drawable.shyguy_yellow);
-                        charImage4.setTag(R.drawable.shyguy_yellow);
-                        break;
-                    case "Tanooki Mario":
-                        charImage4.setImageResource(R.drawable.tanooki_mario);
-                        charImage4.setTag(R.drawable.tanooki_mario);
-                        break;
-                    case "Toad":
-                        charImage4.setImageResource(R.drawable.toad);
-                        charImage4.setTag(R.drawable.toad);
-                        break;
-                    case "Toadette":
-                        charImage4.setImageResource(R.drawable.toadette);
-                        charImage4.setTag(R.drawable.toadette);
-                        break;
-                    case "Villager (B)":
-                        charImage4.setImageResource(R.drawable.villager_boy);
-                        charImage4.setTag(R.drawable.villager_boy);
-                        break;
-                    case "Villager (G)":
-                        charImage4.setImageResource(R.drawable.villager_girl);
-                        charImage4.setTag(R.drawable.villager_girl);
-                        break;
-                    case "Waluigi":
-                        charImage4.setImageResource(R.drawable.waluigi);
-                        charImage4.setTag(R.drawable.waluigi);
-                        break;
-                    case "Wario":
-                        charImage4.setImageResource(R.drawable.wario);
-                        charImage4.setTag(R.drawable.wario);
-                        break;
-                    case "Wendy":
-                        charImage4.setImageResource(R.drawable.wendy);
-                        charImage4.setTag(R.drawable.wendy);
-                        break;
-                    case "Yoshi (Black)":
-                        charImage4.setImageResource(R.drawable.yoshi_black);
-                        charImage4.setTag(R.drawable.yoshi_black);
-                        break;
-                    case "Yoshi (Dark Blue)":
-                        charImage4.setImageResource(R.drawable.yoshi_darkblue);
-                        charImage4.setTag(R.drawable.yoshi_darkblue);
-                        break;
-                    case "Yoshi (Green)":
-                        charImage4.setImageResource(R.drawable.yoshi_green);
-                        charImage4.setTag(R.drawable.yoshi_green);
-                        break;
-                    case "Yoshi (Light Blue)":
-                        charImage4.setImageResource(R.drawable.yoshi_lightblue);
-                        charImage4.setTag(R.drawable.yoshi_lightblue);
-                        break;
-                    case "Yoshi (Orange)":
-                        charImage4.setImageResource(R.drawable.yoshi_orange);
-                        charImage4.setTag(R.drawable.yoshi_orange);
-                        break;
-                    case "Yoshi (Pink)":
-                        charImage4.setImageResource(R.drawable.yoshi_pink);
-                        charImage4.setTag(R.drawable.yoshi_pink);
-                        break;
-                    case "Yoshi (Red)":
-                        charImage4.setImageResource(R.drawable.yoshi_red);
-                        charImage4.setTag(R.drawable.yoshi_red);
-                        break;
-                    case "Yoshi (White)":
-                        charImage4.setImageResource(R.drawable.yoshi_white);
-                        charImage4.setTag(R.drawable.yoshi_white);
-                        break;
-                    case "Yoshi (Yellow)":
-                        charImage4.setImageResource(R.drawable.yoshi_yellow);
-                        charImage4.setTag(R.drawable.yoshi_yellow);
-                        break;
-                    default:
-                        charImage4.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 3:
-                ImageView charImage3 = findViewById(R.id.bikes_charImage3);
-                String randChar3 = randCharacter();
-                if (randChar3.equals("Yoshi") || randChar3.equals("Shy Guy") || randChar3.equals("Metal Mario") || randChar3.equals("Link") || randChar3.equals("Inkling Boy") || randChar3.equals("Inkling Girl"))
-                    randChar3 = setColor(randChar3);
-
-                switch (randChar3) {
-                    case "Baby Daisy":
-                        charImage3.setImageResource(R.drawable.baby_daisy);
-                        charImage3.setTag(R.drawable.baby_daisy);
-                        break;
-                    case "Baby Luigi":
-                        charImage3.setImageResource(R.drawable.baby_luigi);
-                        charImage3.setTag(R.drawable.baby_luigi);
-                        break;
-                    case "Baby Mario":
-                        charImage3.setImageResource(R.drawable.baby_mario);
-                        charImage3.setTag(R.drawable.baby_mario);
-                        break;
-                    case "Baby Peach":
-                        charImage3.setImageResource(R.drawable.baby_peach);
-                        charImage3.setTag(R.drawable.baby_peach);
-                        break;
-                    case "Baby Rosalina":
-                        charImage3.setImageResource(R.drawable.baby_rosalina);
-                        charImage3.setTag(R.drawable.baby_rosalina);
-                        break;
-                    case "Bowser":
-                        charImage3.setImageResource(R.drawable.bowser);
-                        charImage3.setTag(R.drawable.bowser);
-                        break;
-                    case "Bowser Jr.":
-                        charImage3.setImageResource(R.drawable.bowser_jr);
-                        charImage3.setTag(R.drawable.bowser_jr);
-                        break;
-                    case "Cat Peach":
-                        charImage3.setImageResource(R.drawable.cat_peach);
-                        charImage3.setTag(R.drawable.cat_peach);
-                        break;
-                    case "Daisy":
-                        charImage3.setImageResource(R.drawable.daisy);
-                        charImage3.setTag(R.drawable.daisy);
-                        break;
-                    case "Donkey Kong":
-                        charImage3.setImageResource(R.drawable.donkey_kong);
-                        charImage3.setTag(R.drawable.donkey_kong);
-                        break;
-                    case "Dry Bones":
-                        charImage3.setImageResource(R.drawable.dry_bones);
-                        charImage3.setTag(R.drawable.dry_bones);
-                        break;
-                    case "Dry Bowser":
-                        charImage3.setImageResource(R.drawable.dry_bowser);
-                        charImage3.setTag(R.drawable.dry_bowser);
-                        break;
-                    case "Metal Mario (Gold)":
-                        charImage3.setImageResource(R.drawable.gold_mario);
-                        charImage3.setTag(R.drawable.gold_mario);
-                        break;
-                    case "Iggy":
-                        charImage3.setImageResource(R.drawable.iggy);
-                        charImage3.setTag(R.drawable.iggy);
-                        break;
-                    case "Inkling Boy (Dark Blue)":
-                        charImage3.setImageResource(R.drawable.inkling_boy_darkblue);
-                        charImage3.setTag(R.drawable.inkling_boy_darkblue);
-                        break;
-                    case "Inkling Boy (Light Blue)":
-                        charImage3.setImageResource(R.drawable.inkling_boy_lightblue);
-                        charImage3.setTag(R.drawable.inkling_boy_lightblue);
-                        break;
-                    case "Inkling Boy (Purple)":
-                        charImage3.setImageResource(R.drawable.inkling_boy_purple);
-                        charImage3.setTag(R.drawable.inkling_boy_purple);
-                        break;
-                    case "Inkling Girl (Green)":
-                        charImage3.setImageResource(R.drawable.inkling_girl_green);
-                        charImage3.setTag(R.drawable.inkling_girl_green);
-                        break;
-                    case "Inkling Girl (Orange)":
-                        charImage3.setImageResource(R.drawable.inkling_girl_orange);
-                        charImage3.setTag(R.drawable.inkling_girl_orange);
-                        break;
-                    case "Inkling Girl (Pink)":
-                        charImage3.setImageResource(R.drawable.inkling_girl_pink);
-                        charImage3.setTag(R.drawable.inkling_girl_pink);
-                        break;
-                    case "Isabelle":
-                        charImage3.setImageResource(R.drawable.isabelle);
-                        charImage3.setTag(R.drawable.isabelle);
-                        break;
-                    case "King Boo":
-                        charImage3.setImageResource(R.drawable.king_boo);
-                        charImage3.setTag(R.drawable.king_boo);
-                        break;
-                    case "Koopa Troopa":
-                        charImage3.setImageResource(R.drawable.koopa_troopa);
-                        charImage3.setTag(R.drawable.koopa_troopa);
-                        break;
-                    case "Lakitu":
-                        charImage3.setImageResource(R.drawable.lakitu);
-                        charImage3.setTag(R.drawable.lakitu);
-                        break;
-                    case "Larry":
-                        charImage3.setImageResource(R.drawable.larry);
-                        charImage3.setTag(R.drawable.larry);
-                        break;
-                    case "Lemmy":
-                        charImage3.setImageResource(R.drawable.lemmy);
-                        charImage3.setTag(R.drawable.lemmy);
-                        break;
-                    case "Link (BOTW)":
-                        charImage3.setImageResource(R.drawable.link_botw);
-                        charImage3.setTag(R.drawable.link_botw);
-                        break;
-                    case "Link (Classic)":
-                        charImage3.setImageResource(R.drawable.link_classic);
-                        charImage3.setTag(R.drawable.link_classic);
-                        break;
-                    case "Ludwig":
-                        charImage3.setImageResource(R.drawable.ludwig);
-                        charImage3.setTag(R.drawable.ludwig);
-                        break;
-                    case "Luigi":
-                        charImage3.setImageResource(R.drawable.luigi);
-                        charImage3.setTag(R.drawable.luigi);
-                        break;
-                    case "Mario":
-                        charImage3.setImageResource(R.drawable.mario);
-                        charImage3.setTag(R.drawable.mario);
-                        break;
-                    case "Metal Mario (Metal)":
-                        charImage3.setImageResource(R.drawable.metal_mario);
-                        charImage3.setTag(R.drawable.metal_mario);
-                        break;
-                    case "Mii":
-                        charImage3.setImageResource(R.drawable.mii);
-                        charImage3.setTag(R.drawable.mii);
-                        break;
-                    case "Morton":
-                        charImage3.setImageResource(R.drawable.morton);
-                        charImage3.setTag(R.drawable.morton);
-                        break;
-                    case "Peach":
-                        charImage3.setImageResource(R.drawable.peach);
-                        charImage3.setTag(R.drawable.peach);
-                        break;
-                    case "Pink Gold Peach":
-                        charImage3.setImageResource(R.drawable.pink_gold_peach);
-                        charImage3.setTag(R.drawable.pink_gold_peach);
-                        break;
-                    case "Rosalina":
-                        charImage3.setImageResource(R.drawable.rosalina);
-                        charImage3.setTag(R.drawable.rosalina);
-                        break;
-                    case "Roy":
-                        charImage3.setImageResource(R.drawable.roy);
-                        charImage3.setTag(R.drawable.roy);
-                        break;
-                    case "Shy Guy (Black)":
-                        charImage3.setImageResource(R.drawable.shyguy_black);
-                        charImage3.setTag(R.drawable.shyguy_black);
-                        break;
-                    case "Shy Guy (Dark Blue)":
-                        charImage3.setImageResource(R.drawable.shyguy_darkblue);
-                        charImage3.setTag(R.drawable.shyguy_darkblue);
-                        break;
-                    case "Shy Guy (Green)":
-                        charImage3.setImageResource(R.drawable.shyguy_green);
-                        charImage3.setTag(R.drawable.shyguy_green);
-                        break;
-                    case "Shy Guy (Light Blue)":
-                        charImage3.setImageResource(R.drawable.shyguy_lightblue);
-                        charImage3.setTag(R.drawable.shyguy_lightblue);
-                        break;
-                    case "Shy Guy (Orange)":
-                        charImage3.setImageResource(R.drawable.shyguy_orange);
-                        charImage3.setTag(R.drawable.shyguy_orange);
-                        break;
-                    case "Shy Guy (Pink)":
-                        charImage3.setImageResource(R.drawable.shyguy_pink);
-                        charImage3.setTag(R.drawable.shyguy_pink);
-                        break;
-                    case "Shy Guy (Red)":
-                        charImage3.setImageResource(R.drawable.shyguy_red);
-                        charImage3.setTag(R.drawable.shyguy_red);
-                        break;
-                    case "Shy Guy (White)":
-                        charImage3.setImageResource(R.drawable.shyguy_white);
-                        charImage3.setTag(R.drawable.shyguy_white);
-                        break;
-                    case "Shy Guy (Yellow)":
-                        charImage3.setImageResource(R.drawable.shyguy_yellow);
-                        charImage3.setTag(R.drawable.shyguy_yellow);
-                        break;
-                    case "Tanooki Mario":
-                        charImage3.setImageResource(R.drawable.tanooki_mario);
-                        charImage3.setTag(R.drawable.tanooki_mario);
-                        break;
-                    case "Toad":
-                        charImage3.setImageResource(R.drawable.toad);
-                        charImage3.setTag(R.drawable.toad);
-                        break;
-                    case "Toadette":
-                        charImage3.setImageResource(R.drawable.toadette);
-                        charImage3.setTag(R.drawable.toadette);
-                        break;
-                    case "Villager (B)":
-                        charImage3.setImageResource(R.drawable.villager_boy);
-                        charImage3.setTag(R.drawable.villager_boy);
-                        break;
-                    case "Villager (G)":
-                        charImage3.setImageResource(R.drawable.villager_girl);
-                        charImage3.setTag(R.drawable.villager_girl);
-                        break;
-                    case "Waluigi":
-                        charImage3.setImageResource(R.drawable.waluigi);
-                        charImage3.setTag(R.drawable.waluigi);
-                        break;
-                    case "Wario":
-                        charImage3.setImageResource(R.drawable.wario);
-                        charImage3.setTag(R.drawable.wario);
-                        break;
-                    case "Wendy":
-                        charImage3.setImageResource(R.drawable.wendy);
-                        charImage3.setTag(R.drawable.wendy);
-                        break;
-                    case "Yoshi (Black)":
-                        charImage3.setImageResource(R.drawable.yoshi_black);
-                        charImage3.setTag(R.drawable.yoshi_black);
-                        break;
-                    case "Yoshi (Dark Blue)":
-                        charImage3.setImageResource(R.drawable.yoshi_darkblue);
-                        charImage3.setTag(R.drawable.yoshi_darkblue);
-                        break;
-                    case "Yoshi (Green)":
-                        charImage3.setImageResource(R.drawable.yoshi_green);
-                        charImage3.setTag(R.drawable.yoshi_green);
-                        break;
-                    case "Yoshi (Light Blue)":
-                        charImage3.setImageResource(R.drawable.yoshi_lightblue);
-                        charImage3.setTag(R.drawable.yoshi_lightblue);
-                        break;
-                    case "Yoshi (Orange)":
-                        charImage3.setImageResource(R.drawable.yoshi_orange);
-                        charImage3.setTag(R.drawable.yoshi_orange);
-                        break;
-                    case "Yoshi (Pink)":
-                        charImage3.setImageResource(R.drawable.yoshi_pink);
-                        charImage3.setTag(R.drawable.yoshi_pink);
-                        break;
-                    case "Yoshi (Red)":
-                        charImage3.setImageResource(R.drawable.yoshi_red);
-                        charImage3.setTag(R.drawable.yoshi_red);
-                        break;
-                    case "Yoshi (White)":
-                        charImage3.setImageResource(R.drawable.yoshi_white);
-                        charImage3.setTag(R.drawable.yoshi_white);
-                        break;
-                    case "Yoshi (Yellow)":
-                        charImage3.setImageResource(R.drawable.yoshi_yellow);
-                        charImage3.setTag(R.drawable.yoshi_yellow);
-                        break;
-                    default:
-                        charImage3.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 2:
-                ImageView charImage2 = findViewById(R.id.bikes_charImage2);
-                String randChar2 = randCharacter();
-                if (randChar2.equals("Yoshi") || randChar2.equals("Shy Guy") || randChar2.equals("Metal Mario") || randChar2.equals("Link") || randChar2.equals("Inkling Boy") || randChar2.equals("Inkling Girl"))
-                    randChar2 = setColor(randChar2);
-
-                switch (randChar2) {
-                    case "Baby Daisy":
-                        charImage2.setImageResource(R.drawable.baby_daisy);
-                        charImage2.setTag(R.drawable.baby_daisy);
-                        break;
-                    case "Baby Luigi":
-                        charImage2.setImageResource(R.drawable.baby_luigi);
-                        charImage2.setTag(R.drawable.baby_luigi);
-                        break;
-                    case "Baby Mario":
-                        charImage2.setImageResource(R.drawable.baby_mario);
-                        charImage2.setTag(R.drawable.baby_mario);
-                        break;
-                    case "Baby Peach":
-                        charImage2.setImageResource(R.drawable.baby_peach);
-                        charImage2.setTag(R.drawable.baby_peach);
-                        break;
-                    case "Baby Rosalina":
-                        charImage2.setImageResource(R.drawable.baby_rosalina);
-                        charImage2.setTag(R.drawable.baby_rosalina);
-                        break;
-                    case "Bowser":
-                        charImage2.setImageResource(R.drawable.bowser);
-                        charImage2.setTag(R.drawable.bowser);
-                        break;
-                    case "Bowser Jr.":
-                        charImage2.setImageResource(R.drawable.bowser_jr);
-                        charImage2.setTag(R.drawable.bowser_jr);
-                        break;
-                    case "Cat Peach":
-                        charImage2.setImageResource(R.drawable.cat_peach);
-                        charImage2.setTag(R.drawable.cat_peach);
-                        break;
-                    case "Daisy":
-                        charImage2.setImageResource(R.drawable.daisy);
-                        charImage2.setTag(R.drawable.daisy);
-                        break;
-                    case "Donkey Kong":
-                        charImage2.setImageResource(R.drawable.donkey_kong);
-                        charImage2.setTag(R.drawable.donkey_kong);
-                        break;
-                    case "Dry Bones":
-                        charImage2.setImageResource(R.drawable.dry_bones);
-                        charImage2.setTag(R.drawable.dry_bones);
-                        break;
-                    case "Dry Bowser":
-                        charImage2.setImageResource(R.drawable.dry_bowser);
-                        charImage2.setTag(R.drawable.dry_bowser);
-                        break;
-                    case "Metal Mario (Gold)":
-                        charImage2.setImageResource(R.drawable.gold_mario);
-                        charImage2.setTag(R.drawable.gold_mario);
-                        break;
-                    case "Iggy":
-                        charImage2.setImageResource(R.drawable.iggy);
-                        charImage2.setTag(R.drawable.iggy);
-                        break;
-                    case "Inkling Boy (Dark Blue)":
-                        charImage2.setImageResource(R.drawable.inkling_boy_darkblue);
-                        charImage2.setTag(R.drawable.inkling_boy_darkblue);
-                        break;
-                    case "Inkling Boy (Light Blue)":
-                        charImage2.setImageResource(R.drawable.inkling_boy_lightblue);
-                        charImage2.setTag(R.drawable.inkling_boy_lightblue);
-                        break;
-                    case "Inkling Boy (Purple)":
-                        charImage2.setImageResource(R.drawable.inkling_boy_purple);
-                        charImage2.setTag(R.drawable.inkling_boy_purple);
-                        break;
-                    case "Inkling Girl (Green)":
-                        charImage2.setImageResource(R.drawable.inkling_girl_green);
-                        charImage2.setTag(R.drawable.inkling_girl_green);
-                        break;
-                    case "Inkling Girl (Orange)":
-                        charImage2.setImageResource(R.drawable.inkling_girl_orange);
-                        charImage2.setTag(R.drawable.inkling_girl_orange);
-                        break;
-                    case "Inkling Girl (Pink)":
-                        charImage2.setImageResource(R.drawable.inkling_girl_pink);
-                        charImage2.setTag(R.drawable.inkling_girl_pink);
-                        break;
-                    case "Isabelle":
-                        charImage2.setImageResource(R.drawable.isabelle);
-                        charImage2.setTag(R.drawable.isabelle);
-                        break;
-                    case "King Boo":
-                        charImage2.setImageResource(R.drawable.king_boo);
-                        charImage2.setTag(R.drawable.king_boo);
-                        break;
-                    case "Koopa Troopa":
-                        charImage2.setImageResource(R.drawable.koopa_troopa);
-                        charImage2.setTag(R.drawable.koopa_troopa);
-                        break;
-                    case "Lakitu":
-                        charImage2.setImageResource(R.drawable.lakitu);
-                        charImage2.setTag(R.drawable.lakitu);
-                        break;
-                    case "Larry":
-                        charImage2.setImageResource(R.drawable.larry);
-                        charImage2.setTag(R.drawable.larry);
-                        break;
-                    case "Lemmy":
-                        charImage2.setImageResource(R.drawable.lemmy);
-                        charImage2.setTag(R.drawable.lemmy);
-                        break;
-                    case "Link (BOTW)":
-                        charImage2.setImageResource(R.drawable.link_botw);
-                        charImage2.setTag(R.drawable.link_botw);
-                        break;
-                    case "Link (Classic)":
-                        charImage2.setImageResource(R.drawable.link_classic);
-                        charImage2.setTag(R.drawable.link_classic);
-                        break;
-                    case "Ludwig":
-                        charImage2.setImageResource(R.drawable.ludwig);
-                        charImage2.setTag(R.drawable.ludwig);
-                        break;
-                    case "Luigi":
-                        charImage2.setImageResource(R.drawable.luigi);
-                        charImage2.setTag(R.drawable.luigi);
-                        break;
-                    case "Mario":
-                        charImage2.setImageResource(R.drawable.mario);
-                        charImage2.setTag(R.drawable.mario);
-                        break;
-                    case "Metal Mario (Metal)":
-                        charImage2.setImageResource(R.drawable.metal_mario);
-                        charImage2.setTag(R.drawable.metal_mario);
-                        break;
-                    case "Mii":
-                        charImage2.setImageResource(R.drawable.mii);
-                        charImage2.setTag(R.drawable.mii);
-                        break;
-                    case "Morton":
-                        charImage2.setImageResource(R.drawable.morton);
-                        charImage2.setTag(R.drawable.morton);
-                        break;
-                    case "Peach":
-                        charImage2.setImageResource(R.drawable.peach);
-                        charImage2.setTag(R.drawable.peach);
-                        break;
-                    case "Pink Gold Peach":
-                        charImage2.setImageResource(R.drawable.pink_gold_peach);
-                        charImage2.setTag(R.drawable.pink_gold_peach);
-                        break;
-                    case "Rosalina":
-                        charImage2.setImageResource(R.drawable.rosalina);
-                        charImage2.setTag(R.drawable.rosalina);
-                        break;
-                    case "Roy":
-                        charImage2.setImageResource(R.drawable.roy);
-                        charImage2.setTag(R.drawable.roy);
-                        break;
-                    case "Shy Guy (Black)":
-                        charImage2.setImageResource(R.drawable.shyguy_black);
-                        charImage2.setTag(R.drawable.shyguy_black);
-                        break;
-                    case "Shy Guy (Dark Blue)":
-                        charImage2.setImageResource(R.drawable.shyguy_darkblue);
-                        charImage2.setTag(R.drawable.shyguy_darkblue);
-                        break;
-                    case "Shy Guy (Green)":
-                        charImage2.setImageResource(R.drawable.shyguy_green);
-                        charImage2.setTag(R.drawable.shyguy_green);
-                        break;
-                    case "Shy Guy (Light Blue)":
-                        charImage2.setImageResource(R.drawable.shyguy_lightblue);
-                        charImage2.setTag(R.drawable.shyguy_lightblue);
-                        break;
-                    case "Shy Guy (Orange)":
-                        charImage2.setImageResource(R.drawable.shyguy_orange);
-                        charImage2.setTag(R.drawable.shyguy_orange);
-                        break;
-                    case "Shy Guy (Pink)":
-                        charImage2.setImageResource(R.drawable.shyguy_pink);
-                        charImage2.setTag(R.drawable.shyguy_pink);
-                        break;
-                    case "Shy Guy (Red)":
-                        charImage2.setImageResource(R.drawable.shyguy_red);
-                        charImage2.setTag(R.drawable.shyguy_red);
-                        break;
-                    case "Shy Guy (White)":
-                        charImage2.setImageResource(R.drawable.shyguy_white);
-                        charImage2.setTag(R.drawable.shyguy_white);
-                        break;
-                    case "Shy Guy (Yellow)":
-                        charImage2.setImageResource(R.drawable.shyguy_yellow);
-                        charImage2.setTag(R.drawable.shyguy_yellow);
-                        break;
-                    case "Tanooki Mario":
-                        charImage2.setImageResource(R.drawable.tanooki_mario);
-                        charImage2.setTag(R.drawable.tanooki_mario);
-                        break;
-                    case "Toad":
-                        charImage2.setImageResource(R.drawable.toad);
-                        charImage2.setTag(R.drawable.toad);
-                        break;
-                    case "Toadette":
-                        charImage2.setImageResource(R.drawable.toadette);
-                        charImage2.setTag(R.drawable.toadette);
-                        break;
-                    case "Villager (B)":
-                        charImage2.setImageResource(R.drawable.villager_boy);
-                        charImage2.setTag(R.drawable.villager_boy);
-                        break;
-                    case "Villager (G)":
-                        charImage2.setImageResource(R.drawable.villager_girl);
-                        charImage2.setTag(R.drawable.villager_girl);
-                        break;
-                    case "Waluigi":
-                        charImage2.setImageResource(R.drawable.waluigi);
-                        charImage2.setTag(R.drawable.waluigi);
-                        break;
-                    case "Wario":
-                        charImage2.setImageResource(R.drawable.wario);
-                        charImage2.setTag(R.drawable.wario);
-                        break;
-                    case "Wendy":
-                        charImage2.setImageResource(R.drawable.wendy);
-                        charImage2.setTag(R.drawable.wendy);
-                        break;
-                    case "Yoshi (Black)":
-                        charImage2.setImageResource(R.drawable.yoshi_black);
-                        charImage2.setTag(R.drawable.yoshi_black);
-                        break;
-                    case "Yoshi (Dark Blue)":
-                        charImage2.setImageResource(R.drawable.yoshi_darkblue);
-                        charImage2.setTag(R.drawable.yoshi_darkblue);
-                        break;
-                    case "Yoshi (Green)":
-                        charImage2.setImageResource(R.drawable.yoshi_green);
-                        charImage2.setTag(R.drawable.yoshi_green);
-                        break;
-                    case "Yoshi (Light Blue)":
-                        charImage2.setImageResource(R.drawable.yoshi_lightblue);
-                        charImage2.setTag(R.drawable.yoshi_lightblue);
-                        break;
-                    case "Yoshi (Orange)":
-                        charImage2.setImageResource(R.drawable.yoshi_orange);
-                        charImage2.setTag(R.drawable.yoshi_orange);
-                        break;
-                    case "Yoshi (Pink)":
-                        charImage2.setImageResource(R.drawable.yoshi_pink);
-                        charImage2.setTag(R.drawable.yoshi_pink);
-                        break;
-                    case "Yoshi (Red)":
-                        charImage2.setImageResource(R.drawable.yoshi_red);
-                        charImage2.setTag(R.drawable.yoshi_red);
-                        break;
-                    case "Yoshi (White)":
-                        charImage2.setImageResource(R.drawable.yoshi_white);
-                        charImage2.setTag(R.drawable.yoshi_white);
-                        break;
-                    case "Yoshi (Yellow)":
-                        charImage2.setImageResource(R.drawable.yoshi_yellow);
-                        charImage2.setTag(R.drawable.yoshi_yellow);
-                        break;
-                    default:
-                        charImage2.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 1:
-                ImageView charImage = findViewById(R.id.bikes_charImage1);
-                String randChar = randCharacter();
-                if (randChar.equals("Yoshi") || randChar.equals("Shy Guy") || randChar.equals("Metal Mario") || randChar.equals("Link") || randChar.equals("Inkling Boy") || randChar.equals("Inkling Girl"))
-                    randChar = setColor(randChar);
-
-                switch (randChar) {
-                    case "Baby Daisy":
-                        charImage.setImageResource(R.drawable.baby_daisy);
-                        charImage.setTag(R.drawable.baby_daisy);
-                        break;
-                    case "Baby Luigi":
-                        charImage.setImageResource(R.drawable.baby_luigi);
-                        charImage.setTag(R.drawable.baby_luigi);
-                        break;
-                    case "Baby Mario":
-                        charImage.setImageResource(R.drawable.baby_mario);
-                        charImage.setTag(R.drawable.baby_mario);
-                        break;
-                    case "Baby Peach":
-                        charImage.setImageResource(R.drawable.baby_peach);
-                        charImage.setTag(R.drawable.baby_peach);
-                        break;
-                    case "Baby Rosalina":
-                        charImage.setImageResource(R.drawable.baby_rosalina);
-                        charImage.setTag(R.drawable.baby_rosalina);
-                        break;
-                    case "Bowser":
-                        charImage.setImageResource(R.drawable.bowser);
-                        charImage.setTag(R.drawable.bowser);
-                        break;
-                    case "Bowser Jr.":
-                        charImage.setImageResource(R.drawable.bowser_jr);
-                        charImage.setTag(R.drawable.bowser_jr);
-                        break;
-                    case "Cat Peach":
-                        charImage.setImageResource(R.drawable.cat_peach);
-                        charImage.setTag(R.drawable.cat_peach);
-                        break;
-                    case "Daisy":
-                        charImage.setImageResource(R.drawable.daisy);
-                        charImage.setTag(R.drawable.daisy);
-                        break;
-                    case "Donkey Kong":
-                        charImage.setImageResource(R.drawable.donkey_kong);
-                        charImage.setTag(R.drawable.donkey_kong);
-                        break;
-                    case "Dry Bones":
-                        charImage.setImageResource(R.drawable.dry_bones);
-                        charImage.setTag(R.drawable.dry_bones);
-                        break;
-                    case "Dry Bowser":
-                        charImage.setImageResource(R.drawable.dry_bowser);
-                        charImage.setTag(R.drawable.dry_bowser);
-                        break;
-                    case "Metal Mario (Gold)":
-                        charImage.setImageResource(R.drawable.gold_mario);
-                        charImage.setTag(R.drawable.gold_mario);
-                        break;
-                    case "Iggy":
-                        charImage.setImageResource(R.drawable.iggy);
-                        charImage.setTag(R.drawable.iggy);
-                        break;
-                    case "Inkling Boy (Dark Blue)":
-                        charImage.setImageResource(R.drawable.inkling_boy_darkblue);
-                        charImage.setTag(R.drawable.inkling_boy_darkblue);
-                        break;
-                    case "Inkling Boy (Light Blue)":
-                        charImage.setImageResource(R.drawable.inkling_boy_lightblue);
-                        charImage.setTag(R.drawable.inkling_boy_lightblue);
-                        break;
-                    case "Inkling Boy (Purple)":
-                        charImage.setImageResource(R.drawable.inkling_boy_purple);
-                        charImage.setTag(R.drawable.inkling_boy_purple);
-                        break;
-                    case "Inkling Girl (Green)":
-                        charImage.setImageResource(R.drawable.inkling_girl_green);
-                        charImage.setTag(R.drawable.inkling_girl_green);
-                        break;
-                    case "Inkling Girl (Orange)":
-                        charImage.setImageResource(R.drawable.inkling_girl_orange);
-                        charImage.setTag(R.drawable.inkling_girl_orange);
-                        break;
-                    case "Inkling Girl (Pink)":
-                        charImage.setImageResource(R.drawable.inkling_girl_pink);
-                        charImage.setTag(R.drawable.inkling_girl_pink);
-                        break;
-                    case "Isabelle":
-                        charImage.setImageResource(R.drawable.isabelle);
-                        charImage.setTag(R.drawable.isabelle);
-                        break;
-                    case "King Boo":
-                        charImage.setImageResource(R.drawable.king_boo);
-                        charImage.setTag(R.drawable.king_boo);
-                        break;
-                    case "Koopa Troopa":
-                        charImage.setImageResource(R.drawable.koopa_troopa);
-                        charImage.setTag(R.drawable.koopa_troopa);
-                        break;
-                    case "Lakitu":
-                        charImage.setImageResource(R.drawable.lakitu);
-                        charImage.setTag(R.drawable.lakitu);
-                        break;
-                    case "Larry":
-                        charImage.setImageResource(R.drawable.larry);
-                        charImage.setTag(R.drawable.larry);
-                        break;
-                    case "Lemmy":
-                        charImage.setImageResource(R.drawable.lemmy);
-                        charImage.setTag(R.drawable.lemmy);
-                        break;
-                    case "Link (BOTW)":
-                        charImage.setImageResource(R.drawable.link_botw);
-                        charImage.setTag(R.drawable.link_botw);
-                        break;
-                    case "Link (Classic)":
-                        charImage.setImageResource(R.drawable.link_classic);
-                        charImage.setTag(R.drawable.link_classic);
-                        break;
-                    case "Ludwig":
-                        charImage.setImageResource(R.drawable.ludwig);
-                        charImage.setTag(R.drawable.ludwig);
-                        break;
-                    case "Luigi":
-                        charImage.setImageResource(R.drawable.luigi);
-                        charImage.setTag(R.drawable.luigi);
-                        break;
-                    case "Mario":
-                        charImage.setImageResource(R.drawable.mario);
-                        charImage.setTag(R.drawable.mario);
-                        break;
-                    case "Metal Mario (Metal)":
-                        charImage.setImageResource(R.drawable.metal_mario);
-                        charImage.setTag(R.drawable.metal_mario);
-                        break;
-                    case "Mii":
-                        charImage.setImageResource(R.drawable.mii);
-                        charImage.setTag(R.drawable.mii);
-                        break;
-                    case "Morton":
-                        charImage.setImageResource(R.drawable.morton);
-                        charImage.setTag(R.drawable.morton);
-                        break;
-                    case "Peach":
-                        charImage.setImageResource(R.drawable.peach);
-                        charImage.setTag(R.drawable.peach);
-                        break;
-                    case "Pink Gold Peach":
-                        charImage.setImageResource(R.drawable.pink_gold_peach);
-                        charImage.setTag(R.drawable.pink_gold_peach);
-                        break;
-                    case "Rosalina":
-                        charImage.setImageResource(R.drawable.rosalina);
-                        charImage.setTag(R.drawable.rosalina);
-                        break;
-                    case "Roy":
-                        charImage.setImageResource(R.drawable.roy);
-                        charImage.setTag(R.drawable.roy);
-                        break;
-                    case "Shy Guy (Black)":
-                        charImage.setImageResource(R.drawable.shyguy_black);
-                        charImage.setTag(R.drawable.shyguy_black);
-                        break;
-                    case "Shy Guy (Dark Blue)":
-                        charImage.setImageResource(R.drawable.shyguy_darkblue);
-                        charImage.setTag(R.drawable.shyguy_darkblue);
-                        break;
-                    case "Shy Guy (Green)":
-                        charImage.setImageResource(R.drawable.shyguy_green);
-                        charImage.setTag(R.drawable.shyguy_green);
-                        break;
-                    case "Shy Guy (Light Blue)":
-                        charImage.setImageResource(R.drawable.shyguy_lightblue);
-                        charImage.setTag(R.drawable.shyguy_lightblue);
-                        break;
-                    case "Shy Guy (Orange)":
-                        charImage.setImageResource(R.drawable.shyguy_orange);
-                        charImage.setTag(R.drawable.shyguy_orange);
-                        break;
-                    case "Shy Guy (Pink)":
-                        charImage.setImageResource(R.drawable.shyguy_pink);
-                        charImage.setTag(R.drawable.shyguy_pink);
-                        break;
-                    case "Shy Guy (Red)":
-                        charImage.setImageResource(R.drawable.shyguy_red);
-                        charImage.setTag(R.drawable.shyguy_red);
-                        break;
-                    case "Shy Guy (White)":
-                        charImage.setImageResource(R.drawable.shyguy_white);
-                        charImage.setTag(R.drawable.shyguy_white);
-                        break;
-                    case "Shy Guy (Yellow)":
-                        charImage.setImageResource(R.drawable.shyguy_yellow);
-                        charImage.setTag(R.drawable.shyguy_yellow);
-                        break;
-                    case "Tanooki Mario":
-                        charImage.setImageResource(R.drawable.tanooki_mario);
-                        charImage.setTag(R.drawable.tanooki_mario);
-                        break;
-                    case "Toad":
-                        charImage.setImageResource(R.drawable.toad);
-                        charImage.setTag(R.drawable.toad);
-                        break;
-                    case "Toadette":
-                        charImage.setImageResource(R.drawable.toadette);
-                        charImage.setTag(R.drawable.toadette);
-                        break;
-                    case "Villager (B)":
-                        charImage.setImageResource(R.drawable.villager_boy);
-                        charImage.setTag(R.drawable.villager_boy);
-                        break;
-                    case "Villager (G)":
-                        charImage.setImageResource(R.drawable.villager_girl);
-                        charImage.setTag(R.drawable.villager_girl);
-                        break;
-                    case "Waluigi":
-                        charImage.setImageResource(R.drawable.waluigi);
-                        charImage.setTag(R.drawable.waluigi);
-                        break;
-                    case "Wario":
-                        charImage.setImageResource(R.drawable.wario);
-                        charImage.setTag(R.drawable.wario);
-                        break;
-                    case "Wendy":
-                        charImage.setImageResource(R.drawable.wendy);
-                        charImage.setTag(R.drawable.wendy);
-                        break;
-                    case "Yoshi (Black)":
-                        charImage.setImageResource(R.drawable.yoshi_black);
-                        charImage.setTag(R.drawable.yoshi_black);
-                        break;
-                    case "Yoshi (Dark Blue)":
-                        charImage.setImageResource(R.drawable.yoshi_darkblue);
-                        charImage.setTag(R.drawable.yoshi_darkblue);
-                        break;
-                    case "Yoshi (Green)":
-                        charImage.setImageResource(R.drawable.yoshi_green);
-                        charImage.setTag(R.drawable.yoshi_green);
-                        break;
-                    case "Yoshi (Light Blue)":
-                        charImage.setImageResource(R.drawable.yoshi_lightblue);
-                        charImage.setTag(R.drawable.yoshi_lightblue);
-                        break;
-                    case "Yoshi (Orange)":
-                        charImage.setImageResource(R.drawable.yoshi_orange);
-                        charImage.setTag(R.drawable.yoshi_orange);
-                        break;
-                    case "Yoshi (Pink)":
-                        charImage.setImageResource(R.drawable.yoshi_pink);
-                        charImage.setTag(R.drawable.yoshi_pink);
-                        break;
-                    case "Yoshi (Red)":
-                        charImage.setImageResource(R.drawable.yoshi_red);
-                        charImage.setTag(R.drawable.yoshi_red);
-                        break;
-                    case "Yoshi (White)":
-                        charImage.setImageResource(R.drawable.yoshi_white);
-                        charImage.setTag(R.drawable.yoshi_white);
-                        break;
-                    case "Yoshi (Yellow)":
-                        charImage.setImageResource(R.drawable.yoshi_yellow);
-                        charImage.setTag(R.drawable.yoshi_yellow);
-                        break;
-                    default:
-                        charImage.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            default:
-                // shouldn't be here
+        for(int i = playerNumber; i >= 1; i--) {
+            String randChar = randCharacter();
+            if (randChar.equals("Yoshi") || randChar.equals("Shy Guy")
+                    || randChar.equals("Metal Mario") || randChar.equals("Link")
+                    || randChar.equals("Inkling Boy") || randChar.equals("Inkling Girl")) {
+                randChar = setColor(randChar);
+            }
+            switch (randChar) {
+                case "Baby Daisy":
+                    arr[i - 1].setImageResource(R.drawable.baby_daisy);
+                    arr[i - 1].setTag(R.drawable.baby_daisy);
+                    break;
+                case "Baby Luigi":
+                    arr[i - 1].setImageResource(R.drawable.baby_luigi);
+                    arr[i - 1].setTag(R.drawable.baby_luigi);
+                    break;
+                case "Baby Mario":
+                    arr[i - 1].setImageResource(R.drawable.baby_mario);
+                    arr[i - 1].setTag(R.drawable.baby_mario);
+                    break;
+                case "Baby Peach":
+                    arr[i - 1].setImageResource(R.drawable.baby_peach);
+                    arr[i - 1].setTag(R.drawable.baby_peach);
+                    break;
+                case "Baby Rosalina":
+                    arr[i - 1].setImageResource(R.drawable.baby_rosalina);
+                    arr[i - 1].setTag(R.drawable.baby_rosalina);
+                    break;
+                case "Bowser":
+                    arr[i - 1].setImageResource(R.drawable.bowser);
+                    arr[i - 1].setTag(R.drawable.bowser);
+                    break;
+                case "Bowser Jr.":
+                    arr[i - 1].setImageResource(R.drawable.bowser_jr);
+                    arr[i - 1].setTag(R.drawable.bowser_jr);
+                    break;
+                case "Cat Peach":
+                    arr[i - 1].setImageResource(R.drawable.cat_peach);
+                    arr[i - 1].setTag(R.drawable.cat_peach);
+                    break;
+                case "Daisy":
+                    arr[i - 1].setImageResource(R.drawable.daisy);
+                    arr[i - 1].setTag(R.drawable.daisy);
+                    break;
+                case "Donkey Kong":
+                    arr[i - 1].setImageResource(R.drawable.donkey_kong);
+                    arr[i - 1].setTag(R.drawable.donkey_kong);
+                    break;
+                case "Dry Bones":
+                    arr[i - 1].setImageResource(R.drawable.dry_bones);
+                    arr[i - 1].setTag(R.drawable.dry_bones);
+                    break;
+                case "Dry Bowser":
+                    arr[i - 1].setImageResource(R.drawable.dry_bowser);
+                    arr[i - 1].setTag(R.drawable.dry_bowser);
+                    break;
+                case "Metal Mario (Gold)":
+                    arr[i - 1].setImageResource(R.drawable.gold_mario);
+                    arr[i - 1].setTag(R.drawable.gold_mario);
+                    break;
+                case "Iggy":
+                    arr[i - 1].setImageResource(R.drawable.iggy);
+                    arr[i - 1].setTag(R.drawable.iggy);
+                    break;
+                case "Inkling Boy (Dark Blue)":
+                    arr[i - 1].setImageResource(R.drawable.inkling_boy_darkblue);
+                    arr[i - 1].setTag(R.drawable.inkling_boy_darkblue);
+                    break;
+                case "Inkling Boy (Light Blue)":
+                    arr[i - 1].setImageResource(R.drawable.inkling_boy_lightblue);
+                    arr[i - 1].setTag(R.drawable.inkling_boy_lightblue);
+                    break;
+                case "Inkling Boy (Purple)":
+                    arr[i - 1].setImageResource(R.drawable.inkling_boy_purple);
+                    arr[i - 1].setTag(R.drawable.inkling_boy_purple);
+                    break;
+                case "Inkling Girl (Green)":
+                    arr[i - 1].setImageResource(R.drawable.inkling_girl_green);
+                    arr[i - 1].setTag(R.drawable.inkling_girl_green);
+                    break;
+                case "Inkling Girl (Orange)":
+                    arr[i - 1].setImageResource(R.drawable.inkling_girl_orange);
+                    arr[i - 1].setTag(R.drawable.inkling_girl_orange);
+                    break;
+                case "Inkling Girl (Pink)":
+                    arr[i - 1].setImageResource(R.drawable.inkling_girl_pink);
+                    arr[i - 1].setTag(R.drawable.inkling_girl_pink);
+                    break;
+                case "Isabelle":
+                    arr[i - 1].setImageResource(R.drawable.isabelle);
+                    arr[i - 1].setTag(R.drawable.isabelle);
+                    break;
+                case "King Boo":
+                    arr[i - 1].setImageResource(R.drawable.king_boo);
+                    arr[i - 1].setTag(R.drawable.king_boo);
+                    break;
+                case "Koopa Troopa":
+                    arr[i - 1].setImageResource(R.drawable.koopa_troopa);
+                    arr[i - 1].setTag(R.drawable.koopa_troopa);
+                    break;
+                case "Lakitu":
+                    arr[i - 1].setImageResource(R.drawable.lakitu);
+                    arr[i - 1].setTag(R.drawable.lakitu);
+                    break;
+                case "Larry":
+                    arr[i - 1].setImageResource(R.drawable.larry);
+                    arr[i - 1].setTag(R.drawable.larry);
+                    break;
+                case "Lemmy":
+                    arr[i - 1].setImageResource(R.drawable.lemmy);
+                    arr[i - 1].setTag(R.drawable.lemmy);
+                    break;
+                case "Link (BOTW)":
+                    arr[i - 1].setImageResource(R.drawable.link_botw);
+                    arr[i - 1].setTag(R.drawable.link_botw);
+                    break;
+                case "Link (Classic)":
+                    arr[i - 1].setImageResource(R.drawable.link_classic);
+                    arr[i - 1].setTag(R.drawable.link_classic);
+                    break;
+                case "Ludwig":
+                    arr[i - 1].setImageResource(R.drawable.ludwig);
+                    arr[i - 1].setTag(R.drawable.ludwig);
+                    break;
+                case "Luigi":
+                    arr[i - 1].setImageResource(R.drawable.luigi);
+                    arr[i - 1].setTag(R.drawable.luigi);
+                    break;
+                case "Mario":
+                    arr[i - 1].setImageResource(R.drawable.mario);
+                    arr[i - 1].setTag(R.drawable.mario);
+                    break;
+                case "Metal Mario (Metal)":
+                    arr[i - 1].setImageResource(R.drawable.metal_mario);
+                    arr[i - 1].setTag(R.drawable.metal_mario);
+                    break;
+                case "Mii":
+                    arr[i - 1].setImageResource(R.drawable.mii);
+                    arr[i - 1].setTag(R.drawable.mii);
+                    break;
+                case "Morton":
+                    arr[i - 1].setImageResource(R.drawable.morton);
+                    arr[i - 1].setTag(R.drawable.morton);
+                    break;
+                case "Peach":
+                    arr[i - 1].setImageResource(R.drawable.peach);
+                    arr[i - 1].setTag(R.drawable.peach);
+                    break;
+                case "Pink Gold Peach":
+                    arr[i - 1].setImageResource(R.drawable.pink_gold_peach);
+                    arr[i - 1].setTag(R.drawable.pink_gold_peach);
+                    break;
+                case "Rosalina":
+                    arr[i - 1].setImageResource(R.drawable.rosalina);
+                    arr[i - 1].setTag(R.drawable.rosalina);
+                    break;
+                case "Roy":
+                    arr[i - 1].setImageResource(R.drawable.roy);
+                    arr[i - 1].setTag(R.drawable.roy);
+                    break;
+                case "Shy Guy (Black)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_black);
+                    arr[i - 1].setTag(R.drawable.shyguy_black);
+                    break;
+                case "Shy Guy (Dark Blue)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_darkblue);
+                    arr[i - 1].setTag(R.drawable.shyguy_darkblue);
+                    break;
+                case "Shy Guy (Green)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_green);
+                    arr[i - 1].setTag(R.drawable.shyguy_green);
+                    break;
+                case "Shy Guy (Light Blue)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_lightblue);
+                    arr[i - 1].setTag(R.drawable.shyguy_lightblue);
+                    break;
+                case "Shy Guy (Orange)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_orange);
+                    arr[i - 1].setTag(R.drawable.shyguy_orange);
+                    break;
+                case "Shy Guy (Pink)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_pink);
+                    arr[i - 1].setTag(R.drawable.shyguy_pink);
+                    break;
+                case "Shy Guy (Red)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_red);
+                    arr[i - 1].setTag(R.drawable.shyguy_red);
+                    break;
+                case "Shy Guy (White)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_white);
+                    arr[i - 1].setTag(R.drawable.shyguy_white);
+                    break;
+                case "Shy Guy (Yellow)":
+                    arr[i - 1].setImageResource(R.drawable.shyguy_yellow);
+                    arr[i - 1].setTag(R.drawable.shyguy_yellow);
+                    break;
+                case "Tanooki Mario":
+                    arr[i - 1].setImageResource(R.drawable.tanooki_mario);
+                    arr[i - 1].setTag(R.drawable.tanooki_mario);
+                    break;
+                case "Toad":
+                    arr[i - 1].setImageResource(R.drawable.toad);
+                    arr[i - 1].setTag(R.drawable.toad);
+                    break;
+                case "Toadette":
+                    arr[i - 1].setImageResource(R.drawable.toadette);
+                    arr[i - 1].setTag(R.drawable.toadette);
+                    break;
+                case "Villager (B)":
+                    arr[i - 1].setImageResource(R.drawable.villager_boy);
+                    arr[i - 1].setTag(R.drawable.villager_boy);
+                    break;
+                case "Villager (G)":
+                    arr[i - 1].setImageResource(R.drawable.villager_girl);
+                    arr[i - 1].setTag(R.drawable.villager_girl);
+                    break;
+                case "Waluigi":
+                    arr[i - 1].setImageResource(R.drawable.waluigi);
+                    arr[i - 1].setTag(R.drawable.waluigi);
+                    break;
+                case "Wario":
+                    arr[i - 1].setImageResource(R.drawable.wario);
+                    arr[i - 1].setTag(R.drawable.wario);
+                    break;
+                case "Wendy":
+                    arr[i - 1].setImageResource(R.drawable.wendy);
+                    arr[i - 1].setTag(R.drawable.wendy);
+                    break;
+                case "Yoshi (Black)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_black);
+                    arr[i - 1].setTag(R.drawable.yoshi_black);
+                    break;
+                case "Yoshi (Dark Blue)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_darkblue);
+                    arr[i - 1].setTag(R.drawable.yoshi_darkblue);
+                    break;
+                case "Yoshi (Green)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_green);
+                    arr[i - 1].setTag(R.drawable.yoshi_green);
+                    break;
+                case "Yoshi (Light Blue)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_lightblue);
+                    arr[i - 1].setTag(R.drawable.yoshi_lightblue);
+                    break;
+                case "Yoshi (Orange)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_orange);
+                    arr[i - 1].setTag(R.drawable.yoshi_orange);
+                    break;
+                case "Yoshi (Pink)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_pink);
+                    arr[i - 1].setTag(R.drawable.yoshi_pink);
+                    break;
+                case "Yoshi (Red)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_red);
+                    arr[i - 1].setTag(R.drawable.yoshi_red);
+                    break;
+                case "Yoshi (White)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_white);
+                    arr[i - 1].setTag(R.drawable.yoshi_white);
+                    break;
+                case "Yoshi (Yellow)":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_yellow);
+                    arr[i - 1].setTag(R.drawable.yoshi_yellow);
+                    break;
+                default:
+                    arr[i - 1].setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
+            }
         }
     }
 
@@ -1282,225 +519,196 @@ public class DisplayRandomBikes extends AppCompatActivity {
      *
      * @param playerNumber is the number of characters that need randomized frames
      */
-    private void setFrameImage(int playerNumber) {
-        switch (playerNumber) {
-            case 4:
-                ImageView frameImage4 = findViewById(R.id.bikes_frameImage4);
-                String randFrame4 = randFrame();
+    private void setFrameImage(int playerNumber, String frameType) {
+        ImageView frameImage1 = findViewById(R.id.bikes_frameImage1);
+        ImageView frameImage2 = findViewById(R.id.bikes_frameImage2);
+        ImageView frameImage3 = findViewById(R.id.bikes_frameImage3);
+        ImageView frameImage4 = findViewById(R.id.bikes_frameImage4);
+        ImageView[] arr = {frameImage1, frameImage2, frameImage3, frameImage4};
 
-                switch (randFrame4) {
-                    case "Standard Bike":
-                        frameImage4.setImageResource(R.drawable.standard_bike);
-                        frameImage4.setTag(R.drawable.standard_bike);
-                        break;
-                    case "The Duke":
-                        frameImage4.setImageResource(R.drawable.the_duke);
-                        frameImage4.setTag(R.drawable.the_duke);
-                        break;
-                    case "Flame Rider":
-                        frameImage4.setImageResource(R.drawable.flame_rider);
-                        frameImage4.setTag(R.drawable.flame_rider);
-                        break;
-                    case "Varmint":
-                        frameImage4.setImageResource(R.drawable.varmint);
-                        frameImage4.setTag(R.drawable.varmint);
-                        break;
-                    case "Mr. Scooty":
-                        frameImage4.setImageResource(R.drawable.mr_scooty);
-                        frameImage4.setTag(R.drawable.mr_scooty);
-                        break;
-                    case "City Tripper":
-                        frameImage4.setImageResource(R.drawable.city_tripper);
-                        frameImage4.setTag(R.drawable.city_tripper);
-                        break;
-                    case "Master Cycle Zero":
-                        frameImage4.setImageResource(R.drawable.master_cycle_zero);
-                        frameImage4.setTag(R.drawable.master_cycle_zero);
-                        break;
-                    case "Comet":
-                        frameImage4.setImageResource(R.drawable.comet);
-                        frameImage4.setTag(R.drawable.comet);
-                        break;
-                    case "Sport Bike":
-                        frameImage4.setImageResource(R.drawable.sports_bike);
-                        frameImage4.setTag(R.drawable.sports_bike);
-                        break;
-                    case "Jet Bike":
-                        frameImage4.setImageResource(R.drawable.jet_bike);
-                        frameImage4.setTag(R.drawable.jet_bike);
-                        break;
-                    case "Master Cycle":
-                        frameImage4.setImageResource(R.drawable.master_cycle);
-                        frameImage4.setTag(R.drawable.master_cycle);
-                        break;
-                    case "Yoshi Bike":
-                        frameImage4.setImageResource(R.drawable.yoshi_bike);
-                        frameImage4.setTag(R.drawable.yoshi_bike);
-                        break;
-                }
-            case 3:
-                ImageView frameImage3 = findViewById(R.id.bikes_frameImage3);
-                String randFrame3 = randFrame();
-
-                switch (randFrame3) {
-                    case "Standard Bike":
-                        frameImage3.setImageResource(R.drawable.standard_bike);
-                        frameImage3.setTag(R.drawable.standard_bike);
-                        break;
-                    case "The Duke":
-                        frameImage3.setImageResource(R.drawable.the_duke);
-                        frameImage3.setTag(R.drawable.the_duke);
-                        break;
-                    case "Flame Rider":
-                        frameImage3.setImageResource(R.drawable.flame_rider);
-                        frameImage3.setTag(R.drawable.flame_rider);
-                        break;
-                    case "Varmint":
-                        frameImage3.setImageResource(R.drawable.varmint);
-                        frameImage3.setTag(R.drawable.varmint);
-                        break;
-                    case "Mr. Scooty":
-                        frameImage3.setImageResource(R.drawable.mr_scooty);
-                        frameImage3.setTag(R.drawable.mr_scooty);
-                        break;
-                    case "City Tripper":
-                        frameImage3.setImageResource(R.drawable.city_tripper);
-                        frameImage3.setTag(R.drawable.city_tripper);
-                        break;
-                    case "Master Cycle Zero":
-                        frameImage3.setImageResource(R.drawable.master_cycle_zero);
-                        frameImage3.setTag(R.drawable.master_cycle_zero);
-                        break;
-                    case "Comet":
-                        frameImage3.setImageResource(R.drawable.comet);
-                        frameImage3.setTag(R.drawable.comet);
-                        break;
-                    case "Sport Bike":
-                        frameImage3.setImageResource(R.drawable.sports_bike);
-                        frameImage3.setTag(R.drawable.sports_bike);
-                        break;
-                    case "Jet Bike":
-                        frameImage3.setImageResource(R.drawable.jet_bike);
-                        frameImage3.setTag(R.drawable.jet_bike);
-                        break;
-                    case "Master Cycle":
-                        frameImage3.setImageResource(R.drawable.master_cycle);
-                        frameImage3.setTag(R.drawable.master_cycle);
-                        break;
-                    case "Yoshi Bike":
-                        frameImage3.setImageResource(R.drawable.yoshi_bike);
-                        frameImage3.setTag(R.drawable.yoshi_bike);
-                        break;
-                }
-            case 2:
-                ImageView frameImage2 = findViewById(R.id.bikes_frameImage2);
-                String randFrame2 = randFrame();
-                switch (randFrame2) {
-                    case "Standard Bike":
-                        frameImage2.setImageResource(R.drawable.standard_bike);
-                        frameImage2.setTag(R.drawable.standard_bike);
-                        break;
-                    case "The Duke":
-                        frameImage2.setImageResource(R.drawable.the_duke);
-                        frameImage2.setTag(R.drawable.the_duke);
-                        break;
-                    case "Flame Rider":
-                        frameImage2.setImageResource(R.drawable.flame_rider);
-                        frameImage2.setTag(R.drawable.flame_rider);
-                        break;
-                    case "Varmint":
-                        frameImage2.setImageResource(R.drawable.varmint);
-                        frameImage2.setTag(R.drawable.varmint);
-                        break;
-                    case "Mr. Scooty":
-                        frameImage2.setImageResource(R.drawable.mr_scooty);
-                        frameImage2.setTag(R.drawable.mr_scooty);
-                        break;
-                    case "City Tripper":
-                        frameImage2.setImageResource(R.drawable.city_tripper);
-                        frameImage2.setTag(R.drawable.city_tripper);
-                        break;
-                    case "Master Cycle Zero":
-                        frameImage2.setImageResource(R.drawable.master_cycle_zero);
-                        frameImage2.setTag(R.drawable.master_cycle_zero);
-                        break;
-                    case "Comet":
-                        frameImage2.setImageResource(R.drawable.comet);
-                        frameImage2.setTag(R.drawable.comet);
-                        break;
-                    case "Sport Bike":
-                        frameImage2.setImageResource(R.drawable.sports_bike);
-                        frameImage2.setTag(R.drawable.sports_bike);
-                        break;
-                    case "Jet Bike":
-                        frameImage2.setImageResource(R.drawable.jet_bike);
-                        frameImage2.setTag(R.drawable.jet_bike);
-                        break;
-                    case "Master Cycle":
-                        frameImage2.setImageResource(R.drawable.master_cycle);
-                        frameImage2.setTag(R.drawable.master_cycle);
-                        break;
-                    case "Yoshi Bike":
-                        frameImage2.setImageResource(R.drawable.yoshi_bike);
-                        frameImage2.setTag(R.drawable.yoshi_bike);
-                        break;
-                }
-            case 1:
-                ImageView frameImage1 = findViewById(R.id.bikes_frameImage1);
-                String randFrame1 = randFrame();
-                switch (randFrame1) {
-                    case "Standard Bike":
-                        frameImage1.setImageResource(R.drawable.standard_bike);
-                        frameImage1.setTag(R.drawable.standard_bike);
-                        break;
-                    case "The Duke":
-                        frameImage1.setImageResource(R.drawable.the_duke);
-                        frameImage1.setTag(R.drawable.the_duke);
-                        break;
-                    case "Flame Rider":
-                        frameImage1.setImageResource(R.drawable.flame_rider);
-                        frameImage1.setTag(R.drawable.flame_rider);
-                        break;
-                    case "Varmint":
-                        frameImage1.setImageResource(R.drawable.varmint);
-                        frameImage1.setTag(R.drawable.varmint);
-                        break;
-                    case "Mr. Scooty":
-                        frameImage1.setImageResource(R.drawable.mr_scooty);
-                        frameImage1.setTag(R.drawable.mr_scooty);
-                        break;
-                    case "City Tripper":
-                        frameImage1.setImageResource(R.drawable.city_tripper);
-                        frameImage1.setTag(R.drawable.city_tripper);
-                        break;
-                    case "Master Cycle Zero":
-                        frameImage1.setImageResource(R.drawable.master_cycle_zero);
-                        frameImage1.setTag(R.drawable.master_cycle_zero);
-                        break;
-                    case "Comet":
-                        frameImage1.setImageResource(R.drawable.comet);
-                        frameImage1.setTag(R.drawable.comet);
-                        break;
-                    case "Sport Bike":
-                        frameImage1.setImageResource(R.drawable.sports_bike);
-                        frameImage1.setTag(R.drawable.sports_bike);
-                        break;
-                    case "Jet Bike":
-                        frameImage1.setImageResource(R.drawable.jet_bike);
-                        frameImage1.setTag(R.drawable.jet_bike);
-                        break;
-                    case "Master Cycle":
-                        frameImage1.setImageResource(R.drawable.master_cycle);
-                        frameImage1.setTag(R.drawable.master_cycle);
-                        break;
-                    case "Yoshi Bike":
-                        frameImage1.setImageResource(R.drawable.yoshi_bike);
-                        frameImage1.setTag(R.drawable.yoshi_bike);
-                        break;
-                }
-                break;
-            default:
-                // shouldn't be here
+        String randFrame;
+        for(int i = playerNumber; i >= 1; i--) {
+            switch(frameType) {
+                case "Bike":
+                    randFrame = randBikeFrame();
+                    break;
+                case "Kart":
+                    randFrame = randKartFrame();
+                    break;
+                case "All":
+                    randFrame = randAllFrame();
+                    break;
+                default:
+                    randFrame = randAllFrame();
+            }
+            switch (randFrame) {
+                case "Standard Kart":
+                    arr[i - 1].setImageResource(R.drawable.standard_kart);
+                    arr[i - 1].setTag(R.drawable.standard_kart);
+                    break;
+                case "Pipe Frame":
+                    arr[i - 1].setImageResource(R.drawable.pipe_frame);
+                    arr[i - 1].setTag(R.drawable.pipe_frame);
+                    break;
+                case "Mach 8":
+                    arr[i - 1].setImageResource(R.drawable.mach_8);
+                    arr[i - 1].setTag(R.drawable.mach_8);
+                    break;
+                case "Steel Driver":
+                    arr[i - 1].setImageResource(R.drawable.steel_driver);
+                    arr[i - 1].setTag(R.drawable.steel_driver);
+                    break;
+                case "Cat Cruiser":
+                    arr[i - 1].setImageResource(R.drawable.cat_cruiser);
+                    arr[i - 1].setTag(R.drawable.cat_cruiser);
+                    break;
+                case "Circuit Special":
+                    arr[i - 1].setImageResource(R.drawable.circuit_special);
+                    arr[i - 1].setTag(R.drawable.circuit_special);
+                    break;
+                case "Tri-Speeder":
+                    arr[i - 1].setImageResource(R.drawable.trispeeder);
+                    arr[i - 1].setTag(R.drawable.trispeeder);
+                    break;
+                case "Badwagon":
+                    arr[i - 1].setImageResource(R.drawable.badwagon);
+                    arr[i - 1].setTag(R.drawable.badwagon);
+                    break;
+                case "Prancer":
+                    arr[i - 1].setImageResource(R.drawable.prancer);
+                    arr[i - 1].setTag(R.drawable.prancer);
+                    break;
+                case "Biddybuggy":
+                    arr[i - 1].setImageResource(R.drawable.biddybuggy);
+                    arr[i - 1].setTag(R.drawable.biddybuggy);
+                    break;
+                case "Landship":
+                    arr[i - 1].setImageResource(R.drawable.landship);
+                    arr[i - 1].setTag(R.drawable.landship);
+                    break;
+                case "Sneeker":
+                    arr[i - 1].setImageResource(R.drawable.sneeker);
+                    arr[i - 1].setTag(R.drawable.sneeker);
+                    break;
+                case "Sports Coupe":
+                    arr[i - 1].setImageResource(R.drawable.sports_coupe);
+                    arr[i - 1].setTag(R.drawable.sports_coupe);
+                    break;
+                case "Gold Standard":
+                    arr[i - 1].setImageResource(R.drawable.gold_standard);
+                    arr[i - 1].setTag(R.drawable.gold_standard);
+                    break;
+                case "GLA":
+                    arr[i - 1].setImageResource(R.drawable.gla);
+                    arr[i - 1].setTag(R.drawable.gla);
+                    break;
+                case "W 25 Silver Arrow":
+                    arr[i - 1].setImageResource(R.drawable.silver_arrow);
+                    arr[i - 1].setTag(R.drawable.silver_arrow);
+                    break;
+                case "300 SL Roadster":
+                    arr[i - 1].setImageResource(R.drawable.roadster);
+                    arr[i - 1].setTag(R.drawable.roadster);
+                    break;
+                case "Blue Falcon":
+                    arr[i - 1].setImageResource(R.drawable.blue_falcon);
+                    arr[i - 1].setTag(R.drawable.blue_falcon);
+                    break;
+                case "Tanooki Kart":
+                    arr[i - 1].setImageResource(R.drawable.tanooki_kart);
+                    arr[i - 1].setTag(R.drawable.tanooki_kart);
+                    break;
+                case "B Dasher":
+                    arr[i - 1].setImageResource(R.drawable.b_dasher);
+                    arr[i - 1].setTag(R.drawable.b_dasher);
+                    break;
+                case "Streetle":
+                    arr[i - 1].setImageResource(R.drawable.streetle);
+                    arr[i - 1].setTag(R.drawable.streetle);
+                    break;
+                case "P-Wing":
+                    arr[i - 1].setImageResource(R.drawable.p_wing);
+                    arr[i - 1].setTag(R.drawable.p_wing);
+                    break;
+                case "Koopa Clown":
+                    arr[i - 1].setImageResource(R.drawable.koopa_clown);
+                    arr[i - 1].setTag(R.drawable.koopa_clown);
+                    break;
+                case "Standard Bike":
+                    arr[i - 1].setImageResource(R.drawable.standard_bike);
+                    arr[i - 1].setTag(R.drawable.standard_bike);
+                    break;
+                case "The Duke":
+                    arr[i - 1].setImageResource(R.drawable.the_duke);
+                    arr[i - 1].setTag(R.drawable.the_duke);
+                    break;
+                case "Flame Rider":
+                    arr[i - 1].setImageResource(R.drawable.flame_rider);
+                    arr[i - 1].setTag(R.drawable.flame_rider);
+                    break;
+                case "Varmint":
+                    arr[i - 1].setImageResource(R.drawable.varmint);
+                    arr[i - 1].setTag(R.drawable.varmint);
+                    break;
+                case "Mr. Scooty":
+                    arr[i - 1].setImageResource(R.drawable.mr_scooty);
+                    arr[i - 1].setTag(R.drawable.mr_scooty);
+                    break;
+                case "City Tripper":
+                    arr[i - 1].setImageResource(R.drawable.city_tripper);
+                    arr[i - 1].setTag(R.drawable.city_tripper);
+                    break;
+                case "Master Cycle Zero":
+                    arr[i - 1].setImageResource(R.drawable.master_cycle_zero);
+                    arr[i - 1].setTag(R.drawable.master_cycle_zero);
+                    break;
+                case "Comet":
+                    arr[i - 1].setImageResource(R.drawable.comet);
+                    arr[i - 1].setTag(R.drawable.comet);
+                    break;
+                case "Sports Bike":
+                    arr[i - 1].setImageResource(R.drawable.sports_bike);
+                    arr[i - 1].setTag(R.drawable.sports_bike);
+                    break;
+                case "Jet Bike":
+                    arr[i - 1].setImageResource(R.drawable.jet_bike);
+                    arr[i - 1].setTag(R.drawable.jet_bike);
+                    break;
+                case "Master Cycle":
+                    arr[i - 1].setImageResource(R.drawable.master_cycle);
+                    arr[i - 1].setTag(R.drawable.master_cycle);
+                    break;
+                case "Yoshi Bike":
+                    arr[i - 1].setImageResource(R.drawable.yoshi_bike);
+                    arr[i - 1].setTag(R.drawable.yoshi_bike);
+                    break;
+                case "Standard ATV":
+                    arr[i - 1].setImageResource(R.drawable.standard_atv);
+                    arr[i - 1].setTag(R.drawable.standard_atv);
+                    break;
+                case "Wild Wiggler":
+                    arr[i - 1].setImageResource(R.drawable.wild_wiggler);
+                    arr[i - 1].setTag(R.drawable.wild_wiggler);
+                    break;
+                case "Teddy Buggy":
+                    arr[i - 1].setImageResource(R.drawable.teddy_buggy);
+                    arr[i - 1].setTag(R.drawable.teddy_buggy);
+                    break;
+                case "Bone Rattler":
+                    arr[i - 1].setImageResource(R.drawable.bone_rattler);
+                    arr[i - 1].setTag(R.drawable.bone_rattler);
+                    break;
+                case "Splat Buggy":
+                    arr[i - 1].setImageResource(R.drawable.splat_buggy);
+                    arr[i - 1].setTag(R.drawable.splat_buggy);
+                    break;
+                case "Inkstriker":
+                    arr[i - 1].setImageResource(R.drawable.inkstriker);
+                    arr[i - 1].setTag(R.drawable.inkstriker);
+                    break;
+                default:
+                    arr[i - 1].setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
+            }
         }
     }
 
@@ -1510,676 +718,188 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized wheels
      */
     private void setWheelImage(int playerNumber) {
-        switch (playerNumber) {
-            case 4:
-                ImageView wheelImage4 = findViewById(R.id.bikes_wheelImage4);
-                String randWheel4 = randWheels();
+        ImageView wheelImage1 = findViewById(R.id.bikes_wheelImage1);
+        ImageView wheelImage2 = findViewById(R.id.bikes_wheelImage2);
+        ImageView wheelImage3 = findViewById(R.id.bikes_wheelImage3);
+        ImageView wheelImage4 = findViewById(R.id.bikes_wheelImage4);
+        ImageView[] arr = {wheelImage1, wheelImage2, wheelImage3, wheelImage4};
 
-                switch (randWheel4) {
-                    case "Standard Wheels":
-                        wheelImage4.setImageResource(R.drawable.standard_tires);
-                        wheelImage4.setTag(R.drawable.standard_tires);
-                        break;
-                    case "Monster Wheels":
-                        wheelImage4.setImageResource(R.drawable.monster_tires);
-                        wheelImage4.setTag(R.drawable.monster_tires);
-                        break;
-                    case "Roller Wheels":
-                        wheelImage4.setImageResource(R.drawable.roller_tires);
-                        wheelImage4.setTag(R.drawable.roller_tires);
-                        break;
-                    case "Slim Wheels":
-                        wheelImage4.setImageResource(R.drawable.slim_tires);
-                        wheelImage4.setTag(R.drawable.slim_tires);
-                        break;
-                    case "Slick Wheels":
-                        wheelImage4.setImageResource(R.drawable.slick_tires);
-                        wheelImage4.setTag(R.drawable.slick_tires);
-                        break;
-                    case "Metal Wheels":
-                        wheelImage4.setImageResource(R.drawable.metal_tires);
-                        wheelImage4.setTag(R.drawable.metal_tires);
-                        break;
-                    case "Button Wheels":
-                        wheelImage4.setImageResource(R.drawable.button_tires);
-                        wheelImage4.setTag(R.drawable.button_tires);
-                        break;
-                    case "Off-Road Wheels":
-                        wheelImage4.setImageResource(R.drawable.off_road);
-                        wheelImage4.setTag(R.drawable.off_road);
-                        break;
-                    case "Sponge Wheels":
-                        wheelImage4.setImageResource(R.drawable.sponge_tires);
-                        wheelImage4.setTag(R.drawable.sponge_tires);
-                        break;
-                    case "Wood Wheels":
-                        wheelImage4.setImageResource(R.drawable.wood_tires);
-                        wheelImage4.setTag(R.drawable.wood_tires);
-                        break;
-                    case "Cushion Wheels":
-                        wheelImage4.setImageResource(R.drawable.cushion_tires);
-                        wheelImage4.setTag(R.drawable.cushion_tires);
-                        break;
-                    case "Blue Standard Wheels":
-                        wheelImage4.setImageResource(R.drawable.blue_standard_tires);
-                        wheelImage4.setTag(R.drawable.blue_standard_tires);
-                        break;
-                    case "Hot Monster Wheels":
-                        wheelImage4.setImageResource(R.drawable.hot_monster_tires);
-                        wheelImage4.setTag(R.drawable.hot_monster_tires);
-                        break;
-                    case "Azure Roller Wheels":
-                        wheelImage4.setImageResource(R.drawable.azure_rollers);
-                        wheelImage4.setTag(R.drawable.azure_rollers);
-                        break;
-                    case "Crimson Slim Wheels":
-                        wheelImage4.setImageResource(R.drawable.crimson_slim_tires);
-                        wheelImage4.setTag(R.drawable.crimson_slim_tires);
-                        break;
-                    case "Cyber Slick Wheels":
-                        wheelImage4.setImageResource(R.drawable.cyber_slick_tires);
-                        wheelImage4.setTag(R.drawable.cyber_slick_tires);
-                        break;
-                    case "Retro Off-Road Wheels":
-                        wheelImage4.setImageResource(R.drawable.retro_off_road);
-                        wheelImage4.setTag(R.drawable.retro_off_road);
-                        break;
-                    case "Gold Tires":
-                        wheelImage4.setImageResource(R.drawable.gold_tires);
-                        wheelImage4.setTag(R.drawable.gold_tires);
-                        break;
-                    case "GLA Tires":
-                        wheelImage4.setImageResource(R.drawable.gla_tires);
-                        wheelImage4.setTag(R.drawable.gla_tires);
-                        break;
-                    case "Triforce Tires":
-                        wheelImage4.setImageResource(R.drawable.triforce_tires);
-                        wheelImage4.setTag(R.drawable.triforce_tires);
-                        break;
-                    case "Leaf Tires":
-                        wheelImage4.setImageResource(R.drawable.leaf_tires);
-                        wheelImage4.setTag(R.drawable.leaf_tires);
-                        break;
-                    case "Ancient Tires":
-                        wheelImage4.setImageResource(R.drawable.ancient_tires);
-                        wheelImage4.setTag(R.drawable.ancient_tires);
-                        break;
-                    default:
-                        wheelImage4.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 3:
-                ImageView wheelImage3 = findViewById(R.id.bikes_wheelImage3);
-                String randWheel3 = randWheels();
-
-                switch (randWheel3) {
-                    case "Standard Wheels":
-                        wheelImage3.setImageResource(R.drawable.standard_tires);
-                        wheelImage3.setTag(R.drawable.standard_tires);
-                        break;
-                    case "Monster Wheels":
-                        wheelImage3.setImageResource(R.drawable.monster_tires);
-                        wheelImage3.setTag(R.drawable.monster_tires);
-                        break;
-                    case "Roller Wheels":
-                        wheelImage3.setImageResource(R.drawable.roller_tires);
-                        wheelImage3.setTag(R.drawable.roller_tires);
-                        break;
-                    case "Slim Wheels":
-                        wheelImage3.setImageResource(R.drawable.slim_tires);
-                        wheelImage3.setTag(R.drawable.slim_tires);
-                        break;
-                    case "Slick Wheels":
-                        wheelImage3.setImageResource(R.drawable.slick_tires);
-                        wheelImage3.setTag(R.drawable.slick_tires);
-                        break;
-                    case "Metal Wheels":
-                        wheelImage3.setImageResource(R.drawable.metal_tires);
-                        wheelImage3.setTag(R.drawable.metal_tires);
-                        break;
-                    case "Button Wheels":
-                        wheelImage3.setImageResource(R.drawable.button_tires);
-                        wheelImage3.setTag(R.drawable.button_tires);
-                        break;
-                    case "Off-Road Wheels":
-                        wheelImage3.setImageResource(R.drawable.off_road);
-                        wheelImage3.setTag(R.drawable.off_road);
-                        break;
-                    case "Sponge Wheels":
-                        wheelImage3.setImageResource(R.drawable.sponge_tires);
-                        wheelImage3.setTag(R.drawable.sponge_tires);
-                        break;
-                    case "Wood Wheels":
-                        wheelImage3.setImageResource(R.drawable.wood_tires);
-                        wheelImage3.setTag(R.drawable.wood_tires);
-                        break;
-                    case "Cushion Wheels":
-                        wheelImage3.setImageResource(R.drawable.cushion_tires);
-                        wheelImage3.setTag(R.drawable.cushion_tires);
-                        break;
-                    case "Blue Standard Wheels":
-                        wheelImage3.setImageResource(R.drawable.blue_standard_tires);
-                        wheelImage3.setTag(R.drawable.blue_standard_tires);
-                        break;
-                    case "Hot Monster Wheels":
-                        wheelImage3.setImageResource(R.drawable.hot_monster_tires);
-                        wheelImage3.setTag(R.drawable.hot_monster_tires);
-                        break;
-                    case "Azure Roller Wheels":
-                        wheelImage3.setImageResource(R.drawable.azure_rollers);
-                        wheelImage3.setTag(R.drawable.azure_rollers);
-                        break;
-                    case "Crimson Slim Wheels":
-                        wheelImage3.setImageResource(R.drawable.crimson_slim_tires);
-                        wheelImage3.setTag(R.drawable.crimson_slim_tires);
-                        break;
-                    case "Cyber Slick Wheels":
-                        wheelImage3.setImageResource(R.drawable.cyber_slick_tires);
-                        wheelImage3.setTag(R.drawable.cyber_slick_tires);
-                        break;
-                    case "Retro Off-Road Wheels":
-                        wheelImage3.setImageResource(R.drawable.retro_off_road);
-                        wheelImage3.setTag(R.drawable.retro_off_road);
-                        break;
-                    case "Gold Tires":
-                        wheelImage3.setImageResource(R.drawable.gold_tires);
-                        wheelImage3.setTag(R.drawable.gold_tires);
-                        break;
-                    case "GLA Tires":
-                        wheelImage3.setImageResource(R.drawable.gla_tires);
-                        wheelImage3.setTag(R.drawable.gla_tires);
-                        break;
-                    case "Triforce Tires":
-                        wheelImage3.setImageResource(R.drawable.triforce_tires);
-                        wheelImage3.setTag(R.drawable.triforce_tires);
-                        break;
-                    case "Leaf Tires":
-                        wheelImage3.setImageResource(R.drawable.leaf_tires);
-                        wheelImage3.setTag(R.drawable.leaf_tires);
-                        break;
-                    case "Ancient Tires":
-                        wheelImage3.setImageResource(R.drawable.ancient_tires);
-                        wheelImage3.setTag(R.drawable.ancient_tires);
-                        break;
-                    default:
-                        wheelImage3.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 2:
-                ImageView wheelImage2 = findViewById(R.id.bikes_wheelImage2);
-                String randWheel2 = randWheels();
-                switch (randWheel2) {
-                    case "Standard Wheels":
-                        wheelImage2.setImageResource(R.drawable.standard_tires);
-                        wheelImage2.setTag(R.drawable.standard_tires);
-                        break;
-                    case "Monster Wheels":
-                        wheelImage2.setImageResource(R.drawable.monster_tires);
-                        wheelImage2.setTag(R.drawable.monster_tires);
-                        break;
-                    case "Roller Wheels":
-                        wheelImage2.setImageResource(R.drawable.roller_tires);
-                        wheelImage2.setTag(R.drawable.roller_tires);
-                        break;
-                    case "Slim Wheels":
-                        wheelImage2.setImageResource(R.drawable.slim_tires);
-                        wheelImage2.setTag(R.drawable.slim_tires);
-                        break;
-                    case "Slick Wheels":
-                        wheelImage2.setImageResource(R.drawable.slick_tires);
-                        wheelImage2.setTag(R.drawable.slick_tires);
-                        break;
-                    case "Metal Wheels":
-                        wheelImage2.setImageResource(R.drawable.metal_tires);
-                        wheelImage2.setTag(R.drawable.metal_tires);
-                        break;
-                    case "Button Wheels":
-                        wheelImage2.setImageResource(R.drawable.button_tires);
-                        wheelImage2.setTag(R.drawable.button_tires);
-                        break;
-                    case "Off-Road Wheels":
-                        wheelImage2.setImageResource(R.drawable.off_road);
-                        wheelImage2.setTag(R.drawable.off_road);
-                        break;
-                    case "Sponge Wheels":
-                        wheelImage2.setImageResource(R.drawable.sponge_tires);
-                        wheelImage2.setTag(R.drawable.sponge_tires);
-                        break;
-                    case "Wood Wheels":
-                        wheelImage2.setImageResource(R.drawable.wood_tires);
-                        wheelImage2.setTag(R.drawable.wood_tires);
-                        break;
-                    case "Cushion Wheels":
-                        wheelImage2.setImageResource(R.drawable.cushion_tires);
-                        wheelImage2.setTag(R.drawable.cushion_tires);
-                        break;
-                    case "Blue Standard Wheels":
-                        wheelImage2.setImageResource(R.drawable.blue_standard_tires);
-                        wheelImage2.setTag(R.drawable.blue_standard_tires);
-                        break;
-                    case "Hot Monster Wheels":
-                        wheelImage2.setImageResource(R.drawable.hot_monster_tires);
-                        wheelImage2.setTag(R.drawable.hot_monster_tires);
-                        break;
-                    case "Azure Roller Wheels":
-                        wheelImage2.setImageResource(R.drawable.azure_rollers);
-                        wheelImage2.setTag(R.drawable.azure_rollers);
-                        break;
-                    case "Crimson Slim Wheels":
-                        wheelImage2.setImageResource(R.drawable.crimson_slim_tires);
-                        wheelImage2.setTag(R.drawable.crimson_slim_tires);
-                        break;
-                    case "Cyber Slick Wheels":
-                        wheelImage2.setImageResource(R.drawable.cyber_slick_tires);
-                        wheelImage2.setTag(R.drawable.cyber_slick_tires);
-                        break;
-                    case "Retro Off-Road Wheels":
-                        wheelImage2.setImageResource(R.drawable.retro_off_road);
-                        wheelImage2.setTag(R.drawable.retro_off_road);
-                        break;
-                    case "Gold Tires":
-                        wheelImage2.setImageResource(R.drawable.gold_tires);
-                        wheelImage2.setTag(R.drawable.gold_tires);
-                        break;
-                    case "GLA Tires":
-                        wheelImage2.setImageResource(R.drawable.gla_tires);
-                        wheelImage2.setTag(R.drawable.gla_tires);
-                        break;
-                    case "Triforce Tires":
-                        wheelImage2.setImageResource(R.drawable.triforce_tires);
-                        wheelImage2.setTag(R.drawable.triforce_tires);
-                        break;
-                    case "Leaf Tires":
-                        wheelImage2.setImageResource(R.drawable.leaf_tires);
-                        wheelImage2.setTag(R.drawable.leaf_tires);
-                        break;
-                    case "Ancient Tires":
-                        wheelImage2.setImageResource(R.drawable.ancient_tires);
-                        wheelImage2.setTag(R.drawable.ancient_tires);
-                        break;
-                    default:
-                        wheelImage2.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 1:
-                ImageView wheelImage1 = findViewById(R.id.bikes_wheelImage1);
-                String randWheel1 = randWheels();
-                switch (randWheel1) {
-                    case "Standard Wheels":
-                        wheelImage1.setImageResource(R.drawable.standard_tires);
-                        wheelImage1.setTag(R.drawable.standard_tires);
-                        break;
-                    case "Monster Wheels":
-                        wheelImage1.setImageResource(R.drawable.monster_tires);
-                        wheelImage1.setTag(R.drawable.monster_tires);
-                        break;
-                    case "Roller Wheels":
-                        wheelImage1.setImageResource(R.drawable.roller_tires);
-                        wheelImage1.setTag(R.drawable.roller_tires);
-                        break;
-                    case "Slim Wheels":
-                        wheelImage1.setImageResource(R.drawable.slim_tires);
-                        wheelImage1.setTag(R.drawable.slim_tires);
-                        break;
-                    case "Slick Wheels":
-                        wheelImage1.setImageResource(R.drawable.slick_tires);
-                        wheelImage1.setTag(R.drawable.slick_tires);
-                        break;
-                    case "Metal Wheels":
-                        wheelImage1.setImageResource(R.drawable.metal_tires);
-                        wheelImage1.setTag(R.drawable.metal_tires);
-                        break;
-                    case "Button Wheels":
-                        wheelImage1.setImageResource(R.drawable.button_tires);
-                        wheelImage1.setTag(R.drawable.button_tires);
-                        break;
-                    case "Off-Road Wheels":
-                        wheelImage1.setImageResource(R.drawable.off_road);
-                        wheelImage1.setTag(R.drawable.off_road);
-                        break;
-                    case "Sponge Wheels":
-                        wheelImage1.setImageResource(R.drawable.sponge_tires);
-                        wheelImage1.setTag(R.drawable.sponge_tires);
-                        break;
-                    case "Wood Wheels":
-                        wheelImage1.setImageResource(R.drawable.wood_tires);
-                        wheelImage1.setTag(R.drawable.wood_tires);
-                        break;
-                    case "Cushion Wheels":
-                        wheelImage1.setImageResource(R.drawable.cushion_tires);
-                        wheelImage1.setTag(R.drawable.cushion_tires);
-                        break;
-                    case "Blue Standard Wheels":
-                        wheelImage1.setImageResource(R.drawable.blue_standard_tires);
-                        wheelImage1.setTag(R.drawable.blue_standard_tires);
-                        break;
-                    case "Hot Monster Wheels":
-                        wheelImage1.setImageResource(R.drawable.hot_monster_tires);
-                        wheelImage1.setTag(R.drawable.hot_monster_tires);
-                        break;
-                    case "Azure Roller Wheels":
-                        wheelImage1.setImageResource(R.drawable.azure_rollers);
-                        wheelImage1.setTag(R.drawable.azure_rollers);
-                        break;
-                    case "Crimson Slim Wheels":
-                        wheelImage1.setImageResource(R.drawable.crimson_slim_tires);
-                        wheelImage1.setTag(R.drawable.crimson_slim_tires);
-                        break;
-                    case "Cyber Slick Wheels":
-                        wheelImage1.setImageResource(R.drawable.cyber_slick_tires);
-                        wheelImage1.setTag(R.drawable.cyber_slick_tires);
-                        break;
-                    case "Retro Off-Road Wheels":
-                        wheelImage1.setImageResource(R.drawable.retro_off_road);
-                        wheelImage1.setTag(R.drawable.retro_off_road);
-                        break;
-                    case "Gold Tires":
-                        wheelImage1.setImageResource(R.drawable.gold_tires);
-                        wheelImage1.setTag(R.drawable.gold_tires);
-                        break;
-                    case "GLA Tires":
-                        wheelImage1.setImageResource(R.drawable.gla_tires);
-                        wheelImage1.setTag(R.drawable.gla_tires);
-                        break;
-                    case "Triforce Tires":
-                        wheelImage1.setImageResource(R.drawable.triforce_tires);
-                        wheelImage1.setTag(R.drawable.triforce_tires);
-                        break;
-                    case "Leaf Tires":
-                        wheelImage1.setImageResource(R.drawable.leaf_tires);
-                        wheelImage1.setTag(R.drawable.leaf_tires);
-                        break;
-                    case "Ancient Tires":
-                        wheelImage1.setImageResource(R.drawable.ancient_tires);
-                        wheelImage1.setTag(R.drawable.ancient_tires);
-                        break;
-                    default:
-                        wheelImage1.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-                break;
-            default:
-                // shouldn't be here
+        for(int i = playerNumber; i >= 1; i--) {
+            String randWheel = randWheels();
+            switch (randWheel) {
+                case "Standard Wheels":
+                    arr[i - 1].setImageResource(R.drawable.standard_tires);
+                    arr[i - 1].setTag(R.drawable.standard_tires);
+                    break;
+                case "Monster Wheels":
+                    arr[i - 1].setImageResource(R.drawable.monster_tires);
+                    arr[i - 1].setTag(R.drawable.monster_tires);
+                    break;
+                case "Roller Wheels":
+                    arr[i - 1].setImageResource(R.drawable.roller_tires);
+                    arr[i - 1].setTag(R.drawable.roller_tires);
+                    break;
+                case "Slim Wheels":
+                    arr[i - 1].setImageResource(R.drawable.slim_tires);
+                    arr[i - 1].setTag(R.drawable.slim_tires);
+                    break;
+                case "Slick Wheels":
+                    arr[i - 1].setImageResource(R.drawable.slick_tires);
+                    arr[i - 1].setTag(R.drawable.slick_tires);
+                    break;
+                case "Metal Wheels":
+                    arr[i - 1].setImageResource(R.drawable.metal_tires);
+                    arr[i - 1].setTag(R.drawable.metal_tires);
+                    break;
+                case "Button Wheels":
+                    arr[i - 1].setImageResource(R.drawable.button_tires);
+                    arr[i - 1].setTag(R.drawable.button_tires);
+                    break;
+                case "Off-Road Wheels":
+                    arr[i - 1].setImageResource(R.drawable.off_road);
+                    arr[i - 1].setTag(R.drawable.off_road);
+                    break;
+                case "Sponge Wheels":
+                    arr[i - 1].setImageResource(R.drawable.sponge_tires);
+                    arr[i - 1].setTag(R.drawable.sponge_tires);
+                    break;
+                case "Wood Wheels":
+                    arr[i - 1].setImageResource(R.drawable.wood_tires);
+                    arr[i - 1].setTag(R.drawable.wood_tires);
+                    break;
+                case "Cushion Wheels":
+                    arr[i - 1].setImageResource(R.drawable.cushion_tires);
+                    arr[i - 1].setTag(R.drawable.cushion_tires);
+                    break;
+                case "Blue Standard Wheels":
+                    arr[i - 1].setImageResource(R.drawable.blue_standard_tires);
+                    arr[i - 1].setTag(R.drawable.blue_standard_tires);
+                    break;
+                case "Hot Monster Wheels":
+                    arr[i - 1].setImageResource(R.drawable.hot_monster_tires);
+                    arr[i - 1].setTag(R.drawable.hot_monster_tires);
+                    break;
+                case "Azure Roller Wheels":
+                    arr[i - 1].setImageResource(R.drawable.azure_rollers);
+                    arr[i - 1].setTag(R.drawable.azure_rollers);
+                    break;
+                case "Crimson Slim Wheels":
+                    arr[i - 1].setImageResource(R.drawable.crimson_slim_tires);
+                    arr[i - 1].setTag(R.drawable.crimson_slim_tires);
+                    break;
+                case "Cyber Slick Wheels":
+                    arr[i - 1].setImageResource(R.drawable.cyber_slick_tires);
+                    arr[i - 1].setTag(R.drawable.cyber_slick_tires);
+                    break;
+                case "Retro Off-Road Wheels":
+                    arr[i - 1].setImageResource(R.drawable.retro_off_road);
+                    arr[i - 1].setTag(R.drawable.retro_off_road);
+                    break;
+                case "Gold Tires":
+                    arr[i - 1].setImageResource(R.drawable.gold_tires);
+                    arr[i - 1].setTag(R.drawable.gold_tires);
+                    break;
+                case "GLA Tires":
+                    arr[i - 1].setImageResource(R.drawable.gla_tires);
+                    arr[i - 1].setTag(R.drawable.gla_tires);
+                    break;
+                case "Triforce Tires":
+                    arr[i - 1].setImageResource(R.drawable.triforce_tires);
+                    arr[i - 1].setTag(R.drawable.triforce_tires);
+                    break;
+                case "Leaf Tires":
+                    arr[i - 1].setImageResource(R.drawable.leaf_tires);
+                    arr[i - 1].setTag(R.drawable.leaf_tires);
+                    break;
+                case "Ancient Tires":
+                    arr[i - 1].setImageResource(R.drawable.ancient_tires);
+                    arr[i - 1].setTag(R.drawable.ancient_tires);
+                    break;
+                default:
+                    arr[i - 1].setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
+            }
         }
     }
 
     /**
-     * takes in the number of players, calls randWheels() for the necessary number of players, and sets the appropriate ImageViews to the correct image per player
+     * takes in the number of players, calls randGlider() for the necessary number of players, and sets the appropriate ImageViews to the correct image per player
      *
-     * @param playerNumber is the number of characters that need randomized wheels
+     * @param playerNumber is the number of characters that need randomized gliders
      */
     private void setGliderImage(int playerNumber) {
-        switch (playerNumber) {
-            case 4:
-                ImageView gliderImage4 = findViewById(R.id.bikes_wheelImage4);
-                String randGlider4 = randGlider();
+        ImageView gliderImage1 = findViewById(R.id.bikes_gliderImage1);
+        ImageView gliderImage2 = findViewById(R.id.bikes_gliderImage2);
+        ImageView gliderImage3 = findViewById(R.id.bikes_gliderImage3);
+        ImageView gliderImage4 = findViewById(R.id.bikes_gliderImage4);
+        ImageView[] arr = {gliderImage1, gliderImage2, gliderImage3, gliderImage4};
 
-                switch (randGlider4) {
-                    case "Super Glider":
-                        gliderImage4.setImageResource(R.drawable.super_glider);
-                        gliderImage4.setTag(R.drawable.super_glider);
-                        break;
-                    case "Cloud Glider":
-                        gliderImage4.setImageResource(R.drawable.cloud_glider);
-                        gliderImage4.setTag(R.drawable.cloud_glider);
-                        break;
-                    case "Wario Wing":
-                        gliderImage4.setImageResource(R.drawable.wario_wing);
-                        gliderImage4.setTag(R.drawable.wario_wing);
-                        break;
-                    case "Waddle Wing":
-                        gliderImage4.setImageResource(R.drawable.waddle_wing);
-                        gliderImage4.setTag(R.drawable.waddle_wing);
-                        break;
-                    case "Peach Parasol":
-                        gliderImage4.setImageResource(R.drawable.parasol);
-                        gliderImage4.setTag(R.drawable.parasol);
-                        break;
-                    case "Parachute":
-                        gliderImage4.setImageResource(R.drawable.parachute);
-                        gliderImage4.setTag(R.drawable.parachute);
-                        break;
-                    case "Parafoil":
-                        gliderImage4.setImageResource(R.drawable.parafoil);
-                        gliderImage4.setTag(R.drawable.parafoil);
-                        break;
-                    case "Flower Glider":
-                        gliderImage4.setImageResource(R.drawable.flower_glider);
-                        gliderImage4.setTag(R.drawable.flower_glider);
-                        break;
-                    case "Bowser Kite":
-                        gliderImage4.setImageResource(R.drawable.bowser_kite);
-                        gliderImage4.setTag(R.drawable.bowser_kite);
-                        break;
-                    case "Plane Glider":
-                        gliderImage4.setImageResource(R.drawable.plane_glider);
-                        gliderImage4.setTag(R.drawable.plane_glider);
-                        break;
-                    case "MKTV Parafoil":
-                        gliderImage4.setImageResource(R.drawable.mktv_parafoil);
-                        gliderImage4.setTag(R.drawable.mktv_parafoil);
-                        break;
-                    case "Gold Glider":
-                        gliderImage4.setImageResource(R.drawable.gold_glider);
-                        gliderImage4.setTag(R.drawable.gold_glider);
-                        break;
-                    case "Hylian Kite":
-                        gliderImage4.setImageResource(R.drawable.hylian_kite);
-                        gliderImage4.setTag(R.drawable.hylian_kite);
-                        break;
-                    case "Paper Glider":
-                        gliderImage4.setImageResource(R.drawable.paper_glider);
-                        gliderImage4.setTag(R.drawable.paper_glider);
-                        break;
-                    case "Paraglider":
-                        gliderImage4.setImageResource(R.drawable.paraglider);
-                        gliderImage4.setTag(R.drawable.paraglider);
-                        break;
-                    default:
-                        gliderImage4.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 3:
-                ImageView gliderImage3 = findViewById(R.id.bikes_gliderImage3);
-                String randGlider3 = randGlider();
 
-                switch (randGlider3) {
-                    case "Super Glider":
-                        gliderImage3.setImageResource(R.drawable.super_glider);
-                        gliderImage3.setTag(R.drawable.super_glider);
-                        break;
-                    case "Cloud Glider":
-                        gliderImage3.setImageResource(R.drawable.cloud_glider);
-                        gliderImage3.setTag(R.drawable.cloud_glider);
-                        break;
-                    case "Wario Wing":
-                        gliderImage3.setImageResource(R.drawable.wario_wing);
-                        gliderImage3.setTag(R.drawable.wario_wing);
-                        break;
-                    case "Waddle Wing":
-                        gliderImage3.setImageResource(R.drawable.waddle_wing);
-                        gliderImage3.setTag(R.drawable.waddle_wing);
-                        break;
-                    case "Peach Parasol":
-                        gliderImage3.setImageResource(R.drawable.parasol);
-                        gliderImage3.setTag(R.drawable.parasol);
-                        break;
-                    case "Parachute":
-                        gliderImage3.setImageResource(R.drawable.parachute);
-                        gliderImage3.setTag(R.drawable.parachute);
-                        break;
-                    case "Parafoil":
-                        gliderImage3.setImageResource(R.drawable.parafoil);
-                        gliderImage3.setTag(R.drawable.parafoil);
-                        break;
-                    case "Flower Glider":
-                        gliderImage3.setImageResource(R.drawable.flower_glider);
-                        gliderImage3.setTag(R.drawable.flower_glider);
-                        break;
-                    case "Bowser Kite":
-                        gliderImage3.setImageResource(R.drawable.bowser_kite);
-                        gliderImage3.setTag(R.drawable.bowser_kite);
-                        break;
-                    case "Plane Glider":
-                        gliderImage3.setImageResource(R.drawable.plane_glider);
-                        gliderImage3.setTag(R.drawable.plane_glider);
-                        break;
-                    case "MKTV Parafoil":
-                        gliderImage3.setImageResource(R.drawable.mktv_parafoil);
-                        gliderImage3.setTag(R.drawable.mktv_parafoil);
-                        break;
-                    case "Gold Glider":
-                        gliderImage3.setImageResource(R.drawable.gold_glider);
-                        gliderImage3.setTag(R.drawable.gold_glider);
-                        break;
-                    case "Hylian Kite":
-                        gliderImage3.setImageResource(R.drawable.hylian_kite);
-                        gliderImage3.setTag(R.drawable.hylian_kite);
-                        break;
-                    case "Paper Glider":
-                        gliderImage3.setImageResource(R.drawable.paper_glider);
-                        gliderImage3.setTag(R.drawable.paper_glider);
-                        break;
-                    case "Paraglider":
-                        gliderImage3.setImageResource(R.drawable.paraglider);
-                        gliderImage3.setTag(R.drawable.paraglider);
-                        break;
-                    default:
-                        gliderImage3.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 2:
-                ImageView gliderImage2 = findViewById(R.id.bikes_gliderImage2);
-                String randGlider2 = randGlider();
-                switch (randGlider2) {
-                    case "Standard Wheels":
-                    case "Super Glider":
-                        gliderImage2.setImageResource(R.drawable.super_glider);
-                        gliderImage2.setTag(R.drawable.super_glider);
-                        break;
-                    case "Cloud Glider":
-                        gliderImage2.setImageResource(R.drawable.cloud_glider);
-                        gliderImage2.setTag(R.drawable.cloud_glider);
-                        break;
-                    case "Wario Wing":
-                        gliderImage2.setImageResource(R.drawable.wario_wing);
-                        gliderImage2.setTag(R.drawable.wario_wing);
-                        break;
-                    case "Waddle Wing":
-                        gliderImage2.setImageResource(R.drawable.waddle_wing);
-                        gliderImage2.setTag(R.drawable.waddle_wing);
-                        break;
-                    case "Peach Parasol":
-                        gliderImage2.setImageResource(R.drawable.parasol);
-                        gliderImage2.setTag(R.drawable.parasol);
-                        break;
-                    case "Parachute":
-                        gliderImage2.setImageResource(R.drawable.parachute);
-                        gliderImage2.setTag(R.drawable.parachute);
-                        break;
-                    case "Parafoil":
-                        gliderImage2.setImageResource(R.drawable.parafoil);
-                        gliderImage2.setTag(R.drawable.parafoil);
-                        break;
-                    case "Flower Glider":
-                        gliderImage2.setImageResource(R.drawable.flower_glider);
-                        gliderImage2.setTag(R.drawable.flower_glider);
-                        break;
-                    case "Bowser Kite":
-                        gliderImage2.setImageResource(R.drawable.bowser_kite);
-                        gliderImage2.setTag(R.drawable.bowser_kite);
-                        break;
-                    case "Plane Glider":
-                        gliderImage2.setImageResource(R.drawable.plane_glider);
-                        gliderImage2.setTag(R.drawable.plane_glider);
-                        break;
-                    case "MKTV Parafoil":
-                        gliderImage2.setImageResource(R.drawable.mktv_parafoil);
-                        gliderImage2.setTag(R.drawable.mktv_parafoil);
-                        break;
-                    case "Gold Glider":
-                        gliderImage2.setImageResource(R.drawable.gold_glider);
-                        gliderImage2.setTag(R.drawable.gold_glider);
-                        break;
-                    case "Hylian Kite":
-                        gliderImage2.setImageResource(R.drawable.hylian_kite);
-                        gliderImage2.setTag(R.drawable.hylian_kite);
-                        break;
-                    case "Paper Glider":
-                        gliderImage2.setImageResource(R.drawable.paper_glider);
-                        gliderImage2.setTag(R.drawable.paper_glider);
-                        break;
-                    case "Paraglider":
-                        gliderImage2.setImageResource(R.drawable.paraglider);
-                        gliderImage2.setTag(R.drawable.paraglider);
-                        break;
-                    default:
-                        gliderImage2.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-            case 1:
-                ImageView gliderImage1 = findViewById(R.id.bikes_gliderImage1);
-                String randGlider1 = randGlider();
-                switch (randGlider1) {
-                    case "Super Glider":
-                        gliderImage1.setImageResource(R.drawable.super_glider);
-                        gliderImage1.setTag(R.drawable.super_glider);
-                        break;
-                    case "Cloud Glider":
-                        gliderImage1.setImageResource(R.drawable.cloud_glider);
-                        gliderImage1.setTag(R.drawable.cloud_glider);
-                        break;
-                    case "Wario Wing":
-                        gliderImage1.setImageResource(R.drawable.wario_wing);
-                        gliderImage1.setTag(R.drawable.wario_wing);
-                        break;
-                    case "Waddle Wing":
-                        gliderImage1.setImageResource(R.drawable.waddle_wing);
-                        gliderImage1.setTag(R.drawable.waddle_wing);
-                        break;
-                    case "Peach Parasol":
-                        gliderImage1.setImageResource(R.drawable.parasol);
-                        gliderImage1.setTag(R.drawable.parasol);
-                        break;
-                    case "Parachute":
-                        gliderImage1.setImageResource(R.drawable.parachute);
-                        gliderImage1.setTag(R.drawable.parachute);
-                        break;
-                    case "Parafoil":
-                        gliderImage1.setImageResource(R.drawable.parafoil);
-                        gliderImage1.setTag(R.drawable.parafoil);
-                        break;
-                    case "Flower Glider":
-                        gliderImage1.setImageResource(R.drawable.flower_glider);
-                        gliderImage1.setTag(R.drawable.flower_glider);
-                        break;
-                    case "Bowser Kite":
-                        gliderImage1.setImageResource(R.drawable.bowser_kite);
-                        gliderImage1.setTag(R.drawable.bowser_kite);
-                        break;
-                    case "Plane Glider":
-                        gliderImage1.setImageResource(R.drawable.plane_glider);
-                        gliderImage1.setTag(R.drawable.plane_glider);
-                        break;
-                    case "MKTV Parafoil":
-                        gliderImage1.setImageResource(R.drawable.mktv_parafoil);
-                        gliderImage1.setTag(R.drawable.mktv_parafoil);
-                        break;
-                    case "Gold Glider":
-                        gliderImage1.setImageResource(R.drawable.gold_glider);
-                        gliderImage1.setTag(R.drawable.gold_glider);
-                        break;
-                    case "Hylian Kite":
-                        gliderImage1.setImageResource(R.drawable.hylian_kite);
-                        gliderImage1.setTag(R.drawable.hylian_kite);
-                        break;
-                    case "Paper Glider":
-                        gliderImage1.setImageResource(R.drawable.paper_glider);
-                        gliderImage1.setTag(R.drawable.paper_glider);
-                        break;
-                    case "Paraglider":
-                        gliderImage1.setImageResource(R.drawable.paraglider);
-                        gliderImage1.setTag(R.drawable.paraglider);
-                        break;
-                    default:
-                        gliderImage1.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
-                }
-                break;
-            default:
-                // shouldn't be here
+        for(int i = playerNumber; i >= 1; i--) {
+            String randGlider = randGlider();
+            switch (randGlider) {
+                case "Super Glider":
+                    arr[i - 1].setImageResource(R.drawable.super_glider);
+                    arr[i - 1].setTag(R.drawable.super_glider);
+                    break;
+                case "Cloud Glider":
+                    arr[i - 1].setImageResource(R.drawable.cloud_glider);
+                    arr[i - 1].setTag(R.drawable.cloud_glider);
+                    break;
+                case "Wario Wing":
+                    arr[i - 1].setImageResource(R.drawable.wario_wing);
+                    arr[i - 1].setTag(R.drawable.wario_wing);
+                    break;
+                case "Waddle Wing":
+                    arr[i - 1].setImageResource(R.drawable.waddle_wing);
+                    arr[i - 1].setTag(R.drawable.waddle_wing);
+                    break;
+                case "Peach Parasol":
+                    arr[i - 1].setImageResource(R.drawable.parasol);
+                    arr[i - 1].setTag(R.drawable.parasol);
+                    break;
+                case "Parachute":
+                    arr[i - 1].setImageResource(R.drawable.parachute);
+                    arr[i - 1].setTag(R.drawable.parachute);
+                    break;
+                case "Parafoil":
+                    arr[i - 1].setImageResource(R.drawable.parafoil);
+                    arr[i - 1].setTag(R.drawable.parafoil);
+                    break;
+                case "Flower Glider":
+                    arr[i - 1].setImageResource(R.drawable.flower_glider);
+                    arr[i - 1].setTag(R.drawable.flower_glider);
+                    break;
+                case "Bowser Kite":
+                    arr[i - 1].setImageResource(R.drawable.bowser_kite);
+                    arr[i - 1].setTag(R.drawable.bowser_kite);
+                    break;
+                case "Plane Glider":
+                    arr[i - 1].setImageResource(R.drawable.plane_glider);
+                    arr[i - 1].setTag(R.drawable.plane_glider);
+                    break;
+                case "MKTV Parafoil":
+                    arr[i - 1].setImageResource(R.drawable.mktv_parafoil);
+                    arr[i - 1].setTag(R.drawable.mktv_parafoil);
+                    break;
+                case "Gold Glider":
+                    arr[i - 1].setImageResource(R.drawable.gold_glider);
+                    arr[i - 1].setTag(R.drawable.gold_glider);
+                    break;
+                case "Hylian Kite":
+                    arr[i - 1].setImageResource(R.drawable.hylian_kite);
+                    arr[i - 1].setTag(R.drawable.hylian_kite);
+                    break;
+                case "Paper Glider":
+                    arr[i - 1].setImageResource(R.drawable.paper_glider);
+                    arr[i - 1].setTag(R.drawable.paper_glider);
+                    break;
+                case "Paraglider":
+                    arr[i - 1].setImageResource(R.drawable.paraglider);
+                    arr[i - 1].setTag(R.drawable.paraglider);
+                    break;
+                default:
+                    arr[i - 1].setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
+            }
         }
     }
 
