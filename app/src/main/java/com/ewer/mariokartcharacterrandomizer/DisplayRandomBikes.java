@@ -29,7 +29,13 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @return a String that is the name of the random character
      */
     private String randCharacter() {
-        String[] list = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)", "Villager (G)", "Isabelle", "Mii"};
+        String[] list = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario",
+                "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette",
+                "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina",
+                "Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser",
+                "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig",
+                "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)",
+                "Villager (G)", "Isabelle", "Mii"};
         return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
@@ -39,7 +45,9 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @return a String that is the name of the frame
      */
     private String randFrame() {
-        String[] list = {"Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper", "Master Cycle Zero"};
+        String[] list = {"Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider",
+                "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper",
+                "Master Cycle Zero"};
         return list[((int) (Math.random() * list.length))];
     }
 
@@ -49,7 +57,12 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @return a String that is the name of the wheels
      */
     private String randWheels() {
-        String[] list = {"Standard Wheels", "Monster Wheels", "Roller Wheels", "Slim Wheels", "Slick Wheels", "Metal Wheels", "Button Wheels", "Off-Road Wheels", "Sponge Wheels", "Wood Wheels", "Cushion Wheels", "Blue Standard Wheels", "Hot Monster Wheels", "Azure Roller Wheels", "Crimson Slim Wheels", "Cyber Slick Wheels", "Retro Off-Road Wheels", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires", "Ancient Tires"};
+        String[] list = {"Standard Wheels", "Monster Wheels", "Roller Wheels", "Slim Wheels",
+                "Slick Wheels", "Metal Wheels", "Button Wheels", "Off-Road Wheels", "Sponge Wheels",
+                "Wood Wheels", "Cushion Wheels", "Blue Standard Wheels", "Hot Monster Wheels",
+                "Azure Roller Wheels", "Crimson Slim Wheels", "Cyber Slick Wheels",
+                "Retro Off-Road Wheels", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
+                "Ancient Tires"};
         return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
@@ -59,7 +72,10 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @return a String that is the name of the glider
      */
     private String randGlider() {
-        String[] list = {"Super Glider", "Cloud Glider", "Wario Wing", "Waddle Wing", "Peach Parasol", "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider", "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
+        String[] list = {"Super Glider", "Cloud Glider", "Wario Wing", "Waddle Wing",
+                "Peach Parasol", "Parachute", "Parafoil", "Flower Glider", "Bowser Kite",
+                "Plane Glider", "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider",
+                "Paraglider"};
         return list[((int) (Math.random() * list.length))];  // returns a random item from the list by putting in a random integer for the index number
     }
 
@@ -1305,7 +1321,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
                         frameImage4.setImageResource(R.drawable.comet);
                         frameImage4.setTag(R.drawable.comet);
                         break;
-                    case "Sports Bike":
+                    case "Sport Bike":
                         frameImage4.setImageResource(R.drawable.sports_bike);
                         frameImage4.setTag(R.drawable.sports_bike);
                         break;
@@ -1359,7 +1375,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
                         frameImage3.setImageResource(R.drawable.comet);
                         frameImage3.setTag(R.drawable.comet);
                         break;
-                    case "Sports Bike":
+                    case "Sport Bike":
                         frameImage3.setImageResource(R.drawable.sports_bike);
                         frameImage3.setTag(R.drawable.sports_bike);
                         break;
@@ -1412,7 +1428,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
                         frameImage2.setImageResource(R.drawable.comet);
                         frameImage2.setTag(R.drawable.comet);
                         break;
-                    case "Sports Bike":
+                    case "Sport Bike":
                         frameImage2.setImageResource(R.drawable.sports_bike);
                         frameImage2.setTag(R.drawable.sports_bike);
                         break;
@@ -1465,7 +1481,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
                         frameImage1.setImageResource(R.drawable.comet);
                         frameImage1.setTag(R.drawable.comet);
                         break;
-                    case "Sports Bike":
+                    case "Sport Bike":
                         frameImage1.setImageResource(R.drawable.sports_bike);
                         frameImage1.setTag(R.drawable.sports_bike);
                         break;
@@ -3633,7 +3649,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesWheelImage2(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_wheelImage1);
+        ImageView img = findViewById(R.id.bikes_wheelImage2);
         int id = getResourceId(img);
 
         switch (id) {
