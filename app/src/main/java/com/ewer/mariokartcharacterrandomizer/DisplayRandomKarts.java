@@ -33,7 +33,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
     }
 
     /**
-     * randFrame() returns a random String from a list of kart/bike frames
+     * randFrame() returns a random String from a list of kart frames
      * @return a String that is the name of the frame
      */
     private String randFrame() {
@@ -1346,50 +1346,6 @@ public class DisplayRandomKarts extends AppCompatActivity {
                 frameImage.setImageResource(R.drawable.koopa_clown);
                 frameImage.setTag(R.drawable.koopa_clown);
                 break;
-            case "Standard Bike":
-                frameImage.setImageResource(R.drawable.standard_bike);
-                frameImage.setTag(R.drawable.standard_bike);
-                break;
-            case "The Duke":
-                frameImage.setImageResource(R.drawable.the_duke);
-                frameImage.setTag(R.drawable.the_duke);
-                break;
-            case "Flame Rider":
-                frameImage.setImageResource(R.drawable.flame_rider);
-                frameImage.setTag(R.drawable.flame_rider);
-                break;
-            case "Varmint":
-                frameImage.setImageResource(R.drawable.varmint);
-                frameImage.setTag(R.drawable.varmint);
-                break;
-            case "Mr. Scooty":
-                frameImage.setImageResource(R.drawable.mr_scooty);
-                frameImage.setTag(R.drawable.mr_scooty);
-                break;
-            case "City Tripper":
-                frameImage.setImageResource(R.drawable.city_tripper);
-                frameImage.setTag(R.drawable.city_tripper);
-                break;
-            case "Master Cycle Zero":
-                frameImage.setImageResource(R.drawable.master_cycle_zero);
-                frameImage.setTag(R.drawable.master_cycle_zero);
-                break;
-            case "Comet":
-                frameImage.setImageResource(R.drawable.comet);
-                frameImage.setTag(R.drawable.comet);
-                break;
-            case "Sports Bike":
-                frameImage.setImageResource(R.drawable.sports_bike);
-                frameImage.setTag(R.drawable.sports_bike);
-                break;
-            case "Jet Bike":
-                frameImage.setImageResource(R.drawable.jet_bike);
-                frameImage.setTag(R.drawable.jet_bike);
-                break;
-            case "Master Cycle":
-                frameImage.setImageResource(R.drawable.master_cycle);
-                frameImage.setTag(R.drawable.master_cycle);
-                break;
             case "Standard ATV":
                 frameImage.setImageResource(R.drawable.standard_atv);
                 frameImage.setTag(R.drawable.standard_atv);
@@ -1413,10 +1369,6 @@ public class DisplayRandomKarts extends AppCompatActivity {
             case "Inkstriker":
                 frameImage.setImageResource(R.drawable.inkstriker);
                 frameImage.setTag(R.drawable.inkstriker);
-                break;
-            case "Yoshi Bike":
-                frameImage.setImageResource(R.drawable.yoshi_bike);
-                frameImage.setTag(R.drawable.yoshi_bike);
                 break;
             default:
                 frameImage.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);

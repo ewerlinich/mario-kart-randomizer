@@ -1390,6 +1390,10 @@ public class DisplayRandomAll extends AppCompatActivity {
                 frameImage.setImageResource(R.drawable.master_cycle);
                 frameImage.setTag(R.drawable.master_cycle);
                 break;
+            case "Yoshi Bike":
+                frameImage.setImageResource(R.drawable.yoshi_bike);
+                frameImage.setTag(R.drawable.yoshi_bike);
+                break;
             case "Standard ATV":
                 frameImage.setImageResource(R.drawable.standard_atv);
                 frameImage.setTag(R.drawable.standard_atv);
@@ -1413,10 +1417,6 @@ public class DisplayRandomAll extends AppCompatActivity {
             case "Inkstriker":
                 frameImage.setImageResource(R.drawable.inkstriker);
                 frameImage.setTag(R.drawable.inkstriker);
-                break;
-            case "Yoshi Bike":
-                frameImage.setImageResource(R.drawable.yoshi_bike);
-                frameImage.setTag(R.drawable.yoshi_bike);
                 break;
             default:
                 frameImage.setImageResource(R.drawable.mario_kart_8_deluxe_mario_artwork);
