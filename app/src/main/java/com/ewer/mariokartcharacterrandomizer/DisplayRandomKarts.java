@@ -1999,7 +1999,7 @@ public class DisplayRandomKarts extends AppCompatActivity {
         }
 
         if(playerNumber > 1) {
-            ImageView wheelImage2 = findViewById(R.id.karts_wheelImage1);
+            ImageView wheelImage2 = findViewById(R.id.karts_wheelImage2);
 
             String randWheels2 = randWheels();
             switch (randWheels2) {
