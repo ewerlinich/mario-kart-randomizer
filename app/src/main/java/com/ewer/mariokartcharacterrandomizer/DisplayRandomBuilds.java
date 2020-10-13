@@ -2,13 +2,12 @@ package com.ewer.mariokartcharacterrandomizer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DisplayRandomBikes extends AppCompatActivity {
+public class DisplayRandomBuilds extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -218,13 +217,13 @@ public class DisplayRandomBikes extends AppCompatActivity {
     private void setPlayerText(int playerNumber) {
         switch (playerNumber) {
             case 4:
-                TextView textView4 = findViewById(R.id.bikes_playerText4);
+                TextView textView4 = findViewById(R.id.player_text_p4);
                 textView4.setText(R.string.player4);
             case 3:
-                TextView textView3 = findViewById(R.id.bikes_playerText3);
+                TextView textView3 = findViewById(R.id.player_text_p3);
                 textView3.setText(R.string.player3);
             case 2:
-                TextView textView2 = findViewById(R.id.bikes_playerText2);
+                TextView textView2 = findViewById(R.id.player_text_p2);
                 textView2.setText(R.string.player2);
                 break;
             default:
@@ -238,10 +237,10 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized characters
      */
     private void setCharImage(int playerNumber) {
-        ImageView charImage1 = findViewById(R.id.bikes_charImage1);
-        ImageView charImage2 = findViewById(R.id.bikes_charImage2);
-        ImageView charImage3 = findViewById(R.id.bikes_charImage3);
-        ImageView charImage4 = findViewById(R.id.bikes_charImage4);
+        ImageView charImage1 = findViewById(R.id.char_image_p1);
+        ImageView charImage2 = findViewById(R.id.char_image_p2);
+        ImageView charImage3 = findViewById(R.id.char_image_p3);
+        ImageView charImage4 = findViewById(R.id.char_image_p4);
         ImageView[] arr = {charImage1, charImage2, charImage3, charImage4};
 
         for(int i = playerNumber; i >= 1; i--) {
@@ -520,10 +519,10 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized frames
      */
     private void setFrameImage(int playerNumber, String frameType) {
-        ImageView frameImage1 = findViewById(R.id.bikes_frameImage1);
-        ImageView frameImage2 = findViewById(R.id.bikes_frameImage2);
-        ImageView frameImage3 = findViewById(R.id.bikes_frameImage3);
-        ImageView frameImage4 = findViewById(R.id.bikes_frameImage4);
+        ImageView frameImage1 = findViewById(R.id.frame_image_p1);
+        ImageView frameImage2 = findViewById(R.id.frame_image_p2);
+        ImageView frameImage3 = findViewById(R.id.frame_image_p3);
+        ImageView frameImage4 = findViewById(R.id.frame_image_p4);
         ImageView[] arr = {frameImage1, frameImage2, frameImage3, frameImage4};
 
         String randFrame;
@@ -539,7 +538,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
                     randFrame = randAllFrame();
                     break;
                 default:
-                    randFrame = randAllFrame();
+                    randFrame = "ERROR";
             }
             switch (randFrame) {
                 case "Standard Kart":
@@ -718,10 +717,10 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized wheels
      */
     private void setWheelImage(int playerNumber) {
-        ImageView wheelImage1 = findViewById(R.id.bikes_wheelImage1);
-        ImageView wheelImage2 = findViewById(R.id.bikes_wheelImage2);
-        ImageView wheelImage3 = findViewById(R.id.bikes_wheelImage3);
-        ImageView wheelImage4 = findViewById(R.id.bikes_wheelImage4);
+        ImageView wheelImage1 = findViewById(R.id.wheel_image_p1);
+        ImageView wheelImage2 = findViewById(R.id.wheel_image_p2);
+        ImageView wheelImage3 = findViewById(R.id.wheel_image_p3);
+        ImageView wheelImage4 = findViewById(R.id.wheel_image_p4);
         ImageView[] arr = {wheelImage1, wheelImage2, wheelImage3, wheelImage4};
 
         for(int i = playerNumber; i >= 1; i--) {
@@ -827,10 +826,10 @@ public class DisplayRandomBikes extends AppCompatActivity {
      * @param playerNumber is the number of characters that need randomized gliders
      */
     private void setGliderImage(int playerNumber) {
-        ImageView gliderImage1 = findViewById(R.id.bikes_gliderImage1);
-        ImageView gliderImage2 = findViewById(R.id.bikes_gliderImage2);
-        ImageView gliderImage3 = findViewById(R.id.bikes_gliderImage3);
-        ImageView gliderImage4 = findViewById(R.id.bikes_gliderImage4);
+        ImageView gliderImage1 = findViewById(R.id.glider_image_p1);
+        ImageView gliderImage2 = findViewById(R.id.glider_image_p2);
+        ImageView gliderImage3 = findViewById(R.id.glider_image_p3);
+        ImageView gliderImage4 = findViewById(R.id.glider_image_p4);
         ImageView[] arr = {gliderImage1, gliderImage2, gliderImage3, gliderImage4};
 
 
@@ -918,7 +917,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesCharImage1(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_charImage1);
+        ImageView img = findViewById(R.id.char_image_p1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -1125,7 +1124,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesCharImage2(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_charImage2);
+        ImageView img = findViewById(R.id.char_image_p2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -1332,7 +1331,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesCharImage3(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_charImage3);
+        ImageView img = findViewById(R.id.char_image_p3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -1539,7 +1538,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesCharImage4(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_charImage4);
+        ImageView img = findViewById(R.id.char_image_p4);
         int id = getResourceId(img);
 
         switch (id) {
@@ -1746,7 +1745,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesFrameImage1(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_frameImage1);
+        ImageView img = findViewById(R.id.frame_image_p2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -1882,7 +1881,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesFrameImage2(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_frameImage2);
+        ImageView img = findViewById(R.id.frame_image_p2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2018,7 +2017,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesFrameImage3(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_frameImage3);
+        ImageView img = findViewById(R.id.frame_image_p3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2154,7 +2153,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesFrameImage4(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_frameImage4);
+        ImageView img = findViewById(R.id.frame_image_p4);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2290,7 +2289,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesWheelImage1(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_wheelImage1);
+        ImageView img = findViewById(R.id.wheel_image_p1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2369,7 +2368,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesWheelImage2(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_wheelImage2);
+        ImageView img = findViewById(R.id.wheel_image_p2);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2448,7 +2447,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesWheelImage3(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_wheelImage3);
+        ImageView img = findViewById(R.id.wheel_image_p3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2527,7 +2526,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesWheelImage4(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_wheelImage4);
+        ImageView img = findViewById(R.id.wheel_image_p4);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2606,7 +2605,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesGliderImage1(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_gliderImage1);
+        ImageView img = findViewById(R.id.glider_image_p1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2666,7 +2665,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesGliderImage2(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_gliderImage2);
+        ImageView img = findViewById(R.id.glider_image_p1);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2726,7 +2725,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesGliderImage3(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_gliderImage3);
+        ImageView img = findViewById(R.id.glider_image_p3);
         int id = getResourceId(img);
 
         switch (id) {
@@ -2786,7 +2785,7 @@ public class DisplayRandomBikes extends AppCompatActivity {
      */
     public void bikesGliderImage4(View view) {
         TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.bikes_gliderImage4);
+        ImageView img = findViewById(R.id.glider_image_p4);
         int id = getResourceId(img);
 
         switch (id) {
