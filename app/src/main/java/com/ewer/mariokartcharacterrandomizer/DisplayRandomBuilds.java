@@ -83,16 +83,16 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     }
 
     /**
-     * randWheels() returns a random String from a list of wheels
+     * randFrame() returns a random String from a list of wheels
      *
      * @return a String that is the name of the wheels
      */
     private String randWheels() {
-        String[] list = {"Standard Wheels", "Monster Wheels", "Roller Wheels", "Slim Wheels",
-                "Slick Wheels", "Metal Wheels", "Button Wheels", "Off-Road Wheels", "Sponge Wheels",
-                "Wood Wheels", "Cushion Wheels", "Blue Standard Wheels", "Hot Monster Wheels",
-                "Azure Roller Wheels", "Crimson Slim Wheels", "Cyber Slick Wheels",
-                "Retro Off-Road Wheels", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
+        String[] list = {"Standard Tires", "MonsterTires", "RollerTires", "SlimTires",
+                "SlickTires", "MetalTires", "ButtonTires", "Off-RoadTires", "SpongeTires",
+                "WoodTires", "CushionTires", "Blue StandardTires", "Hot MonsterTires",
+                "Azure RollerTires", "Crimson SlimTires", "Cyber SlickTires",
+                "Retro Off-RoadTires", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
                 "Ancient Tires"};
         return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
@@ -712,7 +712,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     }
 
     /**
-     * takes in the number of players, calls randWheels() for the necessary number of players, and sets the appropriate ImageViews to the correct image per player
+     * takes in the number of players, calls randFrame() for the necessary number of players, and sets the appropriate ImageViews to the correct image per player
      *
      * @param playerNumber is the number of characters that need randomized wheels
      */
@@ -726,71 +726,71 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         for(int i = playerNumber; i >= 1; i--) {
             String randWheel = randWheels();
             switch (randWheel) {
-                case "Standard Wheels":
+                case "StandardTires":
                     arr[i - 1].setImageResource(R.drawable.standard_tires);
                     arr[i - 1].setTag(R.drawable.standard_tires);
                     break;
-                case "Monster Wheels":
+                case "MonsterTires":
                     arr[i - 1].setImageResource(R.drawable.monster_tires);
                     arr[i - 1].setTag(R.drawable.monster_tires);
                     break;
-                case "Roller Wheels":
+                case "RollerTires":
                     arr[i - 1].setImageResource(R.drawable.roller_tires);
                     arr[i - 1].setTag(R.drawable.roller_tires);
                     break;
-                case "Slim Wheels":
+                case "SlimTires":
                     arr[i - 1].setImageResource(R.drawable.slim_tires);
                     arr[i - 1].setTag(R.drawable.slim_tires);
                     break;
-                case "Slick Wheels":
+                case "SlickTires":
                     arr[i - 1].setImageResource(R.drawable.slick_tires);
                     arr[i - 1].setTag(R.drawable.slick_tires);
                     break;
-                case "Metal Wheels":
+                case "MetalTires":
                     arr[i - 1].setImageResource(R.drawable.metal_tires);
                     arr[i - 1].setTag(R.drawable.metal_tires);
                     break;
-                case "Button Wheels":
+                case "ButtonTires":
                     arr[i - 1].setImageResource(R.drawable.button_tires);
                     arr[i - 1].setTag(R.drawable.button_tires);
                     break;
-                case "Off-Road Wheels":
+                case "Off-RoadTires":
                     arr[i - 1].setImageResource(R.drawable.off_road);
                     arr[i - 1].setTag(R.drawable.off_road);
                     break;
-                case "Sponge Wheels":
+                case "SpongeTires":
                     arr[i - 1].setImageResource(R.drawable.sponge_tires);
                     arr[i - 1].setTag(R.drawable.sponge_tires);
                     break;
-                case "Wood Wheels":
+                case "WoodTires":
                     arr[i - 1].setImageResource(R.drawable.wood_tires);
                     arr[i - 1].setTag(R.drawable.wood_tires);
                     break;
-                case "Cushion Wheels":
+                case "CushionTires":
                     arr[i - 1].setImageResource(R.drawable.cushion_tires);
                     arr[i - 1].setTag(R.drawable.cushion_tires);
                     break;
-                case "Blue Standard Wheels":
+                case "Blue StandardTires":
                     arr[i - 1].setImageResource(R.drawable.blue_standard_tires);
                     arr[i - 1].setTag(R.drawable.blue_standard_tires);
                     break;
-                case "Hot Monster Wheels":
+                case "Hot MonsterTires":
                     arr[i - 1].setImageResource(R.drawable.hot_monster_tires);
                     arr[i - 1].setTag(R.drawable.hot_monster_tires);
                     break;
-                case "Azure Roller Wheels":
+                case "Azure RollerTires":
                     arr[i - 1].setImageResource(R.drawable.azure_rollers);
                     arr[i - 1].setTag(R.drawable.azure_rollers);
                     break;
-                case "Crimson Slim Wheels":
+                case "Crimson SlimTires":
                     arr[i - 1].setImageResource(R.drawable.crimson_slim_tires);
                     arr[i - 1].setTag(R.drawable.crimson_slim_tires);
                     break;
-                case "Cyber Slick Wheels":
+                case "Cyber SlickTires":
                     arr[i - 1].setImageResource(R.drawable.cyber_slick_tires);
                     arr[i - 1].setTag(R.drawable.cyber_slick_tires);
                     break;
-                case "Retro Off-Road Wheels":
+                case "Retro Off-RoadTires":
                     arr[i - 1].setImageResource(R.drawable.retro_off_road);
                     arr[i - 1].setTag(R.drawable.retro_off_road);
                     break;

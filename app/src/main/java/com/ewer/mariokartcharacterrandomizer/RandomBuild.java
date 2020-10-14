@@ -5,6 +5,7 @@ public class RandomBuild {
     String frame;
     String wheels;
     String glider;
+
     public RandomBuild() {
         character = "";
         frame = "";
