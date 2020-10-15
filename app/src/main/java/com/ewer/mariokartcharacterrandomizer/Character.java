@@ -1,7 +1,7 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 public class Character {
-    String character;
+    private String character;
 
     public Character() {
         this.character = "";
@@ -11,11 +11,11 @@ public class Character {
         this.character = character;
     }
 
-    String getCharacter() {
+    public String getCharacter() {
         return this.character;
     }
 
-    void setCharacter(String character) {
+    public void setCharacter(String character) {
         this.character = character;
     }
 }

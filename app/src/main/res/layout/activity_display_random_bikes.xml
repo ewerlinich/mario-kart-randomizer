@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
+    android:id="@+id/randomizer_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DisplayRandomBuilds">
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:text="@string/random_build_title"
         android:textColor="#FF0000"
         android:textSize="30sp"
@@ -23,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/build_scroller"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -35,6 +36,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/build_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -43,12 +45,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/char_image_p1_description"
-                android:onClick="bikesCharImage1"
+                android:onClick="charImage1"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/frame_image_p1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p1"
-                app:layout_constraintEnd_toStartOf="@id/frame_image_p1"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:srcCompat="@drawable/invisible"
                 tools:layout_editor_absoluteY="22dp" />
 
@@ -57,12 +59,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/char_image_p2_description"
-                android:onClick="bikesCharImage2"
+                android:onClick="charImage2"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/frame_image_p2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p2"
-                app:layout_constraintEnd_toStartOf="@id/frame_image_p2"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:srcCompat="@drawable/invisible"
                 tools:layout_editor_absoluteY="2dp" />
 
@@ -71,12 +73,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/char_image_p3_description"
-                android:onClick="bikesCharImage3"
+                android:onClick="charImage3"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/frame_image_p3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p3"
-                app:layout_constraintEnd_toStartOf="@id/frame_image_p3"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -84,12 +86,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/char_image_p4_description"
-                android:onClick="bikesCharImage4"
+                android:onClick="charImage4"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/frame_image_p4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p4"
-                app:layout_constraintEnd_toStartOf="@id/frame_image_p4"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/invisible"
                 tools:layout_editor_absoluteY="111dp" />
 
@@ -98,12 +100,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/frame_image_p1_description"
-                android:onClick="bikesFrameImage1"
+                android:onClick="frameImage1"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/wheel_image_p1"
                 app:layout_constraintStart_toEndOf="@id/char_image_p1"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p1"
-                app:layout_constraintEnd_toStartOf="@id/wheel_image_p1"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -111,12 +113,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/frame_image_p2_description"
-                android:onClick="bikesFrameImage2"
+                android:onClick="frameImage2"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/wheel_image_p2"
                 app:layout_constraintStart_toEndOf="@id/char_image_p2"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p2"
-                app:layout_constraintEnd_toStartOf="@id/wheel_image_p2"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -124,12 +126,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/frame_image_p3_description"
-                android:onClick="bikesFrameImage3"
+                android:onClick="frameImage3"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/wheel_image_p3"
                 app:layout_constraintStart_toEndOf="@id/char_image_p3"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p3"
-                app:layout_constraintEnd_toStartOf="@id/wheel_image_p3"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -137,12 +139,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/frame_image_p4_description"
-                android:onClick="bikesFrameImage4"
+                android:onClick="frameImage4"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/wheel_image_p4"
                 app:layout_constraintStart_toEndOf="@id/char_image_p4"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p4"
-                app:layout_constraintEnd_toStartOf="@id/wheel_image_p4"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -150,12 +152,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/wheel_image_p1_description"
-                android:onClick="bikesWheelImage1"
+                android:onClick="wheelImage1"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/glider_image_p1"
                 app:layout_constraintStart_toEndOf="@id/frame_image_p1"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p1"
-                app:layout_constraintEnd_toStartOf="@id/glider_image_p1"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -163,12 +165,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/wheel_image_p2_description"
-                android:onClick="bikesWheelImage2"
+                android:onClick="wheelImage2"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/glider_image_p2"
                 app:layout_constraintStart_toEndOf="@id/frame_image_p2"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p2"
-                app:layout_constraintEnd_toStartOf="@id/glider_image_p2"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -176,12 +178,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/wheel_image_p3_description"
-                android:onClick="bikesWheelImage3"
+                android:onClick="wheelImage3"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/glider_image_p3"
                 app:layout_constraintStart_toEndOf="@id/frame_image_p3"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p3"
-                app:layout_constraintEnd_toStartOf="@id/glider_image_p3"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -189,12 +191,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/wheel_image_p4_description"
-                android:onClick="bikesWheelImage4"
+                android:onClick="wheelImage4"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@id/glider_image_p4"
                 app:layout_constraintStart_toEndOf="@id/frame_image_p4"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p4"
-                app:layout_constraintEnd_toStartOf="@id/glider_image_p4"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -202,12 +204,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/glider_image_p1_description"
-                android:onClick="bikesGliderImage1"
+                android:onClick="gliderImage1"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/wheel_image_p1"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p2"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -215,12 +217,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/glider_image_p2_description"
-                android:onClick="bikesGliderImage2"
+                android:onClick="gliderImage2"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/wheel_image_p2"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p3"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -228,12 +230,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/glider_image_p3_description"
-                android:onClick="bikesGliderImage3"
+                android:onClick="gliderImage3"
+                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/wheel_image_p3"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/player_text_p4"
                 app:srcCompat="@drawable/invisible" />
 
             <ImageView
@@ -241,12 +243,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/glider_image_p4_description"
-                android:onClick="bikesGliderImage4"
+                android:onClick="gliderImage4"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/wheel_image_p4"
                 app:layout_constraintTop_toBottomOf="@id/player_text_p4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@drawable/invisible" />
 
             <TextView
@@ -270,10 +272,10 @@
                 android:text="@string/blank"
                 android:textColor="#008CFD"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/char_image_p2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/char_image_p1"
-                app:layout_constraintBottom_toTopOf="@id/char_image_p2"
                 tools:layout_editor_absoluteY="16dp" />
 
             <TextView
@@ -283,10 +285,10 @@
                 android:text="@string/blank"
                 android:textColor="#D700FD"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/char_image_p3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/char_image_p2"
-                app:layout_constraintBottom_toTopOf="@id/char_image_p3"
                 tools:layout_editor_absoluteY="16dp" />
 
             <TextView
@@ -296,10 +298,10 @@
                 android:text="@string/blank"
                 android:textColor="#FD9800"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/char_image_p4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/char_image_p3"
-                app:layout_constraintBottom_toTopOf="@id/char_image_p4"
                 tools:layout_editor_absoluteY="16dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

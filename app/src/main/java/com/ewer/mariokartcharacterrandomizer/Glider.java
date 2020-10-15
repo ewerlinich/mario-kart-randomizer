@@ -1,7 +1,7 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 public class Glider {
-    String glider;
+    private String glider;
 
     public Glider() {
         this.glider = "";
@@ -11,11 +11,11 @@ public class Glider {
         this.glider = glider;
     }
 
-    String getGlider() {
+    public String getGlider() {
         return this.glider;
     }
 
-    void setGlider(String glider) {
+    public void setGlider(String glider) {
         this.glider = glider;
     }
 }

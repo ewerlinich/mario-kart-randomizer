@@ -1,7 +1,7 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 public class Frame {
-    String frame;
+    private String frame;
 
     public Frame() {
         this.frame = "";
@@ -11,11 +11,11 @@ public class Frame {
         this.frame = frame;
     }
 
-    String getFrame() {
+    public String getFrame() {
         return this.frame;
     }
 
-    void setFrame(String frame) {
+    public void setFrame(String frame) {
         this.frame = frame;
     }
 }

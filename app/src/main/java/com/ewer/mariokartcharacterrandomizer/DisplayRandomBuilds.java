@@ -88,11 +88,11 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * @return a String that is the name of the wheels
      */
     private String randWheels() {
-        String[] list = {"Standard Tires", "MonsterTires", "RollerTires", "SlimTires",
-                "SlickTires", "MetalTires", "ButtonTires", "Off-RoadTires", "SpongeTires",
-                "WoodTires", "CushionTires", "Blue StandardTires", "Hot MonsterTires",
-                "Azure RollerTires", "Crimson SlimTires", "Cyber SlickTires",
-                "Retro Off-RoadTires", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
+        String[] list = {"Standard Tires", "Monster Tires", "Roller Tires", "Slim Tires",
+                "Slick Tires", "Metal Tires", "Button Tires", "Off-Road Tires", "Sponge Tires",
+                "Wood Tires", "Cushion Tires", "Blue Standard Tires", "Hot Monster Tires",
+                "Azure Roller Tires", "Crimson Slim Tires", "Cyber Slick Tires",
+                "Retro Off-Road Tires", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
                 "Ancient Tires"};
         return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
@@ -118,7 +118,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      */
     private String setColor(String randChar) {
         int color;
-        String character = "";
+        String character;
         switch (randChar) {
             case "Shy Guy":     // they use the same colors
             case "Yoshi":
@@ -300,8 +300,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                     arr[i - 1].setTag(R.drawable.dry_bowser);
                     break;
                 case "Metal Mario (Gold)":
-                    arr[i - 1].setImageResource(R.drawable.gold_mario);
-                    arr[i - 1].setTag(R.drawable.gold_mario);
+                    arr[i - 1].setImageResource(R.drawable.metal_mario_gold);
+                    arr[i - 1].setTag(R.drawable.metal_mario_gold);
                     break;
                 case "Iggy":
                     arr[i - 1].setImageResource(R.drawable.iggy);
@@ -376,8 +376,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                     arr[i - 1].setTag(R.drawable.mario);
                     break;
                 case "Metal Mario (Metal)":
-                    arr[i - 1].setImageResource(R.drawable.metal_mario);
-                    arr[i - 1].setTag(R.drawable.metal_mario);
+                    arr[i - 1].setImageResource(R.drawable.metal_mario_metal);
+                    arr[i - 1].setTag(R.drawable.metal_mario_metal);
                     break;
                 case "Mii":
                     arr[i - 1].setImageResource(R.drawable.mii);
@@ -755,8 +755,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                     arr[i - 1].setTag(R.drawable.button_tires);
                     break;
                 case "Off-RoadTires":
-                    arr[i - 1].setImageResource(R.drawable.off_road);
-                    arr[i - 1].setTag(R.drawable.off_road);
+                    arr[i - 1].setImageResource(R.drawable.off_road_tires);
+                    arr[i - 1].setTag(R.drawable.off_road_tires);
                     break;
                 case "SpongeTires":
                     arr[i - 1].setImageResource(R.drawable.sponge_tires);
@@ -775,24 +775,24 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                     arr[i - 1].setTag(R.drawable.blue_standard_tires);
                     break;
                 case "Hot MonsterTires":
-                    arr[i - 1].setImageResource(R.drawable.hot_monster_tires);
-                    arr[i - 1].setTag(R.drawable.hot_monster_tires);
+                    arr[i - 1].setImageResource(R.drawable.monster_tires_hot);
+                    arr[i - 1].setTag(R.drawable.monster_tires_hot);
                     break;
                 case "Azure RollerTires":
-                    arr[i - 1].setImageResource(R.drawable.azure_rollers);
-                    arr[i - 1].setTag(R.drawable.azure_rollers);
+                    arr[i - 1].setImageResource(R.drawable.roller_tires_azure);
+                    arr[i - 1].setTag(R.drawable.roller_tires_azure);
                     break;
                 case "Crimson SlimTires":
-                    arr[i - 1].setImageResource(R.drawable.crimson_slim_tires);
-                    arr[i - 1].setTag(R.drawable.crimson_slim_tires);
+                    arr[i - 1].setImageResource(R.drawable.slim_tires_crimson);
+                    arr[i - 1].setTag(R.drawable.slim_tires_crimson);
                     break;
                 case "Cyber SlickTires":
-                    arr[i - 1].setImageResource(R.drawable.cyber_slick_tires);
-                    arr[i - 1].setTag(R.drawable.cyber_slick_tires);
+                    arr[i - 1].setImageResource(R.drawable.slick_tires_cyber);
+                    arr[i - 1].setTag(R.drawable.slick_tires_cyber);
                     break;
                 case "Retro Off-RoadTires":
-                    arr[i - 1].setImageResource(R.drawable.retro_off_road);
-                    arr[i - 1].setTag(R.drawable.retro_off_road);
+                    arr[i - 1].setImageResource(R.drawable.off_road_tires_retro);
+                    arr[i - 1].setTag(R.drawable.off_road_tires_retro);
                     break;
                 case "Gold Tires":
                     arr[i - 1].setImageResource(R.drawable.gold_tires);
@@ -877,8 +877,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                     arr[i - 1].setTag(R.drawable.plane_glider);
                     break;
                 case "MKTV Parafoil":
-                    arr[i - 1].setImageResource(R.drawable.mktv_parafoil);
-                    arr[i - 1].setTag(R.drawable.mktv_parafoil);
+                    arr[i - 1].setImageResource(R.drawable.parafoil_mktv);
+                    arr[i - 1].setTag(R.drawable.parafoil_mktv);
                     break;
                 case "Gold Glider":
                     arr[i - 1].setImageResource(R.drawable.gold_glider);
@@ -915,206 +915,141 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 1 character
      * @param view is the current view
      */
-    public void bikesCharImage1(View view) {
+    public void charImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.char_image_p1);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.baby_daisy:
-                tv.setText(R.string.baby_daisy);
-                break;
-            case R.drawable.baby_luigi:
-                tv.setText(R.string.baby_luigi);
-                break;
-            case R.drawable.baby_mario:
-                tv.setText(R.string.baby_mario);
-                break;
-            case R.drawable.baby_peach:
-                tv.setText(R.string.baby_peach);
-                break;
-            case R.drawable.baby_rosalina:
-                tv.setText(R.string.baby_rosalina);
-                break;
-            case R.drawable.bowser:
-                tv.setText(R.string.bowser);
-                break;
-            case R.drawable.bowser_jr:
-                tv.setText(R.string.bowser_jr);
-                break;
-            case R.drawable.cat_peach:
-                tv.setText(R.string.cat_peach);
-                break;
-            case R.drawable.daisy:
-                tv.setText(R.string.daisy);
-                break;
-            case R.drawable.donkey_kong:
-                tv.setText(R.string.donkey_kong);
-                break;
-            case R.drawable.dry_bones:
-                tv.setText(R.string.dry_bones);
-                break;
-            case R.drawable.dry_bowser:
-                tv.setText(R.string.dry_bowser);
-                break;
-            case R.drawable.gold_mario:
-                tv.setText(R.string.metal_mario_gold);
-                break;
-            case R.drawable.iggy:
-                tv.setText(R.string.iggy);
-                break;
-            case R.drawable.inkling_boy_darkblue:
-                tv.setText(R.string.inkling_boy_darkblue);
-                break;
-            case R.drawable.inkling_boy_lightblue:
-                tv.setText(R.string.inkling_boy_lightblue);
-                break;
-            case R.drawable.inkling_boy_purple:
-                tv.setText(R.string.inkling_boy_purple);
-                break;
-            case R.drawable.inkling_girl_green:
-                tv.setText(R.string.inkling_girl_green);
-                break;
-            case R.drawable.inkling_girl_orange:
-                tv.setText(R.string.inkling_girl_orange);
-                break;
-            case R.drawable.inkling_girl_pink:
-                tv.setText(R.string.inkling_girl_pink);
-                break;
-            case R.drawable.isabelle:
-                tv.setText(R.string.isabelle);
-                break;
-            case R.drawable.king_boo:
-                tv.setText(R.string.king_boo);
-                break;
-            case R.drawable.koopa_troopa:
-                tv.setText(R.string.koopa_troopa);
-                break;
-            case R.drawable.lakitu:
-                tv.setText(R.string.lakitu);
-                break;
-            case R.drawable.larry:
-                tv.setText(R.string.larry);
-                break;
-            case R.drawable.lemmy:
-                tv.setText(R.string.lemmy);
-                break;
-            case R.drawable.link_botw:
-                tv.setText(R.string.link_botw);
-                break;
-            case R.drawable.link_classic:
-                tv.setText(R.string.link_classic);
-                break;
-            case R.drawable.ludwig:
-                tv.setText(R.string.ludwig);
-                break;
-            case R.drawable.luigi:
-                tv.setText(R.string.luigi);
-                break;
-            case R.drawable.mario:
-                tv.setText(R.string.mario);
-                break;
-            case R.drawable.metal_mario:
-                tv.setText(R.string.metal_mario_metal);
-                break;
-            case R.drawable.mii:
-                tv.setText(R.string.mii);
-                break;
-            case R.drawable.morton:
-                tv.setText(R.string.morton);
-                break;
-            case R.drawable.peach:
-                tv.setText(R.string.peach);
-                break;
-            case R.drawable.pink_gold_peach:
-                tv.setText(R.string.pink_gold_peach);
-                break;
-            case R.drawable.rosalina:
-                tv.setText(R.string.rosalina);
-                break;
-            case R.drawable.roy:
-                tv.setText(R.string.roy);
-                break;
-            case R.drawable.shyguy_black:
-                tv.setText(R.string.shy_guy_black);
-                break;
-            case R.drawable.shyguy_darkblue:
-                tv.setText(R.string.shy_guy_darkblue);
-                break;
-            case R.drawable.shyguy_green:
-                tv.setText(R.string.shy_guy_green);
-                break;
-            case R.drawable.shyguy_lightblue:
-                tv.setText(R.string.shy_guy_lightblue);
-                break;
-            case R.drawable.shyguy_orange:
-                tv.setText(R.string.shy_guy_orange);
-                break;
-            case R.drawable.shyguy_pink:
-                tv.setText(R.string.shy_guy_pink);
-                break;
-            case R.drawable.shyguy_red:
-                tv.setText(R.string.shy_guy_red);
-                break;
-            case R.drawable.shyguy_white:
-                tv.setText(R.string.shy_guy_white);
-                break;
-            case R.drawable.shyguy_yellow:
-                tv.setText(R.string.shy_guy_yellow);
-                break;
-            case R.drawable.tanooki_mario:
-                tv.setText(R.string.tanooki_mario);
-                break;
-            case R.drawable.toad:
-                tv.setText(R.string.toad);
-                break;
-            case R.drawable.toadette:
-                tv.setText(R.string.toadette);
-                break;
-            case R.drawable.villager_boy:
-                tv.setText(R.string.villager_boy);
-                break;
-            case R.drawable.villager_girl:
-                tv.setText(R.string.villager_girl);
-                break;
-            case R.drawable.waluigi:
-                tv.setText(R.string.waluigi);
-                break;
-            case R.drawable.wario:
-                tv.setText(R.string.wario);
-                break;
-            case R.drawable.wendy:
-                tv.setText(R.string.wendy);
-                break;
-            case R.drawable.yoshi_black:
-                tv.setText(R.string.yoshi_black);
-                break;
-            case R.drawable.yoshi_darkblue:
-                tv.setText(R.string.yoshi_darkblue);
-                break;
-            case R.drawable.yoshi_green:
-                tv.setText(R.string.yoshi_green);
-                break;
-            case R.drawable.yoshi_lightblue:
-                tv.setText(R.string.yoshi_lightblue);
-                break;
-            case R.drawable.yoshi_orange:
-                tv.setText(R.string.yoshi_orange);
-                break;
-            case R.drawable.yoshi_pink:
-                tv.setText(R.string.yoshi_pink);
-                break;
-            case R.drawable.yoshi_red:
-                tv.setText(R.string.yoshi_red);
-                break;
-            case R.drawable.yoshi_white:
-                tv.setText(R.string.yoshi_white);
-                break;
-            case R.drawable.yoshi_yellow:
-                tv.setText(R.string.yoshi_yellow);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.baby_daisy) {
+            tv.setText(R.string.baby_daisy);
+        } else if(id == R.drawable.baby_luigi) {
+            tv.setText(R.string.baby_luigi);
+        } else if(id == R.drawable.baby_mario) {
+            tv.setText(R.string.baby_mario);
+        } else if(id == R.drawable.baby_peach) {
+            tv.setText(R.string.baby_peach);
+        } else if(id == R.drawable.baby_rosalina) {
+            tv.setText(R.string.baby_rosalina);
+        } else if(id == R.drawable.bowser) {
+            tv.setText(R.string.bowser);
+        } else if(id == R.drawable.bowser_jr) {
+            tv.setText(R.string.bowser_jr);
+        } else if(id == R.drawable.cat_peach) {
+            tv.setText(R.string.cat_peach);
+        } else if(id == R.drawable.daisy) {
+            tv.setText(R.string.daisy);
+        } else if(id == R.drawable.donkey_kong) {
+            tv.setText(R.string.donkey_kong);
+        } else if(id == R.drawable.dry_bones) {
+            tv.setText(R.string.dry_bones);
+        } else if(id == R.drawable.dry_bowser) {
+            tv.setText(R.string.dry_bowser);
+        } else if(id == R.drawable.iggy) {
+            tv.setText(R.string.iggy);
+        } else if(id == R.drawable.inkling_boy_darkblue) {
+            tv.setText(R.string.inkling_boy_darkblue);
+        } else if(id == R.drawable.inkling_boy_lightblue) {
+            tv.setText(R.string.inkling_boy_lightblue);
+        } else if(id == R.drawable.inkling_boy_purple) {
+            tv.setText(R.string.inkling_boy_purple);
+        } else if(id == R.drawable.inkling_girl_green) {
+            tv.setText(R.string.inkling_girl_green);
+        } else if(id == R.drawable.inkling_girl_orange) {
+            tv.setText(R.string.inkling_girl_orange);
+        } else if(id == R.drawable.inkling_girl_pink) {
+            tv.setText(R.string.inkling_girl_pink);
+        } else if(id == R.drawable.isabelle) {
+            tv.setText(R.string.isabelle);
+        } else if(id == R.drawable.king_boo) {
+            tv.setText(R.string.king_boo);
+        } else if(id == R.drawable.koopa_troopa) {
+            tv.setText(R.string.koopa_troopa);
+        } else if(id == R.drawable.lakitu) {
+            tv.setText(R.string.lakitu);
+        } else if(id == R.drawable.larry) {
+            tv.setText(R.string.larry);
+        } else if(id == R.drawable.lemmy) {
+            tv.setText(R.string.lemmy);
+        } else if(id == R.drawable.link_botw) {
+            tv.setText(R.string.link_botw);
+        } else if(id == R.drawable.link_classic) {
+            tv.setText(R.string.link_classic);
+        } else if(id == R.drawable.ludwig) {
+            tv.setText(R.string.ludwig);
+        } else if(id == R.drawable.luigi) {
+            tv.setText(R.string.luigi);
+        } else if(id == R.drawable.mario) {
+            tv.setText(R.string.mario);
+        } else if(id == R.drawable.metal_mario_metal) {
+            tv.setText(R.string.metal_mario_metal);
+        } else if(id == R.drawable.metal_mario_gold) {
+            tv.setText(R.string.metal_mario_gold);
+        } else if(id == R.drawable.mii) {
+            tv.setText(R.string.mii);
+        } else if(id == R.drawable.morton) {
+            tv.setText(R.string.morton);
+        } else if(id == R.drawable.peach) {
+            tv.setText(R.string.peach);
+        } else if(id == R.drawable.pink_gold_peach) {
+            tv.setText(R.string.pink_gold_peach);
+        } else if(id == R.drawable.rosalina) {
+            tv.setText(R.string.rosalina);
+        } else if(id == R.drawable.roy) {
+            tv.setText(R.string.roy);
+        } else if(id == R.drawable.shyguy_black) {
+            tv.setText(R.string.shy_guy_black);
+        } else if(id == R.drawable.shyguy_darkblue) {
+            tv.setText(R.string.shy_guy_darkblue);
+        } else if(id == R.drawable.shyguy_green) {
+            tv.setText(R.string.shy_guy_green);
+        } else if(id == R.drawable.shyguy_lightblue) {
+            tv.setText(R.string.shy_guy_lightblue);
+        } else if(id == R.drawable.shyguy_orange) {
+            tv.setText(R.string.shy_guy_orange);
+        } else if(id == R.drawable.shyguy_pink) {
+            tv.setText(R.string.shy_guy_pink);
+        } else if(id == R.drawable.shyguy_red) {
+            tv.setText(R.string.shy_guy_red);
+        } else if(id == R.drawable.shyguy_white) {
+            tv.setText(R.string.shy_guy_white);
+        } else if(id == R.drawable.shyguy_yellow) {
+            tv.setText(R.string.shy_guy_yellow);
+        } else if(id == R.drawable.tanooki_mario) {
+            tv.setText(R.string.tanooki_mario);
+        } else if(id == R.drawable.toad) {
+            tv.setText(R.string.toad);
+        } else if(id == R.drawable.toadette) {
+            tv.setText(R.string.toadette);
+        } else if(id == R.drawable.villager_boy) {
+            tv.setText(R.string.villager_boy);
+        } else if(id == R.drawable.villager_girl) {
+            tv.setText(R.string.villager_girl);
+        } else if(id == R.drawable.waluigi) {
+            tv.setText(R.string.waluigi);
+        } else if(id == R.drawable.wario) {
+            tv.setText(R.string.wario);
+        } else if(id == R.drawable.wendy) {
+            tv.setText(R.string.wendy);
+        } else if(id == R.drawable.yoshi_black) {
+            tv.setText(R.string.yoshi_black);
+        } else if(id == R.drawable.yoshi_darkblue) {
+            tv.setText(R.string.yoshi_darkblue);
+        } else if(id == R.drawable.yoshi_green) {
+            tv.setText(R.string.yoshi_green);
+        } else if(id == R.drawable.yoshi_lightblue) {
+            tv.setText(R.string.yoshi_lightblue);
+        } else if(id == R.drawable.yoshi_orange) {
+            tv.setText(R.string.yoshi_orange);
+        } else if(id == R.drawable.yoshi_pink) {
+            tv.setText(R.string.yoshi_pink);
+        } else if(id == R.drawable.yoshi_red) {
+            tv.setText(R.string.yoshi_red);
+        } else if(id == R.drawable.yoshi_white) {
+            tv.setText(R.string.yoshi_white);
+        } else if(id == R.drawable.yoshi_yellow) {
+            tv.setText(R.string.yoshi_yellow);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -1122,206 +1057,141 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 2 character
      * @param view is the current view
      */
-    public void bikesCharImage2(View view) {
+    public void charImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.char_image_p2);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.baby_daisy:
-                tv.setText(R.string.baby_daisy);
-                break;
-            case R.drawable.baby_luigi:
-                tv.setText(R.string.baby_luigi);
-                break;
-            case R.drawable.baby_mario:
-                tv.setText(R.string.baby_mario);
-                break;
-            case R.drawable.baby_peach:
-                tv.setText(R.string.baby_peach);
-                break;
-            case R.drawable.baby_rosalina:
-                tv.setText(R.string.baby_rosalina);
-                break;
-            case R.drawable.bowser:
-                tv.setText(R.string.bowser);
-                break;
-            case R.drawable.bowser_jr:
-                tv.setText(R.string.bowser_jr);
-                break;
-            case R.drawable.cat_peach:
-                tv.setText(R.string.cat_peach);
-                break;
-            case R.drawable.daisy:
-                tv.setText(R.string.daisy);
-                break;
-            case R.drawable.donkey_kong:
-                tv.setText(R.string.donkey_kong);
-                break;
-            case R.drawable.dry_bones:
-                tv.setText(R.string.dry_bones);
-                break;
-            case R.drawable.dry_bowser:
-                tv.setText(R.string.dry_bowser);
-                break;
-            case R.drawable.gold_mario:
-                tv.setText(R.string.metal_mario_gold);
-                break;
-            case R.drawable.iggy:
-                tv.setText(R.string.iggy);
-                break;
-            case R.drawable.inkling_boy_darkblue:
-                tv.setText(R.string.inkling_boy_darkblue);
-                break;
-            case R.drawable.inkling_boy_lightblue:
-                tv.setText(R.string.inkling_boy_lightblue);
-                break;
-            case R.drawable.inkling_boy_purple:
-                tv.setText(R.string.inkling_boy_purple);
-                break;
-            case R.drawable.inkling_girl_green:
-                tv.setText(R.string.inkling_girl_green);
-                break;
-            case R.drawable.inkling_girl_orange:
-                tv.setText(R.string.inkling_girl_orange);
-                break;
-            case R.drawable.inkling_girl_pink:
-                tv.setText(R.string.inkling_girl_pink);
-                break;
-            case R.drawable.isabelle:
-                tv.setText(R.string.isabelle);
-                break;
-            case R.drawable.king_boo:
-                tv.setText(R.string.king_boo);
-                break;
-            case R.drawable.koopa_troopa:
-                tv.setText(R.string.koopa_troopa);
-                break;
-            case R.drawable.lakitu:
-                tv.setText(R.string.lakitu);
-                break;
-            case R.drawable.larry:
-                tv.setText(R.string.larry);
-                break;
-            case R.drawable.lemmy:
-                tv.setText(R.string.lemmy);
-                break;
-            case R.drawable.link_botw:
-                tv.setText(R.string.link_botw);
-                break;
-            case R.drawable.link_classic:
-                tv.setText(R.string.link_classic);
-                break;
-            case R.drawable.ludwig:
-                tv.setText(R.string.ludwig);
-                break;
-            case R.drawable.luigi:
-                tv.setText(R.string.luigi);
-                break;
-            case R.drawable.mario:
-                tv.setText(R.string.mario);
-                break;
-            case R.drawable.metal_mario:
-                tv.setText(R.string.metal_mario_metal);
-                break;
-            case R.drawable.mii:
-                tv.setText(R.string.mii);
-                break;
-            case R.drawable.morton:
-                tv.setText(R.string.morton);
-                break;
-            case R.drawable.peach:
-                tv.setText(R.string.peach);
-                break;
-            case R.drawable.pink_gold_peach:
-                tv.setText(R.string.pink_gold_peach);
-                break;
-            case R.drawable.rosalina:
-                tv.setText(R.string.rosalina);
-                break;
-            case R.drawable.roy:
-                tv.setText(R.string.roy);
-                break;
-            case R.drawable.shyguy_black:
-                tv.setText(R.string.shy_guy_black);
-                break;
-            case R.drawable.shyguy_darkblue:
-                tv.setText(R.string.shy_guy_darkblue);
-                break;
-            case R.drawable.shyguy_green:
-                tv.setText(R.string.shy_guy_green);
-                break;
-            case R.drawable.shyguy_lightblue:
-                tv.setText(R.string.shy_guy_lightblue);
-                break;
-            case R.drawable.shyguy_orange:
-                tv.setText(R.string.shy_guy_orange);
-                break;
-            case R.drawable.shyguy_pink:
-                tv.setText(R.string.shy_guy_pink);
-                break;
-            case R.drawable.shyguy_red:
-                tv.setText(R.string.shy_guy_red);
-                break;
-            case R.drawable.shyguy_white:
-                tv.setText(R.string.shy_guy_white);
-                break;
-            case R.drawable.shyguy_yellow:
-                tv.setText(R.string.shy_guy_yellow);
-                break;
-            case R.drawable.tanooki_mario:
-                tv.setText(R.string.tanooki_mario);
-                break;
-            case R.drawable.toad:
-                tv.setText(R.string.toad);
-                break;
-            case R.drawable.toadette:
-                tv.setText(R.string.toadette);
-                break;
-            case R.drawable.villager_boy:
-                tv.setText(R.string.villager_boy);
-                break;
-            case R.drawable.villager_girl:
-                tv.setText(R.string.villager_girl);
-                break;
-            case R.drawable.waluigi:
-                tv.setText(R.string.waluigi);
-                break;
-            case R.drawable.wario:
-                tv.setText(R.string.wario);
-                break;
-            case R.drawable.wendy:
-                tv.setText(R.string.wendy);
-                break;
-            case R.drawable.yoshi_black:
-                tv.setText(R.string.yoshi_black);
-                break;
-            case R.drawable.yoshi_darkblue:
-                tv.setText(R.string.yoshi_darkblue);
-                break;
-            case R.drawable.yoshi_green:
-                tv.setText(R.string.yoshi_green);
-                break;
-            case R.drawable.yoshi_lightblue:
-                tv.setText(R.string.yoshi_lightblue);
-                break;
-            case R.drawable.yoshi_orange:
-                tv.setText(R.string.yoshi_orange);
-                break;
-            case R.drawable.yoshi_pink:
-                tv.setText(R.string.yoshi_pink);
-                break;
-            case R.drawable.yoshi_red:
-                tv.setText(R.string.yoshi_red);
-                break;
-            case R.drawable.yoshi_white:
-                tv.setText(R.string.yoshi_white);
-                break;
-            case R.drawable.yoshi_yellow:
-                tv.setText(R.string.yoshi_yellow);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.baby_daisy) {
+            tv.setText(R.string.baby_daisy);
+        } else if(id == R.drawable.baby_luigi) {
+            tv.setText(R.string.baby_luigi);
+        } else if(id == R.drawable.baby_mario) {
+            tv.setText(R.string.baby_mario);
+        } else if(id == R.drawable.baby_peach) {
+            tv.setText(R.string.baby_peach);
+        } else if(id == R.drawable.baby_rosalina) {
+            tv.setText(R.string.baby_rosalina);
+        } else if(id == R.drawable.bowser) {
+            tv.setText(R.string.bowser);
+        } else if(id == R.drawable.bowser_jr) {
+            tv.setText(R.string.bowser_jr);
+        } else if(id == R.drawable.cat_peach) {
+            tv.setText(R.string.cat_peach);
+        } else if(id == R.drawable.daisy) {
+            tv.setText(R.string.daisy);
+        } else if(id == R.drawable.donkey_kong) {
+            tv.setText(R.string.donkey_kong);
+        } else if(id == R.drawable.dry_bones) {
+            tv.setText(R.string.dry_bones);
+        } else if(id == R.drawable.dry_bowser) {
+            tv.setText(R.string.dry_bowser);
+        } else if(id == R.drawable.iggy) {
+            tv.setText(R.string.iggy);
+        } else if(id == R.drawable.inkling_boy_darkblue) {
+            tv.setText(R.string.inkling_boy_darkblue);
+        } else if(id == R.drawable.inkling_boy_lightblue) {
+            tv.setText(R.string.inkling_boy_lightblue);
+        } else if(id == R.drawable.inkling_boy_purple) {
+            tv.setText(R.string.inkling_boy_purple);
+        } else if(id == R.drawable.inkling_girl_green) {
+            tv.setText(R.string.inkling_girl_green);
+        } else if(id == R.drawable.inkling_girl_orange) {
+            tv.setText(R.string.inkling_girl_orange);
+        } else if(id == R.drawable.inkling_girl_pink) {
+            tv.setText(R.string.inkling_girl_pink);
+        } else if(id == R.drawable.isabelle) {
+            tv.setText(R.string.isabelle);
+        } else if(id == R.drawable.king_boo) {
+            tv.setText(R.string.king_boo);
+        } else if(id == R.drawable.koopa_troopa) {
+            tv.setText(R.string.koopa_troopa);
+        } else if(id == R.drawable.lakitu) {
+            tv.setText(R.string.lakitu);
+        } else if(id == R.drawable.larry) {
+            tv.setText(R.string.larry);
+        } else if(id == R.drawable.lemmy) {
+            tv.setText(R.string.lemmy);
+        } else if(id == R.drawable.link_botw) {
+            tv.setText(R.string.link_botw);
+        } else if(id == R.drawable.link_classic) {
+            tv.setText(R.string.link_classic);
+        } else if(id == R.drawable.ludwig) {
+            tv.setText(R.string.ludwig);
+        } else if(id == R.drawable.luigi) {
+            tv.setText(R.string.luigi);
+        } else if(id == R.drawable.mario) {
+            tv.setText(R.string.mario);
+        } else if(id == R.drawable.metal_mario_metal) {
+            tv.setText(R.string.metal_mario_metal);
+        } else if(id == R.drawable.metal_mario_gold) {
+            tv.setText(R.string.metal_mario_gold);
+        } else if(id == R.drawable.mii) {
+            tv.setText(R.string.mii);
+        } else if(id == R.drawable.morton) {
+            tv.setText(R.string.morton);
+        } else if(id == R.drawable.peach) {
+            tv.setText(R.string.peach);
+        } else if(id == R.drawable.pink_gold_peach) {
+            tv.setText(R.string.pink_gold_peach);
+        } else if(id == R.drawable.rosalina) {
+            tv.setText(R.string.rosalina);
+        } else if(id == R.drawable.roy) {
+            tv.setText(R.string.roy);
+        } else if(id == R.drawable.shyguy_black) {
+            tv.setText(R.string.shy_guy_black);
+        } else if(id == R.drawable.shyguy_darkblue) {
+            tv.setText(R.string.shy_guy_darkblue);
+        } else if(id == R.drawable.shyguy_green) {
+            tv.setText(R.string.shy_guy_green);
+        } else if(id == R.drawable.shyguy_lightblue) {
+            tv.setText(R.string.shy_guy_lightblue);
+        } else if(id == R.drawable.shyguy_orange) {
+            tv.setText(R.string.shy_guy_orange);
+        } else if(id == R.drawable.shyguy_pink) {
+            tv.setText(R.string.shy_guy_pink);
+        } else if(id == R.drawable.shyguy_red) {
+            tv.setText(R.string.shy_guy_red);
+        } else if(id == R.drawable.shyguy_white) {
+            tv.setText(R.string.shy_guy_white);
+        } else if(id == R.drawable.shyguy_yellow) {
+            tv.setText(R.string.shy_guy_yellow);
+        } else if(id == R.drawable.tanooki_mario) {
+            tv.setText(R.string.tanooki_mario);
+        } else if(id == R.drawable.toad) {
+            tv.setText(R.string.toad);
+        } else if(id == R.drawable.toadette) {
+            tv.setText(R.string.toadette);
+        } else if(id == R.drawable.villager_boy) {
+            tv.setText(R.string.villager_boy);
+        } else if(id == R.drawable.villager_girl) {
+            tv.setText(R.string.villager_girl);
+        } else if(id == R.drawable.waluigi) {
+            tv.setText(R.string.waluigi);
+        } else if(id == R.drawable.wario) {
+            tv.setText(R.string.wario);
+        } else if(id == R.drawable.wendy) {
+            tv.setText(R.string.wendy);
+        } else if(id == R.drawable.yoshi_black) {
+            tv.setText(R.string.yoshi_black);
+        } else if(id == R.drawable.yoshi_darkblue) {
+            tv.setText(R.string.yoshi_darkblue);
+        } else if(id == R.drawable.yoshi_green) {
+            tv.setText(R.string.yoshi_green);
+        } else if(id == R.drawable.yoshi_lightblue) {
+            tv.setText(R.string.yoshi_lightblue);
+        } else if(id == R.drawable.yoshi_orange) {
+            tv.setText(R.string.yoshi_orange);
+        } else if(id == R.drawable.yoshi_pink) {
+            tv.setText(R.string.yoshi_pink);
+        } else if(id == R.drawable.yoshi_red) {
+            tv.setText(R.string.yoshi_red);
+        } else if(id == R.drawable.yoshi_white) {
+            tv.setText(R.string.yoshi_white);
+        } else if(id == R.drawable.yoshi_yellow) {
+            tv.setText(R.string.yoshi_yellow);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -1329,206 +1199,141 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 3 character
      * @param view is the current view
      */
-    public void bikesCharImage3(View view) {
+    public void charImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.char_image_p3);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.baby_daisy:
-                tv.setText(R.string.baby_daisy);
-                break;
-            case R.drawable.baby_luigi:
-                tv.setText(R.string.baby_luigi);
-                break;
-            case R.drawable.baby_mario:
-                tv.setText(R.string.baby_mario);
-                break;
-            case R.drawable.baby_peach:
-                tv.setText(R.string.baby_peach);
-                break;
-            case R.drawable.baby_rosalina:
-                tv.setText(R.string.baby_rosalina);
-                break;
-            case R.drawable.bowser:
-                tv.setText(R.string.bowser);
-                break;
-            case R.drawable.bowser_jr:
-                tv.setText(R.string.bowser_jr);
-                break;
-            case R.drawable.cat_peach:
-                tv.setText(R.string.cat_peach);
-                break;
-            case R.drawable.daisy:
-                tv.setText(R.string.daisy);
-                break;
-            case R.drawable.donkey_kong:
-                tv.setText(R.string.donkey_kong);
-                break;
-            case R.drawable.dry_bones:
-                tv.setText(R.string.dry_bones);
-                break;
-            case R.drawable.dry_bowser:
-                tv.setText(R.string.dry_bowser);
-                break;
-            case R.drawable.gold_mario:
-                tv.setText(R.string.metal_mario_gold);
-                break;
-            case R.drawable.iggy:
-                tv.setText(R.string.iggy);
-                break;
-            case R.drawable.inkling_boy_darkblue:
-                tv.setText(R.string.inkling_boy_darkblue);
-                break;
-            case R.drawable.inkling_boy_lightblue:
-                tv.setText(R.string.inkling_boy_lightblue);
-                break;
-            case R.drawable.inkling_boy_purple:
-                tv.setText(R.string.inkling_boy_purple);
-                break;
-            case R.drawable.inkling_girl_green:
-                tv.setText(R.string.inkling_girl_green);
-                break;
-            case R.drawable.inkling_girl_orange:
-                tv.setText(R.string.inkling_girl_orange);
-                break;
-            case R.drawable.inkling_girl_pink:
-                tv.setText(R.string.inkling_girl_pink);
-                break;
-            case R.drawable.isabelle:
-                tv.setText(R.string.isabelle);
-                break;
-            case R.drawable.king_boo:
-                tv.setText(R.string.king_boo);
-                break;
-            case R.drawable.koopa_troopa:
-                tv.setText(R.string.koopa_troopa);
-                break;
-            case R.drawable.lakitu:
-                tv.setText(R.string.lakitu);
-                break;
-            case R.drawable.larry:
-                tv.setText(R.string.larry);
-                break;
-            case R.drawable.lemmy:
-                tv.setText(R.string.lemmy);
-                break;
-            case R.drawable.link_botw:
-                tv.setText(R.string.link_botw);
-                break;
-            case R.drawable.link_classic:
-                tv.setText(R.string.link_classic);
-                break;
-            case R.drawable.ludwig:
-                tv.setText(R.string.ludwig);
-                break;
-            case R.drawable.luigi:
-                tv.setText(R.string.luigi);
-                break;
-            case R.drawable.mario:
-                tv.setText(R.string.mario);
-                break;
-            case R.drawable.metal_mario:
-                tv.setText(R.string.metal_mario_metal);
-                break;
-            case R.drawable.mii:
-                tv.setText(R.string.mii);
-                break;
-            case R.drawable.morton:
-                tv.setText(R.string.morton);
-                break;
-            case R.drawable.peach:
-                tv.setText(R.string.peach);
-                break;
-            case R.drawable.pink_gold_peach:
-                tv.setText(R.string.pink_gold_peach);
-                break;
-            case R.drawable.rosalina:
-                tv.setText(R.string.rosalina);
-                break;
-            case R.drawable.roy:
-                tv.setText(R.string.roy);
-                break;
-            case R.drawable.shyguy_black:
-                tv.setText(R.string.shy_guy_black);
-                break;
-            case R.drawable.shyguy_darkblue:
-                tv.setText(R.string.shy_guy_darkblue);
-                break;
-            case R.drawable.shyguy_green:
-                tv.setText(R.string.shy_guy_green);
-                break;
-            case R.drawable.shyguy_lightblue:
-                tv.setText(R.string.shy_guy_lightblue);
-                break;
-            case R.drawable.shyguy_orange:
-                tv.setText(R.string.shy_guy_orange);
-                break;
-            case R.drawable.shyguy_pink:
-                tv.setText(R.string.shy_guy_pink);
-                break;
-            case R.drawable.shyguy_red:
-                tv.setText(R.string.shy_guy_red);
-                break;
-            case R.drawable.shyguy_white:
-                tv.setText(R.string.shy_guy_white);
-                break;
-            case R.drawable.shyguy_yellow:
-                tv.setText(R.string.shy_guy_yellow);
-                break;
-            case R.drawable.tanooki_mario:
-                tv.setText(R.string.tanooki_mario);
-                break;
-            case R.drawable.toad:
-                tv.setText(R.string.toad);
-                break;
-            case R.drawable.toadette:
-                tv.setText(R.string.toadette);
-                break;
-            case R.drawable.villager_boy:
-                tv.setText(R.string.villager_boy);
-                break;
-            case R.drawable.villager_girl:
-                tv.setText(R.string.villager_girl);
-                break;
-            case R.drawable.waluigi:
-                tv.setText(R.string.waluigi);
-                break;
-            case R.drawable.wario:
-                tv.setText(R.string.wario);
-                break;
-            case R.drawable.wendy:
-                tv.setText(R.string.wendy);
-                break;
-            case R.drawable.yoshi_black:
-                tv.setText(R.string.yoshi_black);
-                break;
-            case R.drawable.yoshi_darkblue:
-                tv.setText(R.string.yoshi_darkblue);
-                break;
-            case R.drawable.yoshi_green:
-                tv.setText(R.string.yoshi_green);
-                break;
-            case R.drawable.yoshi_lightblue:
-                tv.setText(R.string.yoshi_lightblue);
-                break;
-            case R.drawable.yoshi_orange:
-                tv.setText(R.string.yoshi_orange);
-                break;
-            case R.drawable.yoshi_pink:
-                tv.setText(R.string.yoshi_pink);
-                break;
-            case R.drawable.yoshi_red:
-                tv.setText(R.string.yoshi_red);
-                break;
-            case R.drawable.yoshi_white:
-                tv.setText(R.string.yoshi_white);
-                break;
-            case R.drawable.yoshi_yellow:
-                tv.setText(R.string.yoshi_yellow);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.baby_daisy) {
+            tv.setText(R.string.baby_daisy);
+        } else if(id == R.drawable.baby_luigi) {
+            tv.setText(R.string.baby_luigi);
+        } else if(id == R.drawable.baby_mario) {
+            tv.setText(R.string.baby_mario);
+        } else if(id == R.drawable.baby_peach) {
+            tv.setText(R.string.baby_peach);
+        } else if(id == R.drawable.baby_rosalina) {
+            tv.setText(R.string.baby_rosalina);
+        } else if(id == R.drawable.bowser) {
+            tv.setText(R.string.bowser);
+        } else if(id == R.drawable.bowser_jr) {
+            tv.setText(R.string.bowser_jr);
+        } else if(id == R.drawable.cat_peach) {
+            tv.setText(R.string.cat_peach);
+        } else if(id == R.drawable.daisy) {
+            tv.setText(R.string.daisy);
+        } else if(id == R.drawable.donkey_kong) {
+            tv.setText(R.string.donkey_kong);
+        } else if(id == R.drawable.dry_bones) {
+            tv.setText(R.string.dry_bones);
+        } else if(id == R.drawable.dry_bowser) {
+            tv.setText(R.string.dry_bowser);
+        } else if(id == R.drawable.iggy) {
+            tv.setText(R.string.iggy);
+        } else if(id == R.drawable.inkling_boy_darkblue) {
+            tv.setText(R.string.inkling_boy_darkblue);
+        } else if(id == R.drawable.inkling_boy_lightblue) {
+            tv.setText(R.string.inkling_boy_lightblue);
+        } else if(id == R.drawable.inkling_boy_purple) {
+            tv.setText(R.string.inkling_boy_purple);
+        } else if(id == R.drawable.inkling_girl_green) {
+            tv.setText(R.string.inkling_girl_green);
+        } else if(id == R.drawable.inkling_girl_orange) {
+            tv.setText(R.string.inkling_girl_orange);
+        } else if(id == R.drawable.inkling_girl_pink) {
+            tv.setText(R.string.inkling_girl_pink);
+        } else if(id == R.drawable.isabelle) {
+            tv.setText(R.string.isabelle);
+        } else if(id == R.drawable.king_boo) {
+            tv.setText(R.string.king_boo);
+        } else if(id == R.drawable.koopa_troopa) {
+            tv.setText(R.string.koopa_troopa);
+        } else if(id == R.drawable.lakitu) {
+            tv.setText(R.string.lakitu);
+        } else if(id == R.drawable.larry) {
+            tv.setText(R.string.larry);
+        } else if(id == R.drawable.lemmy) {
+            tv.setText(R.string.lemmy);
+        } else if(id == R.drawable.link_botw) {
+            tv.setText(R.string.link_botw);
+        } else if(id == R.drawable.link_classic) {
+            tv.setText(R.string.link_classic);
+        } else if(id == R.drawable.ludwig) {
+            tv.setText(R.string.ludwig);
+        } else if(id == R.drawable.luigi) {
+            tv.setText(R.string.luigi);
+        } else if(id == R.drawable.mario) {
+            tv.setText(R.string.mario);
+        } else if(id == R.drawable.metal_mario_metal) {
+            tv.setText(R.string.metal_mario_metal);
+        } else if(id == R.drawable.metal_mario_gold) {
+            tv.setText(R.string.metal_mario_gold);
+        } else if(id == R.drawable.mii) {
+            tv.setText(R.string.mii);
+        } else if(id == R.drawable.morton) {
+            tv.setText(R.string.morton);
+        } else if(id == R.drawable.peach) {
+            tv.setText(R.string.peach);
+        } else if(id == R.drawable.pink_gold_peach) {
+            tv.setText(R.string.pink_gold_peach);
+        } else if(id == R.drawable.rosalina) {
+            tv.setText(R.string.rosalina);
+        } else if(id == R.drawable.roy) {
+            tv.setText(R.string.roy);
+        } else if(id == R.drawable.shyguy_black) {
+            tv.setText(R.string.shy_guy_black);
+        } else if(id == R.drawable.shyguy_darkblue) {
+            tv.setText(R.string.shy_guy_darkblue);
+        } else if(id == R.drawable.shyguy_green) {
+            tv.setText(R.string.shy_guy_green);
+        } else if(id == R.drawable.shyguy_lightblue) {
+            tv.setText(R.string.shy_guy_lightblue);
+        } else if(id == R.drawable.shyguy_orange) {
+            tv.setText(R.string.shy_guy_orange);
+        } else if(id == R.drawable.shyguy_pink) {
+            tv.setText(R.string.shy_guy_pink);
+        } else if(id == R.drawable.shyguy_red) {
+            tv.setText(R.string.shy_guy_red);
+        } else if(id == R.drawable.shyguy_white) {
+            tv.setText(R.string.shy_guy_white);
+        } else if(id == R.drawable.shyguy_yellow) {
+            tv.setText(R.string.shy_guy_yellow);
+        } else if(id == R.drawable.tanooki_mario) {
+            tv.setText(R.string.tanooki_mario);
+        } else if(id == R.drawable.toad) {
+            tv.setText(R.string.toad);
+        } else if(id == R.drawable.toadette) {
+            tv.setText(R.string.toadette);
+        } else if(id == R.drawable.villager_boy) {
+            tv.setText(R.string.villager_boy);
+        } else if(id == R.drawable.villager_girl) {
+            tv.setText(R.string.villager_girl);
+        } else if(id == R.drawable.waluigi) {
+            tv.setText(R.string.waluigi);
+        } else if(id == R.drawable.wario) {
+            tv.setText(R.string.wario);
+        } else if(id == R.drawable.wendy) {
+            tv.setText(R.string.wendy);
+        } else if(id == R.drawable.yoshi_black) {
+            tv.setText(R.string.yoshi_black);
+        } else if(id == R.drawable.yoshi_darkblue) {
+            tv.setText(R.string.yoshi_darkblue);
+        } else if(id == R.drawable.yoshi_green) {
+            tv.setText(R.string.yoshi_green);
+        } else if(id == R.drawable.yoshi_lightblue) {
+            tv.setText(R.string.yoshi_lightblue);
+        } else if(id == R.drawable.yoshi_orange) {
+            tv.setText(R.string.yoshi_orange);
+        } else if(id == R.drawable.yoshi_pink) {
+            tv.setText(R.string.yoshi_pink);
+        } else if(id == R.drawable.yoshi_red) {
+            tv.setText(R.string.yoshi_red);
+        } else if(id == R.drawable.yoshi_white) {
+            tv.setText(R.string.yoshi_white);
+        } else if(id == R.drawable.yoshi_yellow) {
+            tv.setText(R.string.yoshi_yellow);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -1536,206 +1341,141 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 4 character
      * @param view is the current view
      */
-    public void bikesCharImage4(View view) {
+    public void charImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.char_image_p4);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.baby_daisy:
-                tv.setText(R.string.baby_daisy);
-                break;
-            case R.drawable.baby_luigi:
-                tv.setText(R.string.baby_luigi);
-                break;
-            case R.drawable.baby_mario:
-                tv.setText(R.string.baby_mario);
-                break;
-            case R.drawable.baby_peach:
-                tv.setText(R.string.baby_peach);
-                break;
-            case R.drawable.baby_rosalina:
-                tv.setText(R.string.baby_rosalina);
-                break;
-            case R.drawable.bowser:
-                tv.setText(R.string.bowser);
-                break;
-            case R.drawable.bowser_jr:
-                tv.setText(R.string.bowser_jr);
-                break;
-            case R.drawable.cat_peach:
-                tv.setText(R.string.cat_peach);
-                break;
-            case R.drawable.daisy:
-                tv.setText(R.string.daisy);
-                break;
-            case R.drawable.donkey_kong:
-                tv.setText(R.string.donkey_kong);
-                break;
-            case R.drawable.dry_bones:
-                tv.setText(R.string.dry_bones);
-                break;
-            case R.drawable.dry_bowser:
-                tv.setText(R.string.dry_bowser);
-                break;
-            case R.drawable.gold_mario:
-                tv.setText(R.string.metal_mario_gold);
-                break;
-            case R.drawable.iggy:
-                tv.setText(R.string.iggy);
-                break;
-            case R.drawable.inkling_boy_darkblue:
-                tv.setText(R.string.inkling_boy_darkblue);
-                break;
-            case R.drawable.inkling_boy_lightblue:
-                tv.setText(R.string.inkling_boy_lightblue);
-                break;
-            case R.drawable.inkling_boy_purple:
-                tv.setText(R.string.inkling_boy_purple);
-                break;
-            case R.drawable.inkling_girl_green:
-                tv.setText(R.string.inkling_girl_green);
-                break;
-            case R.drawable.inkling_girl_orange:
-                tv.setText(R.string.inkling_girl_orange);
-                break;
-            case R.drawable.inkling_girl_pink:
-                tv.setText(R.string.inkling_girl_pink);
-                break;
-            case R.drawable.isabelle:
-                tv.setText(R.string.isabelle);
-                break;
-            case R.drawable.king_boo:
-                tv.setText(R.string.king_boo);
-                break;
-            case R.drawable.koopa_troopa:
-                tv.setText(R.string.koopa_troopa);
-                break;
-            case R.drawable.lakitu:
-                tv.setText(R.string.lakitu);
-                break;
-            case R.drawable.larry:
-                tv.setText(R.string.larry);
-                break;
-            case R.drawable.lemmy:
-                tv.setText(R.string.lemmy);
-                break;
-            case R.drawable.link_botw:
-                tv.setText(R.string.link_botw);
-                break;
-            case R.drawable.link_classic:
-                tv.setText(R.string.link_classic);
-                break;
-            case R.drawable.ludwig:
-                tv.setText(R.string.ludwig);
-                break;
-            case R.drawable.luigi:
-                tv.setText(R.string.luigi);
-                break;
-            case R.drawable.mario:
-                tv.setText(R.string.mario);
-                break;
-            case R.drawable.metal_mario:
-                tv.setText(R.string.metal_mario_metal);
-                break;
-            case R.drawable.mii:
-                tv.setText(R.string.mii);
-                break;
-            case R.drawable.morton:
-                tv.setText(R.string.morton);
-                break;
-            case R.drawable.peach:
-                tv.setText(R.string.peach);
-                break;
-            case R.drawable.pink_gold_peach:
-                tv.setText(R.string.pink_gold_peach);
-                break;
-            case R.drawable.rosalina:
-                tv.setText(R.string.rosalina);
-                break;
-            case R.drawable.roy:
-                tv.setText(R.string.roy);
-                break;
-            case R.drawable.shyguy_black:
-                tv.setText(R.string.shy_guy_black);
-                break;
-            case R.drawable.shyguy_darkblue:
-                tv.setText(R.string.shy_guy_darkblue);
-                break;
-            case R.drawable.shyguy_green:
-                tv.setText(R.string.shy_guy_green);
-                break;
-            case R.drawable.shyguy_lightblue:
-                tv.setText(R.string.shy_guy_lightblue);
-                break;
-            case R.drawable.shyguy_orange:
-                tv.setText(R.string.shy_guy_orange);
-                break;
-            case R.drawable.shyguy_pink:
-                tv.setText(R.string.shy_guy_pink);
-                break;
-            case R.drawable.shyguy_red:
-                tv.setText(R.string.shy_guy_red);
-                break;
-            case R.drawable.shyguy_white:
-                tv.setText(R.string.shy_guy_white);
-                break;
-            case R.drawable.shyguy_yellow:
-                tv.setText(R.string.shy_guy_yellow);
-                break;
-            case R.drawable.tanooki_mario:
-                tv.setText(R.string.tanooki_mario);
-                break;
-            case R.drawable.toad:
-                tv.setText(R.string.toad);
-                break;
-            case R.drawable.toadette:
-                tv.setText(R.string.toadette);
-                break;
-            case R.drawable.villager_boy:
-                tv.setText(R.string.villager_boy);
-                break;
-            case R.drawable.villager_girl:
-                tv.setText(R.string.villager_girl);
-                break;
-            case R.drawable.waluigi:
-                tv.setText(R.string.waluigi);
-                break;
-            case R.drawable.wario:
-                tv.setText(R.string.wario);
-                break;
-            case R.drawable.wendy:
-                tv.setText(R.string.wendy);
-                break;
-            case R.drawable.yoshi_black:
-                tv.setText(R.string.yoshi_black);
-                break;
-            case R.drawable.yoshi_darkblue:
-                tv.setText(R.string.yoshi_darkblue);
-                break;
-            case R.drawable.yoshi_green:
-                tv.setText(R.string.yoshi_green);
-                break;
-            case R.drawable.yoshi_lightblue:
-                tv.setText(R.string.yoshi_lightblue);
-                break;
-            case R.drawable.yoshi_orange:
-                tv.setText(R.string.yoshi_orange);
-                break;
-            case R.drawable.yoshi_pink:
-                tv.setText(R.string.yoshi_pink);
-                break;
-            case R.drawable.yoshi_red:
-                tv.setText(R.string.yoshi_red);
-                break;
-            case R.drawable.yoshi_white:
-                tv.setText(R.string.yoshi_white);
-                break;
-            case R.drawable.yoshi_yellow:
-                tv.setText(R.string.yoshi_yellow);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.baby_daisy) {
+            tv.setText(R.string.baby_daisy);
+        } else if(id == R.drawable.baby_luigi) {
+            tv.setText(R.string.baby_luigi);
+        } else if(id == R.drawable.baby_mario) {
+            tv.setText(R.string.baby_mario);
+        } else if(id == R.drawable.baby_peach) {
+            tv.setText(R.string.baby_peach);
+        } else if(id == R.drawable.baby_rosalina) {
+            tv.setText(R.string.baby_rosalina);
+        } else if(id == R.drawable.bowser) {
+            tv.setText(R.string.bowser);
+        } else if(id == R.drawable.bowser_jr) {
+            tv.setText(R.string.bowser_jr);
+        } else if(id == R.drawable.cat_peach) {
+            tv.setText(R.string.cat_peach);
+        } else if(id == R.drawable.daisy) {
+            tv.setText(R.string.daisy);
+        } else if(id == R.drawable.donkey_kong) {
+            tv.setText(R.string.donkey_kong);
+        } else if(id == R.drawable.dry_bones) {
+            tv.setText(R.string.dry_bones);
+        } else if(id == R.drawable.dry_bowser) {
+            tv.setText(R.string.dry_bowser);
+        } else if(id == R.drawable.iggy) {
+            tv.setText(R.string.iggy);
+        } else if(id == R.drawable.inkling_boy_darkblue) {
+            tv.setText(R.string.inkling_boy_darkblue);
+        } else if(id == R.drawable.inkling_boy_lightblue) {
+            tv.setText(R.string.inkling_boy_lightblue);
+        } else if(id == R.drawable.inkling_boy_purple) {
+            tv.setText(R.string.inkling_boy_purple);
+        } else if(id == R.drawable.inkling_girl_green) {
+            tv.setText(R.string.inkling_girl_green);
+        } else if(id == R.drawable.inkling_girl_orange) {
+            tv.setText(R.string.inkling_girl_orange);
+        } else if(id == R.drawable.inkling_girl_pink) {
+            tv.setText(R.string.inkling_girl_pink);
+        } else if(id == R.drawable.isabelle) {
+            tv.setText(R.string.isabelle);
+        } else if(id == R.drawable.king_boo) {
+            tv.setText(R.string.king_boo);
+        } else if(id == R.drawable.koopa_troopa) {
+            tv.setText(R.string.koopa_troopa);
+        } else if(id == R.drawable.lakitu) {
+            tv.setText(R.string.lakitu);
+        } else if(id == R.drawable.larry) {
+            tv.setText(R.string.larry);
+        } else if(id == R.drawable.lemmy) {
+            tv.setText(R.string.lemmy);
+        } else if(id == R.drawable.link_botw) {
+            tv.setText(R.string.link_botw);
+        } else if(id == R.drawable.link_classic) {
+            tv.setText(R.string.link_classic);
+        } else if(id == R.drawable.ludwig) {
+            tv.setText(R.string.ludwig);
+        } else if(id == R.drawable.luigi) {
+            tv.setText(R.string.luigi);
+        } else if(id == R.drawable.mario) {
+            tv.setText(R.string.mario);
+        } else if(id == R.drawable.metal_mario_metal) {
+            tv.setText(R.string.metal_mario_metal);
+        } else if(id == R.drawable.metal_mario_gold) {
+            tv.setText(R.string.metal_mario_gold);
+        } else if(id == R.drawable.mii) {
+            tv.setText(R.string.mii);
+        } else if(id == R.drawable.morton) {
+            tv.setText(R.string.morton);
+        } else if(id == R.drawable.peach) {
+            tv.setText(R.string.peach);
+        } else if(id == R.drawable.pink_gold_peach) {
+            tv.setText(R.string.pink_gold_peach);
+        } else if(id == R.drawable.rosalina) {
+            tv.setText(R.string.rosalina);
+        } else if(id == R.drawable.roy) {
+            tv.setText(R.string.roy);
+        } else if(id == R.drawable.shyguy_black) {
+            tv.setText(R.string.shy_guy_black);
+        } else if(id == R.drawable.shyguy_darkblue) {
+            tv.setText(R.string.shy_guy_darkblue);
+        } else if(id == R.drawable.shyguy_green) {
+            tv.setText(R.string.shy_guy_green);
+        } else if(id == R.drawable.shyguy_lightblue) {
+            tv.setText(R.string.shy_guy_lightblue);
+        } else if(id == R.drawable.shyguy_orange) {
+            tv.setText(R.string.shy_guy_orange);
+        } else if(id == R.drawable.shyguy_pink) {
+            tv.setText(R.string.shy_guy_pink);
+        } else if(id == R.drawable.shyguy_red) {
+            tv.setText(R.string.shy_guy_red);
+        } else if(id == R.drawable.shyguy_white) {
+            tv.setText(R.string.shy_guy_white);
+        } else if(id == R.drawable.shyguy_yellow) {
+            tv.setText(R.string.shy_guy_yellow);
+        } else if(id == R.drawable.tanooki_mario) {
+            tv.setText(R.string.tanooki_mario);
+        } else if(id == R.drawable.toad) {
+            tv.setText(R.string.toad);
+        } else if(id == R.drawable.toadette) {
+            tv.setText(R.string.toadette);
+        } else if(id == R.drawable.villager_boy) {
+            tv.setText(R.string.villager_boy);
+        } else if(id == R.drawable.villager_girl) {
+            tv.setText(R.string.villager_girl);
+        } else if(id == R.drawable.waluigi) {
+            tv.setText(R.string.waluigi);
+        } else if(id == R.drawable.wario) {
+            tv.setText(R.string.wario);
+        } else if(id == R.drawable.wendy) {
+            tv.setText(R.string.wendy);
+        } else if(id == R.drawable.yoshi_black) {
+            tv.setText(R.string.yoshi_black);
+        } else if(id == R.drawable.yoshi_darkblue) {
+            tv.setText(R.string.yoshi_darkblue);
+        } else if(id == R.drawable.yoshi_green) {
+            tv.setText(R.string.yoshi_green);
+        } else if(id == R.drawable.yoshi_lightblue) {
+            tv.setText(R.string.yoshi_lightblue);
+        } else if(id == R.drawable.yoshi_orange) {
+            tv.setText(R.string.yoshi_orange);
+        } else if(id == R.drawable.yoshi_pink) {
+            tv.setText(R.string.yoshi_pink);
+        } else if(id == R.drawable.yoshi_red) {
+            tv.setText(R.string.yoshi_red);
+        } else if(id == R.drawable.yoshi_white) {
+            tv.setText(R.string.yoshi_white);
+        } else if(id == R.drawable.yoshi_yellow) {
+            tv.setText(R.string.yoshi_yellow);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -1743,135 +1483,95 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void bikesFrameImage1(View view) {
+    public void frameImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.frame_image_p2);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_kart:
-                tv.setText(R.string.standard_kart);
-                break;
-            case R.drawable.pipe_frame:
-                tv.setText(R.string.pipe_frame);
-                break;
-            case R.drawable.mach_8:
-                tv.setText(R.string.mach_8);
-                break;
-            case R.drawable.steel_driver:
-                tv.setText(R.string.steel_driver);
-                break;
-            case R.drawable.cat_cruiser:
-                tv.setText(R.string.cat_cruiser);
-                break;
-            case R.drawable.circuit_special:
-                tv.setText(R.string.circuit_special);
-                break;
-            case R.drawable.trispeeder:
-                tv.setText(R.string.tri_speeder);
-                break;
-            case R.drawable.badwagon:
-                tv.setText(R.string.badwagon);
-                break;
-            case R.drawable.prancer:
-                tv.setText(R.string.prancer);
-                break;
-            case R.drawable.biddybuggy:
-                tv.setText(R.string.biddybuggy);
-                break;
-            case R.drawable.landship:
-                tv.setText(R.string.landship);
-                break;
-            case R.drawable.sneeker:
-                tv.setText(R.string.sneeker);
-                break;
-            case R.drawable.sports_coupe:
-                tv.setText(R.string.sports_coupe);
-                break;
-            case R.drawable.gold_standard:
-                tv.setText(R.string.gold_standard);
-                break;
-            case R.drawable.gla:
-                tv.setText(R.string.gla);
-                break;
-            case R.drawable.silver_arrow:
-                tv.setText(R.string.silver_arrow);
-                break;
-            case R.drawable.roadster:
-                tv.setText(R.string.roadster);
-                break;
-            case R.drawable.blue_falcon:
-                tv.setText(R.string.blue_falcon);
-                break;
-            case R.drawable.tanooki_kart:
-                tv.setText(R.string.tanooki_kart);
-                break;
-            case R.drawable.b_dasher:
-                tv.setText(R.string.b_dasher);
-                break;
-            case R.drawable.streetle:
-                tv.setText(R.string.streetle);
-                break;
-            case R.drawable.p_wing:
-                tv.setText(R.string.p_wing);
-                break;
-            case R.drawable.koopa_clown:
-                tv.setText(R.string.koopa_clown);
-                break;
-            case R.drawable.standard_bike:
-                tv.setText(R.string.standard_bike);
-                break;
-            case R.drawable.the_duke:
-                tv.setText(R.string.the_duke);
-                break;
-            case R.drawable.flame_rider:
-                tv.setText(R.string.flame_rider);
-                break;
-            case R.drawable.varmint:
-                tv.setText(R.string.varmint);
-                break;
-            case R.drawable.mr_scooty:
-                tv.setText(R.string.mr_scooty);
-                break;
-            case R.drawable.city_tripper:
-                tv.setText(R.string.city_tripper);
-                break;
-            case R.drawable.master_cycle_zero:
-                tv.setText(R.string.master_cycle_zero);
-                break;
-            case R.drawable.comet:
-                tv.setText(R.string.comet);
-                break;
-            case R.drawable.sports_bike:
-                tv.setText(R.string.sports_bike);
-                break;
-            case R.drawable.jet_bike:
-                tv.setText(R.string.jet_bike);
-                break;
-            case R.drawable.yoshi_bike:
-                tv.setText(R.string.yoshi_bike);
-                break;
-            case R.drawable.master_cycle:
-                tv.setText(R.string.master_cycle);
-                break;
-            case R.drawable.standard_atv:
-                tv.setText(R.string.standard_atv);
-                break;
-            case R.drawable.wild_wiggler:
-                tv.setText(R.string.wild_wiggler);
-                break;
-            case R.drawable.teddy_buggy:
-                tv.setText(R.string.teddy_buggy);
-                break;
-            case R.drawable.bone_rattler:
-                tv.setText(R.string.bone_rattler);
-                break;
-            case R.drawable.splat_buggy:
-                tv.setText(R.string.splat_buggy);
-                break;
-            case R.drawable.inkstriker:
-                tv.setText(R.string.inkstriker);
-                break;
+        if(id == R.drawable.b_dasher) {
+            tv.setText(R.string.b_dasher);
+        } else if(id == R.drawable.badwagon) {
+            tv.setText(R.string.badwagon);
+        } else if(id == R.drawable.biddybuggy) {
+            tv.setText(R.string.biddybuggy);
+        } else if(id == R.drawable.blue_falcon) {
+            tv.setText(R.string.blue_falcon);
+        } else if(id == R.drawable.bone_rattler) {
+            tv.setText(R.string.bone_rattler);
+        } else if(id == R.drawable.cat_cruiser) {
+            tv.setText(R.string.cat_cruiser);
+        } else if(id == R.drawable.circuit_special) {
+            tv.setText(R.string.circuit_special);
+        } else if(id == R.drawable.city_tripper) {
+            tv.setText(R.string.city_tripper);
+        } else if(id == R.drawable.comet) {
+            tv.setText(R.string.comet);
+        } else if(id == R.drawable.flame_rider) {
+            tv.setText(R.string.flame_rider);
+        } else if(id == R.drawable.gla) {
+            tv.setText(R.string.gla);
+        } else if(id == R.drawable.gold_standard) {
+            tv.setText(R.string.gold_standard);
+        } else if(id == R.drawable.inkstriker) {
+            tv.setText(R.string.inkstriker);
+        } else if(id == R.drawable.jet_bike) {
+            tv.setText(R.string.jet_bike);
+        } else if(id == R.drawable.koopa_clown) {
+            tv.setText(R.string.koopa_clown);
+        } else if(id == R.drawable.landship) {
+            tv.setText(R.string.landship);
+        } else if(id == R.drawable.mach_8) {
+            tv.setText(R.string.mach_8);
+        } else if(id == R.drawable.master_cycle) {
+            tv.setText(R.string.master_cycle);
+        } else if(id == R.drawable.master_cycle_zero) {
+            tv.setText(R.string.master_cycle_zero);
+        } else if(id == R.drawable.mr_scooty) {
+            tv.setText(R.string.mr_scooty);
+        } else if(id == R.drawable.p_wing) {
+            tv.setText(R.string.p_wing);
+        } else if(id == R.drawable.pipe_frame) {
+            tv.setText(R.string.pipe_frame);
+        } else if(id == R.drawable.prancer) {
+            tv.setText(R.string.prancer);
+        } else if(id == R.drawable.roadster) {
+            tv.setText(R.string.roadster);
+        } else if(id == R.drawable.silver_arrow) {
+            tv.setText(R.string.silver_arrow);
+        } else if(id == R.drawable.sneeker) {
+            tv.setText(R.string.sneeker);
+        } else if(id == R.drawable.splat_buggy) {
+            tv.setText(R.string.splat_buggy);
+        } else if(id == R.drawable.sports_bike) {
+            tv.setText(R.string.sports_bike);
+        } else if(id == R.drawable.sports_coupe) {
+            tv.setText(R.string.sports_coupe);
+        } else if(id == R.drawable.standard_atv) {
+            tv.setText(R.string.standard_atv);
+        } else if(id == R.drawable.standard_bike) {
+            tv.setText(R.string.standard_bike);
+        } else if(id == R.drawable.standard_kart) {
+            tv.setText(R.string.standard_kart);
+        } else if(id == R.drawable.steel_driver) {
+            tv.setText(R.string.steel_driver);
+        } else if(id == R.drawable.streetle) {
+            tv.setText(R.string.streetle);
+        } else if(id == R.drawable.tanooki_kart) {
+            tv.setText(R.string.tanooki_kart);
+        } else if(id == R.drawable.teddy_buggy) {
+            tv.setText(R.string.teddy_buggy);
+        } else if(id == R.drawable.the_duke) {
+            tv.setText(R.string.the_duke);
+        } else if(id == R.drawable.trispeeder) {
+            tv.setText(R.string.trispeeder);
+        } else if(id == R.drawable.varmint) {
+            tv.setText(R.string.varmint);
+        } else if(id == R.drawable.wild_wiggler) {
+            tv.setText(R.string.wild_wiggler);
+        } else if(id == R.drawable.yoshi_bike) {
+            tv.setText(R.string.yoshi_bike);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -1879,135 +1579,95 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 2 frame
      * @param view is the current view
      */
-    public void bikesFrameImage2(View view) {
+    public void frameImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.frame_image_p2);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_kart:
-                tv.setText(R.string.standard_kart);
-                break;
-            case R.drawable.pipe_frame:
-                tv.setText(R.string.pipe_frame);
-                break;
-            case R.drawable.mach_8:
-                tv.setText(R.string.mach_8);
-                break;
-            case R.drawable.steel_driver:
-                tv.setText(R.string.steel_driver);
-                break;
-            case R.drawable.cat_cruiser:
-                tv.setText(R.string.cat_cruiser);
-                break;
-            case R.drawable.circuit_special:
-                tv.setText(R.string.circuit_special);
-                break;
-            case R.drawable.trispeeder:
-                tv.setText(R.string.tri_speeder);
-                break;
-            case R.drawable.badwagon:
-                tv.setText(R.string.badwagon);
-                break;
-            case R.drawable.prancer:
-                tv.setText(R.string.prancer);
-                break;
-            case R.drawable.biddybuggy:
-                tv.setText(R.string.biddybuggy);
-                break;
-            case R.drawable.landship:
-                tv.setText(R.string.landship);
-                break;
-            case R.drawable.sneeker:
-                tv.setText(R.string.sneeker);
-                break;
-            case R.drawable.sports_coupe:
-                tv.setText(R.string.sports_coupe);
-                break;
-            case R.drawable.gold_standard:
-                tv.setText(R.string.gold_standard);
-                break;
-            case R.drawable.gla:
-                tv.setText(R.string.gla);
-                break;
-            case R.drawable.silver_arrow:
-                tv.setText(R.string.silver_arrow);
-                break;
-            case R.drawable.roadster:
-                tv.setText(R.string.roadster);
-                break;
-            case R.drawable.blue_falcon:
-                tv.setText(R.string.blue_falcon);
-                break;
-            case R.drawable.tanooki_kart:
-                tv.setText(R.string.tanooki_kart);
-                break;
-            case R.drawable.b_dasher:
-                tv.setText(R.string.b_dasher);
-                break;
-            case R.drawable.streetle:
-                tv.setText(R.string.streetle);
-                break;
-            case R.drawable.p_wing:
-                tv.setText(R.string.p_wing);
-                break;
-            case R.drawable.koopa_clown:
-                tv.setText(R.string.koopa_clown);
-                break;
-            case R.drawable.standard_bike:
-                tv.setText(R.string.standard_bike);
-                break;
-            case R.drawable.the_duke:
-                tv.setText(R.string.the_duke);
-                break;
-            case R.drawable.flame_rider:
-                tv.setText(R.string.flame_rider);
-                break;
-            case R.drawable.varmint:
-                tv.setText(R.string.varmint);
-                break;
-            case R.drawable.mr_scooty:
-                tv.setText(R.string.mr_scooty);
-                break;
-            case R.drawable.city_tripper:
-                tv.setText(R.string.city_tripper);
-                break;
-            case R.drawable.master_cycle_zero:
-                tv.setText(R.string.master_cycle_zero);
-                break;
-            case R.drawable.comet:
-                tv.setText(R.string.comet);
-                break;
-            case R.drawable.sports_bike:
-                tv.setText(R.string.sports_bike);
-                break;
-            case R.drawable.jet_bike:
-                tv.setText(R.string.jet_bike);
-                break;
-            case R.drawable.yoshi_bike:
-                tv.setText(R.string.yoshi_bike);
-                break;
-            case R.drawable.master_cycle:
-                tv.setText(R.string.master_cycle);
-                break;
-            case R.drawable.standard_atv:
-                tv.setText(R.string.standard_atv);
-                break;
-            case R.drawable.wild_wiggler:
-                tv.setText(R.string.wild_wiggler);
-                break;
-            case R.drawable.teddy_buggy:
-                tv.setText(R.string.teddy_buggy);
-                break;
-            case R.drawable.bone_rattler:
-                tv.setText(R.string.bone_rattler);
-                break;
-            case R.drawable.splat_buggy:
-                tv.setText(R.string.splat_buggy);
-                break;
-            case R.drawable.inkstriker:
-                tv.setText(R.string.inkstriker);
-                break;
+        if(id == R.drawable.b_dasher) {
+            tv.setText(R.string.b_dasher);
+        } else if(id == R.drawable.badwagon) {
+            tv.setText(R.string.badwagon);
+        } else if(id == R.drawable.biddybuggy) {
+            tv.setText(R.string.biddybuggy);
+        } else if(id == R.drawable.blue_falcon) {
+            tv.setText(R.string.blue_falcon);
+        } else if(id == R.drawable.bone_rattler) {
+            tv.setText(R.string.bone_rattler);
+        } else if(id == R.drawable.cat_cruiser) {
+            tv.setText(R.string.cat_cruiser);
+        } else if(id == R.drawable.circuit_special) {
+            tv.setText(R.string.circuit_special);
+        } else if(id == R.drawable.city_tripper) {
+            tv.setText(R.string.city_tripper);
+        } else if(id == R.drawable.comet) {
+            tv.setText(R.string.comet);
+        } else if(id == R.drawable.flame_rider) {
+            tv.setText(R.string.flame_rider);
+        } else if(id == R.drawable.gla) {
+            tv.setText(R.string.gla);
+        } else if(id == R.drawable.gold_standard) {
+            tv.setText(R.string.gold_standard);
+        } else if(id == R.drawable.inkstriker) {
+            tv.setText(R.string.inkstriker);
+        } else if(id == R.drawable.jet_bike) {
+            tv.setText(R.string.jet_bike);
+        } else if(id == R.drawable.koopa_clown) {
+            tv.setText(R.string.koopa_clown);
+        } else if(id == R.drawable.landship) {
+            tv.setText(R.string.landship);
+        } else if(id == R.drawable.mach_8) {
+            tv.setText(R.string.mach_8);
+        } else if(id == R.drawable.master_cycle) {
+            tv.setText(R.string.master_cycle);
+        } else if(id == R.drawable.master_cycle_zero) {
+            tv.setText(R.string.master_cycle_zero);
+        } else if(id == R.drawable.mr_scooty) {
+            tv.setText(R.string.mr_scooty);
+        } else if(id == R.drawable.p_wing) {
+            tv.setText(R.string.p_wing);
+        } else if(id == R.drawable.pipe_frame) {
+            tv.setText(R.string.pipe_frame);
+        } else if(id == R.drawable.prancer) {
+            tv.setText(R.string.prancer);
+        } else if(id == R.drawable.roadster) {
+            tv.setText(R.string.roadster);
+        } else if(id == R.drawable.silver_arrow) {
+            tv.setText(R.string.silver_arrow);
+        } else if(id == R.drawable.sneeker) {
+            tv.setText(R.string.sneeker);
+        } else if(id == R.drawable.splat_buggy) {
+            tv.setText(R.string.splat_buggy);
+        } else if(id == R.drawable.sports_bike) {
+            tv.setText(R.string.sports_bike);
+        } else if(id == R.drawable.sports_coupe) {
+            tv.setText(R.string.sports_coupe);
+        } else if(id == R.drawable.standard_atv) {
+            tv.setText(R.string.standard_atv);
+        } else if(id == R.drawable.standard_bike) {
+            tv.setText(R.string.standard_bike);
+        } else if(id == R.drawable.standard_kart) {
+            tv.setText(R.string.standard_kart);
+        } else if(id == R.drawable.steel_driver) {
+            tv.setText(R.string.steel_driver);
+        } else if(id == R.drawable.streetle) {
+            tv.setText(R.string.streetle);
+        } else if(id == R.drawable.tanooki_kart) {
+            tv.setText(R.string.tanooki_kart);
+        } else if(id == R.drawable.teddy_buggy) {
+            tv.setText(R.string.teddy_buggy);
+        } else if(id == R.drawable.the_duke) {
+            tv.setText(R.string.the_duke);
+        } else if(id == R.drawable.trispeeder) {
+            tv.setText(R.string.trispeeder);
+        } else if(id == R.drawable.varmint) {
+            tv.setText(R.string.varmint);
+        } else if(id == R.drawable.wild_wiggler) {
+            tv.setText(R.string.wild_wiggler);
+        } else if(id == R.drawable.yoshi_bike) {
+            tv.setText(R.string.yoshi_bike);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2015,135 +1675,95 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 1 frame
      * @param view is the current view
      */
-    public void bikesFrameImage3(View view) {
+    public void frameImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.frame_image_p3);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_kart:
-                tv.setText(R.string.standard_kart);
-                break;
-            case R.drawable.pipe_frame:
-                tv.setText(R.string.pipe_frame);
-                break;
-            case R.drawable.mach_8:
-                tv.setText(R.string.mach_8);
-                break;
-            case R.drawable.steel_driver:
-                tv.setText(R.string.steel_driver);
-                break;
-            case R.drawable.cat_cruiser:
-                tv.setText(R.string.cat_cruiser);
-                break;
-            case R.drawable.circuit_special:
-                tv.setText(R.string.circuit_special);
-                break;
-            case R.drawable.trispeeder:
-                tv.setText(R.string.tri_speeder);
-                break;
-            case R.drawable.badwagon:
-                tv.setText(R.string.badwagon);
-                break;
-            case R.drawable.prancer:
-                tv.setText(R.string.prancer);
-                break;
-            case R.drawable.biddybuggy:
-                tv.setText(R.string.biddybuggy);
-                break;
-            case R.drawable.landship:
-                tv.setText(R.string.landship);
-                break;
-            case R.drawable.sneeker:
-                tv.setText(R.string.sneeker);
-                break;
-            case R.drawable.sports_coupe:
-                tv.setText(R.string.sports_coupe);
-                break;
-            case R.drawable.gold_standard:
-                tv.setText(R.string.gold_standard);
-                break;
-            case R.drawable.gla:
-                tv.setText(R.string.gla);
-                break;
-            case R.drawable.silver_arrow:
-                tv.setText(R.string.silver_arrow);
-                break;
-            case R.drawable.roadster:
-                tv.setText(R.string.roadster);
-                break;
-            case R.drawable.blue_falcon:
-                tv.setText(R.string.blue_falcon);
-                break;
-            case R.drawable.tanooki_kart:
-                tv.setText(R.string.tanooki_kart);
-                break;
-            case R.drawable.b_dasher:
-                tv.setText(R.string.b_dasher);
-                break;
-            case R.drawable.streetle:
-                tv.setText(R.string.streetle);
-                break;
-            case R.drawable.p_wing:
-                tv.setText(R.string.p_wing);
-                break;
-            case R.drawable.koopa_clown:
-                tv.setText(R.string.koopa_clown);
-                break;
-            case R.drawable.standard_bike:
-                tv.setText(R.string.standard_bike);
-                break;
-            case R.drawable.the_duke:
-                tv.setText(R.string.the_duke);
-                break;
-            case R.drawable.flame_rider:
-                tv.setText(R.string.flame_rider);
-                break;
-            case R.drawable.varmint:
-                tv.setText(R.string.varmint);
-                break;
-            case R.drawable.mr_scooty:
-                tv.setText(R.string.mr_scooty);
-                break;
-            case R.drawable.city_tripper:
-                tv.setText(R.string.city_tripper);
-                break;
-            case R.drawable.master_cycle_zero:
-                tv.setText(R.string.master_cycle_zero);
-                break;
-            case R.drawable.comet:
-                tv.setText(R.string.comet);
-                break;
-            case R.drawable.sports_bike:
-                tv.setText(R.string.sports_bike);
-                break;
-            case R.drawable.jet_bike:
-                tv.setText(R.string.jet_bike);
-                break;
-            case R.drawable.yoshi_bike:
-                tv.setText(R.string.yoshi_bike);
-                break;
-            case R.drawable.master_cycle:
-                tv.setText(R.string.master_cycle);
-                break;
-            case R.drawable.standard_atv:
-                tv.setText(R.string.standard_atv);
-                break;
-            case R.drawable.wild_wiggler:
-                tv.setText(R.string.wild_wiggler);
-                break;
-            case R.drawable.teddy_buggy:
-                tv.setText(R.string.teddy_buggy);
-                break;
-            case R.drawable.bone_rattler:
-                tv.setText(R.string.bone_rattler);
-                break;
-            case R.drawable.splat_buggy:
-                tv.setText(R.string.splat_buggy);
-                break;
-            case R.drawable.inkstriker:
-                tv.setText(R.string.inkstriker);
-                break;
+        if(id == R.drawable.b_dasher) {
+            tv.setText(R.string.b_dasher);
+        } else if(id == R.drawable.badwagon) {
+            tv.setText(R.string.badwagon);
+        } else if(id == R.drawable.biddybuggy) {
+            tv.setText(R.string.biddybuggy);
+        } else if(id == R.drawable.blue_falcon) {
+            tv.setText(R.string.blue_falcon);
+        } else if(id == R.drawable.bone_rattler) {
+            tv.setText(R.string.bone_rattler);
+        } else if(id == R.drawable.cat_cruiser) {
+            tv.setText(R.string.cat_cruiser);
+        } else if(id == R.drawable.circuit_special) {
+            tv.setText(R.string.circuit_special);
+        } else if(id == R.drawable.city_tripper) {
+            tv.setText(R.string.city_tripper);
+        } else if(id == R.drawable.comet) {
+            tv.setText(R.string.comet);
+        } else if(id == R.drawable.flame_rider) {
+            tv.setText(R.string.flame_rider);
+        } else if(id == R.drawable.gla) {
+            tv.setText(R.string.gla);
+        } else if(id == R.drawable.gold_standard) {
+            tv.setText(R.string.gold_standard);
+        } else if(id == R.drawable.inkstriker) {
+            tv.setText(R.string.inkstriker);
+        } else if(id == R.drawable.jet_bike) {
+            tv.setText(R.string.jet_bike);
+        } else if(id == R.drawable.koopa_clown) {
+            tv.setText(R.string.koopa_clown);
+        } else if(id == R.drawable.landship) {
+            tv.setText(R.string.landship);
+        } else if(id == R.drawable.mach_8) {
+            tv.setText(R.string.mach_8);
+        } else if(id == R.drawable.master_cycle) {
+            tv.setText(R.string.master_cycle);
+        } else if(id == R.drawable.master_cycle_zero) {
+            tv.setText(R.string.master_cycle_zero);
+        } else if(id == R.drawable.mr_scooty) {
+            tv.setText(R.string.mr_scooty);
+        } else if(id == R.drawable.p_wing) {
+            tv.setText(R.string.p_wing);
+        } else if(id == R.drawable.pipe_frame) {
+            tv.setText(R.string.pipe_frame);
+        } else if(id == R.drawable.prancer) {
+            tv.setText(R.string.prancer);
+        } else if(id == R.drawable.roadster) {
+            tv.setText(R.string.roadster);
+        } else if(id == R.drawable.silver_arrow) {
+            tv.setText(R.string.silver_arrow);
+        } else if(id == R.drawable.sneeker) {
+            tv.setText(R.string.sneeker);
+        } else if(id == R.drawable.splat_buggy) {
+            tv.setText(R.string.splat_buggy);
+        } else if(id == R.drawable.sports_bike) {
+            tv.setText(R.string.sports_bike);
+        } else if(id == R.drawable.sports_coupe) {
+            tv.setText(R.string.sports_coupe);
+        } else if(id == R.drawable.standard_atv) {
+            tv.setText(R.string.standard_atv);
+        } else if(id == R.drawable.standard_bike) {
+            tv.setText(R.string.standard_bike);
+        } else if(id == R.drawable.standard_kart) {
+            tv.setText(R.string.standard_kart);
+        } else if(id == R.drawable.steel_driver) {
+            tv.setText(R.string.steel_driver);
+        } else if(id == R.drawable.streetle) {
+            tv.setText(R.string.streetle);
+        } else if(id == R.drawable.tanooki_kart) {
+            tv.setText(R.string.tanooki_kart);
+        } else if(id == R.drawable.teddy_buggy) {
+            tv.setText(R.string.teddy_buggy);
+        } else if(id == R.drawable.the_duke) {
+            tv.setText(R.string.the_duke);
+        } else if(id == R.drawable.trispeeder) {
+            tv.setText(R.string.trispeeder);
+        } else if(id == R.drawable.varmint) {
+            tv.setText(R.string.varmint);
+        } else if(id == R.drawable.wild_wiggler) {
+            tv.setText(R.string.wild_wiggler);
+        } else if(id == R.drawable.yoshi_bike) {
+            tv.setText(R.string.yoshi_bike);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2151,135 +1771,95 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 4 frame
      * @param view is the current view
      */
-    public void bikesFrameImage4(View view) {
+    public void frameImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.frame_image_p4);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_kart:
-                tv.setText(R.string.standard_kart);
-                break;
-            case R.drawable.pipe_frame:
-                tv.setText(R.string.pipe_frame);
-                break;
-            case R.drawable.mach_8:
-                tv.setText(R.string.mach_8);
-                break;
-            case R.drawable.steel_driver:
-                tv.setText(R.string.steel_driver);
-                break;
-            case R.drawable.cat_cruiser:
-                tv.setText(R.string.cat_cruiser);
-                break;
-            case R.drawable.circuit_special:
-                tv.setText(R.string.circuit_special);
-                break;
-            case R.drawable.trispeeder:
-                tv.setText(R.string.tri_speeder);
-                break;
-            case R.drawable.badwagon:
-                tv.setText(R.string.badwagon);
-                break;
-            case R.drawable.prancer:
-                tv.setText(R.string.prancer);
-                break;
-            case R.drawable.biddybuggy:
-                tv.setText(R.string.biddybuggy);
-                break;
-            case R.drawable.landship:
-                tv.setText(R.string.landship);
-                break;
-            case R.drawable.sneeker:
-                tv.setText(R.string.sneeker);
-                break;
-            case R.drawable.sports_coupe:
-                tv.setText(R.string.sports_coupe);
-                break;
-            case R.drawable.gold_standard:
-                tv.setText(R.string.gold_standard);
-                break;
-            case R.drawable.gla:
-                tv.setText(R.string.gla);
-                break;
-            case R.drawable.silver_arrow:
-                tv.setText(R.string.silver_arrow);
-                break;
-            case R.drawable.roadster:
-                tv.setText(R.string.roadster);
-                break;
-            case R.drawable.blue_falcon:
-                tv.setText(R.string.blue_falcon);
-                break;
-            case R.drawable.tanooki_kart:
-                tv.setText(R.string.tanooki_kart);
-                break;
-            case R.drawable.b_dasher:
-                tv.setText(R.string.b_dasher);
-                break;
-            case R.drawable.streetle:
-                tv.setText(R.string.streetle);
-                break;
-            case R.drawable.p_wing:
-                tv.setText(R.string.p_wing);
-                break;
-            case R.drawable.koopa_clown:
-                tv.setText(R.string.koopa_clown);
-                break;
-            case R.drawable.standard_bike:
-                tv.setText(R.string.standard_bike);
-                break;
-            case R.drawable.the_duke:
-                tv.setText(R.string.the_duke);
-                break;
-            case R.drawable.flame_rider:
-                tv.setText(R.string.flame_rider);
-                break;
-            case R.drawable.varmint:
-                tv.setText(R.string.varmint);
-                break;
-            case R.drawable.mr_scooty:
-                tv.setText(R.string.mr_scooty);
-                break;
-            case R.drawable.city_tripper:
-                tv.setText(R.string.city_tripper);
-                break;
-            case R.drawable.master_cycle_zero:
-                tv.setText(R.string.master_cycle_zero);
-                break;
-            case R.drawable.comet:
-                tv.setText(R.string.comet);
-                break;
-            case R.drawable.sports_bike:
-                tv.setText(R.string.sports_bike);
-                break;
-            case R.drawable.jet_bike:
-                tv.setText(R.string.jet_bike);
-                break;
-            case R.drawable.yoshi_bike:
-                tv.setText(R.string.yoshi_bike);
-                break;
-            case R.drawable.master_cycle:
-                tv.setText(R.string.master_cycle);
-                break;
-            case R.drawable.standard_atv:
-                tv.setText(R.string.standard_atv);
-                break;
-            case R.drawable.wild_wiggler:
-                tv.setText(R.string.wild_wiggler);
-                break;
-            case R.drawable.teddy_buggy:
-                tv.setText(R.string.teddy_buggy);
-                break;
-            case R.drawable.bone_rattler:
-                tv.setText(R.string.bone_rattler);
-                break;
-            case R.drawable.splat_buggy:
-                tv.setText(R.string.splat_buggy);
-                break;
-            case R.drawable.inkstriker:
-                tv.setText(R.string.inkstriker);
-                break;
+        if(id == R.drawable.b_dasher) {
+            tv.setText(R.string.b_dasher);
+        } else if(id == R.drawable.badwagon) {
+            tv.setText(R.string.badwagon);
+        } else if(id == R.drawable.biddybuggy) {
+            tv.setText(R.string.biddybuggy);
+        } else if(id == R.drawable.blue_falcon) {
+            tv.setText(R.string.blue_falcon);
+        } else if(id == R.drawable.bone_rattler) {
+            tv.setText(R.string.bone_rattler);
+        } else if(id == R.drawable.cat_cruiser) {
+            tv.setText(R.string.cat_cruiser);
+        } else if(id == R.drawable.circuit_special) {
+            tv.setText(R.string.circuit_special);
+        } else if(id == R.drawable.city_tripper) {
+            tv.setText(R.string.city_tripper);
+        } else if(id == R.drawable.comet) {
+            tv.setText(R.string.comet);
+        } else if(id == R.drawable.flame_rider) {
+            tv.setText(R.string.flame_rider);
+        } else if(id == R.drawable.gla) {
+            tv.setText(R.string.gla);
+        } else if(id == R.drawable.gold_standard) {
+            tv.setText(R.string.gold_standard);
+        } else if(id == R.drawable.inkstriker) {
+            tv.setText(R.string.inkstriker);
+        } else if(id == R.drawable.jet_bike) {
+            tv.setText(R.string.jet_bike);
+        } else if(id == R.drawable.koopa_clown) {
+            tv.setText(R.string.koopa_clown);
+        } else if(id == R.drawable.landship) {
+            tv.setText(R.string.landship);
+        } else if(id == R.drawable.mach_8) {
+            tv.setText(R.string.mach_8);
+        } else if(id == R.drawable.master_cycle) {
+            tv.setText(R.string.master_cycle);
+        } else if(id == R.drawable.master_cycle_zero) {
+            tv.setText(R.string.master_cycle_zero);
+        } else if(id == R.drawable.mr_scooty) {
+            tv.setText(R.string.mr_scooty);
+        } else if(id == R.drawable.p_wing) {
+            tv.setText(R.string.p_wing);
+        } else if(id == R.drawable.pipe_frame) {
+            tv.setText(R.string.pipe_frame);
+        } else if(id == R.drawable.prancer) {
+            tv.setText(R.string.prancer);
+        } else if(id == R.drawable.roadster) {
+            tv.setText(R.string.roadster);
+        } else if(id == R.drawable.silver_arrow) {
+            tv.setText(R.string.silver_arrow);
+        } else if(id == R.drawable.sneeker) {
+            tv.setText(R.string.sneeker);
+        } else if(id == R.drawable.splat_buggy) {
+            tv.setText(R.string.splat_buggy);
+        } else if(id == R.drawable.sports_bike) {
+            tv.setText(R.string.sports_bike);
+        } else if(id == R.drawable.sports_coupe) {
+            tv.setText(R.string.sports_coupe);
+        } else if(id == R.drawable.standard_atv) {
+            tv.setText(R.string.standard_atv);
+        } else if(id == R.drawable.standard_bike) {
+            tv.setText(R.string.standard_bike);
+        } else if(id == R.drawable.standard_kart) {
+            tv.setText(R.string.standard_kart);
+        } else if(id == R.drawable.steel_driver) {
+            tv.setText(R.string.steel_driver);
+        } else if(id == R.drawable.streetle) {
+            tv.setText(R.string.streetle);
+        } else if(id == R.drawable.tanooki_kart) {
+            tv.setText(R.string.tanooki_kart);
+        } else if(id == R.drawable.teddy_buggy) {
+            tv.setText(R.string.teddy_buggy);
+        } else if(id == R.drawable.the_duke) {
+            tv.setText(R.string.the_duke);
+        } else if(id == R.drawable.trispeeder) {
+            tv.setText(R.string.trispeeder);
+        } else if(id == R.drawable.varmint) {
+            tv.setText(R.string.varmint);
+        } else if(id == R.drawable.wild_wiggler) {
+            tv.setText(R.string.wild_wiggler);
+        } else if(id == R.drawable.yoshi_bike) {
+            tv.setText(R.string.yoshi_bike);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2287,78 +1867,57 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 1 wheels
      * @param view is the current view
      */
-    public void bikesWheelImage1(View view) {
+    public void wheelImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.wheel_image_p1);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_tires:
-                tv.setText(R.string.standard_tires);
-                break;
-            case R.drawable.monster_tires:
-                tv.setText(R.string.monster_tires);
-                break;
-            case R.drawable.roller_tires:
-                tv.setText(R.string.roller_wheels);
-                break;
-            case R.drawable.slim_tires:
-                tv.setText(R.string.slim_tires);
-                break;
-            case R.drawable.slick_tires:
-                tv.setText(R.string.slick_tires);
-                break;
-            case R.drawable.metal_tires:
-                tv.setText(R.string.metal_wheels);
-                break;
-            case R.drawable.button_tires:
-                tv.setText(R.string.button_wheels);
-                break;
-            case R.drawable.off_road:
-                tv.setText(R.string.off_road_tires);
-                break;
-            case R.drawable.sponge_tires:
-                tv.setText(R.string.sponge_tires);
-                break;
-            case R.drawable.wood_tires:
-                tv.setText(R.string.wood_wheels);
-                break;
-            case R.drawable.cushion_tires:
-                tv.setText(R.string.cushion_tires);
-                break;
-            case R.drawable.blue_standard_tires:
-                tv.setText(R.string.blue_standard_tires);
-                break;
-            case R.drawable.hot_monster_tires:
-                tv.setText(R.string.hot_monster_tires);
-                break;
-            case R.drawable.azure_rollers:
-                tv.setText(R.string.azure_roller_wheels);
-                break;
-            case R.drawable.crimson_slim_tires:
-                tv.setText(R.string.crimson_slim_tires);
-                break;
-            case R.drawable.cyber_slick_tires:
-                tv.setText(R.string.cyber_slick_tires);
-                break;
-            case R.drawable.retro_off_road:
-                tv.setText(R.string.retro_off_road_tires);
-                break;
-            case R.drawable.gold_tires:
-                tv.setText(R.string.gold_tires);
-                break;
-            case R.drawable.gla_tires:
-                tv.setText(R.string.gla_tires);
-                break;
-            case R.drawable.triforce_tires:
-                tv.setText(R.string.triforce_tires);
-                break;
-            case R.drawable.leaf_tires:
-                tv.setText(R.string.leaf_tires);
-                break;
-            case R.drawable.ancient_tires:
-                tv.setText(R.string.ancient_tires);
-                break;
+        if(id == R.drawable.ancient_tires) {
+            tv.setText(R.string.ancient_tires);
+        } else if(id == R.drawable.blue_standard_tires) {
+            tv.setText(R.string.blue_standard_tires);
+        } else if(id == R.drawable.button_tires) {
+            tv.setText(R.string.button_tires);
+        } else if(id == R.drawable.cushion_tires) {
+            tv.setText(R.string.cushion_tires);
+        } else if(id == R.drawable.gla_tires) {
+            tv.setText(R.string.gla_tires);
+        } else if(id == R.drawable.gold_tires) {
+            tv.setText(R.string.gold_tires);
+        } else if(id == R.drawable.leaf_tires) {
+            tv.setText(R.string.leaf_tires);
+        } else if(id == R.drawable.metal_tires) {
+            tv.setText(R.string.metal_tires);
+        } else if(id == R.drawable.monster_tires) {
+            tv.setText(R.string.monster_tires);
+        } else if(id == R.drawable.monster_tires_hot) {
+            tv.setText(R.string.monster_tires_hot);
+        } else if(id == R.drawable.off_road_tires) {
+            tv.setText(R.string.off_road_tires);
+        } else if(id == R.drawable.off_road_tires_retro) {
+            tv.setText(R.string.off_road_tires_retro);
+        } else if(id == R.drawable.roller_tires) {
+            tv.setText(R.string.roller_tires);
+        } else if(id == R.drawable.roller_tires_azure) {
+            tv.setText(R.string.roller_tires_azure);
+        } else if(id == R.drawable.slick_tires) {
+            tv.setText(R.string.slick_tires);
+        } else if(id == R.drawable.slick_tires_cyber) {
+            tv.setText(R.string.slick_tires_cyber);
+        } else if(id == R.drawable.slim_tires) {
+            tv.setText(R.string.slim_tires);
+        } else if(id == R.drawable.slim_tires_crimson) {
+            tv.setText(R.string.slim_tires_crimson);
+        } else if(id == R.drawable.sponge_tires) {
+            tv.setText(R.string.sponge_tires);
+        } else if(id == R.drawable.standard_tires) {
+            tv.setText(R.string.standard_tires);
+        } else if(id == R.drawable.triforce_tires) {
+            tv.setText(R.string.triforce_tires);
+        } else if(id == R.drawable.wood_tires) {
+            tv.setText(R.string.wood_tires);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2366,78 +1925,57 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 2 wheels
      * @param view is the current view
      */
-    public void bikesWheelImage2(View view) {
+    public void wheelImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.wheel_image_p2);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_tires:
-                tv.setText(R.string.standard_tires);
-                break;
-            case R.drawable.monster_tires:
-                tv.setText(R.string.monster_tires);
-                break;
-            case R.drawable.roller_tires:
-                tv.setText(R.string.roller_wheels);
-                break;
-            case R.drawable.slim_tires:
-                tv.setText(R.string.slim_tires);
-                break;
-            case R.drawable.slick_tires:
-                tv.setText(R.string.slick_tires);
-                break;
-            case R.drawable.metal_tires:
-                tv.setText(R.string.metal_wheels);
-                break;
-            case R.drawable.button_tires:
-                tv.setText(R.string.button_wheels);
-                break;
-            case R.drawable.off_road:
-                tv.setText(R.string.off_road_tires);
-                break;
-            case R.drawable.sponge_tires:
-                tv.setText(R.string.sponge_tires);
-                break;
-            case R.drawable.wood_tires:
-                tv.setText(R.string.wood_wheels);
-                break;
-            case R.drawable.cushion_tires:
-                tv.setText(R.string.cushion_tires);
-                break;
-            case R.drawable.blue_standard_tires:
-                tv.setText(R.string.blue_standard_tires);
-                break;
-            case R.drawable.hot_monster_tires:
-                tv.setText(R.string.hot_monster_tires);
-                break;
-            case R.drawable.azure_rollers:
-                tv.setText(R.string.azure_roller_wheels);
-                break;
-            case R.drawable.crimson_slim_tires:
-                tv.setText(R.string.crimson_slim_tires);
-                break;
-            case R.drawable.cyber_slick_tires:
-                tv.setText(R.string.cyber_slick_tires);
-                break;
-            case R.drawable.retro_off_road:
-                tv.setText(R.string.retro_off_road_tires);
-                break;
-            case R.drawable.gold_tires:
-                tv.setText(R.string.gold_tires);
-                break;
-            case R.drawable.gla_tires:
-                tv.setText(R.string.gla_tires);
-                break;
-            case R.drawable.triforce_tires:
-                tv.setText(R.string.triforce_tires);
-                break;
-            case R.drawable.leaf_tires:
-                tv.setText(R.string.leaf_tires);
-                break;
-            case R.drawable.ancient_tires:
-                tv.setText(R.string.ancient_tires);
-                break;
+        if(id == R.drawable.ancient_tires) {
+            tv.setText(R.string.ancient_tires);
+        } else if(id == R.drawable.blue_standard_tires) {
+            tv.setText(R.string.blue_standard_tires);
+        } else if(id == R.drawable.button_tires) {
+            tv.setText(R.string.button_tires);
+        } else if(id == R.drawable.cushion_tires) {
+            tv.setText(R.string.cushion_tires);
+        } else if(id == R.drawable.gla_tires) {
+            tv.setText(R.string.gla_tires);
+        } else if(id == R.drawable.gold_tires) {
+            tv.setText(R.string.gold_tires);
+        } else if(id == R.drawable.leaf_tires) {
+            tv.setText(R.string.leaf_tires);
+        } else if(id == R.drawable.metal_tires) {
+            tv.setText(R.string.metal_tires);
+        } else if(id == R.drawable.monster_tires) {
+            tv.setText(R.string.monster_tires);
+        } else if(id == R.drawable.monster_tires_hot) {
+            tv.setText(R.string.monster_tires_hot);
+        } else if(id == R.drawable.off_road_tires) {
+            tv.setText(R.string.off_road_tires);
+        } else if(id == R.drawable.off_road_tires_retro) {
+            tv.setText(R.string.off_road_tires_retro);
+        } else if(id == R.drawable.roller_tires) {
+            tv.setText(R.string.roller_tires);
+        } else if(id == R.drawable.roller_tires_azure) {
+            tv.setText(R.string.roller_tires_azure);
+        } else if(id == R.drawable.slick_tires) {
+            tv.setText(R.string.slick_tires);
+        } else if(id == R.drawable.slick_tires_cyber) {
+            tv.setText(R.string.slick_tires_cyber);
+        } else if(id == R.drawable.slim_tires) {
+            tv.setText(R.string.slim_tires);
+        } else if(id == R.drawable.slim_tires_crimson) {
+            tv.setText(R.string.slim_tires_crimson);
+        } else if(id == R.drawable.sponge_tires) {
+            tv.setText(R.string.sponge_tires);
+        } else if(id == R.drawable.standard_tires) {
+            tv.setText(R.string.standard_tires);
+        } else if(id == R.drawable.triforce_tires) {
+            tv.setText(R.string.triforce_tires);
+        } else if(id == R.drawable.wood_tires) {
+            tv.setText(R.string.wood_tires);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2445,78 +1983,57 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 3 wheels
      * @param view is the current view
      */
-    public void bikesWheelImage3(View view) {
+    public void wheelImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.wheel_image_p3);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_tires:
-                tv.setText(R.string.standard_tires);
-                break;
-            case R.drawable.monster_tires:
-                tv.setText(R.string.monster_tires);
-                break;
-            case R.drawable.roller_tires:
-                tv.setText(R.string.roller_wheels);
-                break;
-            case R.drawable.slim_tires:
-                tv.setText(R.string.slim_tires);
-                break;
-            case R.drawable.slick_tires:
-                tv.setText(R.string.slick_tires);
-                break;
-            case R.drawable.metal_tires:
-                tv.setText(R.string.metal_wheels);
-                break;
-            case R.drawable.button_tires:
-                tv.setText(R.string.button_wheels);
-                break;
-            case R.drawable.off_road:
-                tv.setText(R.string.off_road_tires);
-                break;
-            case R.drawable.sponge_tires:
-                tv.setText(R.string.sponge_tires);
-                break;
-            case R.drawable.wood_tires:
-                tv.setText(R.string.wood_wheels);
-                break;
-            case R.drawable.cushion_tires:
-                tv.setText(R.string.cushion_tires);
-                break;
-            case R.drawable.blue_standard_tires:
-                tv.setText(R.string.blue_standard_tires);
-                break;
-            case R.drawable.hot_monster_tires:
-                tv.setText(R.string.hot_monster_tires);
-                break;
-            case R.drawable.azure_rollers:
-                tv.setText(R.string.azure_roller_wheels);
-                break;
-            case R.drawable.crimson_slim_tires:
-                tv.setText(R.string.crimson_slim_tires);
-                break;
-            case R.drawable.cyber_slick_tires:
-                tv.setText(R.string.cyber_slick_tires);
-                break;
-            case R.drawable.retro_off_road:
-                tv.setText(R.string.retro_off_road_tires);
-                break;
-            case R.drawable.gold_tires:
-                tv.setText(R.string.gold_tires);
-                break;
-            case R.drawable.gla_tires:
-                tv.setText(R.string.gla_tires);
-                break;
-            case R.drawable.triforce_tires:
-                tv.setText(R.string.triforce_tires);
-                break;
-            case R.drawable.leaf_tires:
-                tv.setText(R.string.leaf_tires);
-                break;
-            case R.drawable.ancient_tires:
-                tv.setText(R.string.ancient_tires);
-                break;
+        if(id == R.drawable.ancient_tires) {
+            tv.setText(R.string.ancient_tires);
+        } else if(id == R.drawable.blue_standard_tires) {
+            tv.setText(R.string.blue_standard_tires);
+        } else if(id == R.drawable.button_tires) {
+            tv.setText(R.string.button_tires);
+        } else if(id == R.drawable.cushion_tires) {
+            tv.setText(R.string.cushion_tires);
+        } else if(id == R.drawable.gla_tires) {
+            tv.setText(R.string.gla_tires);
+        } else if(id == R.drawable.gold_tires) {
+            tv.setText(R.string.gold_tires);
+        } else if(id == R.drawable.leaf_tires) {
+            tv.setText(R.string.leaf_tires);
+        } else if(id == R.drawable.metal_tires) {
+            tv.setText(R.string.metal_tires);
+        } else if(id == R.drawable.monster_tires) {
+            tv.setText(R.string.monster_tires);
+        } else if(id == R.drawable.monster_tires_hot) {
+            tv.setText(R.string.monster_tires_hot);
+        } else if(id == R.drawable.off_road_tires) {
+            tv.setText(R.string.off_road_tires);
+        } else if(id == R.drawable.off_road_tires_retro) {
+            tv.setText(R.string.off_road_tires_retro);
+        } else if(id == R.drawable.roller_tires) {
+            tv.setText(R.string.roller_tires);
+        } else if(id == R.drawable.roller_tires_azure) {
+            tv.setText(R.string.roller_tires_azure);
+        } else if(id == R.drawable.slick_tires) {
+            tv.setText(R.string.slick_tires);
+        } else if(id == R.drawable.slick_tires_cyber) {
+            tv.setText(R.string.slick_tires_cyber);
+        } else if(id == R.drawable.slim_tires) {
+            tv.setText(R.string.slim_tires);
+        } else if(id == R.drawable.slim_tires_crimson) {
+            tv.setText(R.string.slim_tires_crimson);
+        } else if(id == R.drawable.sponge_tires) {
+            tv.setText(R.string.sponge_tires);
+        } else if(id == R.drawable.standard_tires) {
+            tv.setText(R.string.standard_tires);
+        } else if(id == R.drawable.triforce_tires) {
+            tv.setText(R.string.triforce_tires);
+        } else if(id == R.drawable.wood_tires) {
+            tv.setText(R.string.wood_tires);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2524,78 +2041,57 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 4 wheels
      * @param view is the current view
      */
-    public void bikesWheelImage4(View view) {
+    public void wheelImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.wheel_image_p4);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.standard_tires:
-                tv.setText(R.string.standard_tires);
-                break;
-            case R.drawable.monster_tires:
-                tv.setText(R.string.monster_tires);
-                break;
-            case R.drawable.roller_tires:
-                tv.setText(R.string.roller_wheels);
-                break;
-            case R.drawable.slim_tires:
-                tv.setText(R.string.slim_tires);
-                break;
-            case R.drawable.slick_tires:
-                tv.setText(R.string.slick_tires);
-                break;
-            case R.drawable.metal_tires:
-                tv.setText(R.string.metal_wheels);
-                break;
-            case R.drawable.button_tires:
-                tv.setText(R.string.button_wheels);
-                break;
-            case R.drawable.off_road:
-                tv.setText(R.string.off_road_tires);
-                break;
-            case R.drawable.sponge_tires:
-                tv.setText(R.string.sponge_tires);
-                break;
-            case R.drawable.wood_tires:
-                tv.setText(R.string.wood_wheels);
-                break;
-            case R.drawable.cushion_tires:
-                tv.setText(R.string.cushion_tires);
-                break;
-            case R.drawable.blue_standard_tires:
-                tv.setText(R.string.blue_standard_tires);
-                break;
-            case R.drawable.hot_monster_tires:
-                tv.setText(R.string.hot_monster_tires);
-                break;
-            case R.drawable.azure_rollers:
-                tv.setText(R.string.azure_roller_wheels);
-                break;
-            case R.drawable.crimson_slim_tires:
-                tv.setText(R.string.crimson_slim_tires);
-                break;
-            case R.drawable.cyber_slick_tires:
-                tv.setText(R.string.cyber_slick_tires);
-                break;
-            case R.drawable.retro_off_road:
-                tv.setText(R.string.retro_off_road_tires);
-                break;
-            case R.drawable.gold_tires:
-                tv.setText(R.string.gold_tires);
-                break;
-            case R.drawable.gla_tires:
-                tv.setText(R.string.gla_tires);
-                break;
-            case R.drawable.triforce_tires:
-                tv.setText(R.string.triforce_tires);
-                break;
-            case R.drawable.leaf_tires:
-                tv.setText(R.string.leaf_tires);
-                break;
-            case R.drawable.ancient_tires:
-                tv.setText(R.string.ancient_tires);
-                break;
+        if(id == R.drawable.ancient_tires) {
+            tv.setText(R.string.ancient_tires);
+        } else if(id == R.drawable.blue_standard_tires) {
+            tv.setText(R.string.blue_standard_tires);
+        } else if(id == R.drawable.button_tires) {
+            tv.setText(R.string.button_tires);
+        } else if(id == R.drawable.cushion_tires) {
+            tv.setText(R.string.cushion_tires);
+        } else if(id == R.drawable.gla_tires) {
+            tv.setText(R.string.gla_tires);
+        } else if(id == R.drawable.gold_tires) {
+            tv.setText(R.string.gold_tires);
+        } else if(id == R.drawable.leaf_tires) {
+            tv.setText(R.string.leaf_tires);
+        } else if(id == R.drawable.metal_tires) {
+            tv.setText(R.string.metal_tires);
+        } else if(id == R.drawable.monster_tires) {
+            tv.setText(R.string.monster_tires);
+        } else if(id == R.drawable.monster_tires_hot) {
+            tv.setText(R.string.monster_tires_hot);
+        } else if(id == R.drawable.off_road_tires) {
+            tv.setText(R.string.off_road_tires);
+        } else if(id == R.drawable.off_road_tires_retro) {
+            tv.setText(R.string.off_road_tires_retro);
+        } else if(id == R.drawable.roller_tires) {
+            tv.setText(R.string.roller_tires);
+        } else if(id == R.drawable.roller_tires_azure) {
+            tv.setText(R.string.roller_tires_azure);
+        } else if(id == R.drawable.slick_tires) {
+            tv.setText(R.string.slick_tires);
+        } else if(id == R.drawable.slick_tires_cyber) {
+            tv.setText(R.string.slick_tires_cyber);
+        } else if(id == R.drawable.slim_tires) {
+            tv.setText(R.string.slim_tires);
+        } else if(id == R.drawable.slim_tires_crimson) {
+            tv.setText(R.string.slim_tires_crimson);
+        } else if(id == R.drawable.sponge_tires) {
+            tv.setText(R.string.sponge_tires);
+        } else if(id == R.drawable.standard_tires) {
+            tv.setText(R.string.standard_tires);
+        } else if(id == R.drawable.triforce_tires) {
+            tv.setText(R.string.triforce_tires);
+        } else if(id == R.drawable.wood_tires) {
+            tv.setText(R.string.wood_tires);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2603,59 +2099,43 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 1 glider
      * @param view is the current view
      */
-    public void bikesGliderImage1(View view) {
+    public void gliderImage1(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.glider_image_p1);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.super_glider:
-                tv.setText(R.string.super_glider);
-                break;
-            case R.drawable.cloud_glider:
-                tv.setText(R.string.cloud_glider);
-                break;
-            case R.drawable.wario_wing:
-                tv.setText(R.string.wario_wing);
-                break;
-            case R.drawable.waddle_wing:
-                tv.setText(R.string.waddle_wing);
-                break;
-            case R.drawable.parasol:
-                tv.setText(R.string.parasol);
-                break;
-            case R.drawable.parachute:
-                tv.setText(R.string.parachute);
-                break;
-            case R.drawable.parafoil:
-                tv.setText(R.string.parafoil);
-                break;
-            case R.drawable.flower_glider:
-                tv.setText(R.string.flower_glider);
-                break;
-            case R.drawable.bowser_kite:
-                tv.setText(R.string.bowser_kite);
-                break;
-            case R.drawable.plane_glider:
-                tv.setText(R.string.plane_glider);
-                break;
-            case R.drawable.mktv_parafoil:
-                tv.setText(R.string.mktv_parafoil);
-                break;
-            case R.drawable.gold_glider:
-                tv.setText(R.string.gold_glider);
-                break;
-            case R.drawable.hylian_kite:
-                tv.setText(R.string.hylian_kite);
-                break;
-            case R.drawable.paper_glider:
-                tv.setText(R.string.paper_glider);
-                break;
-            case R.drawable.paraglider:
-                tv.setText(R.string.paraglider);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.bowser_kite) {
+             tv.setText(R.string.bowser_kite);
+        } else if(id == R.drawable.cloud_glider) {
+            tv.setText(R.string.cloud_glider);
+        } else if(id == R.drawable.flower_glider) {
+            tv.setText(R.string.flower_glider);
+        } else if(id == R.drawable.gold_glider) {
+            tv.setText(R.string.gold_glider);
+        } else if(id == R.drawable.hylian_kite) {
+            tv.setText(R.string.hylian_kite);
+        } else if(id == R.drawable.paper_glider) {
+            tv.setText(R.string.paper_glider);
+        } else if(id == R.drawable.parachute) {
+            tv.setText(R.string.parachute);
+        } else if(id == R.drawable.parafoil) {
+            tv.setText(R.string.parafoil);
+        } else if(id == R.drawable.parafoil_mktv) {
+            tv.setText(R.string.parafoil_mktv);
+        } else if(id == R.drawable.paraglider) {
+            tv.setText(R.string.paraglider);
+        } else if(id == R.drawable.parasol) {
+            tv.setText(R.string.parasol);
+        } else if(id == R.drawable.plane_glider) {
+            tv.setText(R.string.plane_glider);
+        } else if(id == R.drawable.super_glider) {
+            tv.setText(R.string.super_glider);
+        } else if(id == R.drawable.waddle_wing) {
+            tv.setText(R.string.waddle_wing);
+        } else if(id == R.drawable.wario_wing) {
+            tv.setText(R.string.wario_wing);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2663,59 +2143,43 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 2 glider
      * @param view is the current view
      */
-    public void bikesGliderImage2(View view) {
+    public void gliderImage2(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.glider_image_p1);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.super_glider:
-                tv.setText(R.string.super_glider);
-                break;
-            case R.drawable.cloud_glider:
-                tv.setText(R.string.cloud_glider);
-                break;
-            case R.drawable.wario_wing:
-                tv.setText(R.string.wario_wing);
-                break;
-            case R.drawable.waddle_wing:
-                tv.setText(R.string.waddle_wing);
-                break;
-            case R.drawable.parasol:
-                tv.setText(R.string.parasol);
-                break;
-            case R.drawable.parachute:
-                tv.setText(R.string.parachute);
-                break;
-            case R.drawable.parafoil:
-                tv.setText(R.string.parafoil);
-                break;
-            case R.drawable.flower_glider:
-                tv.setText(R.string.flower_glider);
-                break;
-            case R.drawable.bowser_kite:
-                tv.setText(R.string.bowser_kite);
-                break;
-            case R.drawable.plane_glider:
-                tv.setText(R.string.plane_glider);
-                break;
-            case R.drawable.mktv_parafoil:
-                tv.setText(R.string.mktv_parafoil);
-                break;
-            case R.drawable.gold_glider:
-                tv.setText(R.string.gold_glider);
-                break;
-            case R.drawable.hylian_kite:
-                tv.setText(R.string.hylian_kite);
-                break;
-            case R.drawable.paper_glider:
-                tv.setText(R.string.paper_glider);
-                break;
-            case R.drawable.paraglider:
-                tv.setText(R.string.paraglider);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.bowser_kite) {
+            tv.setText(R.string.bowser_kite);
+        } else if(id == R.drawable.cloud_glider) {
+            tv.setText(R.string.cloud_glider);
+        } else if(id == R.drawable.flower_glider) {
+            tv.setText(R.string.flower_glider);
+        } else if(id == R.drawable.gold_glider) {
+            tv.setText(R.string.gold_glider);
+        } else if(id == R.drawable.hylian_kite) {
+            tv.setText(R.string.hylian_kite);
+        } else if(id == R.drawable.paper_glider) {
+            tv.setText(R.string.paper_glider);
+        } else if(id == R.drawable.parachute) {
+            tv.setText(R.string.parachute);
+        } else if(id == R.drawable.parafoil) {
+            tv.setText(R.string.parafoil);
+        } else if(id == R.drawable.parafoil_mktv) {
+            tv.setText(R.string.parafoil_mktv);
+        } else if(id == R.drawable.paraglider) {
+            tv.setText(R.string.paraglider);
+        } else if(id == R.drawable.parasol) {
+            tv.setText(R.string.parasol);
+        } else if(id == R.drawable.plane_glider) {
+            tv.setText(R.string.plane_glider);
+        } else if(id == R.drawable.super_glider) {
+            tv.setText(R.string.super_glider);
+        } else if(id == R.drawable.waddle_wing) {
+            tv.setText(R.string.waddle_wing);
+        } else if(id == R.drawable.wario_wing) {
+            tv.setText(R.string.wario_wing);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2723,59 +2187,43 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 3 glider
      * @param view is the current view
      */
-    public void bikesGliderImage3(View view) {
+    public void gliderImage3(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.glider_image_p3);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.super_glider:
-                tv.setText(R.string.super_glider);
-                break;
-            case R.drawable.cloud_glider:
-                tv.setText(R.string.cloud_glider);
-                break;
-            case R.drawable.wario_wing:
-                tv.setText(R.string.wario_wing);
-                break;
-            case R.drawable.waddle_wing:
-                tv.setText(R.string.waddle_wing);
-                break;
-            case R.drawable.parasol:
-                tv.setText(R.string.parasol);
-                break;
-            case R.drawable.parachute:
-                tv.setText(R.string.parachute);
-                break;
-            case R.drawable.parafoil:
-                tv.setText(R.string.parafoil);
-                break;
-            case R.drawable.flower_glider:
-                tv.setText(R.string.flower_glider);
-                break;
-            case R.drawable.bowser_kite:
-                tv.setText(R.string.bowser_kite);
-                break;
-            case R.drawable.plane_glider:
-                tv.setText(R.string.plane_glider);
-                break;
-            case R.drawable.mktv_parafoil:
-                tv.setText(R.string.mktv_parafoil);
-                break;
-            case R.drawable.gold_glider:
-                tv.setText(R.string.gold_glider);
-                break;
-            case R.drawable.hylian_kite:
-                tv.setText(R.string.hylian_kite);
-                break;
-            case R.drawable.paper_glider:
-                tv.setText(R.string.paper_glider);
-                break;
-            case R.drawable.paraglider:
-                tv.setText(R.string.paraglider);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.bowser_kite) {
+            tv.setText(R.string.bowser_kite);
+        } else if(id == R.drawable.cloud_glider) {
+            tv.setText(R.string.cloud_glider);
+        } else if(id == R.drawable.flower_glider) {
+            tv.setText(R.string.flower_glider);
+        } else if(id == R.drawable.gold_glider) {
+            tv.setText(R.string.gold_glider);
+        } else if(id == R.drawable.hylian_kite) {
+            tv.setText(R.string.hylian_kite);
+        } else if(id == R.drawable.paper_glider) {
+            tv.setText(R.string.paper_glider);
+        } else if(id == R.drawable.parachute) {
+            tv.setText(R.string.parachute);
+        } else if(id == R.drawable.parafoil) {
+            tv.setText(R.string.parafoil);
+        } else if(id == R.drawable.parafoil_mktv) {
+            tv.setText(R.string.parafoil_mktv);
+        } else if(id == R.drawable.paraglider) {
+            tv.setText(R.string.paraglider);
+        } else if(id == R.drawable.parasol) {
+            tv.setText(R.string.parasol);
+        } else if(id == R.drawable.plane_glider) {
+            tv.setText(R.string.plane_glider);
+        } else if(id == R.drawable.super_glider) {
+            tv.setText(R.string.super_glider);
+        } else if(id == R.drawable.waddle_wing) {
+            tv.setText(R.string.waddle_wing);
+        } else if(id == R.drawable.wario_wing) {
+            tv.setText(R.string.wario_wing);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 
@@ -2783,59 +2231,43 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * the onClick action for the player 4 glider
      * @param view is the current view
      */
-    public void bikesGliderImage4(View view) {
+    public void gliderImage4(View view) {
         TextView tv = findViewById(R.id.title);
         ImageView img = findViewById(R.id.glider_image_p4);
         int id = getResourceId(img);
 
-        switch (id) {
-            case R.drawable.super_glider:
-                tv.setText(R.string.super_glider);
-                break;
-            case R.drawable.cloud_glider:
-                tv.setText(R.string.cloud_glider);
-                break;
-            case R.drawable.wario_wing:
-                tv.setText(R.string.wario_wing);
-                break;
-            case R.drawable.waddle_wing:
-                tv.setText(R.string.waddle_wing);
-                break;
-            case R.drawable.parasol:
-                tv.setText(R.string.parasol);
-                break;
-            case R.drawable.parachute:
-                tv.setText(R.string.parachute);
-                break;
-            case R.drawable.parafoil:
-                tv.setText(R.string.parafoil);
-                break;
-            case R.drawable.flower_glider:
-                tv.setText(R.string.flower_glider);
-                break;
-            case R.drawable.bowser_kite:
-                tv.setText(R.string.bowser_kite);
-                break;
-            case R.drawable.plane_glider:
-                tv.setText(R.string.plane_glider);
-                break;
-            case R.drawable.mktv_parafoil:
-                tv.setText(R.string.mktv_parafoil);
-                break;
-            case R.drawable.gold_glider:
-                tv.setText(R.string.gold_glider);
-                break;
-            case R.drawable.hylian_kite:
-                tv.setText(R.string.hylian_kite);
-                break;
-            case R.drawable.paper_glider:
-                tv.setText(R.string.paper_glider);
-                break;
-            case R.drawable.paraglider:
-                tv.setText(R.string.paraglider);
-                break;
-            default:
-                tv.setText(R.string.default_error);
+        if(id == R.drawable.bowser_kite) {
+            tv.setText(R.string.bowser_kite);
+        } else if(id == R.drawable.cloud_glider) {
+            tv.setText(R.string.cloud_glider);
+        } else if(id == R.drawable.flower_glider) {
+            tv.setText(R.string.flower_glider);
+        } else if(id == R.drawable.gold_glider) {
+            tv.setText(R.string.gold_glider);
+        } else if(id == R.drawable.hylian_kite) {
+            tv.setText(R.string.hylian_kite);
+        } else if(id == R.drawable.paper_glider) {
+            tv.setText(R.string.paper_glider);
+        } else if(id == R.drawable.parachute) {
+            tv.setText(R.string.parachute);
+        } else if(id == R.drawable.parafoil) {
+            tv.setText(R.string.parafoil);
+        } else if(id == R.drawable.parafoil_mktv) {
+            tv.setText(R.string.parafoil_mktv);
+        } else if(id == R.drawable.paraglider) {
+            tv.setText(R.string.paraglider);
+        } else if(id == R.drawable.parasol) {
+            tv.setText(R.string.parasol);
+        } else if(id == R.drawable.plane_glider) {
+            tv.setText(R.string.plane_glider);
+        } else if(id == R.drawable.super_glider) {
+            tv.setText(R.string.super_glider);
+        } else if(id == R.drawable.waddle_wing) {
+            tv.setText(R.string.waddle_wing);
+        } else if(id == R.drawable.wario_wing) {
+            tv.setText(R.string.wario_wing);
+        } else {
+            tv.setText(R.string.default_error);
         }
     }
 }

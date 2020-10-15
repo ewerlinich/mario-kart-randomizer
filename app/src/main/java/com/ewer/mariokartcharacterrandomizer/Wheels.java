@@ -1,7 +1,7 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 public class Wheels {
-    String wheels;
+    private String wheels;
 
     public Wheels() {
         this.wheels = "";
@@ -11,11 +11,11 @@ public class Wheels {
         this.wheels = wheels;
     }
 
-    String getWheels() {
+    public String getWheels() {
         return this.wheels;
     }
 
-    void setWheels(String wheels) {
+    public void setWheels(String wheels) {
         this.wheels = wheels;
     }
 }
