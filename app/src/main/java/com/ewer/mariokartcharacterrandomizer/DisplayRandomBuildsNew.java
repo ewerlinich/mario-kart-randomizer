@@ -1,24 +1,32 @@
 package com.ewer.mariokartcharacterrandomizer;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.LinkedList;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class DisplayRandomBuilds extends AppCompatActivity {
+public class DisplayRandomBuildsNew extends AppCompatActivity {
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_random_bikes);
+        setContentView(R.layout.activity_display_random_bikes_new);
 
         Intent intent = getIntent();
         int playerNumber = intent.getIntExtra("PlayerNumber", 1);
         String frameType = intent.getStringExtra("FrameType");
+
+        RandomBuild[] build_arr = new RandomBuild[playerNumber];
+        for(RandomBuild rb : build_arr) {
+            rb = new RandomBuild();
+        }
+        TextView[] player_number_arr = new TextView[playerNumber];
+        for(TextView tv : player_number_arr) {
+            tv = new TextView(this);
+        }
 
         setPlayerText(playerNumber);
         setCharImage(playerNumber);
@@ -152,12 +160,12 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     }
 
     /**
-     * If the random character is one that has multiple color palettes, this method goes about choosing a random color out of the selection per character
+     * If the random character that was chosen has multiple color palettes, this method chooses one randomly
      *
      * @param randChar is the character that is being assigned a color
      * @return the character that was inputted as the character, concatenated with the random color palette
      */
-    private String setColor(String randChar) {
+    private String setCharColor(String randChar) {
         int color;
         String character;
         switch (randChar) {
@@ -251,25 +259,71 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     }
 
     /**
-     * Only make the text for players 2 through 4 visible if that many builds are selected
+     * If the random wheels that were chosen have multiple color palettes, this method chooses one randomly
      *
-     * @param playerNumber the number of players to make visible
+     * @param randWheel are the wheels that are being assigned a color
+     * @return the wheels that were inputted as the character, concatenated with the random color palette
      */
-    private void setPlayerText(int playerNumber) {
-        switch (playerNumber) {
-            case 4:
-                TextView textView4 = findViewById(R.id.player_text_p4);
-                textView4.setText(R.string.player4);
-            case 3:
-                TextView textView3 = findViewById(R.id.player_text_p3);
-                textView3.setText(R.string.player3);
-            case 2:
-                TextView textView2 = findViewById(R.id.player_text_p2);
-                textView2.setText(R.string.player2);
+    private String setWheelColor(String randWheel) {
+        int color;
+        String wheel;
+        switch (randWheel) {
+            case "Standard Tires":
+                color = (int) (Math.random() * 2);
+                if(color == 1) {
+                    wheel = "Blue ".concat(randWheel);
+                } else {
+                    wheel = randWheel;
+                }
+                break;
+            case "Roller Tires":
+                color = (int) (Math.random() * 2);
+                if(color == 1) {
+                    wheel = "Azure ".concat(randWheel);
+                } else {
+                    wheel = randWheel;
+                }
+                break;
+            case "Monster Tires":
+                color = (int) (Math.random() * 2);
+                if(color == 1) {
+                    wheel = "Hot ".concat(randWheel);
+                } else {
+                    wheel = randWheel;
+                }
+                break;
+            case "Slim Tires":
+                color = (int) (Math.random() * 2);
+                if(color == 1) {
+                    wheel = "Crimson ".concat(randWheel);
+                } else {
+                    wheel = randWheel;
+                }
+                break;
+            case "Off-Road Tires":
+                color = (int) (Math.random() * 2);
+                if(color == 1) {
+                    wheel = "Retro ".concat(randWheel);
+                } else {
+                    wheel = randWheel;
+                }
+                break;
+            case "Slick Tires":
+                color = (int) (Math.random() * 2);
+                if(color == 1) {
+                    wheel = "Cyber ".concat(randWheel);
+                } else {
+                    wheel = randWheel;
+                }
                 break;
             default:
-                // uuuuuhhh shalom?
+                wheel = "";
         }
+        return wheel;
+    }
+
+    private void createBuildImages(int playerNumber) {
+        for(int i = )
     }
 
     /**
@@ -289,7 +343,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             if (randChar.equals("Yoshi") || randChar.equals("Shy Guy")
                     || randChar.equals("Metal Mario") || randChar.equals("Link")
                     || randChar.equals("Inkling Boy") || randChar.equals("Inkling Girl")) {
-                randChar = setColor(randChar);
+                randChar = setCharColor(randChar);
             }
             switch (randChar) {
                 case "Baby Daisy":

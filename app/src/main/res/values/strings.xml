@@ -3,6 +3,10 @@
     <string name="historyButton">History</string>
     <string name="Mario_pic_description">A picture of Mario in a kart from the game Mario Kart 8 Deluxe, smiling and punching the air with his left fist.</string>
     <string name="logo_pic_description">Graphic display of the title of the app, \"Mario Kart 8 Deluxe Randomizer\".</string>
+    <string name="random_build_title">YOUR BUILD IS:</string>
+    <string name="saved_builds_title"></string>
+    <string name="player_number_query">Enter the number of players.</string>
+
     <string name="char_image_p1_description">The character of player 1\'s randomized build.</string>
     <string name="char_image_p2_description">The character of player 2\'s randomized build.</string>
     <string name="char_image_p3_description">The character of player 3\'s randomized build.</string>
@@ -19,8 +23,7 @@
     <string name="glider_image_p2_description">The glider of player 2\'s randomized build.</string>
     <string name="glider_image_p3_description">The glider of player 3\'s randomized build.</string>
     <string name="glider_image_p4_description">The glider of player 4\'s randomized build.</string>
-    <string name="random_build_title">YOUR BUILD IS:</string>
-    <string name="player_number">Enter the number of players.</string>
+
     <string name="kartsButton1">Only Karts 1P</string>
     <string name="kartsButton2">Only Karts 2P</string>
     <string name="kartsButton3">Only Karts 3P</string>
@@ -33,6 +36,7 @@
     <string name="allButton2">All Frames 2P</string>
     <string name="allButton3">All Frames 3P</string>
     <string name="allButton4">All Frames 4P</string>
+
     <string name="mario">Mario</string>
     <string name="luigi">Luigi</string>
     <string name="peach">Peach</string>
@@ -97,10 +101,12 @@
     <string name="villager_girl">Villager (G)</string>
     <string name="isabelle">Isabelle</string>
     <string name="mii">Mii</string>
+
     <string name="player1">Player 1</string>
     <string name="player2">Player 2</string>
     <string name="player3">Player 3</string>
     <string name="player4">Player 4</string>
+
     <string name="standard_kart">Standard Kart</string>
     <string name="pipe_frame">Pipe Frame</string>
     <string name="mach_8">Mach 8</string>
@@ -142,6 +148,7 @@
     <string name="bone_rattler">Bone Rattler</string>
     <string name="splat_buggy">Splat Buggy</string>
     <string name="inkstriker">Inkstriker</string>
+
     <string name="standard_tires">Standard Tires</string>
     <string name="monster_tires">Monster Tires</string>
     <string name="roller_tires">Roller Tires</string>
@@ -164,6 +171,7 @@
     <string name="triforce_tires">Triforce Tires</string>
     <string name="leaf_tires">Leaf Tires</string>
     <string name="ancient_tires">Ancient Tires</string>
+
     <string name="super_glider">Super Glider</string>
     <string name="cloud_glider">Cloud Glider</string>
     <string name="wario_wing">Wario Wing</string>
@@ -179,6 +187,7 @@
     <string name="hylian_kite">Hylian Kite</string>
     <string name="paper_glider">Paper Glider</string>
     <string name="paraglider">Paraglider</string>
+
     <string name="default_error">Default ERROR</string>
     <string name="blank"></string>
 </resources>
