@@ -1,47 +1,47 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 public class RandomBuild {
-    Character character;
-    Frame frame;
-    Wheels wheels;
-    Glider glider;
+    String character;
+    String frame;
+    String wheels;
+    String glider;
 
     public RandomBuild() {
-        this.character = new Character();
-        this.frame = new Frame();
-        this.wheels = new Wheels();
-        this.glider = new Glider();
+        this.character = "";
+        this.frame = "";
+        this.wheels = "";
+        this.glider = "";
     }
     public RandomBuild(String character, String frame, String wheels, String glider) {
-        this.character = new Character(character);
-        this.frame = new Frame(frame);
-        this.wheels = new Wheels(wheels);
-        this.glider = new Glider(glider);
+        this.character = character;
+        this.frame = frame;
+        this.wheels = wheels;
+        this.glider = glider;
     }
 
     public String getCharacter() {
-        return character.getCharacter();
+        return character;
     }
     public String getFrame() {
-        return frame.getFrame();
+        return frame;
     }
     public String getWheels() {
-        return wheels.getWheels();
+        return wheels;
     }
     public String getGlider() {
-        return glider.getGlider();
+        return glider;
     }
 
     public void setCharacter(String character) {
-        this.character.setCharacter(character);
+        this.character = character;
     }
     public void setFrame(String frame) {
-        this.frame.setFrame(frame);
+        this.frame = frame;
     }
     public void setWheels(String wheels) {
-        this.wheels.setWheels(wheels);
+        this.wheels = wheels;
     }
     public void setGlider(String glider) {
-        this.glider.setGlider(glider);
+        this.glider = glider;
     }
 }

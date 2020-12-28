@@ -4,12 +4,61 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DisplayRandomBuildsNew extends AppCompatActivity {
     @Override
+
+    private LinearLayout[] layoutArr;
+    private RandomBuild[] buildArr;
+
+    public static final String[] CHAR_LIGHT = {"Baby Mario", "Baby Luigi", "Baby Peach",
+            "Baby Daisy", "Baby Rosalina", "Lemmy", "Dry Bones", "Mii", "Koopa Troopa",
+            "Lakitu", "Bowser Jr.", "Toadette", "Wendy", "Isabelle", "Toad", "Shy Guy", "Larry"};
+    public static final String[] CHAR_MEDIUM = {"Cat Peach", "Inkling Girl", "Villager (G)",
+            "Peach", "Daisy", "Yoshi", "Tanooki Mario", "Inkling (B)", "Villager (B)", "Luigi",
+            "Iggy", "Mario", "Ludwig", "Mii"};
+    public static final String[] CHAR_HEAVY = {"Rosalina", "King Boo", "Link", "Donkey Kong",
+            "Waluigi", "Roy", "Wario", "Dry Bowser", "Metal Mario", "Rose Gold Peach", "Bowser",
+            "Morton", "Mii"};
+    public static final String[] CHAR_ALL = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina",
+            "Tanooki Mario", "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu",
+            "Toadette", "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy",
+            "Baby Rosalina", "Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong",
+            "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy",
+            "Ludwig", "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link",
+            "Villager (B)", "Villager (G)", "Isabelle", "Mii"};
+    public static final String[] FRAME_BIKE = {"Standard Bike", "Comet", "Sport Bike", "The Duke",
+            "Flame Rider", "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle",
+            "City Tripper", "Master Cycle Zero"};
+    public static final String[] FRAME_KART = {"Standard Kart", "Pipe Frame", "Mach 8",
+            "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer",
+            "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA",
+            "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher",
+            "Streetle", "P-Wing", "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy",
+            "Bone Rattler", "Splat Buggy", "Inkstriker"};
+    public static final String[] FRAME_ALL = {"Standard Kart", "Pipe Frame", "Mach 8",
+            "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer",
+            "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA",
+            "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher",
+            "Streetle", "P-Wing", "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider",
+            "Varmint", "Mr. Scooty", "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike",
+            "Jet Bike", "Yoshi Bike", "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy",
+            "Bone Rattler", "Splat Buggy", "Inkstriker"};
+    public static final String[] WHEELS = {"Standard Tires", "Monster Tires", "Roller Tires",
+            "Slim Tires", "Slick Tires", "Metal Tires", "Button Tires", "Off-Road Tires",
+            "Sponge Tires", "Wood Tires", "Cushion Tires", "Blue Standard Tires",
+            "Hot Monster Tires", "Azure Roller Tires", "Crimson Slim Tires", "Cyber Slick Tires",
+            "Retro Off-Road Tires", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
+            "Ancient Tires"};
+    public static final String[] GLIDERS = {"Super Glider", "Cloud Glider", "Wario Wing",
+            "Waddle Wing", "Peach Parasol", "Parachute", "Parafoil", "Flower Glider", "Bowser Kite",
+            "Plane Glider", "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider",
+            "Paraglider"};
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,20 +68,50 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         int playerNumber = intent.getIntExtra("PlayerNumber", 1);
         String frameType = intent.getStringExtra("FrameType");
 
-        RandomBuild[] build_arr = new RandomBuild[playerNumber];
-        for(RandomBuild rb : build_arr) {
-            rb = new RandomBuild();
+        for(int i = 0; i < playerNumber; i++) {
+            buildArr[i] = new RandomBuild();
         }
-        TextView[] player_number_arr = new TextView[playerNumber];
-        for(TextView tv : player_number_arr) {
-            tv = new TextView(this);
+        TextView[] playerNumberArr = new TextView[playerNumber];
+        for(int i = 0; i < playerNumber; i++) {
+            playerNumberArr[i] = new TextView(this);
         }
 
-        setPlayerText(playerNumber);
-        setCharImage(playerNumber);
-        setFrameImage(playerNumber, frameType);
-        setWheelImage(playerNumber);
-        setGliderImage(playerNumber);
+        layoutArr = new LinearLayout[playerNumber];
+        init(playerNumber);
+
+
+
+    }
+
+    /**
+     * initialize the LinearLayout rows for the images of the builds
+     * @param playerNum is the amount of rows to be initialized
+     */
+    private void init(int playerNum) {
+        LinearLayout tl = (LinearLayout) findViewById(R.id.build_layout);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        int i;
+        for(LinearLayout ll : layoutArr) {
+            ll = new LinearLayout(this);
+            ll.setLayoutParams(lp);
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+
+            tl.addView(ll);
+        }
+        for(i = 0; i < playerNum; i++) {
+            layoutArr[i] = new LinearLayout(this);
+            layoutArr[i].setLayoutParams(lp);
+            layoutArr[i].setOrientation(LinearLayout.HORIZONTAL);
+
+            ImageView[] imageArr = new ImageView[4];
+            int j;
+            for(j = 0; j < 4; j++) {
+                layoutArr[i].addView(imageArr[j]);
+                layoutArr[i].
+            }
+
+            tl.addView(layoutArr[i]);
+        }
     }
 
     /**
@@ -41,11 +120,8 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      *
      * @return a String that is the name of the random character
      */
-    private String randCharacterLight() {
-        String[] list = {"Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina",
-                "Lemmy", "Dry Bones", "Mii", "Koopa Troopa", "Lakitu", "Bowser Jr.", "Toadette",
-                "Wendy", "Isabelle", "Toad", "Shy Guy", "Larry"};
-        return list[((int) (Math.random() * list.length))];
+    private String randCharLight() {
+        return CHAR_LIGHT[((int) (Math.random() * CHAR_LIGHT.length))];
     }
 
     /**
@@ -54,11 +130,8 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      *
      * @return a String that is the name of the random character
      */
-    private String randCharacterMedium() {
-        String[] list = {"Cat Peach", "Inkling Girl", "Villager (G)", "Peach", "Daisy", "Yoshi",
-                "Tanooki Mario", "Inkling (B)", "Villager (B)", "Luigi", "Iggy", "Mario", "Ludwig",
-                "Mii"};
-        return list[((int) (Math.random() * list.length))];
+    private String randCharMedium() {
+        return CHAR_MEDIUM[((int) (Math.random() * CHAR_MEDIUM.length))];
     }
 
     /**
@@ -67,10 +140,8 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      *
      * @return a String that is the name of the random character
      */
-    private String randCharacterHeavy() {
-        String[] list = {"Rosalina", "King Boo", "Link", "Donkey Kong", "Waluigi", "Roy",
-                "Wario", "Dry Bowser", "Metal Mario", "Rose Gold Peach", "Bowser", "Morton", "Mii"};
-        return list[((int) (Math.random() * list.length))];
+    private String randCharHeavy() {
+        return CHAR_HEAVY[((int) (Math.random() * CHAR_HEAVY.length))];
     }
 
     /**
@@ -79,56 +150,32 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      *
      * @return a String that is the name of the random character
      */
-    private String randCharacterAll() {
-        String[] list = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario",
-                "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette",
-                "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina",
-                "Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser",
-                "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig",
-                "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)",
-                "Villager (G)", "Isabelle", "Mii"};
-        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
+    private String randCharAll() {
+        return CHAR_ALL[((int) (Math.random() * CHAR_ALL.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
      * randBikeFrame() returns a random String from a list of bike frames
      * @return a String that is the name of the frame
      */
-    private String randBikeFrame() {
-        String[] list = {"Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider",
-                "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper",
-                "Master Cycle Zero"};
-        return list[((int) (Math.random() * list.length))];
+    private String randFrameBike() {
+        return FRAME_BIKE[((int) (Math.random() * FRAME_BIKE.length))];
     }
 
     /**
      * randKartFrame() returns a random String from a list of kart frames
      * @return a String that is the name of the frame
      */
-    private String randKartFrame() {
-        String[] list = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
-                "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
-                "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
-                "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
-                "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler",
-                "Splat Buggy", "Inkstriker"};
-        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
+    private String randFrameKart() {
+        return FRAME_KART[((int) (Math.random() * FRAME_KART.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
      * randAllFrame() returns a random String from a list of kart and bike frames
      * @return a String that is the name of the frame
      */
-    private String randAllFrame() {
-        String[] list = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
-                "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
-                "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
-                "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
-                "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty",
-                "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike", "Jet Bike",
-                "Yoshi Bike", "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy",
-                "Bone Rattler", "Splat Buggy", "Inkstriker"};
-        return list[((int) (Math.random() * list.length))];
+    private String randFrameAll() {
+        return FRAME_ALL[((int) (Math.random() * FRAME_ALL.length))];
     }
 
     /**
@@ -137,13 +184,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      * @return a String that is the name of the wheels
      */
     private String randWheels() {
-        String[] list = {"Standard Tires", "Monster Tires", "Roller Tires", "Slim Tires",
-                "Slick Tires", "Metal Tires", "Button Tires", "Off-Road Tires", "Sponge Tires",
-                "Wood Tires", "Cushion Tires", "Blue Standard Tires", "Hot Monster Tires",
-                "Azure Roller Tires", "Crimson Slim Tires", "Cyber Slick Tires",
-                "Retro Off-Road Tires", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
-                "Ancient Tires"};
-        return list[((int) (Math.random() * list.length))]; // returns a random item from the list by putting in a random integer for the index number
+        return WHEELS[((int) (Math.random() * WHEELS.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -152,11 +193,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      * @return a String that is the name of the glider
      */
     private String randGlider() {
-        String[] list = {"Super Glider", "Cloud Glider", "Wario Wing", "Waddle Wing",
-                "Peach Parasol", "Parachute", "Parafoil", "Flower Glider", "Bowser Kite",
-                "Plane Glider", "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider",
-                "Paraglider"};
-        return list[((int) (Math.random() * list.length))];  // returns a random item from the list by putting in a random integer for the index number
+        return GLIDERS[((int) (Math.random() * GLIDERS.length))];  // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -322,10 +359,6 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         return wheel;
     }
 
-    private void createBuildImages(int playerNumber) {
-        for(int i = )
-    }
-
     /**
      * takes in the number of players, calls randCharacterAll() for the necessary number of players, and sets the appropriate ImageViews to the correct image per player
      *
@@ -339,7 +372,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         ImageView[] arr = {charImage1, charImage2, charImage3, charImage4};
 
         for(int i = playerNumber; i >= 1; i--) {
-            String randChar = randCharacterAll();
+            String randChar = randCharAll();
             if (randChar.equals("Yoshi") || randChar.equals("Shy Guy")
                     || randChar.equals("Metal Mario") || randChar.equals("Link")
                     || randChar.equals("Inkling Boy") || randChar.equals("Inkling Girl")) {
@@ -624,13 +657,13 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         for(int i = playerNumber; i >= 1; i--) {
             switch(frameType) {
                 case "Bike":
-                    randFrame = randBikeFrame();
+                    randFrame = randFrameBike();
                     break;
                 case "Kart":
-                    randFrame = randKartFrame();
+                    randFrame = randFrameKart();
                     break;
                 case "All":
-                    randFrame = randAllFrame();
+                    randFrame = randFrameAll();
                     break;
                 default:
                     randFrame = "ERROR";
