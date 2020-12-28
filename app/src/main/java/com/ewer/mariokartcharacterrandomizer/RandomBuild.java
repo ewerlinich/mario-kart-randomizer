@@ -1,10 +1,10 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 public class RandomBuild {
-    String character;
-    String frame;
-    String wheels;
-    String glider;
+    private String character;
+    private String frame;
+    private String wheels;
+    private String glider;
 
     public RandomBuild() {
         this.character = "";

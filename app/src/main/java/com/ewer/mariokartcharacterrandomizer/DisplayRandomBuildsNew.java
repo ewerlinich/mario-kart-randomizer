@@ -10,108 +10,141 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DisplayRandomBuildsNew extends AppCompatActivity {
-    @Override
+
+    public static final String[] CHAR_LIGHT = {
+            "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Lemmy",
+            "Dry Bones", "Mii", "Koopa Troopa", "Lakitu", "Bowser Jr.", "Toadette", "Wendy",
+            "Isabelle", "Toad", "Shy Guy", "Larry"};
+    public static final String[] CHAR_MEDIUM = {
+            "Cat Peach", "Inkling Girl", "Villager (G)", "Peach", "Daisy", "Yoshi", "Tanooki Mario",
+            "Inkling (B)", "Villager (B)", "Luigi", "Iggy", "Mario", "Ludwig", "Mii"};
+    public static final String[] CHAR_HEAVY = {
+            "Rosalina", "King Boo", "Link", "Donkey Kong", "Waluigi", "Roy", "Wario", "Dry Bowser",
+            "Metal Mario", "Rose Gold Peach", "Bowser", "Morton", "Mii"};
+    public static final String[] CHAR_ALL = {
+            "Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Yoshi",
+            "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Baby Mario",
+            "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Metal Mario",
+            "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones",
+            "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy",
+            "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)", "Villager (G)",
+            "Isabelle", "Mii"};
+    public static final String[] FRAME_BIKE = {
+            "Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider", "Varmint",
+            "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper",
+            "Master Cycle Zero"};
+    public static final String[] FRAME_KART = {
+            "Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
+            "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
+            "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
+            "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
+            "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler",
+            "Splat Buggy", "Inkstriker"};
+    public static final String[] FRAME_ALL = {
+            "Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
+            "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
+            "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
+            "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
+            "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty",
+            "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike", "Jet Bike", "Yoshi Bike",
+            "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler",
+            "Splat Buggy", "Inkstriker"};
+    public static final String[] TIRES_ALL = {
+            "Standard Tires", "Monster Tires", "Roller Tires", "Slim Tires", "Slick Tires",
+            "Metal Tires", "Button Tires", "Off-Road Tires", "Sponge Tires", "Wood Tires",
+            "Cushion Tires", "Blue Standard Tires", "Hot Monster Tires", "Azure Roller Tires",
+            "Crimson Slim Tires", "Cyber Slick Tires", "Retro Off-Road Tires", "Gold Tires",
+            "GLA Tires", "Triforce Tires", "Leaf Tires", "Ancient Tires"};
+    public static final String[] GLIDER_ALL = {
+            "Super Glider", "Cloud Glider", "Wario Wing", "Waddle Wing", "Peach Parasol",
+            "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider",
+            "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
 
     private LinearLayout[] layoutArr;
     private RandomBuild[] buildArr;
+    private int playerNumber;
+    private String frameType;
 
-    public static final String[] CHAR_LIGHT = {"Baby Mario", "Baby Luigi", "Baby Peach",
-            "Baby Daisy", "Baby Rosalina", "Lemmy", "Dry Bones", "Mii", "Koopa Troopa",
-            "Lakitu", "Bowser Jr.", "Toadette", "Wendy", "Isabelle", "Toad", "Shy Guy", "Larry"};
-    public static final String[] CHAR_MEDIUM = {"Cat Peach", "Inkling Girl", "Villager (G)",
-            "Peach", "Daisy", "Yoshi", "Tanooki Mario", "Inkling (B)", "Villager (B)", "Luigi",
-            "Iggy", "Mario", "Ludwig", "Mii"};
-    public static final String[] CHAR_HEAVY = {"Rosalina", "King Boo", "Link", "Donkey Kong",
-            "Waluigi", "Roy", "Wario", "Dry Bowser", "Metal Mario", "Rose Gold Peach", "Bowser",
-            "Morton", "Mii"};
-    public static final String[] CHAR_ALL = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina",
-            "Tanooki Mario", "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu",
-            "Toadette", "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy",
-            "Baby Rosalina", "Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong",
-            "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy",
-            "Ludwig", "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link",
-            "Villager (B)", "Villager (G)", "Isabelle", "Mii"};
-    public static final String[] FRAME_BIKE = {"Standard Bike", "Comet", "Sport Bike", "The Duke",
-            "Flame Rider", "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle",
-            "City Tripper", "Master Cycle Zero"};
-    public static final String[] FRAME_KART = {"Standard Kart", "Pipe Frame", "Mach 8",
-            "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer",
-            "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA",
-            "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher",
-            "Streetle", "P-Wing", "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy",
-            "Bone Rattler", "Splat Buggy", "Inkstriker"};
-    public static final String[] FRAME_ALL = {"Standard Kart", "Pipe Frame", "Mach 8",
-            "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer",
-            "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA",
-            "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher",
-            "Streetle", "P-Wing", "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider",
-            "Varmint", "Mr. Scooty", "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike",
-            "Jet Bike", "Yoshi Bike", "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy",
-            "Bone Rattler", "Splat Buggy", "Inkstriker"};
-    public static final String[] WHEELS = {"Standard Tires", "Monster Tires", "Roller Tires",
-            "Slim Tires", "Slick Tires", "Metal Tires", "Button Tires", "Off-Road Tires",
-            "Sponge Tires", "Wood Tires", "Cushion Tires", "Blue Standard Tires",
-            "Hot Monster Tires", "Azure Roller Tires", "Crimson Slim Tires", "Cyber Slick Tires",
-            "Retro Off-Road Tires", "Gold Tires", "GLA Tires", "Triforce Tires", "Leaf Tires",
-            "Ancient Tires"};
-    public static final String[] GLIDERS = {"Super Glider", "Cloud Glider", "Wario Wing",
-            "Waddle Wing", "Peach Parasol", "Parachute", "Parafoil", "Flower Glider", "Bowser Kite",
-            "Plane Glider", "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider",
-            "Paraglider"};
-
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_random_bikes_new);
 
         Intent intent = getIntent();
-        int playerNumber = intent.getIntExtra("PlayerNumber", 1);
-        String frameType = intent.getStringExtra("FrameType");
+        playerNumber = intent.getIntExtra("PlayerNumber", 1);
+        frameType = intent.getStringExtra("FrameType");
+        //obtain different values based on what button was pressed during MainActivity
 
-        for(int i = 0; i < playerNumber; i++) {
-            buildArr[i] = new RandomBuild();
-        }
-        TextView[] playerNumberArr = new TextView[playerNumber];
-        for(int i = 0; i < playerNumber; i++) {
-            playerNumberArr[i] = new TextView(this);
-        }
-
-        layoutArr = new LinearLayout[playerNumber];
-        init(playerNumber);
-
-
-
+        layout_init();
+        build_init();
+        //initialize the layouts and random builds
     }
 
     /**
      * initialize the LinearLayout rows for the images of the builds
-     * @param playerNum is the amount of rows to be initialized
      */
-    private void init(int playerNum) {
-        LinearLayout tl = (LinearLayout) findViewById(R.id.build_layout);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        int i;
-        for(LinearLayout ll : layoutArr) {
-            ll = new LinearLayout(this);
-            ll.setLayoutParams(lp);
-            ll.setOrientation(LinearLayout.HORIZONTAL);
+    private void layout_init() {
+        LinearLayout tl = findViewById(R.id.build_layout);
+        // find the vertical LinearLayout that already exists in the XML. All of the following
+        // views and layouts will be contained inside of this parent layout
 
-            tl.addView(ll);
+        layoutArr = new LinearLayout[playerNumber];
+        // create the empty array of LinearLayouts. This will hold the horizontal LinearLayouts,
+        // which will in turn hold the ImageViews of the players' builds
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        // create the layout parameters for the horizontal LinearLayouts. The layout wraps the
+        // images vertically, and stretches across the entire screen horizontally
+
+        TextView[] textArr = new TextView[playerNumber];
+        for(int i = 0; i < playerNumber; i++) {
+            textArr[i] = new TextView(this);
         }
-        for(i = 0; i < playerNum; i++) {
+        // create and initialize an array of TextViews for the amount of players
+
+        for(int i = 0; i < playerNumber; i++) {
             layoutArr[i] = new LinearLayout(this);
             layoutArr[i].setLayoutParams(lp);
             layoutArr[i].setOrientation(LinearLayout.HORIZONTAL);
 
             ImageView[] imageArr = new ImageView[4];
-            int j;
-            for(j = 0; j < 4; j++) {
+            for(int j = 0; j < 4; j++) {
                 layoutArr[i].addView(imageArr[j]);
                 layoutArr[i].
             }
 
             tl.addView(layoutArr[i]);
         }
+    }
+
+    /**
+     * create the random builds for the amount of players specified
+     */
+    private void build_init() {
+        for(int i = 0; i < playerNumber; i++) {
+            buildArr[i] = new RandomBuild();
+        }
+        //construct the array of random builds as empty, so that random parts can be inserted
+
+        for(int i = 0; i < playerNumber; i++) {
+            buildArr[i].setCharacter(randCharAll());
+            switch(frameType) {
+                case "kart":
+                    buildArr[i].setFrame(randFrameKart());
+                    break;
+                case "bike":
+                    buildArr[i].setFrame(randFrameBike());
+                    break;
+                default:
+                    buildArr[i].setFrame(randFrameAll());
+            }
+            //frame type changes depending on what button was pressed in MainActivity
+            buildArr[i].setWheels(randWheels());
+            buildArr[i].setGlider(randGlider());
+        }
+        //set a randomized String for every
     }
 
     /**
@@ -184,7 +217,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      * @return a String that is the name of the wheels
      */
     private String randWheels() {
-        return WHEELS[((int) (Math.random() * WHEELS.length))]; // returns a random item from the list by putting in a random integer for the index number
+        return TIRES_ALL[((int) (Math.random() * TIRES_ALL.length))]; // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -193,7 +226,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      * @return a String that is the name of the glider
      */
     private String randGlider() {
-        return GLIDERS[((int) (Math.random() * GLIDERS.length))];  // returns a random item from the list by putting in a random integer for the index number
+        return GLIDER_ALL[((int) (Math.random() * GLIDER_ALL.length))];  // returns a random item from the list by putting in a random integer for the index number
     }
 
     /**
@@ -298,65 +331,65 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
     /**
      * If the random wheels that were chosen have multiple color palettes, this method chooses one randomly
      *
-     * @param randWheel are the wheels that are being assigned a color
+     * @param randTires are the wheels that are being assigned a color
      * @return the wheels that were inputted as the character, concatenated with the random color palette
      */
-    private String setWheelColor(String randWheel) {
+    private String setTireColor(String randTires) {
         int color;
-        String wheel;
-        switch (randWheel) {
+        String tires;
+        switch (randTires) {
             case "Standard Tires":
                 color = (int) (Math.random() * 2);
                 if(color == 1) {
-                    wheel = "Blue ".concat(randWheel);
+                    tires = "Blue ".concat(randTires);
                 } else {
-                    wheel = randWheel;
+                    tires = randTires;
                 }
                 break;
             case "Roller Tires":
                 color = (int) (Math.random() * 2);
                 if(color == 1) {
-                    wheel = "Azure ".concat(randWheel);
+                    tires = "Azure ".concat(randTires);
                 } else {
-                    wheel = randWheel;
+                    tires = randTires;
                 }
                 break;
             case "Monster Tires":
                 color = (int) (Math.random() * 2);
                 if(color == 1) {
-                    wheel = "Hot ".concat(randWheel);
+                    tires = "Hot ".concat(randTires);
                 } else {
-                    wheel = randWheel;
+                    tires = randTires;
                 }
                 break;
             case "Slim Tires":
                 color = (int) (Math.random() * 2);
                 if(color == 1) {
-                    wheel = "Crimson ".concat(randWheel);
+                    tires = "Crimson ".concat(randTires);
                 } else {
-                    wheel = randWheel;
+                    tires = randTires;
                 }
                 break;
             case "Off-Road Tires":
                 color = (int) (Math.random() * 2);
                 if(color == 1) {
-                    wheel = "Retro ".concat(randWheel);
+                    tires = "Retro ".concat(randTires);
                 } else {
-                    wheel = randWheel;
+                    tires = randTires;
                 }
                 break;
             case "Slick Tires":
                 color = (int) (Math.random() * 2);
                 if(color == 1) {
-                    wheel = "Cyber ".concat(randWheel);
+                    tires = "Cyber ".concat(randTires);
                 } else {
-                    wheel = randWheel;
+                    tires = randTires;
                 }
                 break;
             default:
-                wheel = "";
+                tires = "";
         }
-        return wheel;
+        return tires;
     }
 
     /**
