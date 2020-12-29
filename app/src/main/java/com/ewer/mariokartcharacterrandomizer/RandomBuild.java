@@ -3,19 +3,19 @@ package com.ewer.mariokartcharacterrandomizer;
 public class RandomBuild {
     private String character;
     private String frame;
-    private String wheels;
+    private String tires;
     private String glider;
 
     public RandomBuild() {
         this.character = "";
         this.frame = "";
-        this.wheels = "";
+        this.tires = "";
         this.glider = "";
     }
-    public RandomBuild(String character, String frame, String wheels, String glider) {
+    public RandomBuild(String character, String frame, String tires, String glider) {
         this.character = character;
         this.frame = frame;
-        this.wheels = wheels;
+        this.tires = tires;
         this.glider = glider;
     }
 
@@ -25,8 +25,8 @@ public class RandomBuild {
     public String getFrame() {
         return frame;
     }
-    public String getWheels() {
-        return wheels;
+    public String getTires() {
+        return tires;
     }
     public String getGlider() {
         return glider;
@@ -38,8 +38,8 @@ public class RandomBuild {
     public void setFrame(String frame) {
         this.frame = frame;
     }
-    public void setWheels(String wheels) {
-        this.wheels = wheels;
+    public void setTires(String tires) {
+        this.tires = tires;
     }
     public void setGlider(String glider) {
         this.glider = glider;
