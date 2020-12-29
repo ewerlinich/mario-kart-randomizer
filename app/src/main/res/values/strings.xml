@@ -103,9 +103,13 @@
     <string name="mii">Mii</string>
 
     <string name="player1">Player 1</string>
+    <string name="player1caps">PLAYER ONE</string>
     <string name="player2">Player 2</string>
+    <string name="player2caps">PLAYER TWO</string>
     <string name="player3">Player 3</string>
+    <string name="player3caps">PLAYER THREE</string>
     <string name="player4">Player 4</string>
+    <string name="player4caps">PLAYER FOUR</string>
 
     <string name="standard_kart">Standard Kart</string>
     <string name="pipe_frame">Pipe Frame</string>

@@ -2,12 +2,14 @@ package com.ewer.mariokartcharacterrandomizer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 public class DisplayRandomBuildsNew extends AppCompatActivity {
 
@@ -60,7 +62,6 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
             "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider",
             "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
 
-    private LinearLayout[] layoutArr;
     private RandomBuild[] buildArr;
     private int playerNumber;
     private String frameType;
@@ -88,7 +89,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         // find the vertical LinearLayout that already exists in the XML. All of the following
         // views and layouts will be contained inside of this parent layout
 
-        layoutArr = new LinearLayout[playerNumber];
+        LinearLayout[] layoutArr = new LinearLayout[playerNumber];
         // create the empty array of LinearLayouts. This will hold the horizontal LinearLayouts,
         // which will in turn hold the ImageViews of the players' builds
 
@@ -99,23 +100,30 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         // images vertically, and stretches across the entire screen horizontally
 
         TextView[] textArr = new TextView[playerNumber];
-        for(int i = 0; i < playerNumber; i++) {
+        for (int i = 0; i < playerNumber; i++) {
             textArr[i] = new TextView(this);
+            textArr[i].setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
+            textArr[i].setGravity(Gravity.CENTER);
+            textArr[i].setTextSize(24f);
         }
         // create and initialize an array of TextViews for the amount of players
 
-        for(int i = 0; i < playerNumber; i++) {
+        for (int i = 0; i < playerNumber; i++) {
             layoutArr[i] = new LinearLayout(this);
             layoutArr[i].setLayoutParams(lp);
             layoutArr[i].setOrientation(LinearLayout.HORIZONTAL);
+            // create the horizontal LinearLayouts
 
             ImageView[] imageArr = new ImageView[4];
-            for(int j = 0; j < 4; j++) {
+            for (int j = 0; j < 4; j++) {
+                imageArr[i] = new ImageView(this);
                 layoutArr[i].addView(imageArr[j]);
-                layoutArr[i].
             }
+            // create the array of ImageViews for each layout and add them to the view
 
+            tl.addView(textArr[i]);
             tl.addView(layoutArr[i]);
+            //add each player text and horizontal LinearLayout to the parent vertical LinearLayout
         }
     }
 
@@ -123,14 +131,14 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
      * create the random builds for the amount of players specified
      */
     private void build_init() {
-        for(int i = 0; i < playerNumber; i++) {
+        for (int i = 0; i < playerNumber; i++) {
             buildArr[i] = new RandomBuild();
         }
         //construct the array of random builds as empty, so that random parts can be inserted
 
-        for(int i = 0; i < playerNumber; i++) {
+        for (int i = 0; i < playerNumber; i++) {
             buildArr[i].setCharacter(randCharAll());
-            switch(frameType) {
+            switch (frameType) {
                 case "kart":
                     buildArr[i].setFrame(randFrameKart());
                     break;
@@ -144,7 +152,8 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
             buildArr[i].setWheels(randWheels());
             buildArr[i].setGlider(randGlider());
         }
-        //set a randomized String for every
+        //set a randomized String for every player
+
     }
 
     /**
@@ -189,6 +198,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
 
     /**
      * randBikeFrame() returns a random String from a list of bike frames
+     *
      * @return a String that is the name of the frame
      */
     private String randFrameBike() {
@@ -197,6 +207,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
 
     /**
      * randKartFrame() returns a random String from a list of kart frames
+     *
      * @return a String that is the name of the frame
      */
     private String randFrameKart() {
@@ -205,6 +216,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
 
     /**
      * randAllFrame() returns a random String from a list of kart and bike frames
+     *
      * @return a String that is the name of the frame
      */
     private String randFrameAll() {
@@ -340,7 +352,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         switch (randTires) {
             case "Standard Tires":
                 color = (int) (Math.random() * 2);
-                if(color == 1) {
+                if (color == 1) {
                     tires = "Blue ".concat(randTires);
                 } else {
                     tires = randTires;
@@ -348,7 +360,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
                 break;
             case "Roller Tires":
                 color = (int) (Math.random() * 2);
-                if(color == 1) {
+                if (color == 1) {
                     tires = "Azure ".concat(randTires);
                 } else {
                     tires = randTires;
@@ -356,7 +368,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
                 break;
             case "Monster Tires":
                 color = (int) (Math.random() * 2);
-                if(color == 1) {
+                if (color == 1) {
                     tires = "Hot ".concat(randTires);
                 } else {
                     tires = randTires;
@@ -364,7 +376,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
                 break;
             case "Slim Tires":
                 color = (int) (Math.random() * 2);
-                if(color == 1) {
+                if (color == 1) {
                     tires = "Crimson ".concat(randTires);
                 } else {
                     tires = randTires;
@@ -372,7 +384,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
                 break;
             case "Off-Road Tires":
                 color = (int) (Math.random() * 2);
-                if(color == 1) {
+                if (color == 1) {
                     tires = "Retro ".concat(randTires);
                 } else {
                     tires = randTires;
@@ -380,7 +392,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
                 break;
             case "Slick Tires":
                 color = (int) (Math.random() * 2);
-                if(color == 1) {
+                if (color == 1) {
                     tires = "Cyber ".concat(randTires);
                 } else {
                     tires = randTires;
@@ -404,7 +416,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         ImageView charImage4 = findViewById(R.id.char_image_p4);
         ImageView[] arr = {charImage1, charImage2, charImage3, charImage4};
 
-        for(int i = playerNumber; i >= 1; i--) {
+        for (int i = playerNumber; i >= 1; i--) {
             String randChar = randCharAll();
             if (randChar.equals("Yoshi") || randChar.equals("Shy Guy")
                     || randChar.equals("Metal Mario") || randChar.equals("Link")
@@ -687,8 +699,8 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         ImageView[] arr = {frameImage1, frameImage2, frameImage3, frameImage4};
 
         String randFrame;
-        for(int i = playerNumber; i >= 1; i--) {
-            switch(frameType) {
+        for (int i = playerNumber; i >= 1; i--) {
+            switch (frameType) {
                 case "Bike":
                     randFrame = randFrameBike();
                     break;
@@ -884,7 +896,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         ImageView wheelImage4 = findViewById(R.id.wheel_image_p4);
         ImageView[] arr = {wheelImage1, wheelImage2, wheelImage3, wheelImage4};
 
-        for(int i = playerNumber; i >= 1; i--) {
+        for (int i = playerNumber; i >= 1; i--) {
             String randWheel = randWheels();
             switch (randWheel) {
                 case "StandardTires":
@@ -994,7 +1006,7 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
         ImageView[] arr = {gliderImage1, gliderImage2, gliderImage3, gliderImage4};
 
 
-        for(int i = playerNumber; i >= 1; i--) {
+        for (int i = playerNumber; i >= 1; i--) {
             String randGlider = randGlider();
             switch (randGlider) {
                 case "Super Glider":
@@ -1065,1370 +1077,11 @@ public class DisplayRandomBuildsNew extends AppCompatActivity {
 
     /**
      * after setting a tag with the resource that it is currently using, this method extracts the int ID from the tag
+     *
      * @param img the ImageView that the tag ID is being extracted from
      * @return the ID int that corresponds to the given resource
      */
     public int getResourceId(ImageView img) {
         return (int) (img.getTag());
-    }
-
-    /**
-     * the onClick action for the player 1 character
-     * @param view is the current view
-     */
-    public void charImage1(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.char_image_p1);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.baby_daisy) {
-            tv.setText(R.string.baby_daisy);
-        } else if(id == R.drawable.baby_luigi) {
-            tv.setText(R.string.baby_luigi);
-        } else if(id == R.drawable.baby_mario) {
-            tv.setText(R.string.baby_mario);
-        } else if(id == R.drawable.baby_peach) {
-            tv.setText(R.string.baby_peach);
-        } else if(id == R.drawable.baby_rosalina) {
-            tv.setText(R.string.baby_rosalina);
-        } else if(id == R.drawable.bowser) {
-            tv.setText(R.string.bowser);
-        } else if(id == R.drawable.bowser_jr) {
-            tv.setText(R.string.bowser_jr);
-        } else if(id == R.drawable.cat_peach) {
-            tv.setText(R.string.cat_peach);
-        } else if(id == R.drawable.daisy) {
-            tv.setText(R.string.daisy);
-        } else if(id == R.drawable.donkey_kong) {
-            tv.setText(R.string.donkey_kong);
-        } else if(id == R.drawable.dry_bones) {
-            tv.setText(R.string.dry_bones);
-        } else if(id == R.drawable.dry_bowser) {
-            tv.setText(R.string.dry_bowser);
-        } else if(id == R.drawable.iggy) {
-            tv.setText(R.string.iggy);
-        } else if(id == R.drawable.inkling_boy_darkblue) {
-            tv.setText(R.string.inkling_boy_darkblue);
-        } else if(id == R.drawable.inkling_boy_lightblue) {
-            tv.setText(R.string.inkling_boy_lightblue);
-        } else if(id == R.drawable.inkling_boy_purple) {
-            tv.setText(R.string.inkling_boy_purple);
-        } else if(id == R.drawable.inkling_girl_green) {
-            tv.setText(R.string.inkling_girl_green);
-        } else if(id == R.drawable.inkling_girl_orange) {
-            tv.setText(R.string.inkling_girl_orange);
-        } else if(id == R.drawable.inkling_girl_pink) {
-            tv.setText(R.string.inkling_girl_pink);
-        } else if(id == R.drawable.isabelle) {
-            tv.setText(R.string.isabelle);
-        } else if(id == R.drawable.king_boo) {
-            tv.setText(R.string.king_boo);
-        } else if(id == R.drawable.koopa_troopa) {
-            tv.setText(R.string.koopa_troopa);
-        } else if(id == R.drawable.lakitu) {
-            tv.setText(R.string.lakitu);
-        } else if(id == R.drawable.larry) {
-            tv.setText(R.string.larry);
-        } else if(id == R.drawable.lemmy) {
-            tv.setText(R.string.lemmy);
-        } else if(id == R.drawable.link_botw) {
-            tv.setText(R.string.link_botw);
-        } else if(id == R.drawable.link_classic) {
-            tv.setText(R.string.link_classic);
-        } else if(id == R.drawable.ludwig) {
-            tv.setText(R.string.ludwig);
-        } else if(id == R.drawable.luigi) {
-            tv.setText(R.string.luigi);
-        } else if(id == R.drawable.mario) {
-            tv.setText(R.string.mario);
-        } else if(id == R.drawable.metal_mario_metal) {
-            tv.setText(R.string.metal_mario_metal);
-        } else if(id == R.drawable.metal_mario_gold) {
-            tv.setText(R.string.metal_mario_gold);
-        } else if(id == R.drawable.mii) {
-            tv.setText(R.string.mii);
-        } else if(id == R.drawable.morton) {
-            tv.setText(R.string.morton);
-        } else if(id == R.drawable.peach) {
-            tv.setText(R.string.peach);
-        } else if(id == R.drawable.pink_gold_peach) {
-            tv.setText(R.string.pink_gold_peach);
-        } else if(id == R.drawable.rosalina) {
-            tv.setText(R.string.rosalina);
-        } else if(id == R.drawable.roy) {
-            tv.setText(R.string.roy);
-        } else if(id == R.drawable.shyguy_black) {
-            tv.setText(R.string.shy_guy_black);
-        } else if(id == R.drawable.shyguy_darkblue) {
-            tv.setText(R.string.shy_guy_darkblue);
-        } else if(id == R.drawable.shyguy_green) {
-            tv.setText(R.string.shy_guy_green);
-        } else if(id == R.drawable.shyguy_lightblue) {
-            tv.setText(R.string.shy_guy_lightblue);
-        } else if(id == R.drawable.shyguy_orange) {
-            tv.setText(R.string.shy_guy_orange);
-        } else if(id == R.drawable.shyguy_pink) {
-            tv.setText(R.string.shy_guy_pink);
-        } else if(id == R.drawable.shyguy_red) {
-            tv.setText(R.string.shy_guy_red);
-        } else if(id == R.drawable.shyguy_white) {
-            tv.setText(R.string.shy_guy_white);
-        } else if(id == R.drawable.shyguy_yellow) {
-            tv.setText(R.string.shy_guy_yellow);
-        } else if(id == R.drawable.tanooki_mario) {
-            tv.setText(R.string.tanooki_mario);
-        } else if(id == R.drawable.toad) {
-            tv.setText(R.string.toad);
-        } else if(id == R.drawable.toadette) {
-            tv.setText(R.string.toadette);
-        } else if(id == R.drawable.villager_boy) {
-            tv.setText(R.string.villager_boy);
-        } else if(id == R.drawable.villager_girl) {
-            tv.setText(R.string.villager_girl);
-        } else if(id == R.drawable.waluigi) {
-            tv.setText(R.string.waluigi);
-        } else if(id == R.drawable.wario) {
-            tv.setText(R.string.wario);
-        } else if(id == R.drawable.wendy) {
-            tv.setText(R.string.wendy);
-        } else if(id == R.drawable.yoshi_black) {
-            tv.setText(R.string.yoshi_black);
-        } else if(id == R.drawable.yoshi_darkblue) {
-            tv.setText(R.string.yoshi_darkblue);
-        } else if(id == R.drawable.yoshi_green) {
-            tv.setText(R.string.yoshi_green);
-        } else if(id == R.drawable.yoshi_lightblue) {
-            tv.setText(R.string.yoshi_lightblue);
-        } else if(id == R.drawable.yoshi_orange) {
-            tv.setText(R.string.yoshi_orange);
-        } else if(id == R.drawable.yoshi_pink) {
-            tv.setText(R.string.yoshi_pink);
-        } else if(id == R.drawable.yoshi_red) {
-            tv.setText(R.string.yoshi_red);
-        } else if(id == R.drawable.yoshi_white) {
-            tv.setText(R.string.yoshi_white);
-        } else if(id == R.drawable.yoshi_yellow) {
-            tv.setText(R.string.yoshi_yellow);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 2 character
-     * @param view is the current view
-     */
-    public void charImage2(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.char_image_p2);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.baby_daisy) {
-            tv.setText(R.string.baby_daisy);
-        } else if(id == R.drawable.baby_luigi) {
-            tv.setText(R.string.baby_luigi);
-        } else if(id == R.drawable.baby_mario) {
-            tv.setText(R.string.baby_mario);
-        } else if(id == R.drawable.baby_peach) {
-            tv.setText(R.string.baby_peach);
-        } else if(id == R.drawable.baby_rosalina) {
-            tv.setText(R.string.baby_rosalina);
-        } else if(id == R.drawable.bowser) {
-            tv.setText(R.string.bowser);
-        } else if(id == R.drawable.bowser_jr) {
-            tv.setText(R.string.bowser_jr);
-        } else if(id == R.drawable.cat_peach) {
-            tv.setText(R.string.cat_peach);
-        } else if(id == R.drawable.daisy) {
-            tv.setText(R.string.daisy);
-        } else if(id == R.drawable.donkey_kong) {
-            tv.setText(R.string.donkey_kong);
-        } else if(id == R.drawable.dry_bones) {
-            tv.setText(R.string.dry_bones);
-        } else if(id == R.drawable.dry_bowser) {
-            tv.setText(R.string.dry_bowser);
-        } else if(id == R.drawable.iggy) {
-            tv.setText(R.string.iggy);
-        } else if(id == R.drawable.inkling_boy_darkblue) {
-            tv.setText(R.string.inkling_boy_darkblue);
-        } else if(id == R.drawable.inkling_boy_lightblue) {
-            tv.setText(R.string.inkling_boy_lightblue);
-        } else if(id == R.drawable.inkling_boy_purple) {
-            tv.setText(R.string.inkling_boy_purple);
-        } else if(id == R.drawable.inkling_girl_green) {
-            tv.setText(R.string.inkling_girl_green);
-        } else if(id == R.drawable.inkling_girl_orange) {
-            tv.setText(R.string.inkling_girl_orange);
-        } else if(id == R.drawable.inkling_girl_pink) {
-            tv.setText(R.string.inkling_girl_pink);
-        } else if(id == R.drawable.isabelle) {
-            tv.setText(R.string.isabelle);
-        } else if(id == R.drawable.king_boo) {
-            tv.setText(R.string.king_boo);
-        } else if(id == R.drawable.koopa_troopa) {
-            tv.setText(R.string.koopa_troopa);
-        } else if(id == R.drawable.lakitu) {
-            tv.setText(R.string.lakitu);
-        } else if(id == R.drawable.larry) {
-            tv.setText(R.string.larry);
-        } else if(id == R.drawable.lemmy) {
-            tv.setText(R.string.lemmy);
-        } else if(id == R.drawable.link_botw) {
-            tv.setText(R.string.link_botw);
-        } else if(id == R.drawable.link_classic) {
-            tv.setText(R.string.link_classic);
-        } else if(id == R.drawable.ludwig) {
-            tv.setText(R.string.ludwig);
-        } else if(id == R.drawable.luigi) {
-            tv.setText(R.string.luigi);
-        } else if(id == R.drawable.mario) {
-            tv.setText(R.string.mario);
-        } else if(id == R.drawable.metal_mario_metal) {
-            tv.setText(R.string.metal_mario_metal);
-        } else if(id == R.drawable.metal_mario_gold) {
-            tv.setText(R.string.metal_mario_gold);
-        } else if(id == R.drawable.mii) {
-            tv.setText(R.string.mii);
-        } else if(id == R.drawable.morton) {
-            tv.setText(R.string.morton);
-        } else if(id == R.drawable.peach) {
-            tv.setText(R.string.peach);
-        } else if(id == R.drawable.pink_gold_peach) {
-            tv.setText(R.string.pink_gold_peach);
-        } else if(id == R.drawable.rosalina) {
-            tv.setText(R.string.rosalina);
-        } else if(id == R.drawable.roy) {
-            tv.setText(R.string.roy);
-        } else if(id == R.drawable.shyguy_black) {
-            tv.setText(R.string.shy_guy_black);
-        } else if(id == R.drawable.shyguy_darkblue) {
-            tv.setText(R.string.shy_guy_darkblue);
-        } else if(id == R.drawable.shyguy_green) {
-            tv.setText(R.string.shy_guy_green);
-        } else if(id == R.drawable.shyguy_lightblue) {
-            tv.setText(R.string.shy_guy_lightblue);
-        } else if(id == R.drawable.shyguy_orange) {
-            tv.setText(R.string.shy_guy_orange);
-        } else if(id == R.drawable.shyguy_pink) {
-            tv.setText(R.string.shy_guy_pink);
-        } else if(id == R.drawable.shyguy_red) {
-            tv.setText(R.string.shy_guy_red);
-        } else if(id == R.drawable.shyguy_white) {
-            tv.setText(R.string.shy_guy_white);
-        } else if(id == R.drawable.shyguy_yellow) {
-            tv.setText(R.string.shy_guy_yellow);
-        } else if(id == R.drawable.tanooki_mario) {
-            tv.setText(R.string.tanooki_mario);
-        } else if(id == R.drawable.toad) {
-            tv.setText(R.string.toad);
-        } else if(id == R.drawable.toadette) {
-            tv.setText(R.string.toadette);
-        } else if(id == R.drawable.villager_boy) {
-            tv.setText(R.string.villager_boy);
-        } else if(id == R.drawable.villager_girl) {
-            tv.setText(R.string.villager_girl);
-        } else if(id == R.drawable.waluigi) {
-            tv.setText(R.string.waluigi);
-        } else if(id == R.drawable.wario) {
-            tv.setText(R.string.wario);
-        } else if(id == R.drawable.wendy) {
-            tv.setText(R.string.wendy);
-        } else if(id == R.drawable.yoshi_black) {
-            tv.setText(R.string.yoshi_black);
-        } else if(id == R.drawable.yoshi_darkblue) {
-            tv.setText(R.string.yoshi_darkblue);
-        } else if(id == R.drawable.yoshi_green) {
-            tv.setText(R.string.yoshi_green);
-        } else if(id == R.drawable.yoshi_lightblue) {
-            tv.setText(R.string.yoshi_lightblue);
-        } else if(id == R.drawable.yoshi_orange) {
-            tv.setText(R.string.yoshi_orange);
-        } else if(id == R.drawable.yoshi_pink) {
-            tv.setText(R.string.yoshi_pink);
-        } else if(id == R.drawable.yoshi_red) {
-            tv.setText(R.string.yoshi_red);
-        } else if(id == R.drawable.yoshi_white) {
-            tv.setText(R.string.yoshi_white);
-        } else if(id == R.drawable.yoshi_yellow) {
-            tv.setText(R.string.yoshi_yellow);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 3 character
-     * @param view is the current view
-     */
-    public void charImage3(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.char_image_p3);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.baby_daisy) {
-            tv.setText(R.string.baby_daisy);
-        } else if(id == R.drawable.baby_luigi) {
-            tv.setText(R.string.baby_luigi);
-        } else if(id == R.drawable.baby_mario) {
-            tv.setText(R.string.baby_mario);
-        } else if(id == R.drawable.baby_peach) {
-            tv.setText(R.string.baby_peach);
-        } else if(id == R.drawable.baby_rosalina) {
-            tv.setText(R.string.baby_rosalina);
-        } else if(id == R.drawable.bowser) {
-            tv.setText(R.string.bowser);
-        } else if(id == R.drawable.bowser_jr) {
-            tv.setText(R.string.bowser_jr);
-        } else if(id == R.drawable.cat_peach) {
-            tv.setText(R.string.cat_peach);
-        } else if(id == R.drawable.daisy) {
-            tv.setText(R.string.daisy);
-        } else if(id == R.drawable.donkey_kong) {
-            tv.setText(R.string.donkey_kong);
-        } else if(id == R.drawable.dry_bones) {
-            tv.setText(R.string.dry_bones);
-        } else if(id == R.drawable.dry_bowser) {
-            tv.setText(R.string.dry_bowser);
-        } else if(id == R.drawable.iggy) {
-            tv.setText(R.string.iggy);
-        } else if(id == R.drawable.inkling_boy_darkblue) {
-            tv.setText(R.string.inkling_boy_darkblue);
-        } else if(id == R.drawable.inkling_boy_lightblue) {
-            tv.setText(R.string.inkling_boy_lightblue);
-        } else if(id == R.drawable.inkling_boy_purple) {
-            tv.setText(R.string.inkling_boy_purple);
-        } else if(id == R.drawable.inkling_girl_green) {
-            tv.setText(R.string.inkling_girl_green);
-        } else if(id == R.drawable.inkling_girl_orange) {
-            tv.setText(R.string.inkling_girl_orange);
-        } else if(id == R.drawable.inkling_girl_pink) {
-            tv.setText(R.string.inkling_girl_pink);
-        } else if(id == R.drawable.isabelle) {
-            tv.setText(R.string.isabelle);
-        } else if(id == R.drawable.king_boo) {
-            tv.setText(R.string.king_boo);
-        } else if(id == R.drawable.koopa_troopa) {
-            tv.setText(R.string.koopa_troopa);
-        } else if(id == R.drawable.lakitu) {
-            tv.setText(R.string.lakitu);
-        } else if(id == R.drawable.larry) {
-            tv.setText(R.string.larry);
-        } else if(id == R.drawable.lemmy) {
-            tv.setText(R.string.lemmy);
-        } else if(id == R.drawable.link_botw) {
-            tv.setText(R.string.link_botw);
-        } else if(id == R.drawable.link_classic) {
-            tv.setText(R.string.link_classic);
-        } else if(id == R.drawable.ludwig) {
-            tv.setText(R.string.ludwig);
-        } else if(id == R.drawable.luigi) {
-            tv.setText(R.string.luigi);
-        } else if(id == R.drawable.mario) {
-            tv.setText(R.string.mario);
-        } else if(id == R.drawable.metal_mario_metal) {
-            tv.setText(R.string.metal_mario_metal);
-        } else if(id == R.drawable.metal_mario_gold) {
-            tv.setText(R.string.metal_mario_gold);
-        } else if(id == R.drawable.mii) {
-            tv.setText(R.string.mii);
-        } else if(id == R.drawable.morton) {
-            tv.setText(R.string.morton);
-        } else if(id == R.drawable.peach) {
-            tv.setText(R.string.peach);
-        } else if(id == R.drawable.pink_gold_peach) {
-            tv.setText(R.string.pink_gold_peach);
-        } else if(id == R.drawable.rosalina) {
-            tv.setText(R.string.rosalina);
-        } else if(id == R.drawable.roy) {
-            tv.setText(R.string.roy);
-        } else if(id == R.drawable.shyguy_black) {
-            tv.setText(R.string.shy_guy_black);
-        } else if(id == R.drawable.shyguy_darkblue) {
-            tv.setText(R.string.shy_guy_darkblue);
-        } else if(id == R.drawable.shyguy_green) {
-            tv.setText(R.string.shy_guy_green);
-        } else if(id == R.drawable.shyguy_lightblue) {
-            tv.setText(R.string.shy_guy_lightblue);
-        } else if(id == R.drawable.shyguy_orange) {
-            tv.setText(R.string.shy_guy_orange);
-        } else if(id == R.drawable.shyguy_pink) {
-            tv.setText(R.string.shy_guy_pink);
-        } else if(id == R.drawable.shyguy_red) {
-            tv.setText(R.string.shy_guy_red);
-        } else if(id == R.drawable.shyguy_white) {
-            tv.setText(R.string.shy_guy_white);
-        } else if(id == R.drawable.shyguy_yellow) {
-            tv.setText(R.string.shy_guy_yellow);
-        } else if(id == R.drawable.tanooki_mario) {
-            tv.setText(R.string.tanooki_mario);
-        } else if(id == R.drawable.toad) {
-            tv.setText(R.string.toad);
-        } else if(id == R.drawable.toadette) {
-            tv.setText(R.string.toadette);
-        } else if(id == R.drawable.villager_boy) {
-            tv.setText(R.string.villager_boy);
-        } else if(id == R.drawable.villager_girl) {
-            tv.setText(R.string.villager_girl);
-        } else if(id == R.drawable.waluigi) {
-            tv.setText(R.string.waluigi);
-        } else if(id == R.drawable.wario) {
-            tv.setText(R.string.wario);
-        } else if(id == R.drawable.wendy) {
-            tv.setText(R.string.wendy);
-        } else if(id == R.drawable.yoshi_black) {
-            tv.setText(R.string.yoshi_black);
-        } else if(id == R.drawable.yoshi_darkblue) {
-            tv.setText(R.string.yoshi_darkblue);
-        } else if(id == R.drawable.yoshi_green) {
-            tv.setText(R.string.yoshi_green);
-        } else if(id == R.drawable.yoshi_lightblue) {
-            tv.setText(R.string.yoshi_lightblue);
-        } else if(id == R.drawable.yoshi_orange) {
-            tv.setText(R.string.yoshi_orange);
-        } else if(id == R.drawable.yoshi_pink) {
-            tv.setText(R.string.yoshi_pink);
-        } else if(id == R.drawable.yoshi_red) {
-            tv.setText(R.string.yoshi_red);
-        } else if(id == R.drawable.yoshi_white) {
-            tv.setText(R.string.yoshi_white);
-        } else if(id == R.drawable.yoshi_yellow) {
-            tv.setText(R.string.yoshi_yellow);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 4 character
-     * @param view is the current view
-     */
-    public void charImage4(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.char_image_p4);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.baby_daisy) {
-            tv.setText(R.string.baby_daisy);
-        } else if(id == R.drawable.baby_luigi) {
-            tv.setText(R.string.baby_luigi);
-        } else if(id == R.drawable.baby_mario) {
-            tv.setText(R.string.baby_mario);
-        } else if(id == R.drawable.baby_peach) {
-            tv.setText(R.string.baby_peach);
-        } else if(id == R.drawable.baby_rosalina) {
-            tv.setText(R.string.baby_rosalina);
-        } else if(id == R.drawable.bowser) {
-            tv.setText(R.string.bowser);
-        } else if(id == R.drawable.bowser_jr) {
-            tv.setText(R.string.bowser_jr);
-        } else if(id == R.drawable.cat_peach) {
-            tv.setText(R.string.cat_peach);
-        } else if(id == R.drawable.daisy) {
-            tv.setText(R.string.daisy);
-        } else if(id == R.drawable.donkey_kong) {
-            tv.setText(R.string.donkey_kong);
-        } else if(id == R.drawable.dry_bones) {
-            tv.setText(R.string.dry_bones);
-        } else if(id == R.drawable.dry_bowser) {
-            tv.setText(R.string.dry_bowser);
-        } else if(id == R.drawable.iggy) {
-            tv.setText(R.string.iggy);
-        } else if(id == R.drawable.inkling_boy_darkblue) {
-            tv.setText(R.string.inkling_boy_darkblue);
-        } else if(id == R.drawable.inkling_boy_lightblue) {
-            tv.setText(R.string.inkling_boy_lightblue);
-        } else if(id == R.drawable.inkling_boy_purple) {
-            tv.setText(R.string.inkling_boy_purple);
-        } else if(id == R.drawable.inkling_girl_green) {
-            tv.setText(R.string.inkling_girl_green);
-        } else if(id == R.drawable.inkling_girl_orange) {
-            tv.setText(R.string.inkling_girl_orange);
-        } else if(id == R.drawable.inkling_girl_pink) {
-            tv.setText(R.string.inkling_girl_pink);
-        } else if(id == R.drawable.isabelle) {
-            tv.setText(R.string.isabelle);
-        } else if(id == R.drawable.king_boo) {
-            tv.setText(R.string.king_boo);
-        } else if(id == R.drawable.koopa_troopa) {
-            tv.setText(R.string.koopa_troopa);
-        } else if(id == R.drawable.lakitu) {
-            tv.setText(R.string.lakitu);
-        } else if(id == R.drawable.larry) {
-            tv.setText(R.string.larry);
-        } else if(id == R.drawable.lemmy) {
-            tv.setText(R.string.lemmy);
-        } else if(id == R.drawable.link_botw) {
-            tv.setText(R.string.link_botw);
-        } else if(id == R.drawable.link_classic) {
-            tv.setText(R.string.link_classic);
-        } else if(id == R.drawable.ludwig) {
-            tv.setText(R.string.ludwig);
-        } else if(id == R.drawable.luigi) {
-            tv.setText(R.string.luigi);
-        } else if(id == R.drawable.mario) {
-            tv.setText(R.string.mario);
-        } else if(id == R.drawable.metal_mario_metal) {
-            tv.setText(R.string.metal_mario_metal);
-        } else if(id == R.drawable.metal_mario_gold) {
-            tv.setText(R.string.metal_mario_gold);
-        } else if(id == R.drawable.mii) {
-            tv.setText(R.string.mii);
-        } else if(id == R.drawable.morton) {
-            tv.setText(R.string.morton);
-        } else if(id == R.drawable.peach) {
-            tv.setText(R.string.peach);
-        } else if(id == R.drawable.pink_gold_peach) {
-            tv.setText(R.string.pink_gold_peach);
-        } else if(id == R.drawable.rosalina) {
-            tv.setText(R.string.rosalina);
-        } else if(id == R.drawable.roy) {
-            tv.setText(R.string.roy);
-        } else if(id == R.drawable.shyguy_black) {
-            tv.setText(R.string.shy_guy_black);
-        } else if(id == R.drawable.shyguy_darkblue) {
-            tv.setText(R.string.shy_guy_darkblue);
-        } else if(id == R.drawable.shyguy_green) {
-            tv.setText(R.string.shy_guy_green);
-        } else if(id == R.drawable.shyguy_lightblue) {
-            tv.setText(R.string.shy_guy_lightblue);
-        } else if(id == R.drawable.shyguy_orange) {
-            tv.setText(R.string.shy_guy_orange);
-        } else if(id == R.drawable.shyguy_pink) {
-            tv.setText(R.string.shy_guy_pink);
-        } else if(id == R.drawable.shyguy_red) {
-            tv.setText(R.string.shy_guy_red);
-        } else if(id == R.drawable.shyguy_white) {
-            tv.setText(R.string.shy_guy_white);
-        } else if(id == R.drawable.shyguy_yellow) {
-            tv.setText(R.string.shy_guy_yellow);
-        } else if(id == R.drawable.tanooki_mario) {
-            tv.setText(R.string.tanooki_mario);
-        } else if(id == R.drawable.toad) {
-            tv.setText(R.string.toad);
-        } else if(id == R.drawable.toadette) {
-            tv.setText(R.string.toadette);
-        } else if(id == R.drawable.villager_boy) {
-            tv.setText(R.string.villager_boy);
-        } else if(id == R.drawable.villager_girl) {
-            tv.setText(R.string.villager_girl);
-        } else if(id == R.drawable.waluigi) {
-            tv.setText(R.string.waluigi);
-        } else if(id == R.drawable.wario) {
-            tv.setText(R.string.wario);
-        } else if(id == R.drawable.wendy) {
-            tv.setText(R.string.wendy);
-        } else if(id == R.drawable.yoshi_black) {
-            tv.setText(R.string.yoshi_black);
-        } else if(id == R.drawable.yoshi_darkblue) {
-            tv.setText(R.string.yoshi_darkblue);
-        } else if(id == R.drawable.yoshi_green) {
-            tv.setText(R.string.yoshi_green);
-        } else if(id == R.drawable.yoshi_lightblue) {
-            tv.setText(R.string.yoshi_lightblue);
-        } else if(id == R.drawable.yoshi_orange) {
-            tv.setText(R.string.yoshi_orange);
-        } else if(id == R.drawable.yoshi_pink) {
-            tv.setText(R.string.yoshi_pink);
-        } else if(id == R.drawable.yoshi_red) {
-            tv.setText(R.string.yoshi_red);
-        } else if(id == R.drawable.yoshi_white) {
-            tv.setText(R.string.yoshi_white);
-        } else if(id == R.drawable.yoshi_yellow) {
-            tv.setText(R.string.yoshi_yellow);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 1 frame
-     * @param view is the current view
-     */
-    public void frameImage1(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frame_image_p2);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.b_dasher) {
-            tv.setText(R.string.b_dasher);
-        } else if(id == R.drawable.badwagon) {
-            tv.setText(R.string.badwagon);
-        } else if(id == R.drawable.biddybuggy) {
-            tv.setText(R.string.biddybuggy);
-        } else if(id == R.drawable.blue_falcon) {
-            tv.setText(R.string.blue_falcon);
-        } else if(id == R.drawable.bone_rattler) {
-            tv.setText(R.string.bone_rattler);
-        } else if(id == R.drawable.cat_cruiser) {
-            tv.setText(R.string.cat_cruiser);
-        } else if(id == R.drawable.circuit_special) {
-            tv.setText(R.string.circuit_special);
-        } else if(id == R.drawable.city_tripper) {
-            tv.setText(R.string.city_tripper);
-        } else if(id == R.drawable.comet) {
-            tv.setText(R.string.comet);
-        } else if(id == R.drawable.flame_rider) {
-            tv.setText(R.string.flame_rider);
-        } else if(id == R.drawable.gla) {
-            tv.setText(R.string.gla);
-        } else if(id == R.drawable.gold_standard) {
-            tv.setText(R.string.gold_standard);
-        } else if(id == R.drawable.inkstriker) {
-            tv.setText(R.string.inkstriker);
-        } else if(id == R.drawable.jet_bike) {
-            tv.setText(R.string.jet_bike);
-        } else if(id == R.drawable.koopa_clown) {
-            tv.setText(R.string.koopa_clown);
-        } else if(id == R.drawable.landship) {
-            tv.setText(R.string.landship);
-        } else if(id == R.drawable.mach_8) {
-            tv.setText(R.string.mach_8);
-        } else if(id == R.drawable.master_cycle) {
-            tv.setText(R.string.master_cycle);
-        } else if(id == R.drawable.master_cycle_zero) {
-            tv.setText(R.string.master_cycle_zero);
-        } else if(id == R.drawable.mr_scooty) {
-            tv.setText(R.string.mr_scooty);
-        } else if(id == R.drawable.p_wing) {
-            tv.setText(R.string.p_wing);
-        } else if(id == R.drawable.pipe_frame) {
-            tv.setText(R.string.pipe_frame);
-        } else if(id == R.drawable.prancer) {
-            tv.setText(R.string.prancer);
-        } else if(id == R.drawable.roadster) {
-            tv.setText(R.string.roadster);
-        } else if(id == R.drawable.silver_arrow) {
-            tv.setText(R.string.silver_arrow);
-        } else if(id == R.drawable.sneeker) {
-            tv.setText(R.string.sneeker);
-        } else if(id == R.drawable.splat_buggy) {
-            tv.setText(R.string.splat_buggy);
-        } else if(id == R.drawable.sports_bike) {
-            tv.setText(R.string.sports_bike);
-        } else if(id == R.drawable.sports_coupe) {
-            tv.setText(R.string.sports_coupe);
-        } else if(id == R.drawable.standard_atv) {
-            tv.setText(R.string.standard_atv);
-        } else if(id == R.drawable.standard_bike) {
-            tv.setText(R.string.standard_bike);
-        } else if(id == R.drawable.standard_kart) {
-            tv.setText(R.string.standard_kart);
-        } else if(id == R.drawable.steel_driver) {
-            tv.setText(R.string.steel_driver);
-        } else if(id == R.drawable.streetle) {
-            tv.setText(R.string.streetle);
-        } else if(id == R.drawable.tanooki_kart) {
-            tv.setText(R.string.tanooki_kart);
-        } else if(id == R.drawable.teddy_buggy) {
-            tv.setText(R.string.teddy_buggy);
-        } else if(id == R.drawable.the_duke) {
-            tv.setText(R.string.the_duke);
-        } else if(id == R.drawable.trispeeder) {
-            tv.setText(R.string.trispeeder);
-        } else if(id == R.drawable.varmint) {
-            tv.setText(R.string.varmint);
-        } else if(id == R.drawable.wild_wiggler) {
-            tv.setText(R.string.wild_wiggler);
-        } else if(id == R.drawable.yoshi_bike) {
-            tv.setText(R.string.yoshi_bike);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 2 frame
-     * @param view is the current view
-     */
-    public void frameImage2(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frame_image_p2);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.b_dasher) {
-            tv.setText(R.string.b_dasher);
-        } else if(id == R.drawable.badwagon) {
-            tv.setText(R.string.badwagon);
-        } else if(id == R.drawable.biddybuggy) {
-            tv.setText(R.string.biddybuggy);
-        } else if(id == R.drawable.blue_falcon) {
-            tv.setText(R.string.blue_falcon);
-        } else if(id == R.drawable.bone_rattler) {
-            tv.setText(R.string.bone_rattler);
-        } else if(id == R.drawable.cat_cruiser) {
-            tv.setText(R.string.cat_cruiser);
-        } else if(id == R.drawable.circuit_special) {
-            tv.setText(R.string.circuit_special);
-        } else if(id == R.drawable.city_tripper) {
-            tv.setText(R.string.city_tripper);
-        } else if(id == R.drawable.comet) {
-            tv.setText(R.string.comet);
-        } else if(id == R.drawable.flame_rider) {
-            tv.setText(R.string.flame_rider);
-        } else if(id == R.drawable.gla) {
-            tv.setText(R.string.gla);
-        } else if(id == R.drawable.gold_standard) {
-            tv.setText(R.string.gold_standard);
-        } else if(id == R.drawable.inkstriker) {
-            tv.setText(R.string.inkstriker);
-        } else if(id == R.drawable.jet_bike) {
-            tv.setText(R.string.jet_bike);
-        } else if(id == R.drawable.koopa_clown) {
-            tv.setText(R.string.koopa_clown);
-        } else if(id == R.drawable.landship) {
-            tv.setText(R.string.landship);
-        } else if(id == R.drawable.mach_8) {
-            tv.setText(R.string.mach_8);
-        } else if(id == R.drawable.master_cycle) {
-            tv.setText(R.string.master_cycle);
-        } else if(id == R.drawable.master_cycle_zero) {
-            tv.setText(R.string.master_cycle_zero);
-        } else if(id == R.drawable.mr_scooty) {
-            tv.setText(R.string.mr_scooty);
-        } else if(id == R.drawable.p_wing) {
-            tv.setText(R.string.p_wing);
-        } else if(id == R.drawable.pipe_frame) {
-            tv.setText(R.string.pipe_frame);
-        } else if(id == R.drawable.prancer) {
-            tv.setText(R.string.prancer);
-        } else if(id == R.drawable.roadster) {
-            tv.setText(R.string.roadster);
-        } else if(id == R.drawable.silver_arrow) {
-            tv.setText(R.string.silver_arrow);
-        } else if(id == R.drawable.sneeker) {
-            tv.setText(R.string.sneeker);
-        } else if(id == R.drawable.splat_buggy) {
-            tv.setText(R.string.splat_buggy);
-        } else if(id == R.drawable.sports_bike) {
-            tv.setText(R.string.sports_bike);
-        } else if(id == R.drawable.sports_coupe) {
-            tv.setText(R.string.sports_coupe);
-        } else if(id == R.drawable.standard_atv) {
-            tv.setText(R.string.standard_atv);
-        } else if(id == R.drawable.standard_bike) {
-            tv.setText(R.string.standard_bike);
-        } else if(id == R.drawable.standard_kart) {
-            tv.setText(R.string.standard_kart);
-        } else if(id == R.drawable.steel_driver) {
-            tv.setText(R.string.steel_driver);
-        } else if(id == R.drawable.streetle) {
-            tv.setText(R.string.streetle);
-        } else if(id == R.drawable.tanooki_kart) {
-            tv.setText(R.string.tanooki_kart);
-        } else if(id == R.drawable.teddy_buggy) {
-            tv.setText(R.string.teddy_buggy);
-        } else if(id == R.drawable.the_duke) {
-            tv.setText(R.string.the_duke);
-        } else if(id == R.drawable.trispeeder) {
-            tv.setText(R.string.trispeeder);
-        } else if(id == R.drawable.varmint) {
-            tv.setText(R.string.varmint);
-        } else if(id == R.drawable.wild_wiggler) {
-            tv.setText(R.string.wild_wiggler);
-        } else if(id == R.drawable.yoshi_bike) {
-            tv.setText(R.string.yoshi_bike);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 1 frame
-     * @param view is the current view
-     */
-    public void frameImage3(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frame_image_p3);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.b_dasher) {
-            tv.setText(R.string.b_dasher);
-        } else if(id == R.drawable.badwagon) {
-            tv.setText(R.string.badwagon);
-        } else if(id == R.drawable.biddybuggy) {
-            tv.setText(R.string.biddybuggy);
-        } else if(id == R.drawable.blue_falcon) {
-            tv.setText(R.string.blue_falcon);
-        } else if(id == R.drawable.bone_rattler) {
-            tv.setText(R.string.bone_rattler);
-        } else if(id == R.drawable.cat_cruiser) {
-            tv.setText(R.string.cat_cruiser);
-        } else if(id == R.drawable.circuit_special) {
-            tv.setText(R.string.circuit_special);
-        } else if(id == R.drawable.city_tripper) {
-            tv.setText(R.string.city_tripper);
-        } else if(id == R.drawable.comet) {
-            tv.setText(R.string.comet);
-        } else if(id == R.drawable.flame_rider) {
-            tv.setText(R.string.flame_rider);
-        } else if(id == R.drawable.gla) {
-            tv.setText(R.string.gla);
-        } else if(id == R.drawable.gold_standard) {
-            tv.setText(R.string.gold_standard);
-        } else if(id == R.drawable.inkstriker) {
-            tv.setText(R.string.inkstriker);
-        } else if(id == R.drawable.jet_bike) {
-            tv.setText(R.string.jet_bike);
-        } else if(id == R.drawable.koopa_clown) {
-            tv.setText(R.string.koopa_clown);
-        } else if(id == R.drawable.landship) {
-            tv.setText(R.string.landship);
-        } else if(id == R.drawable.mach_8) {
-            tv.setText(R.string.mach_8);
-        } else if(id == R.drawable.master_cycle) {
-            tv.setText(R.string.master_cycle);
-        } else if(id == R.drawable.master_cycle_zero) {
-            tv.setText(R.string.master_cycle_zero);
-        } else if(id == R.drawable.mr_scooty) {
-            tv.setText(R.string.mr_scooty);
-        } else if(id == R.drawable.p_wing) {
-            tv.setText(R.string.p_wing);
-        } else if(id == R.drawable.pipe_frame) {
-            tv.setText(R.string.pipe_frame);
-        } else if(id == R.drawable.prancer) {
-            tv.setText(R.string.prancer);
-        } else if(id == R.drawable.roadster) {
-            tv.setText(R.string.roadster);
-        } else if(id == R.drawable.silver_arrow) {
-            tv.setText(R.string.silver_arrow);
-        } else if(id == R.drawable.sneeker) {
-            tv.setText(R.string.sneeker);
-        } else if(id == R.drawable.splat_buggy) {
-            tv.setText(R.string.splat_buggy);
-        } else if(id == R.drawable.sports_bike) {
-            tv.setText(R.string.sports_bike);
-        } else if(id == R.drawable.sports_coupe) {
-            tv.setText(R.string.sports_coupe);
-        } else if(id == R.drawable.standard_atv) {
-            tv.setText(R.string.standard_atv);
-        } else if(id == R.drawable.standard_bike) {
-            tv.setText(R.string.standard_bike);
-        } else if(id == R.drawable.standard_kart) {
-            tv.setText(R.string.standard_kart);
-        } else if(id == R.drawable.steel_driver) {
-            tv.setText(R.string.steel_driver);
-        } else if(id == R.drawable.streetle) {
-            tv.setText(R.string.streetle);
-        } else if(id == R.drawable.tanooki_kart) {
-            tv.setText(R.string.tanooki_kart);
-        } else if(id == R.drawable.teddy_buggy) {
-            tv.setText(R.string.teddy_buggy);
-        } else if(id == R.drawable.the_duke) {
-            tv.setText(R.string.the_duke);
-        } else if(id == R.drawable.trispeeder) {
-            tv.setText(R.string.trispeeder);
-        } else if(id == R.drawable.varmint) {
-            tv.setText(R.string.varmint);
-        } else if(id == R.drawable.wild_wiggler) {
-            tv.setText(R.string.wild_wiggler);
-        } else if(id == R.drawable.yoshi_bike) {
-            tv.setText(R.string.yoshi_bike);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 4 frame
-     * @param view is the current view
-     */
-    public void frameImage4(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.frame_image_p4);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.b_dasher) {
-            tv.setText(R.string.b_dasher);
-        } else if(id == R.drawable.badwagon) {
-            tv.setText(R.string.badwagon);
-        } else if(id == R.drawable.biddybuggy) {
-            tv.setText(R.string.biddybuggy);
-        } else if(id == R.drawable.blue_falcon) {
-            tv.setText(R.string.blue_falcon);
-        } else if(id == R.drawable.bone_rattler) {
-            tv.setText(R.string.bone_rattler);
-        } else if(id == R.drawable.cat_cruiser) {
-            tv.setText(R.string.cat_cruiser);
-        } else if(id == R.drawable.circuit_special) {
-            tv.setText(R.string.circuit_special);
-        } else if(id == R.drawable.city_tripper) {
-            tv.setText(R.string.city_tripper);
-        } else if(id == R.drawable.comet) {
-            tv.setText(R.string.comet);
-        } else if(id == R.drawable.flame_rider) {
-            tv.setText(R.string.flame_rider);
-        } else if(id == R.drawable.gla) {
-            tv.setText(R.string.gla);
-        } else if(id == R.drawable.gold_standard) {
-            tv.setText(R.string.gold_standard);
-        } else if(id == R.drawable.inkstriker) {
-            tv.setText(R.string.inkstriker);
-        } else if(id == R.drawable.jet_bike) {
-            tv.setText(R.string.jet_bike);
-        } else if(id == R.drawable.koopa_clown) {
-            tv.setText(R.string.koopa_clown);
-        } else if(id == R.drawable.landship) {
-            tv.setText(R.string.landship);
-        } else if(id == R.drawable.mach_8) {
-            tv.setText(R.string.mach_8);
-        } else if(id == R.drawable.master_cycle) {
-            tv.setText(R.string.master_cycle);
-        } else if(id == R.drawable.master_cycle_zero) {
-            tv.setText(R.string.master_cycle_zero);
-        } else if(id == R.drawable.mr_scooty) {
-            tv.setText(R.string.mr_scooty);
-        } else if(id == R.drawable.p_wing) {
-            tv.setText(R.string.p_wing);
-        } else if(id == R.drawable.pipe_frame) {
-            tv.setText(R.string.pipe_frame);
-        } else if(id == R.drawable.prancer) {
-            tv.setText(R.string.prancer);
-        } else if(id == R.drawable.roadster) {
-            tv.setText(R.string.roadster);
-        } else if(id == R.drawable.silver_arrow) {
-            tv.setText(R.string.silver_arrow);
-        } else if(id == R.drawable.sneeker) {
-            tv.setText(R.string.sneeker);
-        } else if(id == R.drawable.splat_buggy) {
-            tv.setText(R.string.splat_buggy);
-        } else if(id == R.drawable.sports_bike) {
-            tv.setText(R.string.sports_bike);
-        } else if(id == R.drawable.sports_coupe) {
-            tv.setText(R.string.sports_coupe);
-        } else if(id == R.drawable.standard_atv) {
-            tv.setText(R.string.standard_atv);
-        } else if(id == R.drawable.standard_bike) {
-            tv.setText(R.string.standard_bike);
-        } else if(id == R.drawable.standard_kart) {
-            tv.setText(R.string.standard_kart);
-        } else if(id == R.drawable.steel_driver) {
-            tv.setText(R.string.steel_driver);
-        } else if(id == R.drawable.streetle) {
-            tv.setText(R.string.streetle);
-        } else if(id == R.drawable.tanooki_kart) {
-            tv.setText(R.string.tanooki_kart);
-        } else if(id == R.drawable.teddy_buggy) {
-            tv.setText(R.string.teddy_buggy);
-        } else if(id == R.drawable.the_duke) {
-            tv.setText(R.string.the_duke);
-        } else if(id == R.drawable.trispeeder) {
-            tv.setText(R.string.trispeeder);
-        } else if(id == R.drawable.varmint) {
-            tv.setText(R.string.varmint);
-        } else if(id == R.drawable.wild_wiggler) {
-            tv.setText(R.string.wild_wiggler);
-        } else if(id == R.drawable.yoshi_bike) {
-            tv.setText(R.string.yoshi_bike);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 1 wheels
-     * @param view is the current view
-     */
-    public void wheelImage1(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheel_image_p1);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.ancient_tires) {
-            tv.setText(R.string.ancient_tires);
-        } else if(id == R.drawable.blue_standard_tires) {
-            tv.setText(R.string.blue_standard_tires);
-        } else if(id == R.drawable.button_tires) {
-            tv.setText(R.string.button_tires);
-        } else if(id == R.drawable.cushion_tires) {
-            tv.setText(R.string.cushion_tires);
-        } else if(id == R.drawable.gla_tires) {
-            tv.setText(R.string.gla_tires);
-        } else if(id == R.drawable.gold_tires) {
-            tv.setText(R.string.gold_tires);
-        } else if(id == R.drawable.leaf_tires) {
-            tv.setText(R.string.leaf_tires);
-        } else if(id == R.drawable.metal_tires) {
-            tv.setText(R.string.metal_tires);
-        } else if(id == R.drawable.monster_tires) {
-            tv.setText(R.string.monster_tires);
-        } else if(id == R.drawable.monster_tires_hot) {
-            tv.setText(R.string.monster_tires_hot);
-        } else if(id == R.drawable.off_road_tires) {
-            tv.setText(R.string.off_road_tires);
-        } else if(id == R.drawable.off_road_tires_retro) {
-            tv.setText(R.string.off_road_tires_retro);
-        } else if(id == R.drawable.roller_tires) {
-            tv.setText(R.string.roller_tires);
-        } else if(id == R.drawable.roller_tires_azure) {
-            tv.setText(R.string.roller_tires_azure);
-        } else if(id == R.drawable.slick_tires) {
-            tv.setText(R.string.slick_tires);
-        } else if(id == R.drawable.slick_tires_cyber) {
-            tv.setText(R.string.slick_tires_cyber);
-        } else if(id == R.drawable.slim_tires) {
-            tv.setText(R.string.slim_tires);
-        } else if(id == R.drawable.slim_tires_crimson) {
-            tv.setText(R.string.slim_tires_crimson);
-        } else if(id == R.drawable.sponge_tires) {
-            tv.setText(R.string.sponge_tires);
-        } else if(id == R.drawable.standard_tires) {
-            tv.setText(R.string.standard_tires);
-        } else if(id == R.drawable.triforce_tires) {
-            tv.setText(R.string.triforce_tires);
-        } else if(id == R.drawable.wood_tires) {
-            tv.setText(R.string.wood_tires);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 2 wheels
-     * @param view is the current view
-     */
-    public void wheelImage2(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheel_image_p2);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.ancient_tires) {
-            tv.setText(R.string.ancient_tires);
-        } else if(id == R.drawable.blue_standard_tires) {
-            tv.setText(R.string.blue_standard_tires);
-        } else if(id == R.drawable.button_tires) {
-            tv.setText(R.string.button_tires);
-        } else if(id == R.drawable.cushion_tires) {
-            tv.setText(R.string.cushion_tires);
-        } else if(id == R.drawable.gla_tires) {
-            tv.setText(R.string.gla_tires);
-        } else if(id == R.drawable.gold_tires) {
-            tv.setText(R.string.gold_tires);
-        } else if(id == R.drawable.leaf_tires) {
-            tv.setText(R.string.leaf_tires);
-        } else if(id == R.drawable.metal_tires) {
-            tv.setText(R.string.metal_tires);
-        } else if(id == R.drawable.monster_tires) {
-            tv.setText(R.string.monster_tires);
-        } else if(id == R.drawable.monster_tires_hot) {
-            tv.setText(R.string.monster_tires_hot);
-        } else if(id == R.drawable.off_road_tires) {
-            tv.setText(R.string.off_road_tires);
-        } else if(id == R.drawable.off_road_tires_retro) {
-            tv.setText(R.string.off_road_tires_retro);
-        } else if(id == R.drawable.roller_tires) {
-            tv.setText(R.string.roller_tires);
-        } else if(id == R.drawable.roller_tires_azure) {
-            tv.setText(R.string.roller_tires_azure);
-        } else if(id == R.drawable.slick_tires) {
-            tv.setText(R.string.slick_tires);
-        } else if(id == R.drawable.slick_tires_cyber) {
-            tv.setText(R.string.slick_tires_cyber);
-        } else if(id == R.drawable.slim_tires) {
-            tv.setText(R.string.slim_tires);
-        } else if(id == R.drawable.slim_tires_crimson) {
-            tv.setText(R.string.slim_tires_crimson);
-        } else if(id == R.drawable.sponge_tires) {
-            tv.setText(R.string.sponge_tires);
-        } else if(id == R.drawable.standard_tires) {
-            tv.setText(R.string.standard_tires);
-        } else if(id == R.drawable.triforce_tires) {
-            tv.setText(R.string.triforce_tires);
-        } else if(id == R.drawable.wood_tires) {
-            tv.setText(R.string.wood_tires);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 3 wheels
-     * @param view is the current view
-     */
-    public void wheelImage3(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheel_image_p3);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.ancient_tires) {
-            tv.setText(R.string.ancient_tires);
-        } else if(id == R.drawable.blue_standard_tires) {
-            tv.setText(R.string.blue_standard_tires);
-        } else if(id == R.drawable.button_tires) {
-            tv.setText(R.string.button_tires);
-        } else if(id == R.drawable.cushion_tires) {
-            tv.setText(R.string.cushion_tires);
-        } else if(id == R.drawable.gla_tires) {
-            tv.setText(R.string.gla_tires);
-        } else if(id == R.drawable.gold_tires) {
-            tv.setText(R.string.gold_tires);
-        } else if(id == R.drawable.leaf_tires) {
-            tv.setText(R.string.leaf_tires);
-        } else if(id == R.drawable.metal_tires) {
-            tv.setText(R.string.metal_tires);
-        } else if(id == R.drawable.monster_tires) {
-            tv.setText(R.string.monster_tires);
-        } else if(id == R.drawable.monster_tires_hot) {
-            tv.setText(R.string.monster_tires_hot);
-        } else if(id == R.drawable.off_road_tires) {
-            tv.setText(R.string.off_road_tires);
-        } else if(id == R.drawable.off_road_tires_retro) {
-            tv.setText(R.string.off_road_tires_retro);
-        } else if(id == R.drawable.roller_tires) {
-            tv.setText(R.string.roller_tires);
-        } else if(id == R.drawable.roller_tires_azure) {
-            tv.setText(R.string.roller_tires_azure);
-        } else if(id == R.drawable.slick_tires) {
-            tv.setText(R.string.slick_tires);
-        } else if(id == R.drawable.slick_tires_cyber) {
-            tv.setText(R.string.slick_tires_cyber);
-        } else if(id == R.drawable.slim_tires) {
-            tv.setText(R.string.slim_tires);
-        } else if(id == R.drawable.slim_tires_crimson) {
-            tv.setText(R.string.slim_tires_crimson);
-        } else if(id == R.drawable.sponge_tires) {
-            tv.setText(R.string.sponge_tires);
-        } else if(id == R.drawable.standard_tires) {
-            tv.setText(R.string.standard_tires);
-        } else if(id == R.drawable.triforce_tires) {
-            tv.setText(R.string.triforce_tires);
-        } else if(id == R.drawable.wood_tires) {
-            tv.setText(R.string.wood_tires);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 4 wheels
-     * @param view is the current view
-     */
-    public void wheelImage4(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.wheel_image_p4);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.ancient_tires) {
-            tv.setText(R.string.ancient_tires);
-        } else if(id == R.drawable.blue_standard_tires) {
-            tv.setText(R.string.blue_standard_tires);
-        } else if(id == R.drawable.button_tires) {
-            tv.setText(R.string.button_tires);
-        } else if(id == R.drawable.cushion_tires) {
-            tv.setText(R.string.cushion_tires);
-        } else if(id == R.drawable.gla_tires) {
-            tv.setText(R.string.gla_tires);
-        } else if(id == R.drawable.gold_tires) {
-            tv.setText(R.string.gold_tires);
-        } else if(id == R.drawable.leaf_tires) {
-            tv.setText(R.string.leaf_tires);
-        } else if(id == R.drawable.metal_tires) {
-            tv.setText(R.string.metal_tires);
-        } else if(id == R.drawable.monster_tires) {
-            tv.setText(R.string.monster_tires);
-        } else if(id == R.drawable.monster_tires_hot) {
-            tv.setText(R.string.monster_tires_hot);
-        } else if(id == R.drawable.off_road_tires) {
-            tv.setText(R.string.off_road_tires);
-        } else if(id == R.drawable.off_road_tires_retro) {
-            tv.setText(R.string.off_road_tires_retro);
-        } else if(id == R.drawable.roller_tires) {
-            tv.setText(R.string.roller_tires);
-        } else if(id == R.drawable.roller_tires_azure) {
-            tv.setText(R.string.roller_tires_azure);
-        } else if(id == R.drawable.slick_tires) {
-            tv.setText(R.string.slick_tires);
-        } else if(id == R.drawable.slick_tires_cyber) {
-            tv.setText(R.string.slick_tires_cyber);
-        } else if(id == R.drawable.slim_tires) {
-            tv.setText(R.string.slim_tires);
-        } else if(id == R.drawable.slim_tires_crimson) {
-            tv.setText(R.string.slim_tires_crimson);
-        } else if(id == R.drawable.sponge_tires) {
-            tv.setText(R.string.sponge_tires);
-        } else if(id == R.drawable.standard_tires) {
-            tv.setText(R.string.standard_tires);
-        } else if(id == R.drawable.triforce_tires) {
-            tv.setText(R.string.triforce_tires);
-        } else if(id == R.drawable.wood_tires) {
-            tv.setText(R.string.wood_tires);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 1 glider
-     * @param view is the current view
-     */
-    public void gliderImage1(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.glider_image_p1);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.bowser_kite) {
-             tv.setText(R.string.bowser_kite);
-        } else if(id == R.drawable.cloud_glider) {
-            tv.setText(R.string.cloud_glider);
-        } else if(id == R.drawable.flower_glider) {
-            tv.setText(R.string.flower_glider);
-        } else if(id == R.drawable.gold_glider) {
-            tv.setText(R.string.gold_glider);
-        } else if(id == R.drawable.hylian_kite) {
-            tv.setText(R.string.hylian_kite);
-        } else if(id == R.drawable.paper_glider) {
-            tv.setText(R.string.paper_glider);
-        } else if(id == R.drawable.parachute) {
-            tv.setText(R.string.parachute);
-        } else if(id == R.drawable.parafoil) {
-            tv.setText(R.string.parafoil);
-        } else if(id == R.drawable.parafoil_mktv) {
-            tv.setText(R.string.parafoil_mktv);
-        } else if(id == R.drawable.paraglider) {
-            tv.setText(R.string.paraglider);
-        } else if(id == R.drawable.parasol) {
-            tv.setText(R.string.parasol);
-        } else if(id == R.drawable.plane_glider) {
-            tv.setText(R.string.plane_glider);
-        } else if(id == R.drawable.super_glider) {
-            tv.setText(R.string.super_glider);
-        } else if(id == R.drawable.waddle_wing) {
-            tv.setText(R.string.waddle_wing);
-        } else if(id == R.drawable.wario_wing) {
-            tv.setText(R.string.wario_wing);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 2 glider
-     * @param view is the current view
-     */
-    public void gliderImage2(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.glider_image_p1);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.bowser_kite) {
-            tv.setText(R.string.bowser_kite);
-        } else if(id == R.drawable.cloud_glider) {
-            tv.setText(R.string.cloud_glider);
-        } else if(id == R.drawable.flower_glider) {
-            tv.setText(R.string.flower_glider);
-        } else if(id == R.drawable.gold_glider) {
-            tv.setText(R.string.gold_glider);
-        } else if(id == R.drawable.hylian_kite) {
-            tv.setText(R.string.hylian_kite);
-        } else if(id == R.drawable.paper_glider) {
-            tv.setText(R.string.paper_glider);
-        } else if(id == R.drawable.parachute) {
-            tv.setText(R.string.parachute);
-        } else if(id == R.drawable.parafoil) {
-            tv.setText(R.string.parafoil);
-        } else if(id == R.drawable.parafoil_mktv) {
-            tv.setText(R.string.parafoil_mktv);
-        } else if(id == R.drawable.paraglider) {
-            tv.setText(R.string.paraglider);
-        } else if(id == R.drawable.parasol) {
-            tv.setText(R.string.parasol);
-        } else if(id == R.drawable.plane_glider) {
-            tv.setText(R.string.plane_glider);
-        } else if(id == R.drawable.super_glider) {
-            tv.setText(R.string.super_glider);
-        } else if(id == R.drawable.waddle_wing) {
-            tv.setText(R.string.waddle_wing);
-        } else if(id == R.drawable.wario_wing) {
-            tv.setText(R.string.wario_wing);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 3 glider
-     * @param view is the current view
-     */
-    public void gliderImage3(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.glider_image_p3);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.bowser_kite) {
-            tv.setText(R.string.bowser_kite);
-        } else if(id == R.drawable.cloud_glider) {
-            tv.setText(R.string.cloud_glider);
-        } else if(id == R.drawable.flower_glider) {
-            tv.setText(R.string.flower_glider);
-        } else if(id == R.drawable.gold_glider) {
-            tv.setText(R.string.gold_glider);
-        } else if(id == R.drawable.hylian_kite) {
-            tv.setText(R.string.hylian_kite);
-        } else if(id == R.drawable.paper_glider) {
-            tv.setText(R.string.paper_glider);
-        } else if(id == R.drawable.parachute) {
-            tv.setText(R.string.parachute);
-        } else if(id == R.drawable.parafoil) {
-            tv.setText(R.string.parafoil);
-        } else if(id == R.drawable.parafoil_mktv) {
-            tv.setText(R.string.parafoil_mktv);
-        } else if(id == R.drawable.paraglider) {
-            tv.setText(R.string.paraglider);
-        } else if(id == R.drawable.parasol) {
-            tv.setText(R.string.parasol);
-        } else if(id == R.drawable.plane_glider) {
-            tv.setText(R.string.plane_glider);
-        } else if(id == R.drawable.super_glider) {
-            tv.setText(R.string.super_glider);
-        } else if(id == R.drawable.waddle_wing) {
-            tv.setText(R.string.waddle_wing);
-        } else if(id == R.drawable.wario_wing) {
-            tv.setText(R.string.wario_wing);
-        } else {
-            tv.setText(R.string.default_error);
-        }
-    }
-
-    /**
-     * the onClick action for the player 4 glider
-     * @param view is the current view
-     */
-    public void gliderImage4(View view) {
-        TextView tv = findViewById(R.id.title);
-        ImageView img = findViewById(R.id.glider_image_p4);
-        int id = getResourceId(img);
-
-        if(id == R.drawable.bowser_kite) {
-            tv.setText(R.string.bowser_kite);
-        } else if(id == R.drawable.cloud_glider) {
-            tv.setText(R.string.cloud_glider);
-        } else if(id == R.drawable.flower_glider) {
-            tv.setText(R.string.flower_glider);
-        } else if(id == R.drawable.gold_glider) {
-            tv.setText(R.string.gold_glider);
-        } else if(id == R.drawable.hylian_kite) {
-            tv.setText(R.string.hylian_kite);
-        } else if(id == R.drawable.paper_glider) {
-            tv.setText(R.string.paper_glider);
-        } else if(id == R.drawable.parachute) {
-            tv.setText(R.string.parachute);
-        } else if(id == R.drawable.parafoil) {
-            tv.setText(R.string.parafoil);
-        } else if(id == R.drawable.parafoil_mktv) {
-            tv.setText(R.string.parafoil_mktv);
-        } else if(id == R.drawable.paraglider) {
-            tv.setText(R.string.paraglider);
-        } else if(id == R.drawable.parasol) {
-            tv.setText(R.string.parasol);
-        } else if(id == R.drawable.plane_glider) {
-            tv.setText(R.string.plane_glider);
-        } else if(id == R.drawable.super_glider) {
-            tv.setText(R.string.super_glider);
-        } else if(id == R.drawable.waddle_wing) {
-            tv.setText(R.string.waddle_wing);
-        } else if(id == R.drawable.wario_wing) {
-            tv.setText(R.string.wario_wing);
-        } else {
-            tv.setText(R.string.default_error);
-        }
     }
 }
