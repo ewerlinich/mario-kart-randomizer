@@ -5,7 +5,7 @@
     android:id="@+id/randomizer_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DisplayRandomBuildsNew">
+    tools:context=".DisplayRandomBuilds">
 
     <TextView
         android:id="@+id/title"
@@ -14,10 +14,11 @@
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:text="@string/random_build_title"
+        android:text="@string/random_build_title1"
         android:textColor="#FF0000"
-        android:textSize="30sp"
+        android:textSize="48sp"
         android:textStyle="bold"
+        app:fontFamily="@font/mario_kart_ds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +26,7 @@
     <ScrollView
         android:id="@+id/scroller_wrapper"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title">

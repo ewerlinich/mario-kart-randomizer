@@ -1,6 +1,8 @@
 package com.ewer.mariokartcharacterrandomizer;
 
-public class RandomBuild {
+import java.io.Serializable;
+
+public class RandomBuild implements Serializable {
     private String character;
     private String frame;
     private String tires;
@@ -43,5 +45,9 @@ public class RandomBuild {
     }
     public void setGlider(String glider) {
         this.glider = glider;
+    }
+
+    public void saveBuild() {
+
     }
 }
