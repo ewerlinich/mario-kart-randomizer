@@ -162,7 +162,6 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 int finalI = i;
                 image_arr[j].setOnClickListener(view -> {
                     TextView title = findViewById(R.id.title);
-                    view.getId();
                     title.setText(getPartText(finalJ, finalI));
                 });
 
