@@ -1,6 +1,8 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.TableRow;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
+
+import java.util.Random;
 
 public class DisplayRandomBuilds extends AppCompatActivity {
 
@@ -102,9 +106,17 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         // find the vertical LinearLayout that already exists in the XML. All of the following
         // views and layouts will be contained inside of this parent layout
 
-        LinearLayout.LayoutParams linear_layout_params = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams linear_layout_params_text = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
+        linear_layout_params_text.bottomMargin = 10;
+        // the layout parameters for the horizontal layout params. the width matches the parent
+        // so that all 4 images can fit, and wraps the height of the images vertically
+
+        LinearLayout.LayoutParams linear_layout_params_row = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        linear_layout_params_row.bottomMargin = 40;
         // the layout parameters for the horizontal layout params. the width matches the parent
         // so that all 4 images can fit, and wraps the height of the images vertically
 
@@ -114,10 +126,14 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 1);
         // the layout parameters for the horizontal table rows
 
+        GradientDrawable border = new GradientDrawable();
+        border.setStroke(4, 0xFF000000);
+        border.setCornerRadius(60);
+
         for (int i = 0; i < player_count; i++) {
             text_arr[i] = new TextView(this);
 
-            text_arr[i].setLayoutParams(linear_layout_params);
+            text_arr[i].setLayoutParams(linear_layout_params_text);
             text_arr[i].setGravity(Gravity.CENTER);
             text_arr[i].setTextSize(30f);
             text_arr[i].setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
@@ -142,7 +158,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             // add the TextView to the parent LinearLayout
 
             table_rows[i] = new TableRow(this);
-            table_rows[i].setLayoutParams(linear_layout_params);
+            table_rows[i].setLayoutParams(linear_layout_params_row);
             table_rows[i].setOrientation(LinearLayout.HORIZONTAL);
             // create the horizontal LinearLayouts
 
@@ -161,11 +177,16 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 int finalJ = j;
                 int finalI = i;
                 image_arr[j].setOnClickListener(view -> {
-                    TextView title = findViewById(R.id.title);
+                    TextView title = findViewById(R.id.part_name);
                     title.setText(getPartText(finalJ, finalI));
                 });
 
                 table_rows[i].addView(image_arr[j]);
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                table_rows[i].setBackground(border);
+            }  else {
+                table_rows[i].setBackgroundDrawable(border);
             }
 
             parent_layout.addView(table_rows[i]);

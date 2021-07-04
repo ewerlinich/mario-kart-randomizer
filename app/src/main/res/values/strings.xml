@@ -4,9 +4,10 @@
     <string name="historyButton">History</string>
     <string name="Mario_pic_description">A picture of Mario in a kart from the game Mario Kart 8 Deluxe, smiling and punching the air with his left fist.</string>
     <string name="logo_pic_description">Graphic display of the title of the app, \"Mario Kart 8 Deluxe Randomizer\".</string>
+    <string name="create_builds_titles">CREATE BUILDS</string>
     <string name="random_build_title">YOUR BUILD IS:</string>
-    <string name="random_build_title1">Your Build Is:</string>
     <string name="saved_builds_title">Your Saved Builds</string>
+    <string name="part_name_title">Press an image to see the name of the part!</string>
     <string name="player_number_query">Enter the number of players.</string>
     <string name="default_error">Default ERROR</string>
     <string name="blank"></string>

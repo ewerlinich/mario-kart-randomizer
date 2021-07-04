@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:text="@string/random_build_title1"
+        android:text="@string/random_build_title"
         android:textColor="#FF0000"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -23,19 +23,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/part_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:minHeight="84dp"
+        android:text="@string/part_name_title"
+        android:textSize="28sp"
+        app:fontFamily="@font/paytone_one"
+        app:layout_constraintBottom_toTopOf="@+id/scroller_wrapper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
     <ScrollView
         android:id="@+id/scroller_wrapper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title">
+        app:layout_constraintTop_toBottomOf="@id/part_name">
 
         <LinearLayout
             android:id="@+id/build_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
