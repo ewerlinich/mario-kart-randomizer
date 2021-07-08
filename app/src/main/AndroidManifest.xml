@@ -8,7 +8,8 @@
         android:roundIcon="@mipmap/mario_kart_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ewer.mariokartcharacterrandomizer.DisplayRandomBuilds"
+        <activity
+            android:name="com.ewer.mariokartcharacterrandomizer.DisplayRandomBuilds"
             android:parentActivityName="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
@@ -17,7 +18,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ewer.mariokartcharacterrandomizer.MainActivity" />
         </activity>
-        <activity android:name="com.ewer.mariokartcharacterrandomizer.MainActivity"
+        <activity
+            android:name="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -25,6 +27,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ewer.mariokartcharacterrandomizer.DetermineRandomBuilds"
+            android:parentActivityName="com.ewer.mariokartcharacterrandomizer.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ewer.mariokartcharacterrandomizer.MainActivity" />
         </activity>
 
         <meta-data

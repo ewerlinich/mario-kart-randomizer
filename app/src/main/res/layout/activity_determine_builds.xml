@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,11 +9,8 @@
         android:id="@+id/create_build_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:gravity="center"
         android:text="@string/create_builds_titles"
         android:textColor="#FF0000"
         android:textSize="48sp"
@@ -21,4 +19,78 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/player_number_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:minHeight="84dp"
+        android:text="@string/player_number_title"
+        android:textSize="28sp"
+        app:fontFamily="@font/paytone_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_build_title" />
+
+    <Spinner
+        android:id="@+id/spinner_player_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/player_number_array"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player_number_prompt" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_player_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_player_amount">
+
+        <RadioButton
+            android:id="@+id/radio_button_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/one_player"
+            android:textStyle="bold"
+            android:typeface="normal" />
+
+        <RadioButton
+            android:id="@+id/radio_button_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/two_players"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/three_players"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/four_players"
+            android:textStyle="bold" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

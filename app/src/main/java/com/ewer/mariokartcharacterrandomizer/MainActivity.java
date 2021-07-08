@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void testButton(View view) {
+        Intent intent = new Intent(this, DetermineRandomBuilds.class);
+        startActivity(intent);
+    }
+
     /** Called when the user taps the 'Karts 1P' button */
     public void karts1(View view) {
         Intent intent = new Intent(this, DisplayRandomBuilds.class);

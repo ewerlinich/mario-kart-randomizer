@@ -265,4 +265,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_randomizer" />
 
+    <Button
+        android:id="@+id/tester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:onClick="testButton"
+        android:text="@string/cushion_tires"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/karts3"
+        app:layout_constraintTop_toBottomOf="@+id/karts4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
