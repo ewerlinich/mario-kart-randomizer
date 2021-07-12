@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createButtonOnClick(View view) {
-        Intent intent = new Intent(this, DetermineRandomBuilds.class);
+        Intent intent = new Intent(this, CustomizeRandomBuilds.class);
         startActivity(intent);
     }
 

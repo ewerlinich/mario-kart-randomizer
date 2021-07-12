@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ewer.mariokartcharacterrandomizer.DetermineRandomBuilds"
+            android:name="com.ewer.mariokartcharacterrandomizer.CustomizeRandomBuilds"
             android:parentActivityName="com.ewer.mariokartcharacterrandomizer.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">

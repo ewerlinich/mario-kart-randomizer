@@ -19,7 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-public class DetermineRandomBuilds extends AppCompatActivity implements OnItemSelectedListener {
+public class CustomizeRandomBuilds extends AppCompatActivity implements OnItemSelectedListener {
 
     private GradientDrawable border;
     private int player_count = 0;
@@ -29,7 +29,7 @@ public class DetermineRandomBuilds extends AppCompatActivity implements OnItemSe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_determine_builds);
+        setContentView(R.layout.activity_customize_builds);
 
         Spinner player_spinner = (Spinner) findViewById(R.id.spinner_player_amount);
         player_spinner.setOnItemSelectedListener(this);
