@@ -1,34 +1,43 @@
 <resources>
     <!--General-->
+    <string name="saved_builds_title">Your Saved Builds</string>
+    <string name="default_error">Default ERROR</string>
+
+    <!--Main Activity-->
     <string name="app_name">Mario Kart Character Randomizer</string>
-    <string name="historyButton">History</string>
     <string name="Mario_pic_description">A picture of Mario in a kart from the game Mario Kart 8 Deluxe, smiling and punching the air with his left fist.</string>
     <string name="logo_pic_description">Graphic display of the title of the app, \"Mario Kart 8 Deluxe Randomizer\".</string>
+    <string name="history_button">History</string>
+    <string name="create_button">Create</string>
+    <string name="saved_button">Saved</string>
+
+    <!--Determine Builds Activity-->
     <string name="create_builds_titles">CREATE BUILDS</string>
-    <string name="random_build_title">YOUR BUILD IS:</string>
-    <string name="saved_builds_title">Your Saved Builds</string>
-    <string name="part_name_title">Press an image to see the name of the part!</string>
     <string name="player_number_title">How many players are there?</string>
-    <string name="default_error">Default ERROR</string>
-    <string name="blank"></string>
+    <string name="go">GO!</string>
+
+    <!--Display Builds Activity-->
+    <string name="random_build_title">YOUR BUILD IS:</string>
+    <string name="part_name_title">Press an image to see the name of the part!</string>
 
     <!--Players-->
-    <string name="player1">Player 1</string>
-    <string name="player1caps">PLAYER ONE</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_one_caps">PLAYER ONE</string>
     <string name="one_player">1 Player</string>
 
-    <string name="player2">Player 2</string>
-    <string name="player2caps">PLAYER TWO</string>
+    <string name="player_2">Player 2</string>
+    <string name="player_two_caps">PLAYER TWO</string>
     <string name="two_players">2 Players</string>
 
-    <string name="player3">Player 3</string>
-    <string name="player3caps">PLAYER THREE</string>
+    <string name="player_3">Player 3</string>
+    <string name="player_three_caps">PLAYER THREE</string>
     <string name="three_players">3 Players</string>
 
-    <string name="player4">Player 4</string>
-    <string name="player4caps">PLAYER FOUR</string>
+    <string name="player_4">Player 4</string>
+    <string name="player_four_caps">PLAYER FOUR</string>
     <string name="four_players">4 Players</string>
 
+    <string name="player_number">Player Number</string>
     <string-array name="player_number_array">
         <item>1 Player</item>
         <item>2 Players</item>
@@ -36,19 +45,21 @@
         <item>4 Players</item>
     </string-array>
 
-    <!--Home Screen Buttons-->
-    <string name="kartsButton1">Only Karts 1P</string>
-    <string name="kartsButton2">Only Karts 2P</string>
-    <string name="kartsButton3">Only Karts 3P</string>
-    <string name="kartsButton4">Only Karts 4P</string>
-    <string name="bikesButton1">Only Bikes 1P</string>
-    <string name="bikesButton2">Only Bikes 2P</string>
-    <string name="bikesButton3">Only Bikes 3P</string>
-    <string name="bikesButton4">Only Bikes 4P</string>
-    <string name="allButton1">All Frames 1P</string>
-    <string name="allButton2">All Frames 2P</string>
-    <string name="allButton3">All Frames 3P</string>
-    <string name="allButton4">All Frames 4P</string>
+    <string-array name="character_weight_array">
+        <item>All characters</item>
+        <item>Light characters</item>
+        <item>Medium characters</item>
+        <item>Heavy characters</item>
+        <item>Light &amp; Medium characters</item>
+        <item>Light &amp; Heavy characters</item>
+        <item>Medium &amp; Heavy characters</item>
+    </string-array>
+
+    <string-array name="frame_type_array">
+        <item>All frames</item>
+        <item>Only bikes</item>
+        <item>Only karts</item>
+    </string-array>
 
     <!--Characters-->
     <string name="mario">Mario</string>

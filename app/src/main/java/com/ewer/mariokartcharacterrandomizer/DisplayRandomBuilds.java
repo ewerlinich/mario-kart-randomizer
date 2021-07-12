@@ -1,33 +1,28 @@
 package com.ewer.mariokartcharacterrandomizer;
 
-import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
-
-import java.util.Random;
 
 public class DisplayRandomBuilds extends AppCompatActivity {
 
     public static final String[] CHAR_LIGHT = {
             "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Lemmy",
-            "Dry Bones", "Mii", "Koopa Troopa", "Lakitu", "Bowser Jr.", "Toadette", "Wendy",
+            "Dry Bones", "Koopa Troopa", "Lakitu", "Bowser Jr.", "Toadette", "Wendy",
             "Isabelle", "Toad", "Shy Guy", "Larry"};
     public static final String[] CHAR_MEDIUM = {
             "Cat Peach", "Inkling Girl", "Villager (G)", "Peach", "Daisy", "Yoshi", "Tanooki Mario",
-            "Inkling (B)", "Villager (B)", "Luigi", "Iggy", "Mario", "Ludwig", "Mii"};
+            "Inkling (B)", "Villager (B)", "Luigi", "Iggy", "Mario", "Ludwig"};
     public static final String[] CHAR_HEAVY = {
             "Rosalina", "King Boo", "Link", "Donkey Kong", "Waluigi", "Roy", "Wario", "Dry Bowser",
-            "Metal Mario", "Rose Gold Peach", "Bowser", "Morton", "Mii"};
+            "Metal Mario", "Rose Gold Peach", "Bowser", "Morton"};
     public static final String[] CHAR_ALL = {
             "Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Yoshi",
             "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Baby Mario",
@@ -35,7 +30,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones",
             "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy",
             "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)", "Villager (G)",
-            "Isabelle", "Mii"};
+            "Isabelle"};
     public static final String[] FRAME_BIKE = {
             "Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider", "Varmint",
             "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper",
@@ -67,24 +62,24 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider",
             "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
 
-    private TableRow[] table_rows;
+    private LinearLayout[] player_rows;
     private TextView[] text_arr;
     private RandomBuild[] build_arr;
     private int player_count;
-    private String char_type;
-    private String frame_type;
+    private int[] char_type_arr;
+    private int[] frame_type_arr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_builds);
 
-        Intent intent = getIntent();
-        player_count = intent.getIntExtra("PlayerNumber", 1);
-        frame_type = intent.getStringExtra("FrameType");
-        //obtain different values based on what button was pressed during MainActivity
+        Bundle bundle = this.getIntent().getExtras();
+        player_count = bundle.getInt("player_count");
+        char_type_arr = bundle.getIntArray("char_array");
+        frame_type_arr = bundle.getIntArray("frame_array");
 
-        table_rows = new TableRow[player_count];
+        player_rows = new LinearLayout[player_count];
         // create the empty array of table rows. This will hold the horizontal LinearLayouts,
         // which will in turn hold the ImageViews of the players' builds
 
@@ -102,73 +97,82 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * Create, generate, and deploy the array of texts and images to display the RandomBuilds
      */
     private void layoutInit() {
-        LinearLayout parent_layout = findViewById(R.id.build_layout);
         // find the vertical LinearLayout that already exists in the XML. All of the following
         // views and layouts will be contained inside of this parent layout
+        LinearLayout parent_layout = findViewById(R.id.build_layout);
 
-        LinearLayout.LayoutParams linear_layout_params_text = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams layout_params_wrapper = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        linear_layout_params_text.bottomMargin = 10;
+        layout_params_wrapper.bottomMargin = 40;
+
         // the layout parameters for the horizontal layout params. the width matches the parent
         // so that all 4 images can fit, and wraps the height of the images vertically
-
-        LinearLayout.LayoutParams linear_layout_params_row = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams layout_params_text = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        linear_layout_params_row.bottomMargin = 40;
+        layout_params_text.topMargin = 16;
+        layout_params_text.bottomMargin = 16;
+
         // the layout parameters for the horizontal layout params. the width matches the parent
         // so that all 4 images can fit, and wraps the height of the images vertically
+        LinearLayout.LayoutParams layout_params_row = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        TableRow.LayoutParams table_row_params = new TableRow.LayoutParams(
-                TableRow.LayoutParams.MATCH_PARENT,
-                TableRow.LayoutParams.WRAP_CONTENT,
-                1);
         // the layout parameters for the horizontal table rows
+        LinearLayout.LayoutParams layout_params_image = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1);
 
         GradientDrawable border = new GradientDrawable();
-        border.setStroke(4, 0xFF000000);
+        border.setStroke(6, 0xFF000000);
         border.setCornerRadius(60);
 
         for (int i = 0; i < player_count; i++) {
+            LinearLayout player_wrapper = new LinearLayout(this);
+            player_wrapper.setLayoutParams(layout_params_wrapper);
+            player_wrapper.setOrientation(LinearLayout.VERTICAL);
+
             text_arr[i] = new TextView(this);
 
-            text_arr[i].setLayoutParams(linear_layout_params_text);
+            //set common text attributes
+            text_arr[i].setLayoutParams(layout_params_text);
             text_arr[i].setGravity(Gravity.CENTER);
             text_arr[i].setTextSize(30f);
             text_arr[i].setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
-            //set common text attributes
 
+            // set the correct player number based on which place in the array it is
             switch(i) {
                 case 0:
-                    text_arr[i].setText(R.string.player1caps);
+                    text_arr[i].setText(R.string.player_one_caps);
                     break;
                 case 1:
-                    text_arr[i].setText(R.string.player2caps);
+                    text_arr[i].setText(R.string.player_two_caps);
                     break;
                 case 2:
-                    text_arr[i].setText(R.string.player3caps);
+                    text_arr[i].setText(R.string.player_three_caps);
                     break;
                 case 3:
-                    text_arr[i].setText(R.string.player4caps);
+                    text_arr[i].setText(R.string.player_four_caps);
             }
-            // set the correct player number based on which place in the array it is
 
-            parent_layout.addView(text_arr[i]);
             // add the TextView to the parent LinearLayout
+            player_wrapper.addView(text_arr[i]);
 
-            table_rows[i] = new TableRow(this);
-            table_rows[i].setLayoutParams(linear_layout_params_row);
-            table_rows[i].setOrientation(LinearLayout.HORIZONTAL);
             // create the horizontal LinearLayouts
+            player_rows[i] = new LinearLayout(this);
+            player_rows[i].setLayoutParams(layout_params_row);
+            player_rows[i].setOrientation(LinearLayout.HORIZONTAL);
 
-            build_arr[i] = createBuild();
+            build_arr[i] = createBuild(i);
 
             ImageView[] image_arr = new ImageView[4];
 
             for(int j = 0; j < 4; j++) {
                 image_arr[j] = new ImageView(this);
-                image_arr[j].setLayoutParams(table_row_params);
+                image_arr[j].setLayoutParams(layout_params_image);
 
                 int image = getImage(j, i);
 
@@ -181,16 +185,18 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                     title.setText(getPartText(finalJ, finalI));
                 });
 
-                table_rows[i].addView(image_arr[j]);
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                table_rows[i].setBackground(border);
-            }  else {
-                table_rows[i].setBackgroundDrawable(border);
+                player_rows[i].addView(image_arr[j]);
             }
 
-            parent_layout.addView(table_rows[i]);
+
             // add each player text and horizontal LinearLayout to the parent vertical LinearLayout
+            player_wrapper.addView(player_rows[i]);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                player_wrapper.setBackground(border);
+            }  else {
+                player_wrapper.setBackgroundDrawable(border);
+            }
+            parent_layout.addView(player_wrapper);
         }
     }
 
@@ -198,124 +204,178 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * Create a full RandomBuild by randomly selecting one of each type of part
      * @return the created RandomBuild
      */
-    private RandomBuild createBuild() {
-        return new RandomBuild(randChar(), randFrame(), randTires(), randGlider());
+    private RandomBuild createBuild(int player_num) {
+        return new RandomBuild(randChar(player_num), randFrame(player_num),
+                randTires(), randGlider());
     }
 
     /**
      * Obtain a random character from the list of characters. If the character that was chosen has
      * multiple color palettes, choose one randomly
+     * @param player_num the player whose character is being chosen
      * @return the string of the character concatenated with the color pallete, if necessary
      */
-    private String randChar() {
+    private String randChar(int player_num) {
         int color;
-        String randChar = CHAR_ALL[(int)(Math.random() * CHAR_ALL.length)];
-        // get a random character from the list of all characters
-        switch (randChar) {
-            // certain characters have multiple different color palettes. They are not included in
-            // the list of characters because that would interfere with the randomness of getting
-            // each character
+
+        // create a new array that's populated with the user's choice of character weight
+        String[] correct_char_array;
+        switch (char_type_arr[player_num]) {
+            case 1:
+                correct_char_array = CHAR_LIGHT;
+                break;
+            case 2:
+                correct_char_array = CHAR_MEDIUM;
+                break;
+            case 3:
+                correct_char_array = CHAR_HEAVY;
+                break;
+            case 4:
+                // using System.arraycopy to merge two arrays
+                correct_char_array = new String[CHAR_LIGHT.length + CHAR_MEDIUM.length];
+                System.arraycopy(CHAR_LIGHT, 0, correct_char_array, 0, CHAR_LIGHT.length);
+                System.arraycopy(CHAR_MEDIUM, 0, correct_char_array, CHAR_LIGHT.length, CHAR_MEDIUM.length);
+                break;
+            case 5:
+                correct_char_array = new String[CHAR_LIGHT.length + CHAR_HEAVY.length];
+                System.arraycopy(CHAR_LIGHT, 0, correct_char_array, 0, CHAR_LIGHT.length);
+                System.arraycopy(CHAR_HEAVY, 0, correct_char_array, CHAR_LIGHT.length, CHAR_HEAVY.length);
+                break;
+            case 6:
+                correct_char_array = new String[CHAR_MEDIUM.length + CHAR_HEAVY.length];
+                System.arraycopy(CHAR_MEDIUM, 0, correct_char_array, 0, CHAR_MEDIUM.length);
+                System.arraycopy(CHAR_HEAVY, 0, correct_char_array, CHAR_MEDIUM.length, CHAR_HEAVY.length);
+                break;
+            default:
+                correct_char_array = CHAR_ALL;
+        }
+
+        String rand_char;
+        boolean char_flag;
+        // check to see if there are duplicated characters which are not allowed
+        if(player_num > 0) {
+            // keep generating new random character until selection is not a duplicate
+            while (true) {
+                rand_char = correct_char_array[(int) (Math.random() * correct_char_array.length)];
+                char_flag = true;
+
+                // check previous players' characters for duplication
+                for (int i = 0; i < player_num; i++) {
+                    if(rand_char.equals(build_arr[i].getCharacter())) {
+                        char_flag = false;
+                        break;
+                    }
+                }
+                if(char_flag)
+                    break;
+            }
+        // only one player so no need to check against others
+        } else
+            rand_char = correct_char_array[(int) (Math.random() * correct_char_array.length)];
+
+        // randomly choose a color palette for characters that have multiple palettes
+        switch (rand_char) {
             case "Shy Guy":
             case "Yoshi":
-                // these characters have the same color options
                 color = (int) (Math.random() * 9);
                 switch (color) {
                     case 0:
-                        randChar = randChar.concat(" (Green)");
+                        rand_char = rand_char.concat(" (Green)");
                         break;
                     case 1:
-                        randChar = randChar.concat(" (Red)");
+                        rand_char = rand_char.concat(" (Red)");
                         break;
                     case 2:
-                        randChar = randChar.concat(" (Dark Blue)");
+                        rand_char = rand_char.concat(" (Dark Blue)");
                         break;
                     case 3:
-                        randChar = randChar.concat(" (Light Blue)");
+                        rand_char = rand_char.concat(" (Light Blue)");
                         break;
                     case 4:
-                        randChar = randChar.concat(" (Yellow)");
+                        rand_char = rand_char.concat(" (Yellow)");
                         break;
                     case 5:
-                        randChar = randChar.concat(" (Pink)");
+                        rand_char = rand_char.concat(" (Pink)");
                         break;
                     case 6:
-                        randChar = randChar.concat(" (Black)");
+                        rand_char = rand_char.concat(" (Black)");
                         break;
                     case 7:
-                        randChar = randChar.concat(" (White)");
+                        rand_char = rand_char.concat(" (White)");
                         break;
                     case 8:
-                        randChar = randChar.concat(" (Orange)");
+                        rand_char = rand_char.concat(" (Orange)");
                         break;
                     default:
-                        randChar = randChar.concat(" (ERROR ERROR ERROR)");
+                        rand_char = rand_char.concat(" (ERROR ERROR ERROR)");
                 }
                 break;
             case "Metal Mario":
                 color = (int) (Math.random() * 2);
                 if (color == 0) {
-                    randChar = randChar.concat(" (Metal)");
+                    rand_char = rand_char.concat(" (Metal)");
                 } else {
-                    randChar = randChar.concat(" (Gold)");
+                    rand_char = rand_char.concat(" (Gold)");
                 }
                 break;
             case "Link":
                 color = (int) (Math.random() * 2);
                 if (color == 0) {
-                    randChar = randChar.concat(" (Classic)");
+                    rand_char = rand_char.concat(" (Classic)");
                 } else {
-                    randChar = randChar.concat(" (BOTW)");
+                    rand_char = rand_char.concat(" (BOTW)");
                 }
                 break;
             case "Inkling Girl":
                 color = (int) (Math.random() * 3);
                 switch (color) {
                     case 0:
-                        randChar = randChar.concat(" (Orange)");
+                        rand_char = rand_char.concat(" (Orange)");
                         break;
                     case 1:
-                        randChar = randChar.concat(" (Green)");
+                        rand_char = rand_char.concat(" (Green)");
                         break;
                     case 2:
-                        randChar = randChar.concat(" (Pink)");
+                        rand_char = rand_char.concat(" (Pink)");
                         break;
                     default:
-                        randChar = randChar.concat(" (ERROR ERROR ERROR)");
+                        rand_char = rand_char.concat(" (ERROR ERROR ERROR)");
                 }
                 break;
             case "Inkling Boy":
                 color = (int) (Math.random() * 3);
                 switch (color) {
                     case 0:
-                        randChar = randChar.concat(" (Dark Blue)");
+                        rand_char = rand_char.concat(" (Dark Blue)");
                         break;
                     case 1:
-                        randChar = randChar.concat(" (Purple)");
+                        rand_char = rand_char.concat(" (Purple)");
                         break;
                     case 2:
-                        randChar = randChar.concat(" (Light Blue)");
+                        rand_char = rand_char.concat(" (Light Blue)");
                         break;
                     default:
-                        randChar = randChar.concat(" (ERROR ERROR ERROR)");
+                        rand_char = rand_char.concat(" (ERROR ERROR ERROR)");
                 }
                 break;
             default:
         }
-        return randChar;
+        return rand_char;
     }
 
     /**
      * Obtain a random frame from the chosen list of frames, depending on player choice
+     * @param player_num the player whose frame is being chosen
      * @return the string of the frame
      */
-    private String randFrame() {
-        switch(frame_type) {
-            case "kart":
-                return FRAME_KART[((int) (Math.random() * FRAME_KART.length))];
-            case "bike":
-                return FRAME_BIKE[((int) (Math.random() * FRAME_BIKE.length))];
+    private String randFrame(int player_num) {
+        switch(frame_type_arr[player_num]) {
+            case 1:
+                return FRAME_BIKE[(int) (Math.random() * FRAME_BIKE.length)];
+            case 2:
+                return FRAME_KART[(int) (Math.random() * FRAME_KART.length)];
             default:
-                return FRAME_ALL[((int) (Math.random() * FRAME_ALL.length))];
+                return FRAME_ALL[(int) (Math.random() * FRAME_ALL.length)];
         }
     }
 

@@ -1,10 +1,12 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,99 +14,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button create_button = findViewById(R.id.create_button);
+        create_button.setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
+
+        Button history_button = findViewById(R.id.history_button);
+        history_button.setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
+
+        Button saved_button = findViewById(R.id.saved_button);
+        saved_button.setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
     }
 
-    public void testButton(View view) {
+    public void createButtonOnClick(View view) {
         Intent intent = new Intent(this, DetermineRandomBuilds.class);
         startActivity(intent);
     }
 
-    /** Called when the user taps the 'Karts 1P' button */
-    public void karts1(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 1);
-        intent.putExtra("FrameType", "kart");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'Karts 2P' button */
-    public void karts2(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 2);
-        intent.putExtra("FrameType", "kart");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'Karts 3P' button */
-    public void karts3(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 3);
-        intent.putExtra("FrameType", "kart");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'Karts 4P' button */
-    public void karts4(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 4);
-        intent.putExtra("FrameType", "kart");
-        startActivity(intent);
+    public void historyButtonOnClick(View view) {
+
     }
 
-    /** Called when the user taps the 'Bikes 1P' button */
-    public void bikes1(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 1);
-        intent.putExtra("FrameType", "bike");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'Bikes 2P' button */
-    public void bikes2(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 2);
-        intent.putExtra("FrameType", "bike");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'Bikes 3P' button */
-    public void bikes3(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 3);
-        intent.putExtra("FrameType", "bike");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'Bikes 4P' button */
-    public void bikes4(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 4);
-        intent.putExtra("FrameType", "bike");
-        startActivity(intent);
-    }
+    public void savedButtonOnClick(View view) {
 
-    /** Called when the user taps the 'All 1P' button */
-    public void all1(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 1);
-        intent.putExtra("FrameType", "all");
-        startActivity(intent);
     }
-    /** Called when the user taps the 'All 2P' button */
-    public void all2(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 2);
-        intent.putExtra("FrameType", "all");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'All 3P' button */
-    public void all3(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 3);
-        intent.putExtra("FrameType", "all");
-        startActivity(intent);
-    }
-    /** Called when the user taps the 'All 4P' button */
-    public void all4(View view) {
-        Intent intent = new Intent(this, DisplayRandomBuilds.class);
-        intent.putExtra("PlayerNumber", 4);
-        intent.putExtra("FrameType", "all");
-        startActivity(intent);
-    }
-
-
 }
