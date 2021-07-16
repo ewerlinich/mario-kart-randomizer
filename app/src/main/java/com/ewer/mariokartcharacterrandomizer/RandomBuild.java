@@ -4,7 +4,7 @@ import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class RandomBuild implements Parcelable {
+public class RandomBuild {
     private String character;
     private String frame;
     private String tires;
@@ -15,26 +15,6 @@ public class RandomBuild implements Parcelable {
         this.frame = frame;
         this.tires = tires;
         this.glider = glider;
-    }
-
-    public RandomBuild(Parcel source) {
-        character = source.readString();
-        frame = source.readString();
-        tires = source.readString();
-        glider = source.readString();
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(character);
-        dest.writeString(frame);
-        dest.writeString(tires);
-        dest.writeString(glider);
     }
 
     public String getCharacter() {
@@ -61,21 +41,5 @@ public class RandomBuild implements Parcelable {
     }
     public void setGlider(String glider) {
         this.glider = glider;
-    }
-
-    public static final Creator<RandomBuild> CREATOR = new Creator<RandomBuild>() {
-        @Override
-        public RandomBuild[] newArray(int size) {
-            return new RandomBuild[size];
-        }
-
-        @Override
-        public RandomBuild createFromParcel(Parcel source) {
-            return new RandomBuild(source);
-        }
-    };
-
-    public void saveBuild() {
-
     }
 }
