@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void historyButtonOnClick(View view) {
-
+        Intent intent = new Intent(this, DisplayHistory.class);
+        startActivity(intent);
     }
 
     public void savedButtonOnClick(View view) {
-
+        Intent intent = new Intent(this, DisplaySavedBuilds.class);
+        startActivity(intent);
     }
 }

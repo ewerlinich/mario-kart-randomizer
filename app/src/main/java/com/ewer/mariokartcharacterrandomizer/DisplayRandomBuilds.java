@@ -1,5 +1,7 @@
 package com.ewer.mariokartcharacterrandomizer;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,9 +9,10 @@ import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.LinearLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
+
+import static java.lang.String.valueOf;
 
 public class DisplayRandomBuilds extends AppCompatActivity {
 
@@ -65,32 +68,45 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     private LinearLayout[] player_rows;
     private TextView[] text_arr;
     private RandomBuild[] build_arr;
+    private BuildsDBHelper dbHelper;
     private int player_count;
     private int[] char_type_arr;
     private int[] frame_type_arr;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_builds);
 
+        // retrieve the bundle containing the passed data from the previous activity
         Bundle bundle = this.getIntent().getExtras();
         player_count = bundle.getInt("player_count");
         char_type_arr = bundle.getIntArray("char_array");
         frame_type_arr = bundle.getIntArray("frame_array");
 
-        player_rows = new LinearLayout[player_count];
         // create the empty array of table rows. This will hold the horizontal LinearLayouts,
         // which will in turn hold the ImageViews of the players' builds
+        player_rows = new LinearLayout[player_count];
 
-        text_arr = new TextView[player_count];
         // create the empty array of TextViews. These hold the player numbers for each build
+        text_arr = new TextView[player_count];
 
+        // create the empty array of RandomBuilds
         build_arr = new RandomBuild[player_count];
-        // create the empty array of RandomBuilds.
 
+        // create an SQLite DB helper to access the database of saved builds and build history
+        dbHelper = new BuildsDBHelper(this);
+        db = dbHelper.getWritableDatabase();
+
+        // initialize and display the layouts and random builds
         layoutInit();
-        //initialize the layouts and random builds
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbHelper.close();
+        super.onDestroy();
     }
 
     /**
@@ -101,6 +117,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         // views and layouts will be contained inside of this parent layout
         LinearLayout parent_layout = findViewById(R.id.build_layout);
 
+        // layout parameters for the vertical wrapper container that holds a build and the player
+        // title that accompanies it.
         LinearLayout.LayoutParams layout_params_wrapper = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -126,10 +144,12 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 1);
 
+        // the visual rounded rectangle that encases the wrapper containers
         GradientDrawable border = new GradientDrawable();
         border.setStroke(6, 0xFF000000);
         border.setCornerRadius(60);
 
+        // creation of the layouts and images for a given number of players
         for (int i = 0; i < player_count; i++) {
             LinearLayout player_wrapper = new LinearLayout(this);
             player_wrapper.setLayoutParams(layout_params_wrapper);
@@ -144,7 +164,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             text_arr[i].setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
 
             // set the correct player number based on which place in the array it is
-            switch(i) {
+            switch (i) {
                 case 0:
                     text_arr[i].setText(R.string.player_one_caps);
                     break;
@@ -166,15 +186,17 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             player_rows[i].setLayoutParams(layout_params_row);
             player_rows[i].setOrientation(LinearLayout.HORIZONTAL);
 
+            // generate a new build and add it to the build history database table
             build_arr[i] = createBuild(i);
+            addBuildToHistory(build_arr[i]);
 
+            // create, set, and display the array of build images
             ImageView[] image_arr = new ImageView[4];
-
-            for(int j = 0; j < 4; j++) {
+            for (int j = 0; j < 4; j++) {
                 image_arr[j] = new ImageView(this);
                 image_arr[j].setLayoutParams(layout_params_image);
 
-                int image = getImage(j, i);
+                int image = getPartImage(j, i);
 
                 image_arr[j].setImageResource(image);
                 image_arr[j].setTag(image);
@@ -189,11 +211,11 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             }
 
 
-            // add each player text and horizontal LinearLayout to the parent vertical LinearLayout
+            // add each player text and horizontal layout to the parent vertical LinearLayout
             player_wrapper.addView(player_rows[i]);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 player_wrapper.setBackground(border);
-            }  else {
+            } else {
                 player_wrapper.setBackgroundDrawable(border);
             }
             parent_layout.addView(player_wrapper);
@@ -202,6 +224,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Create a full RandomBuild by randomly selecting one of each type of part
+     *
      * @return the created RandomBuild
      */
     private RandomBuild createBuild(int player_num) {
@@ -212,6 +235,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     /**
      * Obtain a random character from the list of characters. If the character that was chosen has
      * multiple color palettes, choose one randomly
+     *
      * @param player_num the player whose character is being chosen
      * @return the string of the character concatenated with the color pallete, if necessary
      */
@@ -234,17 +258,20 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 // using System.arraycopy to merge two arrays
                 correct_char_array = new String[CHAR_LIGHT.length + CHAR_MEDIUM.length];
                 System.arraycopy(CHAR_LIGHT, 0, correct_char_array, 0, CHAR_LIGHT.length);
-                System.arraycopy(CHAR_MEDIUM, 0, correct_char_array, CHAR_LIGHT.length, CHAR_MEDIUM.length);
+                System.arraycopy(CHAR_MEDIUM, 0, correct_char_array,
+                        CHAR_LIGHT.length, CHAR_MEDIUM.length);
                 break;
             case 5:
                 correct_char_array = new String[CHAR_LIGHT.length + CHAR_HEAVY.length];
                 System.arraycopy(CHAR_LIGHT, 0, correct_char_array, 0, CHAR_LIGHT.length);
-                System.arraycopy(CHAR_HEAVY, 0, correct_char_array, CHAR_LIGHT.length, CHAR_HEAVY.length);
+                System.arraycopy(CHAR_HEAVY, 0, correct_char_array,
+                        CHAR_LIGHT.length, CHAR_HEAVY.length);
                 break;
             case 6:
                 correct_char_array = new String[CHAR_MEDIUM.length + CHAR_HEAVY.length];
                 System.arraycopy(CHAR_MEDIUM, 0, correct_char_array, 0, CHAR_MEDIUM.length);
-                System.arraycopy(CHAR_HEAVY, 0, correct_char_array, CHAR_MEDIUM.length, CHAR_HEAVY.length);
+                System.arraycopy(CHAR_HEAVY, 0, correct_char_array,
+                        CHAR_MEDIUM.length, CHAR_HEAVY.length);
                 break;
             default:
                 correct_char_array = CHAR_ALL;
@@ -253,7 +280,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         String rand_char;
         boolean char_flag;
         // check to see if there are duplicated characters which are not allowed
-        if(player_num > 0) {
+        if (player_num > 0) {
             // keep generating new random character until selection is not a duplicate
             while (true) {
                 rand_char = correct_char_array[(int) (Math.random() * correct_char_array.length)];
@@ -261,15 +288,15 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
                 // check previous players' characters for duplication
                 for (int i = 0; i < player_num; i++) {
-                    if(rand_char.equals(build_arr[i].getCharacter())) {
+                    if (rand_char.equals(build_arr[i].getCharacter())) {
                         char_flag = false;
                         break;
                     }
                 }
-                if(char_flag)
+                if (char_flag)
                     break;
             }
-        // only one player so no need to check against others
+            // only one player so no need to check against others
         } else
             rand_char = correct_char_array[(int) (Math.random() * correct_char_array.length)];
 
@@ -365,11 +392,12 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Obtain a random frame from the chosen list of frames, depending on player choice
+     *
      * @param player_num the player whose frame is being chosen
      * @return the string of the frame
      */
     private String randFrame(int player_num) {
-        switch(frame_type_arr[player_num]) {
+        switch (frame_type_arr[player_num]) {
             case 1:
                 return FRAME_BIKE[(int) (Math.random() * FRAME_BIKE.length)];
             case 2:
@@ -382,6 +410,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     /**
      * Obtain a random set of tires from the list of tires. If the tires that were chosen have
      * multiple color palettes, choose one randomly
+     *
      * @return the string of the tires concatenated with the color pallete, if necessary
      */
     private String randTires() {
@@ -389,8 +418,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         String tires = TIRES_ALL[(int) (Math.random() * TIRES_ALL.length)];
         // get random tires from the list of all tires
         switch (tires) {
-            // color palettes are not in the base list because that would affect the randomness of
-            // getting each type of wheel, so they are added
+            // color palettes are not in the base list because that would affect the
+            // randomness of getting each type of wheel, so they are added
             case "Standard Tires":
                 color = (int) (Math.random() * 2);
                 if (color == 1) {
@@ -433,20 +462,22 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Obtain a random glider string from the list of gliders
+     *
      * @return the string that of the glider that was selected
      */
     private String randGlider() {
-        return GLIDER_ALL[((int) (Math.random() * GLIDER_ALL.length))];  // returns a random item from the list by putting in a random integer for the index number
+        return GLIDER_ALL[((int) (Math.random() * GLIDER_ALL.length))];
     }
 
     /**
      * Retrieve the ID of the image that correlates to the part in the respective RandomBuild
+     *
      * @param build_part the type of build part; 0 = character, 1 = frame, 2 = tires, 3 = glider
-     * @param player the player number
+     * @param player     the player number
      * @return the int ID of the image
      */
-    private int getImage(int build_part, int player) {
-        switch(build_part) {
+    private int getPartImage(int build_part, int player) {
+        switch (build_part) {
             case 0:
                 switch (build_arr[player].getCharacter()) {
                     case "Baby Daisy":
@@ -758,14 +789,15 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Retrieve the ID of the string that correlates to the part in the respective RandomBuild
+     *
      * @param build_part the type of build part; 0 = character, 1 = frame, 2 = tires, 3 = glider
-     * @param player the player number
+     * @param player     the player number
      * @return the int ID of the string
      */
     private int getPartText(int build_part, int player) {
         switch (build_part) {
             case 0:
-                switch(build_arr[player].getCharacter()) {
+                switch (build_arr[player].getCharacter()) {
                     case "Baby Daisy":
                         return R.string.baby_daisy;
                     case "Baby Luigi":
@@ -1073,13 +1105,29 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         }
     }
 
-    /**
-     * after setting a tag with the resource that it is currently using, this method extracts the int ID from the tag
-     *
-     * @param img the ImageView that the tag ID is being extracted from
-     * @return the ID int that corresponds to the given resource
-     */
-    public int getResourceId(ImageView img) {
-        return (int) (img.getTag());
+    private void addBuildToSaved(String build_name) {
+    }
+
+    private void removeBuildFromSaved() {
+
+    }
+
+    private void addBuildToHistory(RandomBuild build) {
+        ContentValues values = new ContentValues();
+        values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_CHARACTER, build.getCharacter());
+        values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_FRAME, build.getFrame());
+        values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_TIRES, build.getTires());
+        values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_GLIDER, build.getGlider());
+
+        db.insert(BuildsDBContract.HistoryEntry.TABLE_NAME, null, values);
+        BuildsDBHelper.setHistoryCounter(1);
+
+        if(BuildsDBHelper.getHistoryCounter() > 60) {
+            String where_clause = "_ID=?";
+            String[] where_args = new String[] {valueOf(BuildsDBHelper.getDeleteIndex())};
+            db.delete(BuildsDBContract.HistoryEntry.TABLE_NAME, where_clause, where_args);
+            BuildsDBHelper.setHistoryCounter(0);
+        }
+
     }
 }

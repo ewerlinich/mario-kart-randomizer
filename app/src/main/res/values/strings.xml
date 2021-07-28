@@ -1,6 +1,5 @@
 <resources>
     <!--General-->
-    <string name="saved_builds_title">Your Saved Builds</string>
     <string name="default_error">Default ERROR</string>
 
     <!--Main Activity-->
@@ -11,14 +10,36 @@
     <string name="create_button">Create</string>
     <string name="saved_button">Saved</string>
 
-    <!--Determine Builds Activity-->
+    <!--Customize Builds Activity-->
     <string name="create_builds_titles">CREATE BUILDS</string>
     <string name="player_number_title">How many players are there?</string>
     <string name="go">GO!</string>
 
+    <string-array name="character_weight_array">
+        <item>All characters</item>
+        <item>Light characters</item>
+        <item>Medium characters</item>
+        <item>Heavy characters</item>
+        <item>Light &amp; Medium characters</item>
+        <item>Light &amp; Heavy characters</item>
+        <item>Medium &amp; Heavy characters</item>
+    </string-array>
+
+    <string-array name="frame_type_array">
+        <item>All frames</item>
+        <item>Only bikes</item>
+        <item>Only karts</item>
+    </string-array>
+
     <!--Display Builds Activity-->
     <string name="random_build_title">YOUR BUILD IS:</string>
     <string name="part_name_title">Press an image to see the name of the part!</string>
+
+    <!--Saved Builds Activity-->
+    <string name="saved_builds_title">Your Saved Builds</string>
+
+    <!--History Activity-->
+    <string name="history_title">Build History</string>
 
     <!--Players-->
     <string name="player_1">Player 1</string>
@@ -43,22 +64,6 @@
         <item>2 Players</item>
         <item>3 Players</item>
         <item>4 Players</item>
-    </string-array>
-
-    <string-array name="character_weight_array">
-        <item>All characters</item>
-        <item>Light characters</item>
-        <item>Medium characters</item>
-        <item>Heavy characters</item>
-        <item>Light &amp; Medium characters</item>
-        <item>Light &amp; Heavy characters</item>
-        <item>Medium &amp; Heavy characters</item>
-    </string-array>
-
-    <string-array name="frame_type_array">
-        <item>All frames</item>
-        <item>Only bikes</item>
-        <item>Only karts</item>
     </string-array>
 
     <!--Characters-->
