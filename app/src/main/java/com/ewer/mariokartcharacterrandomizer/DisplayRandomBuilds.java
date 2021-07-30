@@ -1,11 +1,15 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.view.Gravity;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.LinearLayout;
@@ -65,32 +69,23 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider",
             "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
 
-    private LinearLayout[] player_rows;
-    private TextView[] text_arr;
-    private RandomBuild[] build_arr;
     private BuildsDBHelper dbHelper;
-    private int player_count;
+    private SQLiteDatabase db;
+    private RandomBuild[] build_arr;
     private int[] char_type_arr;
     private int[] frame_type_arr;
-    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_builds);
 
-        // retrieve the bundle containing the passed data from the previous activity
+        // retrieve the bundle containing the passed data from the previous activity, including
+        // the number of players, and the arrays of character and frame preferences
         Bundle bundle = this.getIntent().getExtras();
-        player_count = bundle.getInt("player_count");
+        int player_count = bundle.getInt("player_count");
         char_type_arr = bundle.getIntArray("char_array");
         frame_type_arr = bundle.getIntArray("frame_array");
-
-        // create the empty array of table rows. This will hold the horizontal LinearLayouts,
-        // which will in turn hold the ImageViews of the players' builds
-        player_rows = new LinearLayout[player_count];
-
-        // create the empty array of TextViews. These hold the player numbers for each build
-        text_arr = new TextView[player_count];
 
         // create the empty array of RandomBuilds
         build_arr = new RandomBuild[player_count];
@@ -99,46 +94,28 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         dbHelper = new BuildsDBHelper(this);
         db = dbHelper.getWritableDatabase();
 
-        // initialize and display the layouts and random builds
-        layoutInit();
-    }
-
-    @Override
-    protected void onDestroy() {
-        dbHelper.close();
-        super.onDestroy();
-    }
-
-    /**
-     * Create, generate, and deploy the array of texts and images to display the RandomBuilds
-     */
-    private void layoutInit() {
         // find the vertical LinearLayout that already exists in the XML. All of the following
         // views and layouts will be contained inside of this parent layout
         LinearLayout parent_layout = findViewById(R.id.build_layout);
+        TextView title = findViewById(R.id.part_name);
 
-        // layout parameters for the vertical wrapper container that holds a build and the player
-        // title that accompanies it.
+        // 4 different layout parameters for the table rows, vertical wrapper containers, the
+        // TextViews, and the ImageViews, respectively
+        LinearLayout.LayoutParams layout_params_row = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+
         LinearLayout.LayoutParams layout_params_wrapper = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         layout_params_wrapper.bottomMargin = 40;
 
-        // the layout parameters for the horizontal layout params. the width matches the parent
-        // so that all 4 images can fit, and wraps the height of the images vertically
         LinearLayout.LayoutParams layout_params_text = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         layout_params_text.topMargin = 16;
         layout_params_text.bottomMargin = 16;
 
-        // the layout parameters for the horizontal layout params. the width matches the parent
-        // so that all 4 images can fit, and wraps the height of the images vertically
-        LinearLayout.LayoutParams layout_params_row = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        // the layout parameters for the horizontal table rows
         LinearLayout.LayoutParams layout_params_image = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -151,44 +128,45 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
         // creation of the layouts and images for a given number of players
         for (int i = 0; i < player_count; i++) {
+            // create the container that holds the player name and images for a respective build
             LinearLayout player_wrapper = new LinearLayout(this);
             player_wrapper.setLayoutParams(layout_params_wrapper);
             player_wrapper.setOrientation(LinearLayout.VERTICAL);
 
-            text_arr[i] = new TextView(this);
+            // create a TextView for displaying the player name and set common text attributes
+            TextView text_view = new TextView(this);
 
-            //set common text attributes
-            text_arr[i].setLayoutParams(layout_params_text);
-            text_arr[i].setGravity(Gravity.CENTER);
-            text_arr[i].setTextSize(30f);
-            text_arr[i].setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
+            text_view.setLayoutParams(layout_params_text);
+            text_view.setGravity(Gravity.CENTER);
+            text_view.setTextSize(30f);
+            text_view.setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
 
-            // set the correct player number based on which place in the array it is
+            // set the correct player number name based on which place in the array it is
             switch (i) {
                 case 0:
-                    text_arr[i].setText(R.string.player_one_caps);
+                    text_view.setText(R.string.player_one_caps);
                     break;
                 case 1:
-                    text_arr[i].setText(R.string.player_two_caps);
+                    text_view.setText(R.string.player_two_caps);
                     break;
                 case 2:
-                    text_arr[i].setText(R.string.player_three_caps);
+                    text_view.setText(R.string.player_three_caps);
                     break;
                 case 3:
-                    text_arr[i].setText(R.string.player_four_caps);
+                    text_view.setText(R.string.player_four_caps);
             }
 
             // add the TextView to the parent LinearLayout
-            player_wrapper.addView(text_arr[i]);
+            player_wrapper.addView(text_view);
 
             // create the horizontal LinearLayouts
-            player_rows[i] = new LinearLayout(this);
-            player_rows[i].setLayoutParams(layout_params_row);
-            player_rows[i].setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout player_row = new LinearLayout(this);
+            player_row.setLayoutParams(layout_params_row);
+            player_row.setOrientation(LinearLayout.HORIZONTAL);
 
             // generate a new build and add it to the build history database table
             build_arr[i] = createBuild(i);
-            addBuildToHistory(build_arr[i]);
+            addHistoryBuild(build_arr[i]);
 
             // create, set, and display the array of build images
             ImageView[] image_arr = new ImageView[4];
@@ -197,29 +175,42 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 image_arr[j].setLayoutParams(layout_params_image);
 
                 int image = getPartImage(j, i);
-
                 image_arr[j].setImageResource(image);
                 image_arr[j].setTag(image);
+
                 int finalJ = j;
                 int finalI = i;
                 image_arr[j].setOnClickListener(view -> {
-                    TextView title = findViewById(R.id.part_name);
                     title.setText(getPartText(finalJ, finalI));
                 });
 
-                player_rows[i].addView(image_arr[j]);
+                player_row.addView(image_arr[j]);
             }
 
+            // add the set of images to the wrapper layout containing them
+            player_wrapper.addView(player_row);
 
-            // add each player text and horizontal layout to the parent vertical LinearLayout
-            player_wrapper.addView(player_rows[i]);
+            ImageButton save_button = new ImageButton(this);
+            save_button.setImageResource(R.drawable.save_button);
+            save_button.setOnClickListener(view -> {
+
+            });
+
+            // set border of wrapper container depending on android version
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 player_wrapper.setBackground(border);
             } else {
                 player_wrapper.setBackgroundDrawable(border);
             }
+
             parent_layout.addView(player_wrapper);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbHelper.close();
+        super.onDestroy();
     }
 
     /**
@@ -1105,14 +1096,56 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         }
     }
 
-    private void addBuildToSaved(String build_name) {
+    private boolean checkSavedBuildName(String name) {
+        boolean build_name_exists = false;
+
+        String[] projection = {
+                BaseColumns._ID,
+                BuildsDBContract.SavedEntry.COLUMN_BUILD_NAME};
+        String selection = BuildsDBContract.SavedEntry.COLUMN_BUILD_NAME + " = ?";
+        String[] selectionArgs = {name};
+        String sort_order = BaseColumns._ID + "ASC";
+
+        Cursor cursor = db.query(
+                BuildsDBContract.SavedEntry.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sort_order
+        );
+
+        if(cursor.getCount() > 0)
+            build_name_exists = true;
+
+        cursor.close();
+        return build_name_exists;
     }
 
-    private void removeBuildFromSaved() {
+    /**
+     * Save build to the saved table of the build database
+     * @param build the build being saved
+     * @param build_name the user-inputted name of the build being saved
+     */
+    private void addSavedBuild(RandomBuild build, String build_name) {
+
+        ContentValues values = new ContentValues();
+        values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_NAME, build_name);
+        values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_CHARACTER, build.getCharacter());
+        values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_FRAME, build.getFrame());
+        values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_TIRES, build.getTires());
+        values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_GLIDER, build.getGlider());
+
+        db.insert(BuildsDBContract.SavedEntry.TABLE_NAME, null, values);
 
     }
 
-    private void addBuildToHistory(RandomBuild build) {
+    /**
+     * Save build to the history table of the build database
+     * @param build the build being saved
+     */
+    private void addHistoryBuild(RandomBuild build) {
         ContentValues values = new ContentValues();
         values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_CHARACTER, build.getCharacter());
         values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_FRAME, build.getFrame());
@@ -1120,13 +1153,13 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         values.put(BuildsDBContract.HistoryEntry.COLUMN_BUILD_GLIDER, build.getGlider());
 
         db.insert(BuildsDBContract.HistoryEntry.TABLE_NAME, null, values);
-        BuildsDBHelper.setHistoryCounter(1);
+        BuildsDBHelper.setHistoryCounter(true);
 
         if(BuildsDBHelper.getHistoryCounter() > 60) {
             String where_clause = "_ID=?";
             String[] where_args = new String[] {valueOf(BuildsDBHelper.getDeleteIndex())};
             db.delete(BuildsDBContract.HistoryEntry.TABLE_NAME, where_clause, where_args);
-            BuildsDBHelper.setHistoryCounter(0);
+            BuildsDBHelper.setHistoryCounter(false);
         }
 
     }

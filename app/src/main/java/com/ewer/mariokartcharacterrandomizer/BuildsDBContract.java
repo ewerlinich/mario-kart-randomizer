@@ -16,7 +16,6 @@ public class BuildsDBContract {
 
     public static class HistoryEntry implements BaseColumns {
         public static final String TABLE_NAME = "builds_history";
-        public static final String COLUMN_BUILD_INDEX = "build_index";
         public static final String COLUMN_BUILD_CHARACTER = "build_character";
         public static final String COLUMN_BUILD_FRAME = "build_frame";
         public static final String COLUMN_BUILD_TIRES = "build_tires";

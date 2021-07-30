@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class BuildsDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Builds.db";
-    private static int history_counter = 0;
+    private static int saved_table_size = 0;
+    private static int history_table_size = 0;
     private static int delete_index = 1;
 
     public BuildsDBHelper(Context context) {
@@ -47,15 +48,20 @@ public class BuildsDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public static int getHistoryCounter() {
-        return history_counter;
+    public static int getSavedTableSize() {
+        return saved_table_size;
     }
 
-    public static void setHistoryCounter(int operation) {
-        if(operation == 1)
-            history_counter++;
-        else
-            history_counter--;
+    public static void setSavedTableSize(boolean operation) {
+        saved_table_size = operation ? saved_table_size + 1 : saved_table_size - 1;
+    }
+
+    public static int getHistoryCounter() {
+        return history_table_size;
+    }
+
+    public static void setHistoryCounter(boolean operation) {
+        history_table_size = operation ? history_table_size + 1 : history_table_size - 1;
     }
 
     public static int getDeleteIndex() {
