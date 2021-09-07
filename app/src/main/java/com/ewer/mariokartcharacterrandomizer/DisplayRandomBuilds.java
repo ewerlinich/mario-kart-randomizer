@@ -1,22 +1,30 @@
 package com.ewer.mariokartcharacterrandomizer;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.text.InputFilter;
 import android.view.Gravity;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import static java.lang.String.valueOf;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DisplayRandomBuilds extends AppCompatActivity {
 
@@ -116,6 +124,12 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         layout_params_text.topMargin = 16;
         layout_params_text.bottomMargin = 16;
 
+        LinearLayout.LayoutParams layout_params_save = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout_params_text.topMargin = 16;
+        layout_params_text.bottomMargin = 16;
+
         LinearLayout.LayoutParams layout_params_image = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -138,7 +152,8 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
             text_view.setLayoutParams(layout_params_text);
             text_view.setGravity(Gravity.CENTER);
-            text_view.setTextSize(30f);
+            text_view.setTextSize(32f);
+            text_view.setTextScaleX(1.3f);
             text_view.setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
 
             // set the correct player number name based on which place in the array it is
@@ -180,9 +195,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
                 int finalJ = j;
                 int finalI = i;
-                image_arr[j].setOnClickListener(view -> {
-                    title.setText(getPartText(finalJ, finalI));
-                });
+                image_arr[j].setOnClickListener(view -> title.setText(getPartText(finalJ, finalI)));
 
                 player_row.addView(image_arr[j]);
             }
@@ -190,12 +203,76 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             // add the set of images to the wrapper layout containing them
             player_wrapper.addView(player_row);
 
-            ImageButton save_button = new ImageButton(this);
-            save_button.setImageResource(R.drawable.save_button);
-            save_button.setOnClickListener(view -> {
+            TextView save_button = new TextView(this);
+            save_button.setLayoutParams(layout_params_save);
+            save_button.setGravity(Gravity.CENTER);
+            save_button.setText(R.string.save_build);
+            save_button.setTextSize(28f);
+            save_button.setTextColor(getResources().getColor(R.color.forest_green));
+            save_button.setTypeface(ResourcesCompat.getFont(this, R.font.mario_kart_ds));
 
+            int finalI = i;
+            save_button.setOnClickListener(view -> {
+                //SaveBuildDialogFragment newFrag = new SaveBuildDialogFragment();
+                //newFrag.setBuildIndex(finalI);
+
+                //newFrag.show(getSupportFragmentManager(), "save_build_dialog");
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.save_build_dialog_title);
+
+                final EditText build_name_input = new EditText(this);
+                InputFilter filter = (source, start, end, spanned, dstart, dend) -> {
+                    StringBuilder builder1 = new StringBuilder();
+                    for(int k = start; k < end; k++) {
+                        char c = source.charAt(k);
+                        if(Character.isLetterOrDigit(c))
+                            builder1.append(c);
+                    }
+
+                    boolean allCharactersValid = builder1.length() == (end - start);
+                    if(allCharactersValid) {
+                        return null;
+                    } else {
+                        return builder1.toString();
+                    }
+                };
+                ArrayList<InputFilter> inputFilters = new ArrayList<InputFilter>(Arrays.asList(build_name_input.getFilters()));
+                inputFilters.add(0, filter);
+                InputFilter[] filterList = inputFilters.toArray(new InputFilter[inputFilters.size()]);
+                build_name_input.setFilters(filterList);
+
+                builder.setView(build_name_input);
+
+                builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
+                    String build_name;
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        build_name = build_name_input.getText().toString();
+                        if(checkSavedBuildName(build_name)) {
+                            Snackbar.make(findViewById(R.id.build_layout), R.string.error_already_exists, Snackbar.LENGTH_LONG)
+                                    .show();
+                        } else {
+                            addSavedBuild(finalI, build_name);
+                            if(checkSavedBuildName(build_name)) {
+                                Snackbar.make(findViewById(R.id.build_layout), R.string.save_success, Snackbar.LENGTH_LONG)
+                                        .show();
+                            } else {
+                                Snackbar.make(findViewById(R.id.build_layout), R.string.error_database, Snackbar.LENGTH_LONG)
+                                        .show();
+                            }
+                        }
+                    }
+                });
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+
+                builder.show();
             });
 
+            player_wrapper.addView(save_button);
             // set border of wrapper container depending on android version
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 player_wrapper.setBackground(border);
@@ -1104,7 +1181,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 BuildsDBContract.SavedEntry.COLUMN_BUILD_NAME};
         String selection = BuildsDBContract.SavedEntry.COLUMN_BUILD_NAME + " = ?";
         String[] selectionArgs = {name};
-        String sort_order = BaseColumns._ID + "ASC";
+        String sort_order = BaseColumns._ID + " ASC";
 
         Cursor cursor = db.query(
                 BuildsDBContract.SavedEntry.TABLE_NAME,
@@ -1125,10 +1202,11 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Save build to the saved table of the build database
-     * @param build the build being saved
+     * @param build_index the index of the build being saved
      * @param build_name the user-inputted name of the build being saved
      */
-    private void addSavedBuild(RandomBuild build, String build_name) {
+    public void addSavedBuild(int build_index, String build_name) {
+        RandomBuild build = build_arr[build_index];
 
         ContentValues values = new ContentValues();
         values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_NAME, build_name);
@@ -1138,7 +1216,6 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         values.put(BuildsDBContract.SavedEntry.COLUMN_BUILD_GLIDER, build.getGlider());
 
         db.insert(BuildsDBContract.SavedEntry.TABLE_NAME, null, values);
-
     }
 
     /**
@@ -1161,6 +1238,5 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             db.delete(BuildsDBContract.HistoryEntry.TABLE_NAME, where_clause, where_args);
             BuildsDBHelper.setHistoryCounter(false);
         }
-
     }
 }
