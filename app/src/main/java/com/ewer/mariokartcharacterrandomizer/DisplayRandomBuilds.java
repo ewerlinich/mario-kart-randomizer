@@ -29,53 +29,49 @@ import java.util.Arrays;
 public class DisplayRandomBuilds extends AppCompatActivity {
 
     public static final String[] CHAR_LIGHT = {
-            "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Lemmy",
-            "Dry Bones", "Koopa Troopa", "Lakitu", "Bowser Jr.", "Toadette", "Wendy",
-            "Isabelle", "Toad", "Shy Guy", "Larry"};
+            "Baby Daisy", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Rosalina", "Bowser Jr.",
+            "Dry Bones", "Isabelle", "Koopa Troopa", "Lakitu", "Larry", "Lemmy", "Shy Guy", "Toad",
+            "Toadette", "Wendy"};
     public static final String[] CHAR_MEDIUM = {
-            "Cat Peach", "Inkling Girl", "Villager (G)", "Peach", "Daisy", "Yoshi", "Tanooki Mario",
-            "Inkling (B)", "Villager (B)", "Luigi", "Iggy", "Mario", "Ludwig"};
+            "Cat Peach", "Daisy", "Iggy", "Inkling Boy", "Inkling Girl", "Ludwig", "Luigi", "Mario",
+            "Peach", "Tanooki Mario", "Villager Boy", "Villager Girl", "Yoshi"};
     public static final String[] CHAR_HEAVY = {
-            "Rosalina", "King Boo", "Link", "Donkey Kong", "Waluigi", "Roy", "Wario", "Dry Bowser",
-            "Metal Mario", "Rose Gold Peach", "Bowser", "Morton"};
+            "Bowser", "Donkey Kong", "Dry Bowser", "King Boo", "Link", "Metal Mario", "Morton",
+            "Pink Gold Peach", "Rosalina", "Roy", "Waluigi", "Wario"};
     public static final String[] CHAR_ALL = {
-            "Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Yoshi",
-            "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Baby Mario",
-            "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Metal Mario",
-            "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones",
-            "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy",
-            "Morton", "Inkling Girl", "Inkling Boy", "Link", "Villager (B)", "Villager (G)",
-            "Isabelle"};
+            "Baby Daisy", "Baby Luigi", "Baby Mario", "Baby Peach", "Baby Rosalina", "Bowser Jr.",
+            "Bowser", "Cat Peach", "Daisy", "Donkey Kong", "Dry Bones", "Dry Bowser", "Iggy",
+            "Inkling Boy", "Inkling Girl", "Isabelle", "King Boo", "Koopa Troopa", "Lakitu",
+            "Larry", "Lemmy", "Link", "Ludwig", "Luigi", "Mario", "Metal Mario", "Morton", "Peach",
+            "Pink Gold Peach", "Rosalina", "Roy", "Shy Guy", "Tanooki Mario", "Toad", "Toadette",
+            "Villager Boy", "Villager Girl", "Waluigi", "Wario", "Wendy", "Yoshi"};
     public static final String[] FRAME_BIKE = {
-            "Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider", "Varmint",
-            "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "City Tripper",
-            "Master Cycle Zero"};
+            "City Tripper", "Comet", "Flame Rider", "Jet Bike", "Master Cycle", "Master Cycle Zero",
+            "Mr. Scooty", "Sport Bike", "Standard Bike", "The Duke", "Varmint", "Yoshi Bike"};
     public static final String[] FRAME_KART = {
-            "Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
-            "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
-            "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
-            "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
-            "Koopa Clown", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler",
-            "Splat Buggy", "Inkstriker"};
+            "300 SL Roadster", "B Dasher", "Badwagon", "Biddybuggy", "Blue Falcon", "Bone Rattler",
+            "Cat Cruiser", "Circuit Special", "GLA", "Gold Standard", "Inkstriker", "Koopa Clown",
+            "Landship", "Mach 8", "P-Wing", "Pipe Frame", "Prancer", "Sneeker", "Splat Buggy",
+            "Sports Coupe", "Standard ATV", "Standard Kart", "Steel Driver", "Streetle",
+            "Tanooki Kart", "Teddy Buggy", "Tri-Speeder", "W 25 Silver Arrow", "Wild Wiggler"};
     public static final String[] FRAME_ALL = {
-            "Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser",
-            "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship",
-            "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow",
-            "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing",
-            "Koopa Clown", "Standard Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty",
-            "City Tripper", "Master Cycle Zero", "Comet", "Sports Bike", "Jet Bike", "Yoshi Bike",
-            "Master Cycle", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler",
-            "Splat Buggy", "Inkstriker"};
+            "300 SL Roadster", "B Dasher", "Badwagon", "Biddybuggy", "Blue Falcon", "Bone Rattler",
+            "Cat Cruiser", "Circuit Special", "City Tripper", "Comet", "Flame Rider", "GLA",
+            "Gold Standard", "Inkstriker", "Jet Bike", "Koopa Clown", "Landship", "Mach 8",
+            "Master Cycle Zero", "Master Cycle", "Mr. Scooty", "P-Wing", "Pipe Frame", "Prancer",
+            "Sneeker", "Splat Buggy", "Sports Bike", "Sports Coupe", "Standard ATV",
+            "Standard Bike", "Standard Kart", "Steel Driver", "Streetle", "Tanooki Kart",
+            "Teddy Buggy", "The Duke", "Tri-Speeder", "Varmint", "W 25 Silver Arrow",
+            "Wild Wiggler", "Yoshi Bike"};
     public static final String[] TIRES_ALL = {
-            "Standard Tires", "Monster Tires", "Roller Tires", "Slim Tires", "Slick Tires",
-            "Metal Tires", "Button Tires", "Off-Road Tires", "Sponge Tires", "Wood Tires",
-            "Cushion Tires", "Blue Standard Tires", "Hot Monster Tires", "Azure Roller Tires",
-            "Crimson Slim Tires", "Cyber Slick Tires", "Retro Off-Road Tires", "Gold Tires",
-            "GLA Tires", "Triforce Tires", "Leaf Tires", "Ancient Tires"};
+            "Ancient Tires", "Button Tires", "Cushion Tires", "GLA Tires", "Gold Tires",
+            "Leaf Tires", "Metal Tires", "Monster Tires", "Off-Road Tires", "Roller Tires",
+            "Slick Tires", "Slim Tires", "Sponge Tires", "Standard Tires", "Triforce Tires",
+            "Wood Tires"};
     public static final String[] GLIDER_ALL = {
-            "Super Glider", "Cloud Glider", "Wario Wing", "Waddle Wing", "Peach Parasol",
-            "Parachute", "Parafoil", "Flower Glider", "Bowser Kite", "Plane Glider",
-            "MKTV Parafoil", "Gold Glider", "Hylian Kite", "Paper Glider", "Paraglider"};
+            "Bowser Kite", "Cloud Glider", "Flower Glider", "Gold Glider", "Hylian Kite",
+            "MKTV Parafoil", "Paper Glider", "Parachute", "Parafoil", "Paraglider", "Peach Parasol",
+            "Plane Glider", "Super Glider", "Waddle Wing", "Wario Wing"};
 
     private BuildsDBHelper dbHelper;
     private SQLiteDatabase db;
@@ -195,7 +191,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
                 int finalJ = j;
                 int finalI = i;
-                image_arr[j].setOnClickListener(view -> title.setText(getPartText(finalJ, finalI)));
+                image_arr[j].setOnClickListener(view -> title.setText(getPartText(finalJ, build_arr[finalI])));
 
                 player_row.addView(image_arr[j]);
             }
@@ -213,63 +209,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
             int finalI = i;
             save_button.setOnClickListener(view -> {
-                //SaveBuildDialogFragment newFrag = new SaveBuildDialogFragment();
-                //newFrag.setBuildIndex(finalI);
-
-                //newFrag.show(getSupportFragmentManager(), "save_build_dialog");
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.save_build_dialog_title);
-
-                final EditText build_name_input = new EditText(this);
-                InputFilter filter = (source, start, end, spanned, dstart, dend) -> {
-                    StringBuilder builder1 = new StringBuilder();
-                    for(int k = start; k < end; k++) {
-                        char c = source.charAt(k);
-                        if(Character.isLetterOrDigit(c))
-                            builder1.append(c);
-                    }
-
-                    boolean allCharactersValid = builder1.length() == (end - start);
-                    if(allCharactersValid) {
-                        return null;
-                    } else {
-                        return builder1.toString();
-                    }
-                };
-                ArrayList<InputFilter> inputFilters = new ArrayList<InputFilter>(Arrays.asList(build_name_input.getFilters()));
-                inputFilters.add(0, filter);
-                InputFilter[] filterList = inputFilters.toArray(new InputFilter[inputFilters.size()]);
-                build_name_input.setFilters(filterList);
-
-                builder.setView(build_name_input);
-
-                builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
-                    String build_name;
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        build_name = build_name_input.getText().toString();
-                        if(checkSavedBuildName(build_name)) {
-                            Snackbar.make(findViewById(R.id.build_layout), R.string.error_already_exists, Snackbar.LENGTH_LONG)
-                                    .show();
-                        } else {
-                            addSavedBuild(finalI, build_name);
-                            if(checkSavedBuildName(build_name)) {
-                                Snackbar.make(findViewById(R.id.build_layout), R.string.save_success, Snackbar.LENGTH_LONG)
-                                        .show();
-                            } else {
-                                Snackbar.make(findViewById(R.id.build_layout), R.string.error_database, Snackbar.LENGTH_LONG)
-                                        .show();
-                            }
-                        }
-                    }
-                });
-                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-
-                builder.show();
+                saveOnClick(finalI);
             });
 
             player_wrapper.addView(save_button);
@@ -291,8 +231,68 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     }
 
     /**
+     * The on-click action for the save buttons when builds are displayed. Creates an AlertDialog
+     * for inputting a build name and saving to the proper database
+     * @param build_index the index of build_arr for the build in question
+     */
+    private void saveOnClick(int build_index) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.save_build_dialog_title);
+
+        final EditText build_name_input = new EditText(this);
+        InputFilter filter = (source, start, end, spanned, dstart, dend) -> {
+            StringBuilder builder1 = new StringBuilder();
+            for(int k = start; k < end; k++) {
+                char c = source.charAt(k);
+                if(Character.isLetterOrDigit(c))
+                    builder1.append(c);
+            }
+
+            boolean allCharactersValid = builder1.length() == (end - start);
+            if(allCharactersValid) {
+                return null;
+            } else {
+                return builder1.toString();
+            }
+        };
+        ArrayList<InputFilter> inputFilters = new ArrayList<>(Arrays.asList(build_name_input.getFilters()));
+        inputFilters.add(0, filter);
+        InputFilter[] filterList = inputFilters.toArray(new InputFilter[inputFilters.size()]);
+        build_name_input.setFilters(filterList);
+
+        builder.setView(build_name_input);
+
+        builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
+            String build_name;
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                build_name = build_name_input.getText().toString();
+                if(isNameAlreadyInDatabase(build_name)) {
+                    Snackbar.make(findViewById(R.id.build_layout), R.string.error_already_exists, Snackbar.LENGTH_LONG)
+                            .show();
+                } else {
+                    addSavedBuild(build_index, build_name);
+                    if(isNameAlreadyInDatabase(build_name)) {
+                        Snackbar.make(findViewById(R.id.build_layout), R.string.save_success, Snackbar.LENGTH_LONG)
+                                .show();
+                    } else {
+                        Snackbar.make(findViewById(R.id.build_layout), R.string.error_database, Snackbar.LENGTH_LONG)
+                                .show();
+                    }
+                }
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+
+        builder.show();
+    }
+
+    /**
      * Create a full RandomBuild by randomly selecting one of each type of part
-     *
      * @return the created RandomBuild
      */
     private RandomBuild createBuild(int player_num) {
@@ -308,8 +308,6 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * @return the string of the character concatenated with the color pallete, if necessary
      */
     private String randChar(int player_num) {
-        int color;
-
         // create a new array that's populated with the user's choice of character weight
         String[] correct_char_array;
         switch (char_type_arr[player_num]) {
@@ -346,29 +344,55 @@ public class DisplayRandomBuilds extends AppCompatActivity {
         }
 
         String rand_char;
-        boolean char_flag;
         // check to see if there are duplicated characters which are not allowed
-        if (player_num > 0) {
-            // keep generating new random character until selection is not a duplicate
-            while (true) {
-                rand_char = correct_char_array[(int) (Math.random() * correct_char_array.length)];
-                char_flag = true;
-
-                // check previous players' characters for duplication
-                for (int i = 0; i < player_num; i++) {
-                    if (rand_char.equals(build_arr[i].getCharacter())) {
-                        char_flag = false;
-                        break;
-                    }
-                }
-                if (char_flag)
-                    break;
-            }
-            // only one player so no need to check against others
-        } else
+        if(player_num > 0) {
+            rand_char = getCharNoDuplicates(player_num, correct_char_array);
+        } else {
             rand_char = correct_char_array[(int) (Math.random() * correct_char_array.length)];
+        }
 
         // randomly choose a color palette for characters that have multiple palettes
+        rand_char = setCharColorPalette(rand_char);
+
+        return rand_char;
+    }
+
+    /**
+     * Retrieves a character from the active list that hasn't already been picked for a previous
+     * player's build
+     * @param player_num the player whose character is being picked
+     * @param char_array the list of all possible characters
+     * @return a character that has not already been picked for a previous buld
+     */
+    private String getCharNoDuplicates(int player_num, String[] char_array) {
+        String rand_char;
+        boolean char_flag;
+        while (true) {
+            rand_char = char_array[(int) (Math.random() * char_array.length)];
+            char_flag = true;
+
+            // check previous players' characters for duplication
+            for (int i = 0; i < player_num; i++) {
+                if (rand_char.equals(build_arr[i].getCharacter())) {
+                    char_flag = false;
+                    break;
+                }
+            }
+            if (char_flag)
+                break;
+        }
+        return rand_char;
+    }
+
+    /**
+     * Adds a color palette to the end of specific chosen characters
+     * Ex. Shy Guy -> Shy Guy (Pink)
+     * @param rand_char the character that is (possibly) being given a color palette
+     * @return the character with or without an added color palette
+     */
+    private String setCharColorPalette(String rand_char) {
+        int color;
+
         switch (rand_char) {
             case "Shy Guy":
             case "Yoshi":
@@ -476,15 +500,25 @@ public class DisplayRandomBuilds extends AppCompatActivity {
     }
 
     /**
-     * Obtain a random set of tires from the list of tires. If the tires that were chosen have
-     * multiple color palettes, choose one randomly
-     *
+     * Obtain a random set of tires from the list of tires.
      * @return the string of the tires concatenated with the color pallete, if necessary
      */
     private String randTires() {
-        int color;
         String tires = TIRES_ALL[(int) (Math.random() * TIRES_ALL.length)];
-        // get random tires from the list of all tires
+
+        tires = setTiresColorPalette(tires);
+
+        return tires;
+    }
+
+    /**
+     * If the random tires have multiple color palettes, automatically choose one randomly
+     * @param tires the randomly selected tires
+     * @return the tires with a color palette chosen (if needed)
+     */
+    private String setTiresColorPalette(String tires) {
+        int color;
+
         switch (tires) {
             // color palettes are not in the base list because that would affect the
             // randomness of getting each type of wheel, so they are added
@@ -525,12 +559,12 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                 }
                 break;
         }
+
         return tires;
     }
 
     /**
      * Obtain a random glider string from the list of gliders
-     *
      * @return the string that of the glider that was selected
      */
     private String randGlider() {
@@ -539,7 +573,6 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Retrieve the ID of the image that correlates to the part in the respective RandomBuild
-     *
      * @param build_part the type of build part; 0 = character, 1 = frame, 2 = tires, 3 = glider
      * @param player     the player number
      * @return the int ID of the image
@@ -648,9 +681,9 @@ public class DisplayRandomBuilds extends AppCompatActivity {
                         return R.drawable.toad;
                     case "Toadette":
                         return R.drawable.toadette;
-                    case "Villager (B)":
+                    case "Villager Boy":
                         return R.drawable.villager_boy;
-                    case "Villager (G)":
+                    case "Villager Girl":
                         return R.drawable.villager_girl;
                     case "Waluigi":
                         return R.drawable.waluigi;
@@ -857,323 +890,32 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
     /**
      * Retrieve the ID of the string that correlates to the part in the respective RandomBuild
-     *
      * @param build_part the type of build part; 0 = character, 1 = frame, 2 = tires, 3 = glider
-     * @param player     the player number
-     * @return the int ID of the string
+     * @param build      the build whose part is getting its text retrieved
+     * @return the int tag of the string version of the part name
      */
-    private int getPartText(int build_part, int player) {
-        switch (build_part) {
+    private int getPartText(int build_part, RandomBuild build) {
+        switch(build_part) {
             case 0:
-                switch (build_arr[player].getCharacter()) {
-                    case "Baby Daisy":
-                        return R.string.baby_daisy;
-                    case "Baby Luigi":
-                        return R.string.baby_luigi;
-                    case "Baby Mario":
-                        return R.string.baby_mario;
-                    case "Baby Peach":
-                        return R.string.baby_peach;
-                    case "Baby Rosalina":
-                        return R.string.baby_rosalina;
-                    case "Bowser":
-                        return R.string.bowser;
-                    case "Bowser Jr.":
-                        return R.string.bowser_jr;
-                    case "Cat Peach":
-                        return R.string.cat_peach;
-                    case "Daisy":
-                        return R.string.daisy;
-                    case "Donkey Kong":
-                        return R.string.donkey_kong;
-                    case "Dry Bones":
-                        return R.string.dry_bones;
-                    case "Dry Bowser":
-                        return R.string.dry_bowser;
-                    case "Metal Mario (Gold)":
-                        return R.string.metal_mario_gold;
-                    case "Iggy":
-                        return R.string.iggy;
-                    case "Inkling Boy (Dark Blue)":
-                        return R.string.inkling_boy_darkblue;
-                    case "Inkling Boy (Light Blue)":
-                        return R.string.inkling_boy_lightblue;
-                    case "Inkling Boy (Purple)":
-                        return R.string.inkling_boy_purple;
-                    case "Inkling Girl (Green)":
-                        return R.string.inkling_girl_green;
-                    case "Inkling Girl (Orange)":
-                        return R.string.inkling_girl_orange;
-                    case "Inkling Girl (Pink)":
-                        return R.string.inkling_girl_pink;
-                    case "Isabelle":
-                        return R.string.isabelle;
-                    case "King Boo":
-                        return R.string.king_boo;
-                    case "Koopa Troopa":
-                        return R.string.koopa_troopa;
-                    case "Lakitu":
-                        return R.string.lakitu;
-                    case "Larry":
-                        return R.string.larry;
-                    case "Lemmy":
-                        return R.string.lemmy;
-                    case "Link (BOTW)":
-                        return R.string.link_botw;
-                    case "Link (Classic)":
-                        return R.string.link_classic;
-                    case "Ludwig":
-                        return R.string.ludwig;
-                    case "Luigi":
-                        return R.string.luigi;
-                    case "Mario":
-                        return R.string.mario;
-                    case "Metal Mario (Metal)":
-                        return R.string.metal_mario_metal;
-                    case "Mii":
-                        return R.string.mii;
-                    case "Morton":
-                        return R.string.morton;
-                    case "Peach":
-                        return R.string.peach;
-                    case "Pink Gold Peach":
-                        return R.string.pink_gold_peach;
-                    case "Rosalina":
-                        return R.string.rosalina;
-                    case "Roy":
-                        return R.string.roy;
-                    case "Shy Guy (Black)":
-                        return R.string.shy_guy_black;
-                    case "Shy Guy (Dark Blue)":
-                        return R.string.shy_guy_darkblue;
-                    case "Shy Guy (Green)":
-                        return R.string.shy_guy_green;
-                    case "Shy Guy (Light Blue)":
-                        return R.string.shy_guy_lightblue;
-                    case "Shy Guy (Orange)":
-                        return R.string.shy_guy_orange;
-                    case "Shy Guy (Pink)":
-                        return R.string.shy_guy_pink;
-                    case "Shy Guy (Red)":
-                        return R.string.shy_guy_red;
-                    case "Shy Guy (White)":
-                        return R.string.shy_guy_white;
-                    case "Shy Guy (Yellow)":
-                        return R.string.shy_guy_yellow;
-                    case "Tanooki Mario":
-                        return R.string.tanooki_mario;
-                    case "Toad":
-                        return R.string.toad;
-                    case "Toadette":
-                        return R.string.toadette;
-                    case "Villager (B)":
-                        return R.string.villager_boy;
-                    case "Villager (G)":
-                        return R.string.villager_girl;
-                    case "Waluigi":
-                        return R.string.waluigi;
-                    case "Wario":
-                        return R.string.wario;
-                    case "Wendy":
-                        return R.string.wendy;
-                    case "Yoshi (Black)":
-                        return R.string.yoshi_black;
-                    case "Yoshi (Dark Blue)":
-                        return R.string.yoshi_darkblue;
-                    case "Yoshi (Green)":
-                        return R.string.yoshi_green;
-                    case "Yoshi (Light Blue)":
-                        return R.string.yoshi_lightblue;
-                    case "Yoshi (Orange)":
-                        return R.string.yoshi_orange;
-                    case "Yoshi (Pink)":
-                        return R.string.yoshi_pink;
-                    case "Yoshi (Red)":
-                        return R.string.yoshi_red;
-                    case "Yoshi (White)":
-                        return R.string.yoshi_white;
-                    case "Yoshi (Yellow)":
-                        return R.string.yoshi_yellow;
-                    default:
-                        return R.string.default_error;
-                }
+                return build.getCharacterStringTag();
             case 1:
-                switch (build_arr[player].getFrame()) {
-                    case "Standard Kart":
-                        return R.string.standard_kart;
-                    case "Pipe Frame":
-                        return R.string.pipe_frame;
-                    case "Mach 8":
-                        return R.string.mach_8;
-                    case "Steel Driver":
-                        return R.string.steel_driver;
-                    case "Cat Cruiser":
-                        return R.string.cat_cruiser;
-                    case "Circuit Special":
-                        return R.string.circuit_special;
-                    case "Tri-Speeder":
-                        return R.string.trispeeder;
-                    case "Badwagon":
-                        return R.string.badwagon;
-                    case "Prancer":
-                        return R.string.prancer;
-                    case "Biddybuggy":
-                        return R.string.biddybuggy;
-                    case "Landship":
-                        return R.string.landship;
-                    case "Sneeker":
-                        return R.string.sneeker;
-                    case "Sports Coupe":
-                        return R.string.sports_coupe;
-                    case "Gold Standard":
-                        return R.string.gold_standard;
-                    case "GLA":
-                        return R.string.gla;
-                    case "W 25 Silver Arrow":
-                        return R.string.silver_arrow;
-                    case "300 SL Roadster":
-                        return R.string.roadster;
-                    case "Blue Falcon":
-                        return R.string.blue_falcon;
-                    case "Tanooki Kart":
-                        return R.string.tanooki_kart;
-                    case "B Dasher":
-                        return R.string.b_dasher;
-                    case "Streetle":
-                        return R.string.streetle;
-                    case "P-Wing":
-                        return R.string.p_wing;
-                    case "Koopa Clown":
-                        return R.string.koopa_clown;
-                    case "Standard Bike":
-                        return R.string.standard_bike;
-                    case "The Duke":
-                        return R.string.the_duke;
-                    case "Flame Rider":
-                        return R.string.flame_rider;
-                    case "Varmint":
-                        return R.string.varmint;
-                    case "Mr. Scooty":
-                        return R.string.mr_scooty;
-                    case "City Tripper":
-                        return R.string.city_tripper;
-                    case "Master Cycle Zero":
-                        return R.string.master_cycle_zero;
-                    case "Comet":
-                        return R.string.comet;
-                    case "Sports Bike":
-                        return R.string.sports_bike;
-                    case "Jet Bike":
-                        return R.string.jet_bike;
-                    case "Master Cycle":
-                        return R.string.master_cycle;
-                    case "Yoshi Bike":
-                        return R.string.yoshi_bike;
-                    case "Standard ATV":
-                        return R.string.standard_atv;
-                    case "Wild Wiggler":
-                        return R.string.wild_wiggler;
-                    case "Teddy Buggy":
-                        return R.string.teddy_buggy;
-                    case "Bone Rattler":
-                        return R.string.bone_rattler;
-                    case "Splat Buggy":
-                        return R.string.splat_buggy;
-                    case "Inkstriker":
-                        return R.string.inkstriker;
-                    default:
-                        return R.string.default_error;
-                }
+                return build.getFrameStringTag();
             case 2:
-                switch (build_arr[player].getTires()) {
-                    case "Standard Tires":
-                        return R.string.standard_tires;
-                    case "Monster Tires":
-                        return R.string.monster_tires;
-                    case "Roller Tires":
-                        return R.string.roller_tires;
-                    case "Slim Tires":
-                        return R.string.slim_tires;
-                    case "Slick Tires":
-                        return R.string.slick_tires;
-                    case "Metal Tires":
-                        return R.string.metal_tires;
-                    case "Button Tires":
-                        return R.string.button_tires;
-                    case "Off-Road Tires":
-                        return R.string.off_road_tires;
-                    case "Sponge Tires":
-                        return R.string.sponge_tires;
-                    case "Wood Tires":
-                        return R.string.wood_tires;
-                    case "Cushion Tires":
-                        return R.string.cushion_tires;
-                    case "Blue Standard Tires":
-                        return R.string.blue_standard_tires;
-                    case "Hot Monster Tires":
-                        return R.string.monster_tires_hot;
-                    case "Azure Roller Tires":
-                        return R.string.roller_tires_azure;
-                    case "Crimson Slim Tires":
-                        return R.string.slim_tires_crimson;
-                    case "Cyber Slick Tires":
-                        return R.string.slick_tires_cyber;
-                    case "Retro Off-Road Tires":
-                        return R.string.off_road_tires_retro;
-                    case "Gold Tires":
-                        return R.string.gold_tires;
-                    case "GLA Tires":
-                        return R.string.gla_tires;
-                    case "Triforce Tires":
-                        return R.string.triforce_tires;
-                    case "Leaf Tires":
-                        return R.string.leaf_tires;
-                    case "Ancient Tires":
-                        return R.string.ancient_tires;
-                    default:
-                        return R.string.default_error;
-                }
+                return build.getTiresStringTag();
             case 3:
-                switch (build_arr[player].getGlider()) {
-                    case "Super Glider":
-                        return R.string.super_glider;
-                    case "Cloud Glider":
-                        return R.string.cloud_glider;
-                    case "Wario Wing":
-                        return R.string.wario_wing;
-                    case "Waddle Wing":
-                        return R.string.waddle_wing;
-                    case "Peach Parasol":
-                        return R.string.parasol;
-                    case "Parachute":
-                        return R.string.parachute;
-                    case "Parafoil":
-                        return R.string.parafoil;
-                    case "Flower Glider":
-                        return R.string.flower_glider;
-                    case "Bowser Kite":
-                        return R.string.bowser_kite;
-                    case "Plane Glider":
-                        return R.string.plane_glider;
-                    case "MKTV Parafoil":
-                        return R.string.parafoil_mktv;
-                    case "Gold Glider":
-                        return R.string.gold_glider;
-                    case "Hylian Kite":
-                        return R.string.hylian_kite;
-                    case "Paper Glider":
-                        return R.string.paper_glider;
-                    case "Paraglider":
-                        return R.string.paraglider;
-                    default:
-                        return R.string.default_error;
-                }
+                return build.getGliderStringTag();
             default:
                 return R.string.default_error;
         }
     }
 
-    private boolean checkSavedBuildName(String name) {
+    /**
+     * Before adding a build to the saved build database, check to see if there is already a build
+     * with that name
+     * @param name the name of the build being saved
+     * @return true if the name already exists, false otherwise
+     */
+    private boolean isNameAlreadyInDatabase(String name) {
         boolean build_name_exists = false;
 
         String[] projection = {
