@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/randomizer_activity_layout"
+    android:id="@+id/activity_layout_display"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DisplayRandomBuilds">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -37,21 +37,24 @@
         android:text="@string/part_name_title"
         android:textSize="28sp"
         app:fontFamily="@font/paytone_one"
-        app:layout_constraintBottom_toTopOf="@+id/scroller_wrapper"
+        app:layout_constraintBottom_toTopOf="@+id/scroller_display"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title_display" />
 
     <ScrollView
-        android:id="@+id/scroller_wrapper"
+        android:id="@+id/scroller_display"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/part_name">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/part_name"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
-            android:id="@+id/build_layout"
+            android:id="@+id/build_layout_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
