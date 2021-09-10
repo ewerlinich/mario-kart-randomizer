@@ -100,7 +100,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
         // find the vertical LinearLayout that already exists in the XML. All of the following
         // views and layouts will be contained inside of this parent layout
-        LinearLayout parent_layout = findViewById(R.id.build_layout);
+        LinearLayout parent_layout = findViewById(R.id.build_layout_display);
         TextView title = findViewById(R.id.part_name);
 
         // 4 different layout parameters for the table rows, vertical wrapper containers, the
@@ -209,7 +209,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
 
             int finalI = i;
             save_button.setOnClickListener(view -> {
-                saveOnClick(finalI);
+                saveButtonOnClick(finalI);
             });
 
             player_wrapper.addView(save_button);
@@ -235,7 +235,7 @@ public class DisplayRandomBuilds extends AppCompatActivity {
      * for inputting a build name and saving to the proper database
      * @param build_index the index of build_arr for the build in question
      */
-    private void saveOnClick(int build_index) {
+    private void saveButtonOnClick(int build_index) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.save_build_dialog_title);
 
@@ -268,15 +268,15 @@ public class DisplayRandomBuilds extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 build_name = build_name_input.getText().toString();
                 if(isNameAlreadyInDatabase(build_name)) {
-                    Snackbar.make(findViewById(R.id.build_layout), R.string.error_already_exists, Snackbar.LENGTH_LONG)
+                    Snackbar.make(findViewById(R.id.build_layout_display), R.string.error_already_exists, Snackbar.LENGTH_LONG)
                             .show();
                 } else {
                     addSavedBuild(build_index, build_name);
                     if(isNameAlreadyInDatabase(build_name)) {
-                        Snackbar.make(findViewById(R.id.build_layout), R.string.save_success, Snackbar.LENGTH_LONG)
+                        Snackbar.make(findViewById(R.id.build_layout_display), R.string.save_success, Snackbar.LENGTH_LONG)
                                 .show();
                     } else {
-                        Snackbar.make(findViewById(R.id.build_layout), R.string.error_database, Snackbar.LENGTH_LONG)
+                        Snackbar.make(findViewById(R.id.build_layout_display), R.string.error_database, Snackbar.LENGTH_LONG)
                                 .show();
                     }
                 }
